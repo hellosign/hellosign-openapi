@@ -15,7 +15,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 public class EmbeddedApi {
     private ApiClient apiClient;
 
@@ -63,7 +63,9 @@ public class EmbeddedApi {
      * </table>
      */
     public EmbeddedEditUrlResponse embeddedEditUrl(
-            String templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest) throws ApiException {
+            @javax.annotation.Nonnull String templateId,
+            @javax.annotation.Nonnull EmbeddedEditUrlRequest embeddedEditUrlRequest)
+            throws ApiException {
         return embeddedEditUrlWithHttpInfo(templateId, embeddedEditUrlRequest).getData();
     }
 
@@ -85,7 +87,9 @@ public class EmbeddedApi {
      * </table>
      */
     public ApiResponse<EmbeddedEditUrlResponse> embeddedEditUrlWithHttpInfo(
-            String templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest) throws ApiException {
+            @javax.annotation.Nonnull String templateId,
+            @javax.annotation.Nonnull EmbeddedEditUrlRequest embeddedEditUrlRequest)
+            throws ApiException {
 
         // Check required parameters
         if (templateId == null) {
@@ -149,7 +153,8 @@ public class EmbeddedApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public EmbeddedSignUrlResponse embeddedSignUrl(String signatureId) throws ApiException {
+    public EmbeddedSignUrlResponse embeddedSignUrl(@javax.annotation.Nonnull String signatureId)
+            throws ApiException {
         return embeddedSignUrlWithHttpInfo(signatureId).getData();
     }
 
@@ -169,8 +174,8 @@ public class EmbeddedApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<EmbeddedSignUrlResponse> embeddedSignUrlWithHttpInfo(String signatureId)
-            throws ApiException {
+    public ApiResponse<EmbeddedSignUrlResponse> embeddedSignUrlWithHttpInfo(
+            @javax.annotation.Nonnull String signatureId) throws ApiException {
 
         // Check required parameters
         if (signatureId == null) {

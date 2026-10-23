@@ -13,7 +13,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 public class ReportApi {
     private ApiClient apiClient;
 
@@ -60,8 +60,8 @@ public class ReportApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ReportCreateResponse reportCreate(ReportCreateRequest reportCreateRequest)
-            throws ApiException {
+    public ReportCreateResponse reportCreate(
+            @javax.annotation.Nonnull ReportCreateRequest reportCreateRequest) throws ApiException {
         return reportCreateWithHttpInfo(reportCreateRequest).getData();
     }
 
@@ -83,7 +83,7 @@ public class ReportApi {
      * </table>
      */
     public ApiResponse<ReportCreateResponse> reportCreateWithHttpInfo(
-            ReportCreateRequest reportCreateRequest) throws ApiException {
+            @javax.annotation.Nonnull ReportCreateRequest reportCreateRequest) throws ApiException {
 
         // Check required parameters
         if (reportCreateRequest == null) {

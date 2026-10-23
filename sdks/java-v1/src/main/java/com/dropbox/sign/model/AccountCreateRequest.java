@@ -32,7 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountCreateRequest {
     public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
@@ -74,13 +74,13 @@ public class AccountCreateRequest {
      * @return emailAddress
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getEmailAddress() {
         return emailAddress;
     }
 
-    @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setEmailAddress(@javax.annotation.Nonnull String emailAddress) {
         this.emailAddress = emailAddress;
@@ -97,13 +97,13 @@ public class AccountCreateRequest {
      *
      * @return clientId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getClientId() {
         return clientId;
     }
 
-    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setClientId(@javax.annotation.Nullable String clientId) {
         this.clientId = clientId;
@@ -120,13 +120,13 @@ public class AccountCreateRequest {
      *
      * @return clientSecret
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CLIENT_SECRET, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getClientSecret() {
         return clientSecret;
     }
 
-    @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
+    @JsonProperty(value = JSON_PROPERTY_CLIENT_SECRET, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setClientSecret(@javax.annotation.Nullable String clientSecret) {
         this.clientSecret = clientSecret;
@@ -144,13 +144,13 @@ public class AccountCreateRequest {
      *
      * @return locale
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_LOCALE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_LOCALE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getLocale() {
         return locale;
     }
 
-    @JsonProperty(JSON_PROPERTY_LOCALE)
+    @JsonProperty(value = JSON_PROPERTY_LOCALE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setLocale(@javax.annotation.Nullable String locale) {
         this.locale = locale;
@@ -308,9 +308,6 @@ public class AccountCreateRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

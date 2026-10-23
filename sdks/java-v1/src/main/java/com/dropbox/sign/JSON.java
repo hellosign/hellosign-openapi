@@ -26,7 +26,7 @@ import javax.ws.rs.ext.ContextResolver;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 public class JSON implements ContextResolver<ObjectMapper> {
     private ObjectMapper mapper;
 
@@ -42,6 +42,7 @@ public class JSON implements ContextResolver<ObjectMapper> {
                         .enable(DeserializationFeature.READ_ENUMS_USING_TO_STRING)
                         .defaultDateFormat(new RFC3339DateFormat())
                         .addModule(new JavaTimeModule())
+                        .addModule(new RFC3339JavaTimeModule())
                         .build();
     }
 

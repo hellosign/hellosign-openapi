@@ -31,7 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountUpdateRequest {
     public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -69,13 +69,13 @@ public class AccountUpdateRequest {
      *
      * @return accountId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getAccountId() {
         return accountId;
     }
 
-    @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+    @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAccountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
@@ -91,13 +91,13 @@ public class AccountUpdateRequest {
      *
      * @return callbackUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getCallbackUrl() {
         return callbackUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+    @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCallbackUrl(@javax.annotation.Nullable String callbackUrl) {
         this.callbackUrl = callbackUrl;
@@ -115,13 +115,13 @@ public class AccountUpdateRequest {
      *
      * @return locale
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_LOCALE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_LOCALE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getLocale() {
         return locale;
     }
 
-    @JsonProperty(JSON_PROPERTY_LOCALE)
+    @JsonProperty(value = JSON_PROPERTY_LOCALE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setLocale(@javax.annotation.Nullable String locale) {
         this.locale = locale;
@@ -257,9 +257,6 @@ public class AccountUpdateRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

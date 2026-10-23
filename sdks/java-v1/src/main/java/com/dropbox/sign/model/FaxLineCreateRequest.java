@@ -34,7 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxLineCreateRequest {
     public static final String JSON_PROPERTY_AREA_CODE = "area_code";
@@ -111,13 +111,13 @@ public class FaxLineCreateRequest {
      * @return areaCode
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_AREA_CODE)
+    @JsonProperty(value = JSON_PROPERTY_AREA_CODE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Integer getAreaCode() {
         return areaCode;
     }
 
-    @JsonProperty(JSON_PROPERTY_AREA_CODE)
+    @JsonProperty(value = JSON_PROPERTY_AREA_CODE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setAreaCode(@javax.annotation.Nonnull Integer areaCode) {
         this.areaCode = areaCode;
@@ -134,13 +134,13 @@ public class FaxLineCreateRequest {
      * @return country
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_COUNTRY)
+    @JsonProperty(value = JSON_PROPERTY_COUNTRY, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public CountryEnum getCountry() {
         return country;
     }
 
-    @JsonProperty(JSON_PROPERTY_COUNTRY)
+    @JsonProperty(value = JSON_PROPERTY_COUNTRY, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setCountry(@javax.annotation.Nonnull CountryEnum country) {
         this.country = country;
@@ -156,13 +156,13 @@ public class FaxLineCreateRequest {
      *
      * @return city
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CITY)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CITY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getCity() {
         return city;
     }
 
-    @JsonProperty(JSON_PROPERTY_CITY)
+    @JsonProperty(value = JSON_PROPERTY_CITY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCity(@javax.annotation.Nullable String city) {
         this.city = city;
@@ -178,13 +178,13 @@ public class FaxLineCreateRequest {
      *
      * @return accountId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getAccountId() {
         return accountId;
     }
 
-    @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+    @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAccountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
@@ -340,9 +340,6 @@ public class FaxLineCreateRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

@@ -27,7 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({AccountVerifyRequest.JSON_PROPERTY_EMAIL_ADDRESS})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountVerifyRequest {
     public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
@@ -60,13 +60,13 @@ public class AccountVerifyRequest {
      * @return emailAddress
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getEmailAddress() {
         return emailAddress;
     }
 
-    @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setEmailAddress(@javax.annotation.Nonnull String emailAddress) {
         this.emailAddress = emailAddress;
@@ -160,9 +160,6 @@ public class AccountVerifyRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

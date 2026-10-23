@@ -31,7 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubFormFieldGroup {
     public static final String JSON_PROPERTY_GROUP_ID = "group_id";
@@ -71,13 +71,13 @@ public class SubFormFieldGroup {
      * @return groupId
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_GROUP_ID)
+    @JsonProperty(value = JSON_PROPERTY_GROUP_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getGroupId() {
         return groupId;
     }
 
-    @JsonProperty(JSON_PROPERTY_GROUP_ID)
+    @JsonProperty(value = JSON_PROPERTY_GROUP_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setGroupId(@javax.annotation.Nonnull String groupId) {
         this.groupId = groupId;
@@ -94,13 +94,13 @@ public class SubFormFieldGroup {
      * @return groupLabel
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
+    @JsonProperty(value = JSON_PROPERTY_GROUP_LABEL, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getGroupLabel() {
         return groupLabel;
     }
 
-    @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
+    @JsonProperty(value = JSON_PROPERTY_GROUP_LABEL, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setGroupLabel(@javax.annotation.Nonnull String groupLabel) {
         this.groupLabel = groupLabel;
@@ -122,13 +122,13 @@ public class SubFormFieldGroup {
      * @return requirement
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_REQUIREMENT)
+    @JsonProperty(value = JSON_PROPERTY_REQUIREMENT, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getRequirement() {
         return requirement;
     }
 
-    @JsonProperty(JSON_PROPERTY_REQUIREMENT)
+    @JsonProperty(value = JSON_PROPERTY_REQUIREMENT, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setRequirement(@javax.annotation.Nonnull String requirement) {
         this.requirement = requirement;
@@ -264,9 +264,6 @@ public class SubFormFieldGroup {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

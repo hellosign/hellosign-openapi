@@ -34,7 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SignatureRequestResponseAttachment {
     public static final String JSON_PROPERTY_ID = "id";
@@ -84,13 +84,13 @@ public class SignatureRequestResponseAttachment {
      * @return id
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_ID)
+    @JsonProperty(value = JSON_PROPERTY_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getId() {
         return id;
     }
 
-    @JsonProperty(JSON_PROPERTY_ID)
+    @JsonProperty(value = JSON_PROPERTY_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setId(@javax.annotation.Nonnull String id) {
         this.id = id;
@@ -112,13 +112,13 @@ public class SignatureRequestResponseAttachment {
      * @return signer
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SIGNER)
+    @JsonProperty(value = JSON_PROPERTY_SIGNER, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getSigner() {
         return signer;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNER)
+    @JsonProperty(value = JSON_PROPERTY_SIGNER, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSigner(@javax.annotation.Nonnull String signer) {
         this.signer = signer;
@@ -139,13 +139,13 @@ public class SignatureRequestResponseAttachment {
      * @return name
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getName() {
         return name;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setName(@javax.annotation.Nonnull String name) {
         this.name = name;
@@ -162,13 +162,13 @@ public class SignatureRequestResponseAttachment {
      * @return required
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_REQUIRED)
+    @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Boolean getRequired() {
         return required;
     }
 
-    @JsonProperty(JSON_PROPERTY_REQUIRED)
+    @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setRequired(@javax.annotation.Nonnull Boolean required) {
         this.required = required;
@@ -185,13 +185,13 @@ public class SignatureRequestResponseAttachment {
      *
      * @return instructions
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_INSTRUCTIONS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_INSTRUCTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getInstructions() {
         return instructions;
     }
 
-    @JsonProperty(JSON_PROPERTY_INSTRUCTIONS)
+    @JsonProperty(value = JSON_PROPERTY_INSTRUCTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setInstructions(@javax.annotation.Nullable String instructions) {
         this.instructions = instructions;
@@ -208,13 +208,13 @@ public class SignatureRequestResponseAttachment {
      *
      * @return uploadedAt
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_UPLOADED_AT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_UPLOADED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getUploadedAt() {
         return uploadedAt;
     }
 
-    @JsonProperty(JSON_PROPERTY_UPLOADED_AT)
+    @JsonProperty(value = JSON_PROPERTY_UPLOADED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setUploadedAt(@javax.annotation.Nullable Integer uploadedAt) {
         this.uploadedAt = uploadedAt;
@@ -412,9 +412,6 @@ public class SignatureRequestResponseAttachment {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

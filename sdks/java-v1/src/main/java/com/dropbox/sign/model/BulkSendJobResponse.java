@@ -35,7 +35,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BulkSendJobResponse {
     public static final String JSON_PROPERTY_BULK_SEND_JOB_ID = "bulk_send_job_id";
@@ -76,13 +76,13 @@ public class BulkSendJobResponse {
      *
      * @return bulkSendJobId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_BULK_SEND_JOB_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getBulkSendJobId() {
         return bulkSendJobId;
     }
 
-    @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
+    @JsonProperty(value = JSON_PROPERTY_BULK_SEND_JOB_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setBulkSendJobId(@javax.annotation.Nullable String bulkSendJobId) {
         this.bulkSendJobId = bulkSendJobId;
@@ -98,13 +98,13 @@ public class BulkSendJobResponse {
      *
      * @return total
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TOTAL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TOTAL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getTotal() {
         return total;
     }
 
-    @JsonProperty(JSON_PROPERTY_TOTAL)
+    @JsonProperty(value = JSON_PROPERTY_TOTAL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTotal(@javax.annotation.Nullable Integer total) {
         this.total = total;
@@ -121,13 +121,13 @@ public class BulkSendJobResponse {
      *
      * @return isCreator
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_CREATOR)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_CREATOR, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsCreator() {
         return isCreator;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_CREATOR)
+    @JsonProperty(value = JSON_PROPERTY_IS_CREATOR, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsCreator(@javax.annotation.Nullable Boolean isCreator) {
         this.isCreator = isCreator;
@@ -143,13 +143,13 @@ public class BulkSendJobResponse {
      *
      * @return createdAt
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CREATED_AT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getCreatedAt() {
         return createdAt;
     }
 
-    @JsonProperty(JSON_PROPERTY_CREATED_AT)
+    @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCreatedAt(@javax.annotation.Nullable Integer createdAt) {
         this.createdAt = createdAt;
@@ -307,9 +307,6 @@ public class BulkSendJobResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

@@ -36,7 +36,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubFormFieldRuleTrigger {
     public static final String JSON_PROPERTY_ID = "id";
@@ -129,13 +129,13 @@ public class SubFormFieldRuleTrigger {
      * @return id
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_ID)
+    @JsonProperty(value = JSON_PROPERTY_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getId() {
         return id;
     }
 
-    @JsonProperty(JSON_PROPERTY_ID)
+    @JsonProperty(value = JSON_PROPERTY_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setId(@javax.annotation.Nonnull String id) {
         this.id = id;
@@ -159,13 +159,13 @@ public class SubFormFieldRuleTrigger {
      * @return operator
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_OPERATOR)
+    @JsonProperty(value = JSON_PROPERTY_OPERATOR, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public OperatorEnum getOperator() {
         return operator;
     }
 
-    @JsonProperty(JSON_PROPERTY_OPERATOR)
+    @JsonProperty(value = JSON_PROPERTY_OPERATOR, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setOperator(@javax.annotation.Nonnull OperatorEnum operator) {
         this.operator = operator;
@@ -185,13 +185,13 @@ public class SubFormFieldRuleTrigger {
      *
      * @return value
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALUE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getValue() {
         return value;
     }
 
-    @JsonProperty(JSON_PROPERTY_VALUE)
+    @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setValue(@javax.annotation.Nullable String value) {
         this.value = value;
@@ -216,13 +216,13 @@ public class SubFormFieldRuleTrigger {
      *
      * @return values
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALUES)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_VALUES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<String> getValues() {
         return values;
     }
 
-    @JsonProperty(JSON_PROPERTY_VALUES)
+    @JsonProperty(value = JSON_PROPERTY_VALUES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setValues(@javax.annotation.Nullable List<String> values) {
         this.values = values;
@@ -374,9 +374,6 @@ public class SubFormFieldRuleTrigger {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

@@ -41,7 +41,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubCustomField {
     public static final String JSON_PROPERTY_NAME = "name";
@@ -85,13 +85,13 @@ public class SubCustomField {
      * @return name
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getName() {
         return name;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setName(@javax.annotation.Nonnull String name) {
         this.name = name;
@@ -113,13 +113,13 @@ public class SubCustomField {
      *
      * @return editor
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EDITOR)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EDITOR, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getEditor() {
         return editor;
     }
 
-    @JsonProperty(JSON_PROPERTY_EDITOR)
+    @JsonProperty(value = JSON_PROPERTY_EDITOR, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setEditor(@javax.annotation.Nullable String editor) {
         this.editor = editor;
@@ -136,13 +136,13 @@ public class SubCustomField {
      *
      * @return required
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REQUIRED)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getRequired() {
         return required;
     }
 
-    @JsonProperty(JSON_PROPERTY_REQUIRED)
+    @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setRequired(@javax.annotation.Nullable Boolean required) {
         this.required = required;
@@ -159,13 +159,13 @@ public class SubCustomField {
      *
      * @return value
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALUE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getValue() {
         return value;
     }
 
-    @JsonProperty(JSON_PROPERTY_VALUE)
+    @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setValue(@javax.annotation.Nullable String value) {
         this.value = value;
@@ -317,9 +317,6 @@ public class SubCustomField {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }
