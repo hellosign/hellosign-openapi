@@ -21,7 +21,7 @@ from pathlib import Path
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "dropbox-sign"
-VERSION = "1.11-dev"
+VERSION = "2.0-dev"
 PYTHON_REQUIRES = ">= 3.10"
 REQUIRES = [
     "urllib3 >= 2.8.0, < 3.0.0",
