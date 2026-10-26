@@ -34,7 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DocumentFieldDetectionRequest {
     public static final String JSON_PROPERTY_DETECTION_MODE = "detection_mode";
@@ -80,13 +80,13 @@ public class DocumentFieldDetectionRequest {
      * @return detectionMode
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_DETECTION_MODE)
+    @JsonProperty(value = JSON_PROPERTY_DETECTION_MODE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getDetectionMode() {
         return detectionMode;
     }
 
-    @JsonProperty(JSON_PROPERTY_DETECTION_MODE)
+    @JsonProperty(value = JSON_PROPERTY_DETECTION_MODE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setDetectionMode(@javax.annotation.Nonnull String detectionMode) {
         this.detectionMode = detectionMode;
@@ -103,13 +103,13 @@ public class DocumentFieldDetectionRequest {
      *
      * @return _file
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FILE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public File getFile() {
         return _file;
     }
 
-    @JsonProperty(JSON_PROPERTY_FILE)
+    @JsonProperty(value = JSON_PROPERTY_FILE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFile(@javax.annotation.Nullable File _file) {
         this._file = _file;
@@ -126,13 +126,13 @@ public class DocumentFieldDetectionRequest {
      *
      * @return fileUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILE_URL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FILE_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public URI getFileUrl() {
         return fileUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_FILE_URL)
+    @JsonProperty(value = JSON_PROPERTY_FILE_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFileUrl(@javax.annotation.Nullable URI fileUrl) {
         this.fileUrl = fileUrl;
@@ -150,13 +150,13 @@ public class DocumentFieldDetectionRequest {
      *
      * @return pageRange
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_PAGE_RANGE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_PAGE_RANGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getPageRange() {
         return pageRange;
     }
 
-    @JsonProperty(JSON_PROPERTY_PAGE_RANGE)
+    @JsonProperty(value = JSON_PROPERTY_PAGE_RANGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setPageRange(@javax.annotation.Nullable String pageRange) {
         this.pageRange = pageRange;
@@ -313,9 +313,6 @@ public class DocumentFieldDetectionRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

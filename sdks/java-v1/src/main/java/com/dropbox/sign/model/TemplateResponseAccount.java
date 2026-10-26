@@ -34,7 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateResponseAccount {
     public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -82,13 +82,13 @@ public class TemplateResponseAccount {
      *
      * @return accountId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getAccountId() {
         return accountId;
     }
 
-    @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+    @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAccountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
@@ -104,13 +104,13 @@ public class TemplateResponseAccount {
      *
      * @return emailAddress
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getEmailAddress() {
         return emailAddress;
     }
 
-    @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setEmailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
@@ -126,13 +126,13 @@ public class TemplateResponseAccount {
      *
      * @return isLocked
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_LOCKED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsLocked() {
         return isLocked;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+    @JsonProperty(value = JSON_PROPERTY_IS_LOCKED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsLocked(@javax.annotation.Nullable Boolean isLocked) {
         this.isLocked = isLocked;
@@ -148,13 +148,13 @@ public class TemplateResponseAccount {
      *
      * @return isPaidHs
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_PAID_HS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsPaidHs() {
         return isPaidHs;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
+    @JsonProperty(value = JSON_PROPERTY_IS_PAID_HS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsPaidHs(@javax.annotation.Nullable Boolean isPaidHs) {
         this.isPaidHs = isPaidHs;
@@ -170,13 +170,13 @@ public class TemplateResponseAccount {
      *
      * @return isPaidHf
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_PAID_HF, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsPaidHf() {
         return isPaidHf;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
+    @JsonProperty(value = JSON_PROPERTY_IS_PAID_HF, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsPaidHf(@javax.annotation.Nullable Boolean isPaidHf) {
         this.isPaidHf = isPaidHf;
@@ -193,13 +193,13 @@ public class TemplateResponseAccount {
      *
      * @return quotas
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_QUOTAS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_QUOTAS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public TemplateResponseAccountQuota getQuotas() {
         return quotas;
     }
 
-    @JsonProperty(JSON_PROPERTY_QUOTAS)
+    @JsonProperty(value = JSON_PROPERTY_QUOTAS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setQuotas(@javax.annotation.Nullable TemplateResponseAccountQuota quotas) {
         this.quotas = quotas;
@@ -401,9 +401,6 @@ public class TemplateResponseAccount {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

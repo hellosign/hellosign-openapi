@@ -27,7 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({FaxLineResponse.JSON_PROPERTY_FAX_LINE, FaxLineResponse.JSON_PROPERTY_WARNINGS})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxLineResponse {
     public static final String JSON_PROPERTY_FAX_LINE = "fax_line";
@@ -63,13 +63,13 @@ public class FaxLineResponse {
      * @return faxLine
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_FAX_LINE)
+    @JsonProperty(value = JSON_PROPERTY_FAX_LINE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public FaxLineResponseFaxLine getFaxLine() {
         return faxLine;
     }
 
-    @JsonProperty(JSON_PROPERTY_FAX_LINE)
+    @JsonProperty(value = JSON_PROPERTY_FAX_LINE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setFaxLine(@javax.annotation.Nonnull FaxLineResponseFaxLine faxLine) {
         this.faxLine = faxLine;
@@ -85,13 +85,13 @@ public class FaxLineResponse {
      *
      * @return warnings
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public WarningResponse getWarnings() {
         return warnings;
     }
 
-    @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setWarnings(@javax.annotation.Nullable WarningResponse warnings) {
         this.warnings = warnings;
@@ -203,9 +203,6 @@ public class FaxLineResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

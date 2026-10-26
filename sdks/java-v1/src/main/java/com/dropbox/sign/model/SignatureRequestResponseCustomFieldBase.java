@@ -39,7 +39,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -101,13 +101,13 @@ public class SignatureRequestResponseCustomFieldBase {
      * @return type
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getType() {
         return type;
     }
 
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
@@ -124,13 +124,13 @@ public class SignatureRequestResponseCustomFieldBase {
      * @return name
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getName() {
         return name;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setName(@javax.annotation.Nonnull String name) {
         this.name = name;
@@ -147,13 +147,13 @@ public class SignatureRequestResponseCustomFieldBase {
      *
      * @return required
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REQUIRED)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getRequired() {
         return required;
     }
 
-    @JsonProperty(JSON_PROPERTY_REQUIRED)
+    @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setRequired(@javax.annotation.Nullable Boolean required) {
         this.required = required;
@@ -169,13 +169,13 @@ public class SignatureRequestResponseCustomFieldBase {
      *
      * @return apiId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_API_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_API_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getApiId() {
         return apiId;
     }
 
-    @JsonProperty(JSON_PROPERTY_API_ID)
+    @JsonProperty(value = JSON_PROPERTY_API_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setApiId(@javax.annotation.Nullable String apiId) {
         this.apiId = apiId;
@@ -192,13 +192,13 @@ public class SignatureRequestResponseCustomFieldBase {
      *
      * @return editor
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EDITOR)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EDITOR, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getEditor() {
         return editor;
     }
 
-    @JsonProperty(JSON_PROPERTY_EDITOR)
+    @JsonProperty(value = JSON_PROPERTY_EDITOR, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setEditor(@javax.annotation.Nullable String editor) {
         this.editor = editor;
@@ -371,10 +371,7 @@ public class SignatureRequestResponseCustomFieldBase {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
     static {

@@ -46,7 +46,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateResponse {
     public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
@@ -125,13 +125,13 @@ public class TemplateResponse {
      *
      * @return templateId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TEMPLATE_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getTemplateId() {
         return templateId;
     }
 
-    @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
+    @JsonProperty(value = JSON_PROPERTY_TEMPLATE_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTemplateId(@javax.annotation.Nullable String templateId) {
         this.templateId = templateId;
@@ -149,13 +149,13 @@ public class TemplateResponse {
      *
      * @return title
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TITLE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getTitle() {
         return title;
     }
 
-    @JsonProperty(JSON_PROPERTY_TITLE)
+    @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTitle(@javax.annotation.Nullable String title) {
         this.title = title;
@@ -172,13 +172,13 @@ public class TemplateResponse {
      *
      * @return message
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_MESSAGE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getMessage() {
         return message;
     }
 
-    @JsonProperty(JSON_PROPERTY_MESSAGE)
+    @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setMessage(@javax.annotation.Nullable String message) {
         this.message = message;
@@ -194,13 +194,13 @@ public class TemplateResponse {
      *
      * @return updatedAt
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_UPDATED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getUpdatedAt() {
         return updatedAt;
     }
 
-    @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+    @JsonProperty(value = JSON_PROPERTY_UPDATED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setUpdatedAt(@javax.annotation.Nullable Integer updatedAt) {
         this.updatedAt = updatedAt;
@@ -218,13 +218,13 @@ public class TemplateResponse {
      *
      * @return isEmbedded
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_EMBEDDED)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_EMBEDDED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsEmbedded() {
         return isEmbedded;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_EMBEDDED)
+    @JsonProperty(value = JSON_PROPERTY_IS_EMBEDDED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsEmbedded(@javax.annotation.Nullable Boolean isEmbedded) {
         this.isEmbedded = isEmbedded;
@@ -241,13 +241,13 @@ public class TemplateResponse {
      *
      * @return isCreator
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_CREATOR)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_CREATOR, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsCreator() {
         return isCreator;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_CREATOR)
+    @JsonProperty(value = JSON_PROPERTY_IS_CREATOR, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsCreator(@javax.annotation.Nullable Boolean isCreator) {
         this.isCreator = isCreator;
@@ -264,13 +264,13 @@ public class TemplateResponse {
      *
      * @return canEdit
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CAN_EDIT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CAN_EDIT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getCanEdit() {
         return canEdit;
     }
 
-    @JsonProperty(JSON_PROPERTY_CAN_EDIT)
+    @JsonProperty(value = JSON_PROPERTY_CAN_EDIT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCanEdit(@javax.annotation.Nullable Boolean canEdit) {
         this.canEdit = canEdit;
@@ -288,13 +288,13 @@ public class TemplateResponse {
      *
      * @return isLocked
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_LOCKED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsLocked() {
         return isLocked;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+    @JsonProperty(value = JSON_PROPERTY_IS_LOCKED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsLocked(@javax.annotation.Nullable Boolean isLocked) {
         this.isLocked = isLocked;
@@ -318,13 +318,13 @@ public class TemplateResponse {
      *
      * @return metadata
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_METADATA)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
     @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
     public Map<String, Object> getMetadata() {
         return metadata;
     }
 
-    @JsonProperty(JSON_PROPERTY_METADATA)
+    @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
     @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
     public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
@@ -350,13 +350,13 @@ public class TemplateResponse {
      *
      * @return signerRoles
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNER_ROLES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<TemplateResponseSignerRole> getSignerRoles() {
         return signerRoles;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
+    @JsonProperty(value = JSON_PROPERTY_SIGNER_ROLES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSignerRoles(
             @javax.annotation.Nullable List<TemplateResponseSignerRole> signerRoles) {
@@ -383,13 +383,13 @@ public class TemplateResponse {
      *
      * @return ccRoles
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CC_ROLES)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CC_ROLES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<TemplateResponseCCRole> getCcRoles() {
         return ccRoles;
     }
 
-    @JsonProperty(JSON_PROPERTY_CC_ROLES)
+    @JsonProperty(value = JSON_PROPERTY_CC_ROLES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCcRoles(@javax.annotation.Nullable List<TemplateResponseCCRole> ccRoles) {
         this.ccRoles = ccRoles;
@@ -415,13 +415,13 @@ public class TemplateResponse {
      *
      * @return documents
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_DOCUMENTS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_DOCUMENTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<TemplateResponseDocument> getDocuments() {
         return documents;
     }
 
-    @JsonProperty(JSON_PROPERTY_DOCUMENTS)
+    @JsonProperty(value = JSON_PROPERTY_DOCUMENTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setDocuments(@javax.annotation.Nullable List<TemplateResponseDocument> documents) {
         this.documents = documents;
@@ -452,14 +452,14 @@ public class TemplateResponse {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<TemplateResponseDocumentCustomFieldBase> getCustomFields() {
         return customFields;
     }
 
     @Deprecated
-    @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+    @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCustomFields(
             @javax.annotation.Nullable List<TemplateResponseDocumentCustomFieldBase> customFields) {
@@ -491,14 +491,14 @@ public class TemplateResponse {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAMED_FORM_FIELDS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NAMED_FORM_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<TemplateResponseDocumentFormFieldBase> getNamedFormFields() {
         return namedFormFields;
     }
 
     @Deprecated
-    @JsonProperty(JSON_PROPERTY_NAMED_FORM_FIELDS)
+    @JsonProperty(value = JSON_PROPERTY_NAMED_FORM_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setNamedFormFields(
             @javax.annotation.Nullable List<TemplateResponseDocumentFormFieldBase> namedFormFields) {
@@ -524,13 +524,13 @@ public class TemplateResponse {
      *
      * @return accounts
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ACCOUNTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<TemplateResponseAccount> getAccounts() {
         return accounts;
     }
 
-    @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+    @JsonProperty(value = JSON_PROPERTY_ACCOUNTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAccounts(@javax.annotation.Nullable List<TemplateResponseAccount> accounts) {
         this.accounts = accounts;
@@ -555,13 +555,13 @@ public class TemplateResponse {
      *
      * @return attachments
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ATTACHMENTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<SignatureRequestResponseAttachment> getAttachments() {
         return attachments;
     }
 
-    @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+    @JsonProperty(value = JSON_PROPERTY_ATTACHMENTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAttachments(
             @javax.annotation.Nullable List<SignatureRequestResponseAttachment> attachments) {
@@ -990,9 +990,6 @@ public class TemplateResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

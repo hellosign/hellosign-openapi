@@ -61,7 +61,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
@@ -189,13 +189,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      * @return clientId
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getClientId() {
         return clientId;
     }
 
-    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setClientId(@javax.annotation.Nonnull String clientId) {
         this.clientId = clientId;
@@ -213,13 +213,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      * @return requesterEmailAddress
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getRequesterEmailAddress() {
         return requesterEmailAddress;
     }
 
-    @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setRequesterEmailAddress(@javax.annotation.Nonnull String requesterEmailAddress) {
         this.requesterEmailAddress = requesterEmailAddress;
@@ -247,13 +247,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      * @return templateIds
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
+    @JsonProperty(value = JSON_PROPERTY_TEMPLATE_IDS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<String> getTemplateIds() {
         return templateIds;
     }
 
-    @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
+    @JsonProperty(value = JSON_PROPERTY_TEMPLATE_IDS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setTemplateIds(@javax.annotation.Nonnull List<String> templateIds) {
         this.templateIds = templateIds;
@@ -271,13 +271,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return allowDecline
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ALLOW_DECLINE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getAllowDecline() {
         return allowDecline;
     }
 
-    @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
+    @JsonProperty(value = JSON_PROPERTY_ALLOW_DECLINE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAllowDecline(@javax.annotation.Nullable Boolean allowDecline) {
         this.allowDecline = allowDecline;
@@ -296,13 +296,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return allowReassign
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ALLOW_REASSIGN, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getAllowReassign() {
         return allowReassign;
     }
 
-    @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
+    @JsonProperty(value = JSON_PROPERTY_ALLOW_REASSIGN, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAllowReassign(@javax.annotation.Nullable Boolean allowReassign) {
         this.allowReassign = allowReassign;
@@ -327,13 +327,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return ccs
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CCS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CCS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<SubCC> getCcs() {
         return ccs;
     }
 
-    @JsonProperty(JSON_PROPERTY_CCS)
+    @JsonProperty(value = JSON_PROPERTY_CCS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCcs(@javax.annotation.Nullable List<SubCC> ccs) {
         this.ccs = ccs;
@@ -360,13 +360,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return customFields
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<SubCustomField> getCustomFields() {
         return customFields;
     }
 
-    @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+    @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCustomFields(@javax.annotation.Nullable List<SubCustomField> customFields) {
         this.customFields = customFields;
@@ -383,13 +383,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return editorOptions
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EDITOR_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public SubEditorOptions getEditorOptions() {
         return editorOptions;
     }
 
-    @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+    @JsonProperty(value = JSON_PROPERTY_EDITOR_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setEditorOptions(@javax.annotation.Nullable SubEditorOptions editorOptions) {
         this.editorOptions = editorOptions;
@@ -406,13 +406,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return fieldOptions
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FIELD_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public SubFieldOptions getFieldOptions() {
         return fieldOptions;
     }
 
-    @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
+    @JsonProperty(value = JSON_PROPERTY_FIELD_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFieldOptions(@javax.annotation.Nullable SubFieldOptions fieldOptions) {
         this.fieldOptions = fieldOptions;
@@ -441,13 +441,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return files
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILES)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<File> getFiles() {
         return files;
     }
 
-    @JsonProperty(JSON_PROPERTY_FILES)
+    @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFiles(@javax.annotation.Nullable List<File> files) {
         this.files = files;
@@ -476,13 +476,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return fileUrls
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILE_URLS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<String> getFileUrls() {
         return fileUrls;
     }
 
-    @JsonProperty(JSON_PROPERTY_FILE_URLS)
+    @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFileUrls(@javax.annotation.Nullable List<String> fileUrls) {
         this.fileUrls = fileUrls;
@@ -499,13 +499,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return forceSignerRoles
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_ROLES)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FORCE_SIGNER_ROLES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getForceSignerRoles() {
         return forceSignerRoles;
     }
 
-    @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_ROLES)
+    @JsonProperty(value = JSON_PROPERTY_FORCE_SIGNER_ROLES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setForceSignerRoles(@javax.annotation.Nullable Boolean forceSignerRoles) {
         this.forceSignerRoles = forceSignerRoles;
@@ -522,13 +522,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return forceSubjectMessage
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FORCE_SUBJECT_MESSAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getForceSubjectMessage() {
         return forceSubjectMessage;
     }
 
-    @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
+    @JsonProperty(value = JSON_PROPERTY_FORCE_SUBJECT_MESSAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setForceSubjectMessage(@javax.annotation.Nullable Boolean forceSubjectMessage) {
         this.forceSubjectMessage = forceSubjectMessage;
@@ -547,13 +547,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return holdRequest
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_HOLD_REQUEST)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_HOLD_REQUEST, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getHoldRequest() {
         return holdRequest;
     }
 
-    @JsonProperty(JSON_PROPERTY_HOLD_REQUEST)
+    @JsonProperty(value = JSON_PROPERTY_HOLD_REQUEST, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setHoldRequest(@javax.annotation.Nullable Boolean holdRequest) {
         this.holdRequest = holdRequest;
@@ -571,13 +571,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return isForEmbeddedSigning
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsForEmbeddedSigning() {
         return isForEmbeddedSigning;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
+    @JsonProperty(value = JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsForEmbeddedSigning(@javax.annotation.Nullable Boolean isForEmbeddedSigning) {
         this.isForEmbeddedSigning = isForEmbeddedSigning;
@@ -594,13 +594,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return message
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_MESSAGE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getMessage() {
         return message;
     }
 
-    @JsonProperty(JSON_PROPERTY_MESSAGE)
+    @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setMessage(@javax.annotation.Nullable String message) {
         this.message = message;
@@ -630,13 +630,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return metadata
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_METADATA)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
     @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
     public Map<String, Object> getMetadata() {
         return metadata;
     }
 
-    @JsonProperty(JSON_PROPERTY_METADATA)
+    @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
     @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
     public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
@@ -657,13 +657,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return previewOnly
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_PREVIEW_ONLY)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_PREVIEW_ONLY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getPreviewOnly() {
         return previewOnly;
     }
 
-    @JsonProperty(JSON_PROPERTY_PREVIEW_ONLY)
+    @JsonProperty(value = JSON_PROPERTY_PREVIEW_ONLY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setPreviewOnly(@javax.annotation.Nullable Boolean previewOnly) {
         this.previewOnly = previewOnly;
@@ -680,13 +680,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return requestingRedirectUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_REQUESTING_REDIRECT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getRequestingRedirectUrl() {
         return requestingRedirectUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+    @JsonProperty(value = JSON_PROPERTY_REQUESTING_REDIRECT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setRequestingRedirectUrl(@javax.annotation.Nullable String requestingRedirectUrl) {
         this.requestingRedirectUrl = requestingRedirectUrl;
@@ -706,13 +706,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return showPreview
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SHOW_PREVIEW, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getShowPreview() {
         return showPreview;
     }
 
-    @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
+    @JsonProperty(value = JSON_PROPERTY_SHOW_PREVIEW, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setShowPreview(@javax.annotation.Nullable Boolean showPreview) {
         this.showPreview = showPreview;
@@ -730,13 +730,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return showProgressStepper
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SHOW_PROGRESS_STEPPER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getShowProgressStepper() {
         return showProgressStepper;
     }
 
-    @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+    @JsonProperty(value = JSON_PROPERTY_SHOW_PROGRESS_STEPPER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setShowProgressStepper(@javax.annotation.Nullable Boolean showProgressStepper) {
         this.showProgressStepper = showProgressStepper;
@@ -762,13 +762,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return signers
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNERS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNERS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<SubUnclaimedDraftTemplateSigner> getSigners() {
         return signers;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNERS)
+    @JsonProperty(value = JSON_PROPERTY_SIGNERS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSigners(
             @javax.annotation.Nullable List<SubUnclaimedDraftTemplateSigner> signers) {
@@ -786,13 +786,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return signingOptions
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNING_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public SubSigningOptions getSigningOptions() {
         return signingOptions;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
+    @JsonProperty(value = JSON_PROPERTY_SIGNING_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSigningOptions(@javax.annotation.Nullable SubSigningOptions signingOptions) {
         this.signingOptions = signingOptions;
@@ -809,13 +809,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return signingRedirectUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNING_REDIRECT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSigningRedirectUrl() {
         return signingRedirectUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+    @JsonProperty(value = JSON_PROPERTY_SIGNING_REDIRECT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSigningRedirectUrl(@javax.annotation.Nullable String signingRedirectUrl) {
         this.signingRedirectUrl = signingRedirectUrl;
@@ -833,13 +833,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return skipMeNow
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SKIP_ME_NOW)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SKIP_ME_NOW, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getSkipMeNow() {
         return skipMeNow;
     }
 
-    @JsonProperty(JSON_PROPERTY_SKIP_ME_NOW)
+    @JsonProperty(value = JSON_PROPERTY_SKIP_ME_NOW, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSkipMeNow(@javax.annotation.Nullable Boolean skipMeNow) {
         this.skipMeNow = skipMeNow;
@@ -856,13 +856,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return subject
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SUBJECT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSubject() {
         return subject;
     }
 
-    @JsonProperty(JSON_PROPERTY_SUBJECT)
+    @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSubject(@javax.annotation.Nullable String subject) {
         this.subject = subject;
@@ -880,13 +880,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return testMode
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEST_MODE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getTestMode() {
         return testMode;
     }
 
-    @JsonProperty(JSON_PROPERTY_TEST_MODE)
+    @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
@@ -903,13 +903,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return title
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TITLE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getTitle() {
         return title;
     }
 
-    @JsonProperty(JSON_PROPERTY_TITLE)
+    @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTitle(@javax.annotation.Nullable String title) {
         this.title = title;
@@ -930,13 +930,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return populateAutoFillFields
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getPopulateAutoFillFields() {
         return populateAutoFillFields;
     }
 
-    @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
+    @JsonProperty(value = JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setPopulateAutoFillFields(
             @javax.annotation.Nullable Boolean populateAutoFillFields) {
@@ -955,13 +955,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      *
      * @return allowCcs
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_CCS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ALLOW_CCS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getAllowCcs() {
         return allowCcs;
     }
 
-    @JsonProperty(JSON_PROPERTY_ALLOW_CCS)
+    @JsonProperty(value = JSON_PROPERTY_ALLOW_CCS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAllowCcs(@javax.annotation.Nullable Boolean allowCcs) {
         this.allowCcs = allowCcs;
@@ -1790,9 +1790,6 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

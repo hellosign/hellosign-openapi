@@ -27,7 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({SubTemplateRole.JSON_PROPERTY_NAME, SubTemplateRole.JSON_PROPERTY_ORDER})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubTemplateRole {
     public static final String JSON_PROPERTY_NAME = "name";
@@ -63,13 +63,13 @@ public class SubTemplateRole {
      *
      * @return name
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getName() {
         return name;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
@@ -85,13 +85,13 @@ public class SubTemplateRole {
      *
      * @return order
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ORDER)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getOrder() {
         return order;
     }
 
-    @JsonProperty(JSON_PROPERTY_ORDER)
+    @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setOrder(@javax.annotation.Nullable Integer order) {
         this.order = order;
@@ -203,9 +203,6 @@ public class SubTemplateRole {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

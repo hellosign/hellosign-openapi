@@ -33,7 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxResponseTransmission {
     public static final String JSON_PROPERTY_RECIPIENT = "recipient";
@@ -118,13 +118,13 @@ public class FaxResponseTransmission {
      * @return recipient
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_RECIPIENT)
+    @JsonProperty(value = JSON_PROPERTY_RECIPIENT, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getRecipient() {
         return recipient;
     }
 
-    @JsonProperty(JSON_PROPERTY_RECIPIENT)
+    @JsonProperty(value = JSON_PROPERTY_RECIPIENT, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setRecipient(@javax.annotation.Nonnull String recipient) {
         this.recipient = recipient;
@@ -141,13 +141,13 @@ public class FaxResponseTransmission {
      * @return statusCode
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_STATUS_CODE)
+    @JsonProperty(value = JSON_PROPERTY_STATUS_CODE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public StatusCodeEnum getStatusCode() {
         return statusCode;
     }
 
-    @JsonProperty(JSON_PROPERTY_STATUS_CODE)
+    @JsonProperty(value = JSON_PROPERTY_STATUS_CODE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setStatusCode(@javax.annotation.Nonnull StatusCodeEnum statusCode) {
         this.statusCode = statusCode;
@@ -163,13 +163,13 @@ public class FaxResponseTransmission {
      *
      * @return sentAt
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SENT_AT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SENT_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getSentAt() {
         return sentAt;
     }
 
-    @JsonProperty(JSON_PROPERTY_SENT_AT)
+    @JsonProperty(value = JSON_PROPERTY_SENT_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSentAt(@javax.annotation.Nullable Integer sentAt) {
         this.sentAt = sentAt;
@@ -305,9 +305,6 @@ public class FaxResponseTransmission {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

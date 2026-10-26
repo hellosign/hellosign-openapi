@@ -31,7 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountResponseSettings {
     public static final String JSON_PROPERTY_SIGNER_ACCESS_CODES = "signer_access_codes";
@@ -72,13 +72,13 @@ public class AccountResponseSettings {
      *
      * @return signerAccessCodes
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_ACCESS_CODES)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNER_ACCESS_CODES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getSignerAccessCodes() {
         return signerAccessCodes;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNER_ACCESS_CODES)
+    @JsonProperty(value = JSON_PROPERTY_SIGNER_ACCESS_CODES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSignerAccessCodes(@javax.annotation.Nullable Boolean signerAccessCodes) {
         this.signerAccessCodes = signerAccessCodes;
@@ -95,13 +95,13 @@ public class AccountResponseSettings {
      *
      * @return smsDelivery
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SMS_DELIVERY)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SMS_DELIVERY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getSmsDelivery() {
         return smsDelivery;
     }
 
-    @JsonProperty(JSON_PROPERTY_SMS_DELIVERY)
+    @JsonProperty(value = JSON_PROPERTY_SMS_DELIVERY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSmsDelivery(@javax.annotation.Nullable Boolean smsDelivery) {
         this.smsDelivery = smsDelivery;
@@ -119,13 +119,13 @@ public class AccountResponseSettings {
      *
      * @return smsAuthentication
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SMS_AUTHENTICATION)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SMS_AUTHENTICATION, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getSmsAuthentication() {
         return smsAuthentication;
     }
 
-    @JsonProperty(JSON_PROPERTY_SMS_AUTHENTICATION)
+    @JsonProperty(value = JSON_PROPERTY_SMS_AUTHENTICATION, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSmsAuthentication(@javax.annotation.Nullable Boolean smsAuthentication) {
         this.smsAuthentication = smsAuthentication;
@@ -270,9 +270,6 @@ public class AccountResponseSettings {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

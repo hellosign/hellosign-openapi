@@ -36,7 +36,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ReportResponse {
     public static final String JSON_PROPERTY_SUCCESS = "success";
@@ -114,13 +114,13 @@ public class ReportResponse {
      *
      * @return success
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SUCCESS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSuccess() {
         return success;
     }
 
-    @JsonProperty(JSON_PROPERTY_SUCCESS)
+    @JsonProperty(value = JSON_PROPERTY_SUCCESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSuccess(@javax.annotation.Nullable String success) {
         this.success = success;
@@ -136,13 +136,13 @@ public class ReportResponse {
      *
      * @return startDate
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_START_DATE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_START_DATE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getStartDate() {
         return startDate;
     }
 
-    @JsonProperty(JSON_PROPERTY_START_DATE)
+    @JsonProperty(value = JSON_PROPERTY_START_DATE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setStartDate(@javax.annotation.Nullable String startDate) {
         this.startDate = startDate;
@@ -158,13 +158,13 @@ public class ReportResponse {
      *
      * @return endDate
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_END_DATE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_END_DATE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getEndDate() {
         return endDate;
     }
 
-    @JsonProperty(JSON_PROPERTY_END_DATE)
+    @JsonProperty(value = JSON_PROPERTY_END_DATE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setEndDate(@javax.annotation.Nullable String endDate) {
         this.endDate = endDate;
@@ -191,13 +191,13 @@ public class ReportResponse {
      *
      * @return reportType
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_REPORT_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<ReportTypeEnum> getReportType() {
         return reportType;
     }
 
-    @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_REPORT_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setReportType(@javax.annotation.Nullable List<ReportTypeEnum> reportType) {
         this.reportType = reportType;
@@ -353,9 +353,6 @@ public class ReportResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

@@ -30,7 +30,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateResponseDocumentFieldGroup {
     public static final String JSON_PROPERTY_NAME = "name";
@@ -67,13 +67,13 @@ public class TemplateResponseDocumentFieldGroup {
      *
      * @return name
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getName() {
         return name;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
@@ -90,13 +90,13 @@ public class TemplateResponseDocumentFieldGroup {
      *
      * @return rule
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_RULE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_RULE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public TemplateResponseDocumentFieldGroupRule getRule() {
         return rule;
     }
 
-    @JsonProperty(JSON_PROPERTY_RULE)
+    @JsonProperty(value = JSON_PROPERTY_RULE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setRule(@javax.annotation.Nullable TemplateResponseDocumentFieldGroupRule rule) {
         this.rule = rule;
@@ -209,9 +209,6 @@ public class TemplateResponseDocumentFieldGroup {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

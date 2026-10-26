@@ -32,7 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SignatureRequestUpdateRequest {
     public static final String JSON_PROPERTY_SIGNATURE_ID = "signature_id";
@@ -76,13 +76,13 @@ public class SignatureRequestUpdateRequest {
      * @return signatureId
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SIGNATURE_ID)
+    @JsonProperty(value = JSON_PROPERTY_SIGNATURE_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getSignatureId() {
         return signatureId;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNATURE_ID)
+    @JsonProperty(value = JSON_PROPERTY_SIGNATURE_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSignatureId(@javax.annotation.Nonnull String signatureId) {
         this.signatureId = signatureId;
@@ -100,13 +100,13 @@ public class SignatureRequestUpdateRequest {
      *
      * @return emailAddress
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getEmailAddress() {
         return emailAddress;
     }
 
-    @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setEmailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
@@ -122,13 +122,13 @@ public class SignatureRequestUpdateRequest {
      *
      * @return name
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getName() {
         return name;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
@@ -146,13 +146,13 @@ public class SignatureRequestUpdateRequest {
      *
      * @return expiresAt
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getExpiresAt() {
         return expiresAt;
     }
 
-    @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setExpiresAt(@javax.annotation.Nullable Integer expiresAt) {
         this.expiresAt = expiresAt;
@@ -311,9 +311,6 @@ public class SignatureRequestUpdateRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

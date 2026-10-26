@@ -35,7 +35,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ReportCreateRequest {
     public static final String JSON_PROPERTY_END_DATE = "end_date";
@@ -111,13 +111,13 @@ public class ReportCreateRequest {
      * @return endDate
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_END_DATE)
+    @JsonProperty(value = JSON_PROPERTY_END_DATE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getEndDate() {
         return endDate;
     }
 
-    @JsonProperty(JSON_PROPERTY_END_DATE)
+    @JsonProperty(value = JSON_PROPERTY_END_DATE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setEndDate(@javax.annotation.Nonnull String endDate) {
         this.endDate = endDate;
@@ -146,13 +146,13 @@ public class ReportCreateRequest {
      * @return reportType
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_REPORT_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<ReportTypeEnum> getReportType() {
         return reportType;
     }
 
-    @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_REPORT_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setReportType(@javax.annotation.Nonnull List<ReportTypeEnum> reportType) {
         this.reportType = reportType;
@@ -169,13 +169,13 @@ public class ReportCreateRequest {
      * @return startDate
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_START_DATE)
+    @JsonProperty(value = JSON_PROPERTY_START_DATE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getStartDate() {
         return startDate;
     }
 
-    @JsonProperty(JSON_PROPERTY_START_DATE)
+    @JsonProperty(value = JSON_PROPERTY_START_DATE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setStartDate(@javax.annotation.Nonnull String startDate) {
         this.startDate = startDate;
@@ -311,9 +311,6 @@ public class ReportCreateRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

@@ -30,7 +30,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubBulkSignerListCustomField {
     public static final String JSON_PROPERTY_NAME = "name";
@@ -68,13 +68,13 @@ public class SubBulkSignerListCustomField {
      * @return name
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getName() {
         return name;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setName(@javax.annotation.Nonnull String name) {
         this.name = name;
@@ -91,13 +91,13 @@ public class SubBulkSignerListCustomField {
      * @return value
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_VALUE)
+    @JsonProperty(value = JSON_PROPERTY_VALUE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getValue() {
         return value;
     }
 
-    @JsonProperty(JSON_PROPERTY_VALUE)
+    @JsonProperty(value = JSON_PROPERTY_VALUE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setValue(@javax.annotation.Nonnull String value) {
         this.value = value;
@@ -210,9 +210,6 @@ public class SubBulkSignerListCustomField {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

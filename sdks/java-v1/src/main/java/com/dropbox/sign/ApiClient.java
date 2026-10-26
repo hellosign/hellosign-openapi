@@ -71,16 +71,16 @@ import org.glassfish.jersey.media.multipart.MultiPartFeature;
 /** ApiClient class. */
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 public class ApiClient extends JavaTimeFormatter {
-    private static final Pattern JSON_MIME_PATTERN =
+    protected static final Pattern JSON_MIME_PATTERN =
             Pattern.compile("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
 
     protected Map<String, String> defaultHeaderMap = new HashMap<>();
     protected Map<String, String> defaultCookieMap = new HashMap<>();
     protected String basePath = "https://api.hellosign.com/v3";
     protected String userAgent;
-    private static final Logger log = Logger.getLogger(ApiClient.class.getName());
+    protected static final Logger log = Logger.getLogger(ApiClient.class.getName());
 
     protected List<ServerConfiguration> servers =
             new ArrayList<>(
@@ -119,7 +119,7 @@ public class ApiClient extends JavaTimeFormatter {
     protected boolean debugging = false;
     protected ClientConfig clientConfig;
     protected int connectionTimeout = 0;
-    private int readTimeout = 0;
+    protected int readTimeout = 0;
 
     protected Client httpClient;
     protected JSON json;
@@ -287,7 +287,7 @@ public class ApiClient extends JavaTimeFormatter {
         return this;
     }
 
-    private void updateBasePath() {
+    protected void updateBasePath() {
         if (serverIndex != null) {
             setBasePath(servers.get(serverIndex).URL(serverVariables));
         }
@@ -463,6 +463,7 @@ public class ApiClient extends JavaTimeFormatter {
      */
     public ApiClient setDebugging(boolean debugging) {
         this.debugging = debugging;
+        applyDebugSetting(this.clientConfig);
         // Rebuild HTTP Client according to the new "debugging" value.
         this.httpClient = buildHttpClient();
         return this;
@@ -735,6 +736,41 @@ public class ApiClient extends JavaTimeFormatter {
     }
 
     /**
+     * Format the given collection as a path parameter value according to the collection format.
+     * Each item is escaped individually, so that the delimiter is preserved (e.g. "a,b,c" for csv).
+     *
+     * @param collectionFormat Collection format (csv by default)
+     * @param value Collection value
+     * @return Escaped path parameter value
+     */
+    public String collectionPathParameterToString(String collectionFormat, Collection<?> value) {
+        if (value == null || value.isEmpty()) {
+            return "";
+        }
+
+        // "multi" is not valid for path params, fall back to csv
+        String delimiter = ",";
+        if ("ssv".equals(collectionFormat)) {
+            delimiter = escapeString(" ");
+        } else if ("tsv".equals(collectionFormat)) {
+            delimiter = escapeString("\t");
+        } else if ("pipes".equals(collectionFormat)) {
+            delimiter = escapeString("|");
+        }
+
+        StringBuilder sb = new StringBuilder();
+        boolean first = true;
+        for (Object item : value) {
+            if (!first) {
+                sb.append(delimiter);
+            }
+            sb.append(escapeString(parameterToString(item)));
+            first = false;
+        }
+        return sb.toString();
+    }
+
+    /**
      * Serialize the given Java object into string entity according the given Content-Type (only
      * JSON is supported for now).
      *
@@ -814,7 +850,7 @@ public class ApiClient extends JavaTimeFormatter {
      * @param key Key of the object
      * @param multiPart MultiPart to add the form param to
      */
-    private void addParamToMultipart(Object value, String key, MultiPart multiPart) {
+    protected void addParamToMultipart(Object value, String key, MultiPart multiPart) {
         if (value instanceof File) {
             File file = (File) value;
             FormDataContentDisposition contentDisp =
@@ -1021,9 +1057,11 @@ public class ApiClient extends JavaTimeFormatter {
             if (index < 0 || index >= serverConfigurations.size()) {
                 throw new ArrayIndexOutOfBoundsException(
                         String.format(
+                                java.util.Locale.ROOT,
                                 "Invalid index %d when selecting the host settings. Must be less"
                                         + " than %d",
-                                index, serverConfigurations.size()));
+                                index,
+                                serverConfigurations.size()));
             }
             targetURL = serverConfigurations.get(index).URL(variables) + path;
         } else {
@@ -1032,6 +1070,22 @@ public class ApiClient extends JavaTimeFormatter {
         // Not using `.target(targetURL).path(path)` below,
         // to support (constant) query string in `path`, e.g. "/posts?draft=1"
         WebTarget target = httpClient.target(targetURL);
+
+        // put all headers in one place
+        Map<String, String> allHeaderParams = new HashMap<>(defaultHeaderMap);
+        allHeaderParams.putAll(headerParams);
+
+        if (authNames != null) {
+            // update different parameters (e.g. headers) for authentication
+            updateParamsForAuth(
+                    authNames,
+                    queryParams,
+                    allHeaderParams,
+                    cookieParams,
+                    null,
+                    method,
+                    target.getUri());
+        }
 
         if (queryParams != null) {
             for (Pair queryParam : queryParams) {
@@ -1064,22 +1118,6 @@ public class ApiClient extends JavaTimeFormatter {
         }
 
         Entity<?> entity = serialize(body, formParams, contentType, isBodyNullable);
-
-        // put all headers in one place
-        Map<String, String> allHeaderParams = new HashMap<>(defaultHeaderMap);
-        allHeaderParams.putAll(headerParams);
-
-        if (authNames != null) {
-            // update different parameters (e.g. headers) for authentication
-            updateParamsForAuth(
-                    authNames,
-                    queryParams,
-                    allHeaderParams,
-                    cookieParams,
-                    null,
-                    method,
-                    target.getUri());
-        }
 
         for (Entry<String, String> entry : allHeaderParams.entrySet()) {
             String value = entry.getValue();
@@ -1142,7 +1180,7 @@ public class ApiClient extends JavaTimeFormatter {
         }
     }
 
-    private Response sendRequest(
+    protected Response sendRequest(
             String method, Invocation.Builder invocationBuilder, Entity<?> entity) {
         Response response;
         if ("POST".equals(method)) {
@@ -1203,8 +1241,10 @@ public class ApiClient extends JavaTimeFormatter {
      * @return Client
      */
     protected Client buildHttpClient() {
-        // recreate the client config to pickup changes
-        clientConfig = getDefaultClientConfig();
+        // Create ClientConfig if it has not been initialized yet
+        if (clientConfig == null) {
+            clientConfig = getDefaultClientConfig();
+        }
 
         ClientBuilder clientBuilder = ClientBuilder.newBuilder();
         clientBuilder = clientBuilder.withConfig(clientConfig);
@@ -1225,6 +1265,11 @@ public class ApiClient extends JavaTimeFormatter {
         clientConfig.property(HttpUrlConnectorProvider.SET_METHOD_WORKAROUND, true);
         // turn off compliance validation to be able to send payloads with DELETE calls
         clientConfig.property(ClientProperties.SUPPRESS_HTTP_COMPLIANCE_VALIDATION, true);
+        applyDebugSetting(clientConfig);
+        return clientConfig;
+    }
+
+    protected void applyDebugSetting(ClientConfig clientConfig) {
         if (debugging) {
             clientConfig.register(
                     new LoggingFeature(
@@ -1242,8 +1287,6 @@ public class ApiClient extends JavaTimeFormatter {
             java.util.logging.Logger.getLogger("org.glassfish.jersey.client")
                     .setLevel(java.util.logging.Level.SEVERE);
         }
-
-        return clientConfig;
     }
 
     /**

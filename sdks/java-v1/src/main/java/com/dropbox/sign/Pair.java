@@ -14,30 +14,14 @@ package com.dropbox.sign;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 public class Pair {
-    private String name = "";
-    private String value = "";
+    private final String name;
+    private final String value;
 
     public Pair(String name, String value) {
-        setName(name);
-        setValue(value);
-    }
-
-    private void setName(String name) {
-        if (!isValidString(name)) {
-            return;
-        }
-
-        this.name = name;
-    }
-
-    private void setValue(String value) {
-        if (!isValidString(value)) {
-            return;
-        }
-
-        this.value = value;
+        this.name = isValidString(name) ? name : "";
+        this.value = isValidString(value) ? value : "";
     }
 
     public String getName() {
@@ -48,11 +32,7 @@ public class Pair {
         return this.value;
     }
 
-    private boolean isValidString(String arg) {
-        if (arg == null) {
-            return false;
-        }
-
-        return true;
+    private static boolean isValidString(String arg) {
+        return arg != null;
     }
 }
