@@ -38,7 +38,7 @@ import com.dropbox.sign.ApiException;
   ListInfoResponse.JSON_PROPERTY_PAGE,
   ListInfoResponse.JSON_PROPERTY_PAGE_SIZE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ListInfoResponse {
   public static final String JSON_PROPERTY_NUM_PAGES = "num_pages";
@@ -85,7 +85,7 @@ public class ListInfoResponse {
    * @return numPages
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NUM_PAGES)
+  @JsonProperty(value = JSON_PROPERTY_NUM_PAGES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getNumPages() {
@@ -93,7 +93,7 @@ public class ListInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NUM_PAGES)
+  @JsonProperty(value = JSON_PROPERTY_NUM_PAGES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumPages(@jakarta.annotation.Nullable Integer numPages) {
     this.numPages = numPages;
@@ -110,7 +110,7 @@ public class ListInfoResponse {
    * @return numResults
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NUM_RESULTS)
+  @JsonProperty(value = JSON_PROPERTY_NUM_RESULTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getNumResults() {
@@ -118,7 +118,7 @@ public class ListInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NUM_RESULTS)
+  @JsonProperty(value = JSON_PROPERTY_NUM_RESULTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumResults(@jakarta.annotation.Nullable Integer numResults) {
     this.numResults = numResults;
@@ -135,7 +135,7 @@ public class ListInfoResponse {
    * @return page
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonProperty(value = JSON_PROPERTY_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getPage() {
@@ -143,7 +143,7 @@ public class ListInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonProperty(value = JSON_PROPERTY_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPage(@jakarta.annotation.Nullable Integer page) {
     this.page = page;
@@ -160,7 +160,7 @@ public class ListInfoResponse {
    * @return pageSize
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAGE_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_PAGE_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getPageSize() {
@@ -168,7 +168,7 @@ public class ListInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PAGE_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_PAGE_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageSize(@jakarta.annotation.Nullable Integer pageSize) {
     this.pageSize = pageSize;
@@ -322,10 +322,7 @@ public class ListInfoResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

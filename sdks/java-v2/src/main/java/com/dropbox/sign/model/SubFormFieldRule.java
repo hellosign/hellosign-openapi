@@ -42,7 +42,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldRule.JSON_PROPERTY_TRIGGERS,
   SubFormFieldRule.JSON_PROPERTY_ACTIONS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubFormFieldRule {
   public static final String JSON_PROPERTY_ID = "id";
@@ -89,7 +89,7 @@ public class SubFormFieldRule {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
@@ -97,7 +97,7 @@ public class SubFormFieldRule {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@jakarta.annotation.Nonnull String id) {
     this.id = id;
@@ -114,7 +114,7 @@ public class SubFormFieldRule {
    * @return triggerOperator
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TRIGGER_OPERATOR)
+  @JsonProperty(value = JSON_PROPERTY_TRIGGER_OPERATOR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTriggerOperator() {
@@ -122,7 +122,7 @@ public class SubFormFieldRule {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRIGGER_OPERATOR)
+  @JsonProperty(value = JSON_PROPERTY_TRIGGER_OPERATOR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTriggerOperator(@jakarta.annotation.Nonnull String triggerOperator) {
     this.triggerOperator = triggerOperator;
@@ -147,7 +147,7 @@ public class SubFormFieldRule {
    * @return triggers
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TRIGGERS)
+  @JsonProperty(value = JSON_PROPERTY_TRIGGERS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<SubFormFieldRuleTrigger> getTriggers() {
@@ -155,7 +155,7 @@ public class SubFormFieldRule {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRIGGERS)
+  @JsonProperty(value = JSON_PROPERTY_TRIGGERS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTriggers(@jakarta.annotation.Nonnull List<SubFormFieldRuleTrigger> triggers) {
     this.triggers = triggers;
@@ -180,7 +180,7 @@ public class SubFormFieldRule {
    * @return actions
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ACTIONS)
+  @JsonProperty(value = JSON_PROPERTY_ACTIONS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<SubFormFieldRuleAction> getActions() {
@@ -188,7 +188,7 @@ public class SubFormFieldRule {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACTIONS)
+  @JsonProperty(value = JSON_PROPERTY_ACTIONS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setActions(@jakarta.annotation.Nonnull List<SubFormFieldRuleAction> actions) {
     this.actions = actions;
@@ -342,10 +342,7 @@ public class SubFormFieldRule {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

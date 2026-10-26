@@ -38,7 +38,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldRuleAction.JSON_PROPERTY_FIELD_ID,
   SubFormFieldRuleAction.JSON_PROPERTY_GROUP_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubFormFieldRuleAction {
   public static final String JSON_PROPERTY_HIDDEN = "hidden";
@@ -122,7 +122,7 @@ public class SubFormFieldRuleAction {
    * @return hidden
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_HIDDEN)
+  @JsonProperty(value = JSON_PROPERTY_HIDDEN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getHidden() {
@@ -130,7 +130,7 @@ public class SubFormFieldRuleAction {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HIDDEN)
+  @JsonProperty(value = JSON_PROPERTY_HIDDEN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHidden(@jakarta.annotation.Nonnull Boolean hidden) {
     this.hidden = hidden;
@@ -147,7 +147,7 @@ public class SubFormFieldRuleAction {
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TypeEnum getType() {
@@ -155,7 +155,7 @@ public class SubFormFieldRuleAction {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
     this.type = type;
@@ -172,7 +172,7 @@ public class SubFormFieldRuleAction {
    * @return fieldId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELD_ID)
+  @JsonProperty(value = JSON_PROPERTY_FIELD_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFieldId() {
@@ -180,7 +180,7 @@ public class SubFormFieldRuleAction {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FIELD_ID)
+  @JsonProperty(value = JSON_PROPERTY_FIELD_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFieldId(@jakarta.annotation.Nullable String fieldId) {
     this.fieldId = fieldId;
@@ -197,7 +197,7 @@ public class SubFormFieldRuleAction {
    * @return groupId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP_ID)
+  @JsonProperty(value = JSON_PROPERTY_GROUP_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getGroupId() {
@@ -205,7 +205,7 @@ public class SubFormFieldRuleAction {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GROUP_ID)
+  @JsonProperty(value = JSON_PROPERTY_GROUP_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGroupId(@jakarta.annotation.Nullable String groupId) {
     this.groupId = groupId;
@@ -359,10 +359,7 @@ public class SubFormFieldRuleAction {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

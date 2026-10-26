@@ -42,7 +42,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_API_ID,
   SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_EDITOR
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -102,7 +102,7 @@ public class SignatureRequestResponseCustomFieldBase {
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getType() {
@@ -110,7 +110,7 @@ public class SignatureRequestResponseCustomFieldBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
@@ -127,7 +127,7 @@ public class SignatureRequestResponseCustomFieldBase {
    * @return name
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
@@ -135,7 +135,7 @@ public class SignatureRequestResponseCustomFieldBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
@@ -152,7 +152,7 @@ public class SignatureRequestResponseCustomFieldBase {
    * @return required
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUIRED)
+  @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getRequired() {
@@ -160,7 +160,7 @@ public class SignatureRequestResponseCustomFieldBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUIRED)
+  @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequired(@jakarta.annotation.Nullable Boolean required) {
     this.required = required;
@@ -177,7 +177,7 @@ public class SignatureRequestResponseCustomFieldBase {
    * @return apiId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_API_ID)
+  @JsonProperty(value = JSON_PROPERTY_API_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getApiId() {
@@ -185,7 +185,7 @@ public class SignatureRequestResponseCustomFieldBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_API_ID)
+  @JsonProperty(value = JSON_PROPERTY_API_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApiId(@jakarta.annotation.Nullable String apiId) {
     this.apiId = apiId;
@@ -202,7 +202,7 @@ public class SignatureRequestResponseCustomFieldBase {
    * @return editor
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDITOR)
+  @JsonProperty(value = JSON_PROPERTY_EDITOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEditor() {
@@ -210,7 +210,7 @@ public class SignatureRequestResponseCustomFieldBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDITOR)
+  @JsonProperty(value = JSON_PROPERTY_EDITOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEditor(@jakarta.annotation.Nullable String editor) {
     this.editor = editor;
@@ -385,10 +385,7 @@ public class SignatureRequestResponseCustomFieldBase {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   static {

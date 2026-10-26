@@ -41,7 +41,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseDataValueSignature.JSON_PROPERTY_VALUE,
   SignatureRequestResponseDataValueSignature.JSON_PROPERTY_IS_SIGNED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -89,7 +89,7 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
    * @return type
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getType() {
@@ -97,7 +97,7 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(@jakarta.annotation.Nullable String type) {
     this.type = type;
@@ -114,7 +114,7 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
    * @return value
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getValue() {
@@ -122,7 +122,7 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(@jakarta.annotation.Nullable String value) {
     this.value = value;
@@ -139,7 +139,7 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
    * @return isSigned
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_SIGNED)
+  @JsonProperty(value = JSON_PROPERTY_IS_SIGNED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsSigned() {
@@ -147,7 +147,7 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_SIGNED)
+  @JsonProperty(value = JSON_PROPERTY_IS_SIGNED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsSigned(@jakarta.annotation.Nullable Boolean isSigned) {
     this.isSigned = isSigned;
@@ -283,10 +283,7 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   static {

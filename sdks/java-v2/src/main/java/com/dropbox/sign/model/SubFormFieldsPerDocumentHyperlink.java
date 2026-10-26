@@ -43,7 +43,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_FONT_FAMILY,
   SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_FONT_SIZE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -162,7 +162,7 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getType() {
@@ -170,7 +170,7 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
@@ -187,7 +187,7 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
    * @return content
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonProperty(value = JSON_PROPERTY_CONTENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getContent() {
@@ -195,7 +195,7 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonProperty(value = JSON_PROPERTY_CONTENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setContent(@jakarta.annotation.Nonnull String content) {
     this.content = content;
@@ -212,7 +212,7 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
    * @return contentUrl
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CONTENT_URL)
+  @JsonProperty(value = JSON_PROPERTY_CONTENT_URL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getContentUrl() {
@@ -220,7 +220,7 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONTENT_URL)
+  @JsonProperty(value = JSON_PROPERTY_CONTENT_URL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setContentUrl(@jakarta.annotation.Nonnull String contentUrl) {
     this.contentUrl = contentUrl;
@@ -237,7 +237,7 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
    * @return fontFamily
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FontFamilyEnum getFontFamily() {
@@ -245,7 +245,7 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFontFamily(@jakarta.annotation.Nullable FontFamilyEnum fontFamily) {
     this.fontFamily = fontFamily;
@@ -262,7 +262,7 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
    * @return fontSize
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_FONT_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getFontSize() {
@@ -270,7 +270,7 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_FONT_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFontSize(@jakarta.annotation.Nullable Integer fontSize) {
     this.fontSize = fontSize;
@@ -448,10 +448,7 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   static {

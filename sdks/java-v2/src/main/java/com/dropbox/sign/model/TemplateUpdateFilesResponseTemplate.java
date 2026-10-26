@@ -39,7 +39,7 @@ import com.dropbox.sign.ApiException;
   TemplateUpdateFilesResponseTemplate.JSON_PROPERTY_TEMPLATE_ID,
   TemplateUpdateFilesResponseTemplate.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateUpdateFilesResponseTemplate {
   public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
@@ -79,7 +79,7 @@ public class TemplateUpdateFilesResponseTemplate {
    * @return templateId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTemplateId() {
@@ -87,7 +87,7 @@ public class TemplateUpdateFilesResponseTemplate {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTemplateId(@jakarta.annotation.Nullable String templateId) {
     this.templateId = templateId;
@@ -115,7 +115,7 @@ public class TemplateUpdateFilesResponseTemplate {
    */
   @Deprecated
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<WarningResponse> getWarnings() {
@@ -124,7 +124,7 @@ public class TemplateUpdateFilesResponseTemplate {
 
 
   @Deprecated
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
@@ -236,10 +236,7 @@ public class TemplateUpdateFilesResponseTemplate {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

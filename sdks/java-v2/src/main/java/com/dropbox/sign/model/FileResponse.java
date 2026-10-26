@@ -36,7 +36,7 @@ import com.dropbox.sign.ApiException;
   FileResponse.JSON_PROPERTY_FILE_URL,
   FileResponse.JSON_PROPERTY_EXPIRES_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FileResponse {
   public static final String JSON_PROPERTY_FILE_URL = "file_url";
@@ -75,7 +75,7 @@ public class FileResponse {
    * @return fileUrl
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FILE_URL)
+  @JsonProperty(value = JSON_PROPERTY_FILE_URL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getFileUrl() {
@@ -83,7 +83,7 @@ public class FileResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_URL)
+  @JsonProperty(value = JSON_PROPERTY_FILE_URL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFileUrl(@jakarta.annotation.Nonnull String fileUrl) {
     this.fileUrl = fileUrl;
@@ -100,7 +100,7 @@ public class FileResponse {
    * @return expiresAt
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getExpiresAt() {
@@ -108,7 +108,7 @@ public class FileResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExpiresAt(@jakarta.annotation.Nonnull Integer expiresAt) {
     this.expiresAt = expiresAt;
@@ -220,10 +220,7 @@ public class FileResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

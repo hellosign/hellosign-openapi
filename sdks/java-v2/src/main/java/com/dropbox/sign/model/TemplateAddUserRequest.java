@@ -37,7 +37,7 @@ import com.dropbox.sign.ApiException;
   TemplateAddUserRequest.JSON_PROPERTY_EMAIL_ADDRESS,
   TemplateAddUserRequest.JSON_PROPERTY_SKIP_NOTIFICATION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateAddUserRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -80,7 +80,7 @@ public class TemplateAddUserRequest {
    * @return accountId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAccountId() {
@@ -88,7 +88,7 @@ public class TemplateAddUserRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
@@ -105,7 +105,7 @@ public class TemplateAddUserRequest {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEmailAddress() {
@@ -113,7 +113,7 @@ public class TemplateAddUserRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
@@ -130,7 +130,7 @@ public class TemplateAddUserRequest {
    * @return skipNotification
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SKIP_NOTIFICATION)
+  @JsonProperty(value = JSON_PROPERTY_SKIP_NOTIFICATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSkipNotification() {
@@ -138,7 +138,7 @@ public class TemplateAddUserRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SKIP_NOTIFICATION)
+  @JsonProperty(value = JSON_PROPERTY_SKIP_NOTIFICATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSkipNotification(@jakarta.annotation.Nullable Boolean skipNotification) {
     this.skipNotification = skipNotification;
@@ -271,10 +271,7 @@ public class TemplateAddUserRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

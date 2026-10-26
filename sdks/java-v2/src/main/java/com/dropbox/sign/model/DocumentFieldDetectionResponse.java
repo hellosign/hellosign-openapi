@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   DocumentFieldDetectionResponse.JSON_PROPERTY_DETECTION_RESULT,
   DocumentFieldDetectionResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class DocumentFieldDetectionResponse {
   public static final String JSON_PROPERTY_DETECTION_RESULT = "detection_result";
@@ -79,7 +79,7 @@ public class DocumentFieldDetectionResponse {
    * @return detectionResult
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DETECTION_RESULT)
+  @JsonProperty(value = JSON_PROPERTY_DETECTION_RESULT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public DocumentFieldDetectionResponseDetectionResult getDetectionResult() {
@@ -87,7 +87,7 @@ public class DocumentFieldDetectionResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DETECTION_RESULT)
+  @JsonProperty(value = JSON_PROPERTY_DETECTION_RESULT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDetectionResult(@jakarta.annotation.Nonnull DocumentFieldDetectionResponseDetectionResult detectionResult) {
     this.detectionResult = detectionResult;
@@ -112,7 +112,7 @@ public class DocumentFieldDetectionResponse {
    * @return warnings
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<WarningResponse> getWarnings() {
@@ -120,7 +120,7 @@ public class DocumentFieldDetectionResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
@@ -232,10 +232,7 @@ public class DocumentFieldDetectionResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

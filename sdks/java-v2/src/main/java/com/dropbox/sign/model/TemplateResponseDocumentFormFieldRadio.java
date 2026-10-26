@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFormFieldRadio.JSON_PROPERTY_TYPE,
   TemplateResponseDocumentFormFieldRadio.JSON_PROPERTY_GROUP
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -84,7 +84,7 @@ public class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocu
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getType() {
@@ -92,7 +92,7 @@ public class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocu
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
@@ -109,7 +109,7 @@ public class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocu
    * @return group
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonProperty(value = JSON_PROPERTY_GROUP, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getGroup() {
@@ -117,7 +117,7 @@ public class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocu
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonProperty(value = JSON_PROPERTY_GROUP, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGroup(@jakarta.annotation.Nonnull String group) {
     this.group = group;
@@ -232,10 +232,7 @@ public class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocu
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   static {

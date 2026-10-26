@@ -51,7 +51,7 @@ import com.dropbox.sign.ApiException;
   FaxResponse.JSON_PROPERTY_MESSAGE,
   FaxResponse.JSON_PROPERTY_FINAL_COPY_URI
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxResponse {
   public static final String JSON_PROPERTY_FAX_ID = "fax_id";
@@ -130,7 +130,7 @@ public class FaxResponse {
    * @return faxId
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FAX_ID)
+  @JsonProperty(value = JSON_PROPERTY_FAX_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getFaxId() {
@@ -138,7 +138,7 @@ public class FaxResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FAX_ID)
+  @JsonProperty(value = JSON_PROPERTY_FAX_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFaxId(@jakarta.annotation.Nonnull String faxId) {
     this.faxId = faxId;
@@ -155,7 +155,7 @@ public class FaxResponse {
    * @return title
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTitle() {
@@ -163,7 +163,7 @@ public class FaxResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTitle(@jakarta.annotation.Nonnull String title) {
     this.title = title;
@@ -180,7 +180,7 @@ public class FaxResponse {
    * @return originalTitle
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_ORIGINAL_TITLE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getOriginalTitle() {
@@ -188,7 +188,7 @@ public class FaxResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_ORIGINAL_TITLE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOriginalTitle(@jakarta.annotation.Nonnull String originalTitle) {
     this.originalTitle = originalTitle;
@@ -213,7 +213,7 @@ public class FaxResponse {
    * @return metadata
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = true)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
 
   public Map<String, Object> getMetadata() {
@@ -221,7 +221,7 @@ public class FaxResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = true)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
   public void setMetadata(@jakarta.annotation.Nonnull Map<String, Object> metadata) {
     this.metadata = metadata;
@@ -238,7 +238,7 @@ public class FaxResponse {
    * @return createdAt
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getCreatedAt() {
@@ -246,7 +246,7 @@ public class FaxResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedAt(@jakarta.annotation.Nonnull Integer createdAt) {
     this.createdAt = createdAt;
@@ -263,7 +263,7 @@ public class FaxResponse {
    * @return sender
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SENDER)
+  @JsonProperty(value = JSON_PROPERTY_SENDER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getSender() {
@@ -271,7 +271,7 @@ public class FaxResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SENDER)
+  @JsonProperty(value = JSON_PROPERTY_SENDER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSender(@jakarta.annotation.Nonnull String sender) {
     this.sender = sender;
@@ -288,7 +288,7 @@ public class FaxResponse {
    * @return filesUrl
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FILES_URL)
+  @JsonProperty(value = JSON_PROPERTY_FILES_URL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getFilesUrl() {
@@ -296,7 +296,7 @@ public class FaxResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILES_URL)
+  @JsonProperty(value = JSON_PROPERTY_FILES_URL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFilesUrl(@jakarta.annotation.Nonnull String filesUrl) {
     this.filesUrl = filesUrl;
@@ -321,7 +321,7 @@ public class FaxResponse {
    * @return transmissions
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TRANSMISSIONS)
+  @JsonProperty(value = JSON_PROPERTY_TRANSMISSIONS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<FaxResponseTransmission> getTransmissions() {
@@ -329,7 +329,7 @@ public class FaxResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRANSMISSIONS)
+  @JsonProperty(value = JSON_PROPERTY_TRANSMISSIONS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTransmissions(@jakarta.annotation.Nonnull List<FaxResponseTransmission> transmissions) {
     this.transmissions = transmissions;
@@ -346,7 +346,7 @@ public class FaxResponse {
    * @return testMode
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getTestMode() {
@@ -354,7 +354,7 @@ public class FaxResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTestMode(@jakarta.annotation.Nonnull Boolean testMode) {
     this.testMode = testMode;
@@ -371,7 +371,7 @@ public class FaxResponse {
    * @return subject
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubject() {
@@ -379,7 +379,7 @@ public class FaxResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubject(@jakarta.annotation.Nullable String subject) {
     this.subject = subject;
@@ -396,7 +396,7 @@ public class FaxResponse {
    * @return message
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMessage() {
@@ -404,7 +404,7 @@ public class FaxResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
@@ -421,7 +421,7 @@ public class FaxResponse {
    * @return finalCopyUri
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FINAL_COPY_URI)
+  @JsonProperty(value = JSON_PROPERTY_FINAL_COPY_URI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFinalCopyUri() {
@@ -429,7 +429,7 @@ public class FaxResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FINAL_COPY_URI)
+  @JsonProperty(value = JSON_PROPERTY_FINAL_COPY_URI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFinalCopyUri(@jakarta.annotation.Nullable String finalCopyUri) {
     this.finalCopyUri = finalCopyUri;
@@ -751,10 +751,7 @@ public class FaxResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

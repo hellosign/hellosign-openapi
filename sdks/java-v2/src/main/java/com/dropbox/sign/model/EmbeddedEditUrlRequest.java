@@ -48,7 +48,7 @@ import com.dropbox.sign.ApiException;
   EmbeddedEditUrlRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
   EmbeddedEditUrlRequest.JSON_PROPERTY_TEST_MODE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class EmbeddedEditUrlRequest {
   public static final String JSON_PROPERTY_ALLOW_EDIT_CCS = "allow_edit_ccs";
@@ -119,7 +119,7 @@ public class EmbeddedEditUrlRequest {
    * @return allowEditCcs
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_CCS)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_EDIT_CCS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllowEditCcs() {
@@ -127,7 +127,7 @@ public class EmbeddedEditUrlRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_CCS)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_EDIT_CCS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowEditCcs(@jakarta.annotation.Nullable Boolean allowEditCcs) {
     this.allowEditCcs = allowEditCcs;
@@ -152,7 +152,7 @@ public class EmbeddedEditUrlRequest {
    * @return ccRoles
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CC_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_CC_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getCcRoles() {
@@ -160,7 +160,7 @@ public class EmbeddedEditUrlRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CC_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_CC_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCcRoles(@jakarta.annotation.Nullable List<String> ccRoles) {
     this.ccRoles = ccRoles;
@@ -177,7 +177,7 @@ public class EmbeddedEditUrlRequest {
    * @return editorOptions
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_EDITOR_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SubEditorOptions getEditorOptions() {
@@ -185,7 +185,7 @@ public class EmbeddedEditUrlRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_EDITOR_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEditorOptions(@jakarta.annotation.Nullable SubEditorOptions editorOptions) {
     this.editorOptions = editorOptions;
@@ -202,7 +202,7 @@ public class EmbeddedEditUrlRequest {
    * @return forceSignerRoles
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_FORCE_SIGNER_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getForceSignerRoles() {
@@ -210,7 +210,7 @@ public class EmbeddedEditUrlRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_FORCE_SIGNER_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForceSignerRoles(@jakarta.annotation.Nullable Boolean forceSignerRoles) {
     this.forceSignerRoles = forceSignerRoles;
@@ -227,7 +227,7 @@ public class EmbeddedEditUrlRequest {
    * @return forceSubjectMessage
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_FORCE_SUBJECT_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getForceSubjectMessage() {
@@ -235,7 +235,7 @@ public class EmbeddedEditUrlRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_FORCE_SUBJECT_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForceSubjectMessage(@jakarta.annotation.Nullable Boolean forceSubjectMessage) {
     this.forceSubjectMessage = forceSubjectMessage;
@@ -260,7 +260,7 @@ public class EmbeddedEditUrlRequest {
    * @return mergeFields
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MERGE_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_MERGE_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubMergeField> getMergeFields() {
@@ -268,7 +268,7 @@ public class EmbeddedEditUrlRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MERGE_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_MERGE_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMergeFields(@jakarta.annotation.Nullable List<SubMergeField> mergeFields) {
     this.mergeFields = mergeFields;
@@ -285,7 +285,7 @@ public class EmbeddedEditUrlRequest {
    * @return previewOnly
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PREVIEW_ONLY)
+  @JsonProperty(value = JSON_PROPERTY_PREVIEW_ONLY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getPreviewOnly() {
@@ -293,7 +293,7 @@ public class EmbeddedEditUrlRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PREVIEW_ONLY)
+  @JsonProperty(value = JSON_PROPERTY_PREVIEW_ONLY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPreviewOnly(@jakarta.annotation.Nullable Boolean previewOnly) {
     this.previewOnly = previewOnly;
@@ -310,7 +310,7 @@ public class EmbeddedEditUrlRequest {
    * @return showPreview
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
+  @JsonProperty(value = JSON_PROPERTY_SHOW_PREVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShowPreview() {
@@ -318,7 +318,7 @@ public class EmbeddedEditUrlRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
+  @JsonProperty(value = JSON_PROPERTY_SHOW_PREVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowPreview(@jakarta.annotation.Nullable Boolean showPreview) {
     this.showPreview = showPreview;
@@ -335,7 +335,7 @@ public class EmbeddedEditUrlRequest {
    * @return showProgressStepper
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+  @JsonProperty(value = JSON_PROPERTY_SHOW_PROGRESS_STEPPER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShowProgressStepper() {
@@ -343,7 +343,7 @@ public class EmbeddedEditUrlRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+  @JsonProperty(value = JSON_PROPERTY_SHOW_PROGRESS_STEPPER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowProgressStepper(@jakarta.annotation.Nullable Boolean showProgressStepper) {
     this.showProgressStepper = showProgressStepper;
@@ -360,7 +360,7 @@ public class EmbeddedEditUrlRequest {
    * @return testMode
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getTestMode() {
@@ -368,7 +368,7 @@ public class EmbeddedEditUrlRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
@@ -648,10 +648,7 @@ public class EmbeddedEditUrlRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

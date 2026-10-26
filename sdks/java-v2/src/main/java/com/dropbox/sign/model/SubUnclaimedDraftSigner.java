@@ -37,7 +37,7 @@ import com.dropbox.sign.ApiException;
   SubUnclaimedDraftSigner.JSON_PROPERTY_NAME,
   SubUnclaimedDraftSigner.JSON_PROPERTY_ORDER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubUnclaimedDraftSigner {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
@@ -80,7 +80,7 @@ public class SubUnclaimedDraftSigner {
    * @return emailAddress
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEmailAddress() {
@@ -88,7 +88,7 @@ public class SubUnclaimedDraftSigner {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEmailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
@@ -105,7 +105,7 @@ public class SubUnclaimedDraftSigner {
    * @return name
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
@@ -113,7 +113,7 @@ public class SubUnclaimedDraftSigner {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
@@ -130,7 +130,7 @@ public class SubUnclaimedDraftSigner {
    * @return order
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getOrder() {
@@ -138,7 +138,7 @@ public class SubUnclaimedDraftSigner {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrder(@jakarta.annotation.Nullable Integer order) {
     this.order = order;
@@ -271,10 +271,7 @@ public class SubUnclaimedDraftSigner {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

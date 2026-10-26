@@ -35,7 +35,7 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   FileResponseDataUri.JSON_PROPERTY_DATA_URI
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FileResponseDataUri {
   public static final String JSON_PROPERTY_DATA_URI = "data_uri";
@@ -70,7 +70,7 @@ public class FileResponseDataUri {
    * @return dataUri
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DATA_URI)
+  @JsonProperty(value = JSON_PROPERTY_DATA_URI, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDataUri() {
@@ -78,7 +78,7 @@ public class FileResponseDataUri {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATA_URI)
+  @JsonProperty(value = JSON_PROPERTY_DATA_URI, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDataUri(@jakarta.annotation.Nonnull String dataUri) {
     this.dataUri = dataUri;
@@ -169,10 +169,7 @@ public class FileResponseDataUri {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

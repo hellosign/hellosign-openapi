@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class FaxApi {
   private ApiClient apiClient;
 
@@ -64,7 +64,7 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public void faxDelete(String faxId) throws ApiException {
+  public void faxDelete(@jakarta.annotation.Nonnull String faxId) throws ApiException {
     faxDeleteWithHttpInfo(faxId);
   }
 
@@ -84,7 +84,7 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> faxDeleteWithHttpInfo(String faxId) throws ApiException {
+  public ApiResponse<Void> faxDeleteWithHttpInfo(@jakarta.annotation.Nonnull String faxId) throws ApiException {
     
     // Check required parameters
     if (faxId == null) {
@@ -132,7 +132,7 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public File faxFiles(String faxId) throws ApiException {
+  public File faxFiles(@jakarta.annotation.Nonnull String faxId) throws ApiException {
     return faxFilesWithHttpInfo(faxId).getData();
   }
 
@@ -152,7 +152,7 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<File> faxFilesWithHttpInfo(String faxId) throws ApiException {
+  public ApiResponse<File> faxFilesWithHttpInfo(@jakarta.annotation.Nonnull String faxId) throws ApiException {
     
     // Check required parameters
     if (faxId == null) {
@@ -201,7 +201,7 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxGetResponse faxGet(String faxId) throws ApiException {
+  public FaxGetResponse faxGet(@jakarta.annotation.Nonnull String faxId) throws ApiException {
     return faxGetWithHttpInfo(faxId).getData();
   }
 
@@ -221,7 +221,7 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxGetResponse> faxGetWithHttpInfo(String faxId) throws ApiException {
+  public ApiResponse<FaxGetResponse> faxGetWithHttpInfo(@jakarta.annotation.Nonnull String faxId) throws ApiException {
     
     // Check required parameters
     if (faxId == null) {
@@ -271,7 +271,7 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxListResponse faxList(Integer page, Integer pageSize) throws ApiException {
+  public FaxListResponse faxList(@jakarta.annotation.Nullable Integer page, @jakarta.annotation.Nullable Integer pageSize) throws ApiException {
     return faxListWithHttpInfo(page, pageSize).getData();
   }
 
@@ -331,7 +331,7 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxListResponse> faxListWithHttpInfo(Integer page, Integer pageSize) throws ApiException {
+  public ApiResponse<FaxListResponse> faxListWithHttpInfo(@jakarta.annotation.Nullable Integer page, @jakarta.annotation.Nullable Integer pageSize) throws ApiException {
     
     if (page == null) {
         page = 1;
@@ -383,7 +383,7 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxGetResponse faxSend(FaxSendRequest faxSendRequest) throws ApiException {
+  public FaxGetResponse faxSend(@jakarta.annotation.Nonnull FaxSendRequest faxSendRequest) throws ApiException {
     return faxSendWithHttpInfo(faxSendRequest).getData();
   }
 
@@ -403,7 +403,7 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxGetResponse> faxSendWithHttpInfo(FaxSendRequest faxSendRequest) throws ApiException {
+  public ApiResponse<FaxGetResponse> faxSendWithHttpInfo(@jakarta.annotation.Nonnull FaxSendRequest faxSendRequest) throws ApiException {
     
     // Check required parameters
     if (faxSendRequest == null) {

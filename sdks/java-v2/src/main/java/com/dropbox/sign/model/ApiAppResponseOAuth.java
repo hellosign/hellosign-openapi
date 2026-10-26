@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   ApiAppResponseOAuth.JSON_PROPERTY_SCOPES,
   ApiAppResponseOAuth.JSON_PROPERTY_CHARGES_USERS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ApiAppResponseOAuth {
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
@@ -87,7 +87,7 @@ public class ApiAppResponseOAuth {
    * @return callbackUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+  @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCallbackUrl() {
@@ -95,7 +95,7 @@ public class ApiAppResponseOAuth {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+  @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCallbackUrl(@jakarta.annotation.Nullable String callbackUrl) {
     this.callbackUrl = callbackUrl;
@@ -112,7 +112,7 @@ public class ApiAppResponseOAuth {
    * @return secret
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SECRET)
+  @JsonProperty(value = JSON_PROPERTY_SECRET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSecret() {
@@ -120,7 +120,7 @@ public class ApiAppResponseOAuth {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SECRET)
+  @JsonProperty(value = JSON_PROPERTY_SECRET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSecret(@jakarta.annotation.Nullable String secret) {
     this.secret = secret;
@@ -145,7 +145,7 @@ public class ApiAppResponseOAuth {
    * @return scopes
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getScopes() {
@@ -153,7 +153,7 @@ public class ApiAppResponseOAuth {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @JsonProperty(value = JSON_PROPERTY_SCOPES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setScopes(@jakarta.annotation.Nullable List<String> scopes) {
     this.scopes = scopes;
@@ -170,7 +170,7 @@ public class ApiAppResponseOAuth {
    * @return chargesUsers
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHARGES_USERS)
+  @JsonProperty(value = JSON_PROPERTY_CHARGES_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getChargesUsers() {
@@ -178,7 +178,7 @@ public class ApiAppResponseOAuth {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CHARGES_USERS)
+  @JsonProperty(value = JSON_PROPERTY_CHARGES_USERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setChargesUsers(@jakarta.annotation.Nullable Boolean chargesUsers) {
     this.chargesUsers = chargesUsers;
@@ -332,10 +332,7 @@ public class ApiAppResponseOAuth {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

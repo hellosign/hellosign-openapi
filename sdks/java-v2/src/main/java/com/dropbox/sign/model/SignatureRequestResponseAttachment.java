@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseAttachment.JSON_PROPERTY_INSTRUCTIONS,
   SignatureRequestResponseAttachment.JSON_PROPERTY_UPLOADED_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SignatureRequestResponseAttachment {
   public static final String JSON_PROPERTY_ID = "id";
@@ -95,7 +95,7 @@ public class SignatureRequestResponseAttachment {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
@@ -103,7 +103,7 @@ public class SignatureRequestResponseAttachment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@jakarta.annotation.Nonnull String id) {
     this.id = id;
@@ -124,7 +124,7 @@ public class SignatureRequestResponseAttachment {
    * @return signer
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SIGNER)
+  @JsonProperty(value = JSON_PROPERTY_SIGNER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getSigner() {
@@ -132,7 +132,7 @@ public class SignatureRequestResponseAttachment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNER)
+  @JsonProperty(value = JSON_PROPERTY_SIGNER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSigner(@jakarta.annotation.Nonnull String signer) {
     this.signer = signer;
@@ -153,7 +153,7 @@ public class SignatureRequestResponseAttachment {
    * @return name
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
@@ -161,7 +161,7 @@ public class SignatureRequestResponseAttachment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
@@ -178,7 +178,7 @@ public class SignatureRequestResponseAttachment {
    * @return required
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_REQUIRED)
+  @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getRequired() {
@@ -186,7 +186,7 @@ public class SignatureRequestResponseAttachment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUIRED)
+  @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequired(@jakarta.annotation.Nonnull Boolean required) {
     this.required = required;
@@ -203,7 +203,7 @@ public class SignatureRequestResponseAttachment {
    * @return instructions
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INSTRUCTIONS)
+  @JsonProperty(value = JSON_PROPERTY_INSTRUCTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstructions() {
@@ -211,7 +211,7 @@ public class SignatureRequestResponseAttachment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INSTRUCTIONS)
+  @JsonProperty(value = JSON_PROPERTY_INSTRUCTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstructions(@jakarta.annotation.Nullable String instructions) {
     this.instructions = instructions;
@@ -228,7 +228,7 @@ public class SignatureRequestResponseAttachment {
    * @return uploadedAt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPLOADED_AT)
+  @JsonProperty(value = JSON_PROPERTY_UPLOADED_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getUploadedAt() {
@@ -236,7 +236,7 @@ public class SignatureRequestResponseAttachment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UPLOADED_AT)
+  @JsonProperty(value = JSON_PROPERTY_UPLOADED_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUploadedAt(@jakarta.annotation.Nullable Integer uploadedAt) {
     this.uploadedAt = uploadedAt;
@@ -432,10 +432,7 @@ public class SignatureRequestResponseAttachment {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }
