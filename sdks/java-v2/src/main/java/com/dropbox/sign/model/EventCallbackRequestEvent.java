@@ -39,7 +39,7 @@ import com.dropbox.sign.ApiException;
   EventCallbackRequestEvent.JSON_PROPERTY_EVENT_HASH,
   EventCallbackRequestEvent.JSON_PROPERTY_EVENT_METADATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class EventCallbackRequestEvent {
   public static final String JSON_PROPERTY_EVENT_TIME = "event_time";
@@ -177,7 +177,7 @@ public class EventCallbackRequestEvent {
    * @return eventTime
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EVENT_TIME)
+  @JsonProperty(value = JSON_PROPERTY_EVENT_TIME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEventTime() {
@@ -185,7 +185,7 @@ public class EventCallbackRequestEvent {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EVENT_TIME)
+  @JsonProperty(value = JSON_PROPERTY_EVENT_TIME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEventTime(@jakarta.annotation.Nonnull String eventTime) {
     this.eventTime = eventTime;
@@ -202,7 +202,7 @@ public class EventCallbackRequestEvent {
    * @return eventType
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_EVENT_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public EventTypeEnum getEventType() {
@@ -210,7 +210,7 @@ public class EventCallbackRequestEvent {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_EVENT_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEventType(@jakarta.annotation.Nonnull EventTypeEnum eventType) {
     this.eventType = eventType;
@@ -227,7 +227,7 @@ public class EventCallbackRequestEvent {
    * @return eventHash
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EVENT_HASH)
+  @JsonProperty(value = JSON_PROPERTY_EVENT_HASH, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEventHash() {
@@ -235,7 +235,7 @@ public class EventCallbackRequestEvent {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EVENT_HASH)
+  @JsonProperty(value = JSON_PROPERTY_EVENT_HASH, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEventHash(@jakarta.annotation.Nonnull String eventHash) {
     this.eventHash = eventHash;
@@ -252,7 +252,7 @@ public class EventCallbackRequestEvent {
    * @return eventMetadata
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EVENT_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_EVENT_METADATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EventCallbackRequestEventMetadata getEventMetadata() {
@@ -260,7 +260,7 @@ public class EventCallbackRequestEvent {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EVENT_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_EVENT_METADATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventMetadata(@jakarta.annotation.Nullable EventCallbackRequestEventMetadata eventMetadata) {
     this.eventMetadata = eventMetadata;
@@ -414,10 +414,7 @@ public class EventCallbackRequestEvent {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

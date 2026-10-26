@@ -36,7 +36,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_LINES,
   TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_CHARS_PER_LINE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseFieldAvgTextLength {
   public static final String JSON_PROPERTY_NUM_LINES = "num_lines";
@@ -75,7 +75,7 @@ public class TemplateResponseFieldAvgTextLength {
    * @return numLines
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NUM_LINES)
+  @JsonProperty(value = JSON_PROPERTY_NUM_LINES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getNumLines() {
@@ -83,7 +83,7 @@ public class TemplateResponseFieldAvgTextLength {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NUM_LINES)
+  @JsonProperty(value = JSON_PROPERTY_NUM_LINES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumLines(@jakarta.annotation.Nullable Integer numLines) {
     this.numLines = numLines;
@@ -100,7 +100,7 @@ public class TemplateResponseFieldAvgTextLength {
    * @return numCharsPerLine
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NUM_CHARS_PER_LINE)
+  @JsonProperty(value = JSON_PROPERTY_NUM_CHARS_PER_LINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getNumCharsPerLine() {
@@ -108,7 +108,7 @@ public class TemplateResponseFieldAvgTextLength {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NUM_CHARS_PER_LINE)
+  @JsonProperty(value = JSON_PROPERTY_NUM_CHARS_PER_LINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumCharsPerLine(@jakarta.annotation.Nullable Integer numCharsPerLine) {
     this.numCharsPerLine = numCharsPerLine;
@@ -220,10 +220,7 @@ public class TemplateResponseFieldAvgTextLength {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

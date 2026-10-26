@@ -36,7 +36,7 @@ import com.dropbox.sign.ApiException;
   EmbeddedSignUrlResponseEmbedded.JSON_PROPERTY_SIGN_URL,
   EmbeddedSignUrlResponseEmbedded.JSON_PROPERTY_EXPIRES_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class EmbeddedSignUrlResponseEmbedded {
   public static final String JSON_PROPERTY_SIGN_URL = "sign_url";
@@ -75,7 +75,7 @@ public class EmbeddedSignUrlResponseEmbedded {
    * @return signUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGN_URL)
+  @JsonProperty(value = JSON_PROPERTY_SIGN_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSignUrl() {
@@ -83,7 +83,7 @@ public class EmbeddedSignUrlResponseEmbedded {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGN_URL)
+  @JsonProperty(value = JSON_PROPERTY_SIGN_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignUrl(@jakarta.annotation.Nullable String signUrl) {
     this.signUrl = signUrl;
@@ -100,7 +100,7 @@ public class EmbeddedSignUrlResponseEmbedded {
    * @return expiresAt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getExpiresAt() {
@@ -108,7 +108,7 @@ public class EmbeddedSignUrlResponseEmbedded {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
@@ -220,10 +220,7 @@ public class EmbeddedSignUrlResponseEmbedded {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

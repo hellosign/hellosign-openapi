@@ -36,7 +36,7 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   ErrorResponse.JSON_PROPERTY_ERROR
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ErrorResponse {
   public static final String JSON_PROPERTY_ERROR = "error";
@@ -71,7 +71,7 @@ public class ErrorResponse {
    * @return error
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(value = JSON_PROPERTY_ERROR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ErrorResponseError getError() {
@@ -79,7 +79,7 @@ public class ErrorResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(value = JSON_PROPERTY_ERROR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setError(@jakarta.annotation.Nonnull ErrorResponseError error) {
     this.error = error;
@@ -170,10 +170,7 @@ public class ErrorResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

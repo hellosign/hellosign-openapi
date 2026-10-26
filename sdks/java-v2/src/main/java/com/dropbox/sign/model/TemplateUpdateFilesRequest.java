@@ -43,7 +43,7 @@ import com.dropbox.sign.ApiException;
   TemplateUpdateFilesRequest.JSON_PROPERTY_SUBJECT,
   TemplateUpdateFilesRequest.JSON_PROPERTY_TEST_MODE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateUpdateFilesRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
@@ -98,7 +98,7 @@ public class TemplateUpdateFilesRequest {
    * @return clientId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getClientId() {
@@ -106,7 +106,7 @@ public class TemplateUpdateFilesRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientId(@jakarta.annotation.Nullable String clientId) {
     this.clientId = clientId;
@@ -131,7 +131,7 @@ public class TemplateUpdateFilesRequest {
    * @return files
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<File> getFiles() {
@@ -139,7 +139,7 @@ public class TemplateUpdateFilesRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFiles(@jakarta.annotation.Nullable List<File> files) {
     this.files = files;
@@ -164,7 +164,7 @@ public class TemplateUpdateFilesRequest {
    * @return fileUrls
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_URLS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getFileUrls() {
@@ -172,7 +172,7 @@ public class TemplateUpdateFilesRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_URLS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileUrls(@jakarta.annotation.Nullable List<String> fileUrls) {
     this.fileUrls = fileUrls;
@@ -189,7 +189,7 @@ public class TemplateUpdateFilesRequest {
    * @return message
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMessage() {
@@ -197,7 +197,7 @@ public class TemplateUpdateFilesRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
@@ -214,7 +214,7 @@ public class TemplateUpdateFilesRequest {
    * @return subject
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubject() {
@@ -222,7 +222,7 @@ public class TemplateUpdateFilesRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubject(@jakarta.annotation.Nullable String subject) {
     this.subject = subject;
@@ -239,7 +239,7 @@ public class TemplateUpdateFilesRequest {
    * @return testMode
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getTestMode() {
@@ -247,7 +247,7 @@ public class TemplateUpdateFilesRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
@@ -443,10 +443,7 @@ public class TemplateUpdateFilesRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

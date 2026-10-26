@@ -36,7 +36,7 @@ import com.dropbox.sign.ApiException;
   SubCC.JSON_PROPERTY_ROLE,
   SubCC.JSON_PROPERTY_EMAIL_ADDRESS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubCC {
   public static final String JSON_PROPERTY_ROLE = "role";
@@ -75,7 +75,7 @@ public class SubCC {
    * @return role
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ROLE)
+  @JsonProperty(value = JSON_PROPERTY_ROLE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getRole() {
@@ -83,7 +83,7 @@ public class SubCC {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROLE)
+  @JsonProperty(value = JSON_PROPERTY_ROLE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRole(@jakarta.annotation.Nonnull String role) {
     this.role = role;
@@ -100,7 +100,7 @@ public class SubCC {
    * @return emailAddress
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEmailAddress() {
@@ -108,7 +108,7 @@ public class SubCC {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEmailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
@@ -220,10 +220,7 @@ public class SubCC {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

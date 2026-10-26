@@ -48,7 +48,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldsPerDocumentBase.JSON_PROPERTY_NAME,
   SubFormFieldsPerDocumentBase.JSON_PROPERTY_PAGE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -140,7 +140,7 @@ public class SubFormFieldsPerDocumentBase {
    * @return documentIndex
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DOCUMENT_INDEX)
+  @JsonProperty(value = JSON_PROPERTY_DOCUMENT_INDEX, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getDocumentIndex() {
@@ -148,7 +148,7 @@ public class SubFormFieldsPerDocumentBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOCUMENT_INDEX)
+  @JsonProperty(value = JSON_PROPERTY_DOCUMENT_INDEX, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDocumentIndex(@jakarta.annotation.Nonnull Integer documentIndex) {
     this.documentIndex = documentIndex;
@@ -165,7 +165,7 @@ public class SubFormFieldsPerDocumentBase {
    * @return apiId
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_API_ID)
+  @JsonProperty(value = JSON_PROPERTY_API_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getApiId() {
@@ -173,7 +173,7 @@ public class SubFormFieldsPerDocumentBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_API_ID)
+  @JsonProperty(value = JSON_PROPERTY_API_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setApiId(@jakarta.annotation.Nonnull String apiId) {
     this.apiId = apiId;
@@ -190,7 +190,7 @@ public class SubFormFieldsPerDocumentBase {
    * @return height
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getHeight() {
@@ -198,7 +198,7 @@ public class SubFormFieldsPerDocumentBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHeight(@jakarta.annotation.Nonnull Integer height) {
     this.height = height;
@@ -215,7 +215,7 @@ public class SubFormFieldsPerDocumentBase {
    * @return required
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_REQUIRED)
+  @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getRequired() {
@@ -223,7 +223,7 @@ public class SubFormFieldsPerDocumentBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUIRED)
+  @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequired(@jakarta.annotation.Nonnull Boolean required) {
     this.required = required;
@@ -244,7 +244,7 @@ public class SubFormFieldsPerDocumentBase {
    * @return signer
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SIGNER)
+  @JsonProperty(value = JSON_PROPERTY_SIGNER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getSigner() {
@@ -252,7 +252,7 @@ public class SubFormFieldsPerDocumentBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNER)
+  @JsonProperty(value = JSON_PROPERTY_SIGNER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSigner(@jakarta.annotation.Nonnull String signer) {
     this.signer = signer;
@@ -273,7 +273,7 @@ public class SubFormFieldsPerDocumentBase {
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getType() {
@@ -281,7 +281,7 @@ public class SubFormFieldsPerDocumentBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
@@ -298,7 +298,7 @@ public class SubFormFieldsPerDocumentBase {
    * @return width
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_WIDTH)
+  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getWidth() {
@@ -306,7 +306,7 @@ public class SubFormFieldsPerDocumentBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WIDTH)
+  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWidth(@jakarta.annotation.Nonnull Integer width) {
     this.width = width;
@@ -323,7 +323,7 @@ public class SubFormFieldsPerDocumentBase {
    * @return x
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_X)
+  @JsonProperty(value = JSON_PROPERTY_X, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getX() {
@@ -331,7 +331,7 @@ public class SubFormFieldsPerDocumentBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_X)
+  @JsonProperty(value = JSON_PROPERTY_X, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setX(@jakarta.annotation.Nonnull Integer x) {
     this.x = x;
@@ -348,7 +348,7 @@ public class SubFormFieldsPerDocumentBase {
    * @return y
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_Y)
+  @JsonProperty(value = JSON_PROPERTY_Y, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getY() {
@@ -356,7 +356,7 @@ public class SubFormFieldsPerDocumentBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_Y)
+  @JsonProperty(value = JSON_PROPERTY_Y, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setY(@jakarta.annotation.Nonnull Integer y) {
     this.y = y;
@@ -373,7 +373,7 @@ public class SubFormFieldsPerDocumentBase {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
@@ -381,7 +381,7 @@ public class SubFormFieldsPerDocumentBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
@@ -398,7 +398,7 @@ public class SubFormFieldsPerDocumentBase {
    * @return page
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonProperty(value = JSON_PROPERTY_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getPage() {
@@ -406,7 +406,7 @@ public class SubFormFieldsPerDocumentBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonProperty(value = JSON_PROPERTY_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPage(@jakarta.annotation.Nullable Integer page) {
     this.page = page;
@@ -707,10 +707,7 @@ public class SubFormFieldsPerDocumentBase {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   static {

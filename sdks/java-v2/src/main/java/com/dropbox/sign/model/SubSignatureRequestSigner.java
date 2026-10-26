@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   SubSignatureRequestSigner.JSON_PROPERTY_SMS_PHONE_NUMBER,
   SubSignatureRequestSigner.JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubSignatureRequestSigner {
   public static final String JSON_PROPERTY_NAME = "name";
@@ -130,7 +130,7 @@ public class SubSignatureRequestSigner {
    * @return name
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
@@ -138,7 +138,7 @@ public class SubSignatureRequestSigner {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
@@ -155,7 +155,7 @@ public class SubSignatureRequestSigner {
    * @return emailAddress
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEmailAddress() {
@@ -163,7 +163,7 @@ public class SubSignatureRequestSigner {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEmailAddress(@jakarta.annotation.Nonnull String emailAddress) {
     this.emailAddress = emailAddress;
@@ -180,7 +180,7 @@ public class SubSignatureRequestSigner {
    * @return order
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getOrder() {
@@ -188,7 +188,7 @@ public class SubSignatureRequestSigner {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrder(@jakarta.annotation.Nullable Integer order) {
     this.order = order;
@@ -205,7 +205,7 @@ public class SubSignatureRequestSigner {
    * @return pin
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PIN)
+  @JsonProperty(value = JSON_PROPERTY_PIN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPin() {
@@ -213,7 +213,7 @@ public class SubSignatureRequestSigner {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PIN)
+  @JsonProperty(value = JSON_PROPERTY_PIN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPin(@jakarta.annotation.Nullable String pin) {
     this.pin = pin;
@@ -230,7 +230,7 @@ public class SubSignatureRequestSigner {
    * @return smsPhoneNumber
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER)
+  @JsonProperty(value = JSON_PROPERTY_SMS_PHONE_NUMBER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSmsPhoneNumber() {
@@ -238,7 +238,7 @@ public class SubSignatureRequestSigner {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER)
+  @JsonProperty(value = JSON_PROPERTY_SMS_PHONE_NUMBER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSmsPhoneNumber(@jakarta.annotation.Nullable String smsPhoneNumber) {
     this.smsPhoneNumber = smsPhoneNumber;
@@ -255,7 +255,7 @@ public class SubSignatureRequestSigner {
    * @return smsPhoneNumberType
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SmsPhoneNumberTypeEnum getSmsPhoneNumberType() {
@@ -263,7 +263,7 @@ public class SubSignatureRequestSigner {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSmsPhoneNumberType(@jakarta.annotation.Nullable SmsPhoneNumberTypeEnum smsPhoneNumberType) {
     this.smsPhoneNumberType = smsPhoneNumberType;
@@ -459,10 +459,7 @@ public class SubSignatureRequestSigner {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

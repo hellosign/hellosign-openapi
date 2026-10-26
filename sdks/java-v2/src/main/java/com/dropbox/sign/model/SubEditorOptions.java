@@ -36,7 +36,7 @@ import com.dropbox.sign.ApiException;
   SubEditorOptions.JSON_PROPERTY_ALLOW_EDIT_SIGNERS,
   SubEditorOptions.JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubEditorOptions {
   public static final String JSON_PROPERTY_ALLOW_EDIT_SIGNERS = "allow_edit_signers";
@@ -75,7 +75,7 @@ public class SubEditorOptions {
    * @return allowEditSigners
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_SIGNERS)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_EDIT_SIGNERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllowEditSigners() {
@@ -83,7 +83,7 @@ public class SubEditorOptions {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_SIGNERS)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_EDIT_SIGNERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowEditSigners(@jakarta.annotation.Nullable Boolean allowEditSigners) {
     this.allowEditSigners = allowEditSigners;
@@ -100,7 +100,7 @@ public class SubEditorOptions {
    * @return allowEditDocuments
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllowEditDocuments() {
@@ -108,7 +108,7 @@ public class SubEditorOptions {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowEditDocuments(@jakarta.annotation.Nullable Boolean allowEditDocuments) {
     this.allowEditDocuments = allowEditDocuments;
@@ -220,10 +220,7 @@ public class SubEditorOptions {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

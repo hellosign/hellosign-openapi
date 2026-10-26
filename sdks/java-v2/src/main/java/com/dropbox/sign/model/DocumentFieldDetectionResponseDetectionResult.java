@@ -50,7 +50,7 @@ import com.dropbox.sign.ApiException;
   DocumentFieldDetectionResponseDetectionResult.JSON_PROPERTY_ERRORS,
   DocumentFieldDetectionResponseDetectionResult.JSON_PROPERTY_SUGGESTIONS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class DocumentFieldDetectionResponseDetectionResult {
   public static final String JSON_PROPERTY_DOCUMENT_HASH = "document_hash";
@@ -121,7 +121,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
    * @return documentHash
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DOCUMENT_HASH)
+  @JsonProperty(value = JSON_PROPERTY_DOCUMENT_HASH, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDocumentHash() {
@@ -129,7 +129,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOCUMENT_HASH)
+  @JsonProperty(value = JSON_PROPERTY_DOCUMENT_HASH, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDocumentHash(@jakarta.annotation.Nonnull String documentHash) {
     this.documentHash = documentHash;
@@ -146,7 +146,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
    * @return detectionMode
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DETECTION_MODE)
+  @JsonProperty(value = JSON_PROPERTY_DETECTION_MODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDetectionMode() {
@@ -154,7 +154,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DETECTION_MODE)
+  @JsonProperty(value = JSON_PROPERTY_DETECTION_MODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDetectionMode(@jakarta.annotation.Nonnull String detectionMode) {
     this.detectionMode = detectionMode;
@@ -172,7 +172,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
    * @return pageCount
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PAGE_COUNT)
+  @JsonProperty(value = JSON_PROPERTY_PAGE_COUNT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getPageCount() {
@@ -180,7 +180,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PAGE_COUNT)
+  @JsonProperty(value = JSON_PROPERTY_PAGE_COUNT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPageCount(@jakarta.annotation.Nonnull Integer pageCount) {
     this.pageCount = pageCount;
@@ -197,7 +197,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
    * @return pagesAnalyzed
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PAGES_ANALYZED)
+  @JsonProperty(value = JSON_PROPERTY_PAGES_ANALYZED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getPagesAnalyzed() {
@@ -205,7 +205,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PAGES_ANALYZED)
+  @JsonProperty(value = JSON_PROPERTY_PAGES_ANALYZED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPagesAnalyzed(@jakarta.annotation.Nonnull String pagesAnalyzed) {
     this.pagesAnalyzed = pagesAnalyzed;
@@ -222,7 +222,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
    * @return detectedAt
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DETECTED_AT)
+  @JsonProperty(value = JSON_PROPERTY_DETECTED_AT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getDetectedAt() {
@@ -230,7 +230,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DETECTED_AT)
+  @JsonProperty(value = JSON_PROPERTY_DETECTED_AT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDetectedAt(@jakarta.annotation.Nonnull Long detectedAt) {
     this.detectedAt = detectedAt;
@@ -255,7 +255,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
    * @return formFieldsPerDocument
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<SubFormFieldsPerDocumentBase> getFormFieldsPerDocument() {
@@ -263,7 +263,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFormFieldsPerDocument(@jakarta.annotation.Nonnull List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
     this.formFieldsPerDocument = formFieldsPerDocument;
@@ -288,7 +288,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
    * @return formFieldGroups
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELD_GROUPS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<SubFormFieldGroup> getFormFieldGroups() {
@@ -296,7 +296,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELD_GROUPS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFormFieldGroups(@jakarta.annotation.Nonnull List<SubFormFieldGroup> formFieldGroups) {
     this.formFieldGroups = formFieldGroups;
@@ -321,7 +321,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
    * @return warnings
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<WarningResponse> getWarnings() {
@@ -329,7 +329,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWarnings(@jakarta.annotation.Nonnull List<WarningResponse> warnings) {
     this.warnings = warnings;
@@ -354,7 +354,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
    * @return errors
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonProperty(value = JSON_PROPERTY_ERRORS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<ErrorResponseError> getErrors() {
@@ -362,7 +362,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonProperty(value = JSON_PROPERTY_ERRORS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setErrors(@jakarta.annotation.Nonnull List<ErrorResponseError> errors) {
     this.errors = errors;
@@ -387,7 +387,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
    * @return suggestions
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SUGGESTIONS)
+  @JsonProperty(value = JSON_PROPERTY_SUGGESTIONS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<String> getSuggestions() {
@@ -395,7 +395,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUGGESTIONS)
+  @JsonProperty(value = JSON_PROPERTY_SUGGESTIONS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSuggestions(@jakarta.annotation.Nonnull List<String> suggestions) {
     this.suggestions = suggestions;
@@ -675,10 +675,7 @@ public class DocumentFieldDetectionResponseDetectionResult {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

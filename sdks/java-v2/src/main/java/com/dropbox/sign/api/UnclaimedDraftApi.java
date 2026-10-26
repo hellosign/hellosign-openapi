@@ -21,7 +21,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class UnclaimedDraftApi {
   private ApiClient apiClient;
 
@@ -66,7 +66,7 @@ public class UnclaimedDraftApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public UnclaimedDraftCreateResponse unclaimedDraftCreate(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest) throws ApiException {
+  public UnclaimedDraftCreateResponse unclaimedDraftCreate(@jakarta.annotation.Nonnull UnclaimedDraftCreateRequest unclaimedDraftCreateRequest) throws ApiException {
     return unclaimedDraftCreateWithHttpInfo(unclaimedDraftCreateRequest).getData();
   }
 
@@ -86,7 +86,7 @@ public class UnclaimedDraftApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateWithHttpInfo(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest) throws ApiException {
+  public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateWithHttpInfo(@jakarta.annotation.Nonnull UnclaimedDraftCreateRequest unclaimedDraftCreateRequest) throws ApiException {
     
     // Check required parameters
     if (unclaimedDraftCreateRequest == null) {
@@ -131,7 +131,7 @@ public class UnclaimedDraftApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public UnclaimedDraftCreateResponse unclaimedDraftCreateEmbedded(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest) throws ApiException {
+  public UnclaimedDraftCreateResponse unclaimedDraftCreateEmbedded(@jakarta.annotation.Nonnull UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest) throws ApiException {
     return unclaimedDraftCreateEmbeddedWithHttpInfo(unclaimedDraftCreateEmbeddedRequest).getData();
   }
 
@@ -151,7 +151,7 @@ public class UnclaimedDraftApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateEmbeddedWithHttpInfo(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest) throws ApiException {
+  public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateEmbeddedWithHttpInfo(@jakarta.annotation.Nonnull UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest) throws ApiException {
     
     // Check required parameters
     if (unclaimedDraftCreateEmbeddedRequest == null) {
@@ -196,7 +196,7 @@ public class UnclaimedDraftApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public UnclaimedDraftCreateResponse unclaimedDraftCreateEmbeddedWithTemplate(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest) throws ApiException {
+  public UnclaimedDraftCreateResponse unclaimedDraftCreateEmbeddedWithTemplate(@jakarta.annotation.Nonnull UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest) throws ApiException {
     return unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(unclaimedDraftCreateEmbeddedWithTemplateRequest).getData();
   }
 
@@ -216,7 +216,7 @@ public class UnclaimedDraftApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest) throws ApiException {
+  public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(@jakarta.annotation.Nonnull UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest) throws ApiException {
     
     // Check required parameters
     if (unclaimedDraftCreateEmbeddedWithTemplateRequest == null) {
@@ -262,7 +262,7 @@ public class UnclaimedDraftApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public UnclaimedDraftCreateResponse unclaimedDraftEditAndResend(String signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest) throws ApiException {
+  public UnclaimedDraftCreateResponse unclaimedDraftEditAndResend(@jakarta.annotation.Nonnull String signatureRequestId, @jakarta.annotation.Nonnull UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest) throws ApiException {
     return unclaimedDraftEditAndResendWithHttpInfo(signatureRequestId, unclaimedDraftEditAndResendRequest).getData();
   }
 
@@ -283,7 +283,7 @@ public class UnclaimedDraftApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftEditAndResendWithHttpInfo(String signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest) throws ApiException {
+  public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftEditAndResendWithHttpInfo(@jakarta.annotation.Nonnull String signatureRequestId, @jakarta.annotation.Nonnull UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest) throws ApiException {
     
     // Check required parameters
     if (signatureRequestId == null) {

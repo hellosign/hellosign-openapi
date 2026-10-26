@@ -36,7 +36,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseSignerRole.JSON_PROPERTY_NAME,
   TemplateResponseSignerRole.JSON_PROPERTY_ORDER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseSignerRole {
   public static final String JSON_PROPERTY_NAME = "name";
@@ -75,7 +75,7 @@ public class TemplateResponseSignerRole {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
@@ -83,7 +83,7 @@ public class TemplateResponseSignerRole {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
@@ -100,7 +100,7 @@ public class TemplateResponseSignerRole {
    * @return order
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getOrder() {
@@ -108,7 +108,7 @@ public class TemplateResponseSignerRole {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOrder(@jakarta.annotation.Nullable Integer order) {
     this.order = order;
@@ -220,10 +220,7 @@ public class TemplateResponseSignerRole {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

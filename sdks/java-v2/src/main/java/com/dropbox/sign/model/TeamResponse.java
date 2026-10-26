@@ -41,7 +41,7 @@ import com.dropbox.sign.ApiException;
   TeamResponse.JSON_PROPERTY_INVITED_ACCOUNTS,
   TeamResponse.JSON_PROPERTY_INVITED_EMAILS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamResponse {
   public static final String JSON_PROPERTY_NAME = "name";
@@ -88,7 +88,7 @@ public class TeamResponse {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
@@ -96,7 +96,7 @@ public class TeamResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
@@ -121,7 +121,7 @@ public class TeamResponse {
    * @return accounts
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<AccountResponse> getAccounts() {
@@ -129,7 +129,7 @@ public class TeamResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccounts(@jakarta.annotation.Nullable List<AccountResponse> accounts) {
     this.accounts = accounts;
@@ -154,7 +154,7 @@ public class TeamResponse {
    * @return invitedAccounts
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INVITED_ACCOUNTS)
+  @JsonProperty(value = JSON_PROPERTY_INVITED_ACCOUNTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<AccountResponse> getInvitedAccounts() {
@@ -162,7 +162,7 @@ public class TeamResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INVITED_ACCOUNTS)
+  @JsonProperty(value = JSON_PROPERTY_INVITED_ACCOUNTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInvitedAccounts(@jakarta.annotation.Nullable List<AccountResponse> invitedAccounts) {
     this.invitedAccounts = invitedAccounts;
@@ -187,7 +187,7 @@ public class TeamResponse {
    * @return invitedEmails
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INVITED_EMAILS)
+  @JsonProperty(value = JSON_PROPERTY_INVITED_EMAILS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getInvitedEmails() {
@@ -195,7 +195,7 @@ public class TeamResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INVITED_EMAILS)
+  @JsonProperty(value = JSON_PROPERTY_INVITED_EMAILS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInvitedEmails(@jakarta.annotation.Nullable List<String> invitedEmails) {
     this.invitedEmails = invitedEmails;
@@ -349,10 +349,7 @@ public class TeamResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

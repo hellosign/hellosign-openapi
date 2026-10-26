@@ -38,7 +38,7 @@ import com.dropbox.sign.ApiException;
   FaxLineResponse.JSON_PROPERTY_FAX_LINE,
   FaxLineResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxLineResponse {
   public static final String JSON_PROPERTY_FAX_LINE = "fax_line";
@@ -77,7 +77,7 @@ public class FaxLineResponse {
    * @return faxLine
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FAX_LINE)
+  @JsonProperty(value = JSON_PROPERTY_FAX_LINE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public FaxLineResponseFaxLine getFaxLine() {
@@ -85,7 +85,7 @@ public class FaxLineResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FAX_LINE)
+  @JsonProperty(value = JSON_PROPERTY_FAX_LINE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFaxLine(@jakarta.annotation.Nonnull FaxLineResponseFaxLine faxLine) {
     this.faxLine = faxLine;
@@ -102,7 +102,7 @@ public class FaxLineResponse {
    * @return warnings
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public WarningResponse getWarnings() {
@@ -110,7 +110,7 @@ public class FaxLineResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWarnings(@jakarta.annotation.Nullable WarningResponse warnings) {
     this.warnings = warnings;
@@ -222,10 +222,7 @@ public class FaxLineResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

@@ -61,7 +61,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponse.JSON_PROPERTY_ACCOUNTS,
   TemplateResponse.JSON_PROPERTY_ATTACHMENTS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponse {
   public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
@@ -158,7 +158,7 @@ public class TemplateResponse {
    * @return templateId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTemplateId() {
@@ -166,7 +166,7 @@ public class TemplateResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTemplateId(@jakarta.annotation.Nullable String templateId) {
     this.templateId = templateId;
@@ -183,7 +183,7 @@ public class TemplateResponse {
    * @return title
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTitle() {
@@ -191,7 +191,7 @@ public class TemplateResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
@@ -208,7 +208,7 @@ public class TemplateResponse {
    * @return message
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMessage() {
@@ -216,7 +216,7 @@ public class TemplateResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
@@ -233,7 +233,7 @@ public class TemplateResponse {
    * @return updatedAt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+  @JsonProperty(value = JSON_PROPERTY_UPDATED_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getUpdatedAt() {
@@ -241,7 +241,7 @@ public class TemplateResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+  @JsonProperty(value = JSON_PROPERTY_UPDATED_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdatedAt(@jakarta.annotation.Nullable Integer updatedAt) {
     this.updatedAt = updatedAt;
@@ -258,7 +258,7 @@ public class TemplateResponse {
    * @return isEmbedded
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_EMBEDDED)
+  @JsonProperty(value = JSON_PROPERTY_IS_EMBEDDED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsEmbedded() {
@@ -266,7 +266,7 @@ public class TemplateResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_EMBEDDED)
+  @JsonProperty(value = JSON_PROPERTY_IS_EMBEDDED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsEmbedded(@jakarta.annotation.Nullable Boolean isEmbedded) {
     this.isEmbedded = isEmbedded;
@@ -283,7 +283,7 @@ public class TemplateResponse {
    * @return isCreator
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_CREATOR)
+  @JsonProperty(value = JSON_PROPERTY_IS_CREATOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsCreator() {
@@ -291,7 +291,7 @@ public class TemplateResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_CREATOR)
+  @JsonProperty(value = JSON_PROPERTY_IS_CREATOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsCreator(@jakarta.annotation.Nullable Boolean isCreator) {
     this.isCreator = isCreator;
@@ -308,7 +308,7 @@ public class TemplateResponse {
    * @return canEdit
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT)
+  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCanEdit() {
@@ -316,7 +316,7 @@ public class TemplateResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT)
+  @JsonProperty(value = JSON_PROPERTY_CAN_EDIT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCanEdit(@jakarta.annotation.Nullable Boolean canEdit) {
     this.canEdit = canEdit;
@@ -333,7 +333,7 @@ public class TemplateResponse {
    * @return isLocked
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+  @JsonProperty(value = JSON_PROPERTY_IS_LOCKED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsLocked() {
@@ -341,7 +341,7 @@ public class TemplateResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+  @JsonProperty(value = JSON_PROPERTY_IS_LOCKED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsLocked(@jakarta.annotation.Nullable Boolean isLocked) {
     this.isLocked = isLocked;
@@ -366,7 +366,7 @@ public class TemplateResponse {
    * @return metadata
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, Object> getMetadata() {
@@ -374,7 +374,7 @@ public class TemplateResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
     this.metadata = metadata;
@@ -399,7 +399,7 @@ public class TemplateResponse {
    * @return signerRoles
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_SIGNER_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<TemplateResponseSignerRole> getSignerRoles() {
@@ -407,7 +407,7 @@ public class TemplateResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_SIGNER_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignerRoles(@jakarta.annotation.Nullable List<TemplateResponseSignerRole> signerRoles) {
     this.signerRoles = signerRoles;
@@ -432,7 +432,7 @@ public class TemplateResponse {
    * @return ccRoles
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CC_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_CC_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<TemplateResponseCCRole> getCcRoles() {
@@ -440,7 +440,7 @@ public class TemplateResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CC_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_CC_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCcRoles(@jakarta.annotation.Nullable List<TemplateResponseCCRole> ccRoles) {
     this.ccRoles = ccRoles;
@@ -465,7 +465,7 @@ public class TemplateResponse {
    * @return documents
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOCUMENTS)
+  @JsonProperty(value = JSON_PROPERTY_DOCUMENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<TemplateResponseDocument> getDocuments() {
@@ -473,7 +473,7 @@ public class TemplateResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOCUMENTS)
+  @JsonProperty(value = JSON_PROPERTY_DOCUMENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocuments(@jakarta.annotation.Nullable List<TemplateResponseDocument> documents) {
     this.documents = documents;
@@ -501,7 +501,7 @@ public class TemplateResponse {
    */
   @Deprecated
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<TemplateResponseDocumentCustomFieldBase> getCustomFields() {
@@ -510,7 +510,7 @@ public class TemplateResponse {
 
 
   @Deprecated
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomFields(@jakarta.annotation.Nullable List<TemplateResponseDocumentCustomFieldBase> customFields) {
     this.customFields = customFields;
@@ -538,7 +538,7 @@ public class TemplateResponse {
    */
   @Deprecated
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAMED_FORM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_NAMED_FORM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<TemplateResponseDocumentFormFieldBase> getNamedFormFields() {
@@ -547,7 +547,7 @@ public class TemplateResponse {
 
 
   @Deprecated
-  @JsonProperty(JSON_PROPERTY_NAMED_FORM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_NAMED_FORM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNamedFormFields(@jakarta.annotation.Nullable List<TemplateResponseDocumentFormFieldBase> namedFormFields) {
     this.namedFormFields = namedFormFields;
@@ -572,7 +572,7 @@ public class TemplateResponse {
    * @return accounts
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<TemplateResponseAccount> getAccounts() {
@@ -580,7 +580,7 @@ public class TemplateResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccounts(@jakarta.annotation.Nullable List<TemplateResponseAccount> accounts) {
     this.accounts = accounts;
@@ -605,7 +605,7 @@ public class TemplateResponse {
    * @return attachments
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonProperty(value = JSON_PROPERTY_ATTACHMENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SignatureRequestResponseAttachment> getAttachments() {
@@ -613,7 +613,7 @@ public class TemplateResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonProperty(value = JSON_PROPERTY_ATTACHMENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAttachments(@jakarta.annotation.Nullable List<SignatureRequestResponseAttachment> attachments) {
     this.attachments = attachments;
@@ -1019,10 +1019,7 @@ public class TemplateResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

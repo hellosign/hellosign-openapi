@@ -48,7 +48,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL,
   TemplateResponseDocumentFormFieldText.JSON_PROPERTY_GROUP
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -171,7 +171,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getType() {
@@ -179,7 +179,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
@@ -196,7 +196,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
    * @return avgTextLength
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
+  @JsonProperty(value = JSON_PROPERTY_AVG_TEXT_LENGTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TemplateResponseFieldAvgTextLength getAvgTextLength() {
@@ -204,7 +204,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
+  @JsonProperty(value = JSON_PROPERTY_AVG_TEXT_LENGTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvgTextLength(@jakarta.annotation.Nullable TemplateResponseFieldAvgTextLength avgTextLength) {
     this.avgTextLength = avgTextLength;
@@ -221,7 +221,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
    * @return isMultiline
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
+  @JsonProperty(value = JSON_PROPERTY_IS_MULTILINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsMultiline() {
@@ -229,7 +229,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
+  @JsonProperty(value = JSON_PROPERTY_IS_MULTILINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsMultiline(@jakarta.annotation.Nullable Boolean isMultiline) {
     this.isMultiline = isMultiline;
@@ -246,7 +246,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
    * @return originalFontSize
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_ORIGINAL_FONT_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getOriginalFontSize() {
@@ -254,7 +254,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_ORIGINAL_FONT_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalFontSize(@jakarta.annotation.Nullable Integer originalFontSize) {
     this.originalFontSize = originalFontSize;
@@ -271,7 +271,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
    * @return fontFamily
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFontFamily() {
@@ -279,7 +279,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFontFamily(@jakarta.annotation.Nullable String fontFamily) {
     this.fontFamily = fontFamily;
@@ -296,7 +296,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
    * @return validationType
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_VALIDATION_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ValidationTypeEnum getValidationType() {
@@ -304,7 +304,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_VALIDATION_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidationType(@jakarta.annotation.Nullable ValidationTypeEnum validationType) {
     this.validationType = validationType;
@@ -321,7 +321,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
    * @return validationCustomRegex
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
+  @JsonProperty(value = JSON_PROPERTY_VALIDATION_CUSTOM_REGEX, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getValidationCustomRegex() {
@@ -329,7 +329,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
+  @JsonProperty(value = JSON_PROPERTY_VALIDATION_CUSTOM_REGEX, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidationCustomRegex(@jakarta.annotation.Nullable String validationCustomRegex) {
     this.validationCustomRegex = validationCustomRegex;
@@ -346,7 +346,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
    * @return validationCustomRegexFormatLabel
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
+  @JsonProperty(value = JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getValidationCustomRegexFormatLabel() {
@@ -354,7 +354,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
+  @JsonProperty(value = JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValidationCustomRegexFormatLabel(@jakarta.annotation.Nullable String validationCustomRegexFormatLabel) {
     this.validationCustomRegexFormatLabel = validationCustomRegexFormatLabel;
@@ -371,7 +371,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
    * @return group
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonProperty(value = JSON_PROPERTY_GROUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getGroup() {
@@ -379,7 +379,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonProperty(value = JSON_PROPERTY_GROUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGroup(@jakarta.annotation.Nullable String group) {
     this.group = group;
@@ -641,10 +641,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   static {

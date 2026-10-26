@@ -47,7 +47,7 @@ import com.dropbox.sign.ApiException;
   ApiAppUpdateRequest.JSON_PROPERTY_OPTIONS,
   ApiAppUpdateRequest.JSON_PROPERTY_WHITE_LABELING_OPTIONS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ApiAppUpdateRequest {
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
@@ -106,7 +106,7 @@ public class ApiAppUpdateRequest {
    * @return callbackUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+  @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCallbackUrl() {
@@ -114,7 +114,7 @@ public class ApiAppUpdateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+  @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCallbackUrl(@jakarta.annotation.Nullable String callbackUrl) {
     this.callbackUrl = callbackUrl;
@@ -131,7 +131,7 @@ public class ApiAppUpdateRequest {
    * @return customLogoFile
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_LOGO_FILE)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_LOGO_FILE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public File getCustomLogoFile() {
@@ -139,7 +139,7 @@ public class ApiAppUpdateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CUSTOM_LOGO_FILE)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_LOGO_FILE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomLogoFile(@jakarta.annotation.Nullable File customLogoFile) {
     this.customLogoFile = customLogoFile;
@@ -164,7 +164,7 @@ public class ApiAppUpdateRequest {
    * @return domains
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOMAINS)
+  @JsonProperty(value = JSON_PROPERTY_DOMAINS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getDomains() {
@@ -172,7 +172,7 @@ public class ApiAppUpdateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOMAINS)
+  @JsonProperty(value = JSON_PROPERTY_DOMAINS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomains(@jakarta.annotation.Nullable List<String> domains) {
     this.domains = domains;
@@ -189,7 +189,7 @@ public class ApiAppUpdateRequest {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
@@ -197,7 +197,7 @@ public class ApiAppUpdateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
@@ -214,7 +214,7 @@ public class ApiAppUpdateRequest {
    * @return oauth
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OAUTH)
+  @JsonProperty(value = JSON_PROPERTY_OAUTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SubOAuth getOauth() {
@@ -222,7 +222,7 @@ public class ApiAppUpdateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OAUTH)
+  @JsonProperty(value = JSON_PROPERTY_OAUTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOauth(@jakarta.annotation.Nullable SubOAuth oauth) {
     this.oauth = oauth;
@@ -239,7 +239,7 @@ public class ApiAppUpdateRequest {
    * @return options
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SubOptions getOptions() {
@@ -247,7 +247,7 @@ public class ApiAppUpdateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOptions(@jakarta.annotation.Nullable SubOptions options) {
     this.options = options;
@@ -264,7 +264,7 @@ public class ApiAppUpdateRequest {
    * @return whiteLabelingOptions
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WHITE_LABELING_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_WHITE_LABELING_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SubWhiteLabelingOptions getWhiteLabelingOptions() {
@@ -272,7 +272,7 @@ public class ApiAppUpdateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WHITE_LABELING_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_WHITE_LABELING_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWhiteLabelingOptions(@jakarta.annotation.Nullable SubWhiteLabelingOptions whiteLabelingOptions) {
     this.whiteLabelingOptions = whiteLabelingOptions;
@@ -489,10 +489,7 @@ public class ApiAppUpdateRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

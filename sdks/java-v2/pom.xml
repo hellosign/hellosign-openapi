@@ -311,7 +311,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>${jackson-version}</version>
+            <version>${jackson-annotations-version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -323,6 +323,7 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>${jackson-version}</version>
         </dependency>
+        <!-- Note: for useJackson3, jackson-datatype-jsr310 is included in jackson-databind -->
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
@@ -351,12 +352,13 @@
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jersey-version>3.1.1</jersey-version>
-        <jackson-version>2.17.1</jackson-version>
-        <jackson-databind-version>2.17.1</jackson-databind-version>
-        <jackson-databind-nullable-version>0.2.6</jackson-databind-nullable-version>
+        <jersey-version>3.1.11</jersey-version>
+        <jackson-version>2.21.6</jackson-version>
+        <jackson-annotations-version>2.21</jackson-annotations-version>
+        <jackson-databind-version>2.21.6</jackson-databind-version>
+        <jackson-databind-nullable-version>0.2.12</jackson-databind-nullable-version>
         <jakarta-annotation-version>2.1.1</jakarta-annotation-version>
-        <beanvalidation-version>3.0.2</beanvalidation-version>
+        <beanvalidation-version>3.1.1</beanvalidation-version>
         <junit-version>5.10.0</junit-version>
         <spotless.version>2.21.0</spotless.version>
         <mockito.version>3.12.4</mockito.version>

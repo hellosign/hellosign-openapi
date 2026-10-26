@@ -37,7 +37,7 @@ import com.dropbox.sign.ApiException;
   FaxResponseTransmission.JSON_PROPERTY_STATUS_CODE,
   FaxResponseTransmission.JSON_PROPERTY_SENT_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxResponseTransmission {
   public static final String JSON_PROPERTY_RECIPIENT = "recipient";
@@ -127,7 +127,7 @@ public class FaxResponseTransmission {
    * @return recipient
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RECIPIENT)
+  @JsonProperty(value = JSON_PROPERTY_RECIPIENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getRecipient() {
@@ -135,7 +135,7 @@ public class FaxResponseTransmission {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RECIPIENT)
+  @JsonProperty(value = JSON_PROPERTY_RECIPIENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRecipient(@jakarta.annotation.Nonnull String recipient) {
     this.recipient = recipient;
@@ -152,7 +152,7 @@ public class FaxResponseTransmission {
    * @return statusCode
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STATUS_CODE)
+  @JsonProperty(value = JSON_PROPERTY_STATUS_CODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public StatusCodeEnum getStatusCode() {
@@ -160,7 +160,7 @@ public class FaxResponseTransmission {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS_CODE)
+  @JsonProperty(value = JSON_PROPERTY_STATUS_CODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatusCode(@jakarta.annotation.Nonnull StatusCodeEnum statusCode) {
     this.statusCode = statusCode;
@@ -177,7 +177,7 @@ public class FaxResponseTransmission {
    * @return sentAt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SENT_AT)
+  @JsonProperty(value = JSON_PROPERTY_SENT_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getSentAt() {
@@ -185,7 +185,7 @@ public class FaxResponseTransmission {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SENT_AT)
+  @JsonProperty(value = JSON_PROPERTY_SENT_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSentAt(@jakarta.annotation.Nullable Integer sentAt) {
     this.sentAt = sentAt;
@@ -318,10 +318,7 @@ public class FaxResponseTransmission {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

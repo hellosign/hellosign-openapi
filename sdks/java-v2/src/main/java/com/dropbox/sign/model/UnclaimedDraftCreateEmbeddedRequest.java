@@ -85,7 +85,7 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS,
   UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_EXPIRES_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class UnclaimedDraftCreateEmbeddedRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
@@ -299,7 +299,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return clientId
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getClientId() {
@@ -307,7 +307,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setClientId(@jakarta.annotation.Nonnull String clientId) {
     this.clientId = clientId;
@@ -324,7 +324,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return requesterEmailAddress
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getRequesterEmailAddress() {
@@ -332,7 +332,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequesterEmailAddress(@jakarta.annotation.Nonnull String requesterEmailAddress) {
     this.requesterEmailAddress = requesterEmailAddress;
@@ -357,7 +357,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return files
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<File> getFiles() {
@@ -365,7 +365,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFiles(@jakarta.annotation.Nullable List<File> files) {
     this.files = files;
@@ -390,7 +390,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return fileUrls
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_URLS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getFileUrls() {
@@ -398,7 +398,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_URLS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileUrls(@jakarta.annotation.Nullable List<String> fileUrls) {
     this.fileUrls = fileUrls;
@@ -415,7 +415,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return allowCcs
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_CCS)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_CCS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllowCcs() {
@@ -423,7 +423,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOW_CCS)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_CCS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowCcs(@jakarta.annotation.Nullable Boolean allowCcs) {
     this.allowCcs = allowCcs;
@@ -440,7 +440,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return allowDecline
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_DECLINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllowDecline() {
@@ -448,7 +448,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_DECLINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowDecline(@jakarta.annotation.Nullable Boolean allowDecline) {
     this.allowDecline = allowDecline;
@@ -465,7 +465,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return allowReassign
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_REASSIGN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllowReassign() {
@@ -473,7 +473,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_REASSIGN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowReassign(@jakarta.annotation.Nullable Boolean allowReassign) {
     this.allowReassign = allowReassign;
@@ -498,7 +498,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return attachments
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonProperty(value = JSON_PROPERTY_ATTACHMENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubAttachment> getAttachments() {
@@ -506,7 +506,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonProperty(value = JSON_PROPERTY_ATTACHMENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAttachments(@jakarta.annotation.Nullable List<SubAttachment> attachments) {
     this.attachments = attachments;
@@ -531,7 +531,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return ccEmailAddresses
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CC_EMAIL_ADDRESSES)
+  @JsonProperty(value = JSON_PROPERTY_CC_EMAIL_ADDRESSES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getCcEmailAddresses() {
@@ -539,7 +539,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CC_EMAIL_ADDRESSES)
+  @JsonProperty(value = JSON_PROPERTY_CC_EMAIL_ADDRESSES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCcEmailAddresses(@jakarta.annotation.Nullable List<String> ccEmailAddresses) {
     this.ccEmailAddresses = ccEmailAddresses;
@@ -564,7 +564,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return customFields
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubCustomField> getCustomFields() {
@@ -572,7 +572,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomFields(@jakarta.annotation.Nullable List<SubCustomField> customFields) {
     this.customFields = customFields;
@@ -589,7 +589,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return editorOptions
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_EDITOR_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SubEditorOptions getEditorOptions() {
@@ -597,7 +597,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_EDITOR_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEditorOptions(@jakarta.annotation.Nullable SubEditorOptions editorOptions) {
     this.editorOptions = editorOptions;
@@ -614,7 +614,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return fieldOptions
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_FIELD_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SubFieldOptions getFieldOptions() {
@@ -622,7 +622,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_FIELD_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFieldOptions(@jakarta.annotation.Nullable SubFieldOptions fieldOptions) {
     this.fieldOptions = fieldOptions;
@@ -639,7 +639,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return forceSignerPage
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_PAGE)
+  @JsonProperty(value = JSON_PROPERTY_FORCE_SIGNER_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getForceSignerPage() {
@@ -647,7 +647,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_PAGE)
+  @JsonProperty(value = JSON_PROPERTY_FORCE_SIGNER_PAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForceSignerPage(@jakarta.annotation.Nullable Boolean forceSignerPage) {
     this.forceSignerPage = forceSignerPage;
@@ -664,7 +664,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return forceSubjectMessage
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_FORCE_SUBJECT_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getForceSubjectMessage() {
@@ -672,7 +672,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_FORCE_SUBJECT_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForceSubjectMessage(@jakarta.annotation.Nullable Boolean forceSubjectMessage) {
     this.forceSubjectMessage = forceSubjectMessage;
@@ -697,7 +697,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return formFieldGroups
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELD_GROUPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubFormFieldGroup> getFormFieldGroups() {
@@ -705,7 +705,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELD_GROUPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFieldGroups(@jakarta.annotation.Nullable List<SubFormFieldGroup> formFieldGroups) {
     this.formFieldGroups = formFieldGroups;
@@ -730,7 +730,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return formFieldRules
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELD_RULES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubFormFieldRule> getFormFieldRules() {
@@ -738,7 +738,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELD_RULES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFieldRules(@jakarta.annotation.Nullable List<SubFormFieldRule> formFieldRules) {
     this.formFieldRules = formFieldRules;
@@ -763,7 +763,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return formFieldsPerDocument
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubFormFieldsPerDocumentBase> getFormFieldsPerDocument() {
@@ -771,7 +771,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFieldsPerDocument(@jakarta.annotation.Nullable List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
     this.formFieldsPerDocument = formFieldsPerDocument;
@@ -788,7 +788,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return hideTextTags
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HIDE_TEXT_TAGS)
+  @JsonProperty(value = JSON_PROPERTY_HIDE_TEXT_TAGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHideTextTags() {
@@ -796,7 +796,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HIDE_TEXT_TAGS)
+  @JsonProperty(value = JSON_PROPERTY_HIDE_TEXT_TAGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHideTextTags(@jakarta.annotation.Nullable Boolean hideTextTags) {
     this.hideTextTags = hideTextTags;
@@ -813,7 +813,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return holdRequest
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HOLD_REQUEST)
+  @JsonProperty(value = JSON_PROPERTY_HOLD_REQUEST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHoldRequest() {
@@ -821,7 +821,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HOLD_REQUEST)
+  @JsonProperty(value = JSON_PROPERTY_HOLD_REQUEST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHoldRequest(@jakarta.annotation.Nullable Boolean holdRequest) {
     this.holdRequest = holdRequest;
@@ -838,7 +838,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return isForEmbeddedSigning
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
+  @JsonProperty(value = JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsForEmbeddedSigning() {
@@ -846,7 +846,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
+  @JsonProperty(value = JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsForEmbeddedSigning(@jakarta.annotation.Nullable Boolean isForEmbeddedSigning) {
     this.isForEmbeddedSigning = isForEmbeddedSigning;
@@ -863,7 +863,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return message
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMessage() {
@@ -871,7 +871,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
@@ -896,7 +896,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return metadata
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, Object> getMetadata() {
@@ -904,7 +904,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
     this.metadata = metadata;
@@ -921,7 +921,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return requestingRedirectUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_REQUESTING_REDIRECT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRequestingRedirectUrl() {
@@ -929,7 +929,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_REQUESTING_REDIRECT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestingRedirectUrl(@jakarta.annotation.Nullable String requestingRedirectUrl) {
     this.requestingRedirectUrl = requestingRedirectUrl;
@@ -946,7 +946,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return showPreview
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
+  @JsonProperty(value = JSON_PROPERTY_SHOW_PREVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShowPreview() {
@@ -954,7 +954,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
+  @JsonProperty(value = JSON_PROPERTY_SHOW_PREVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowPreview(@jakarta.annotation.Nullable Boolean showPreview) {
     this.showPreview = showPreview;
@@ -971,7 +971,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return showProgressStepper
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+  @JsonProperty(value = JSON_PROPERTY_SHOW_PROGRESS_STEPPER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShowProgressStepper() {
@@ -979,7 +979,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+  @JsonProperty(value = JSON_PROPERTY_SHOW_PROGRESS_STEPPER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowProgressStepper(@jakarta.annotation.Nullable Boolean showProgressStepper) {
     this.showProgressStepper = showProgressStepper;
@@ -1004,7 +1004,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return signers
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNERS)
+  @JsonProperty(value = JSON_PROPERTY_SIGNERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubUnclaimedDraftSigner> getSigners() {
@@ -1012,7 +1012,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNERS)
+  @JsonProperty(value = JSON_PROPERTY_SIGNERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSigners(@jakarta.annotation.Nullable List<SubUnclaimedDraftSigner> signers) {
     this.signers = signers;
@@ -1029,7 +1029,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return signingOptions
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_SIGNING_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SubSigningOptions getSigningOptions() {
@@ -1037,7 +1037,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_SIGNING_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSigningOptions(@jakarta.annotation.Nullable SubSigningOptions signingOptions) {
     this.signingOptions = signingOptions;
@@ -1054,7 +1054,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return signingRedirectUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_SIGNING_REDIRECT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSigningRedirectUrl() {
@@ -1062,7 +1062,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_SIGNING_REDIRECT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSigningRedirectUrl(@jakarta.annotation.Nullable String signingRedirectUrl) {
     this.signingRedirectUrl = signingRedirectUrl;
@@ -1079,7 +1079,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return skipMeNow
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SKIP_ME_NOW)
+  @JsonProperty(value = JSON_PROPERTY_SKIP_ME_NOW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSkipMeNow() {
@@ -1087,7 +1087,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SKIP_ME_NOW)
+  @JsonProperty(value = JSON_PROPERTY_SKIP_ME_NOW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSkipMeNow(@jakarta.annotation.Nullable Boolean skipMeNow) {
     this.skipMeNow = skipMeNow;
@@ -1104,7 +1104,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return subject
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubject() {
@@ -1112,7 +1112,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubject(@jakarta.annotation.Nullable String subject) {
     this.subject = subject;
@@ -1129,7 +1129,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return testMode
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getTestMode() {
@@ -1137,7 +1137,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
@@ -1154,7 +1154,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return type
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
@@ -1162,7 +1162,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(@jakarta.annotation.Nullable TypeEnum type) {
     this.type = type;
@@ -1179,7 +1179,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return usePreexistingFields
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USE_PREEXISTING_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_USE_PREEXISTING_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getUsePreexistingFields() {
@@ -1187,7 +1187,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USE_PREEXISTING_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_USE_PREEXISTING_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsePreexistingFields(@jakarta.annotation.Nullable Boolean usePreexistingFields) {
     this.usePreexistingFields = usePreexistingFields;
@@ -1204,7 +1204,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return useTextTags
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USE_TEXT_TAGS)
+  @JsonProperty(value = JSON_PROPERTY_USE_TEXT_TAGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getUseTextTags() {
@@ -1212,7 +1212,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USE_TEXT_TAGS)
+  @JsonProperty(value = JSON_PROPERTY_USE_TEXT_TAGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUseTextTags(@jakarta.annotation.Nullable Boolean useTextTags) {
     this.useTextTags = useTextTags;
@@ -1229,7 +1229,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return ignoreTextTagsExtractionErrors
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS)
+  @JsonProperty(value = JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIgnoreTextTagsExtractionErrors() {
@@ -1237,7 +1237,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS)
+  @JsonProperty(value = JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIgnoreTextTagsExtractionErrors(@jakarta.annotation.Nullable Boolean ignoreTextTagsExtractionErrors) {
     this.ignoreTextTagsExtractionErrors = ignoreTextTagsExtractionErrors;
@@ -1254,7 +1254,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return populateAutoFillFields
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getPopulateAutoFillFields() {
@@ -1262,7 +1262,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPopulateAutoFillFields(@jakarta.annotation.Nullable Boolean populateAutoFillFields) {
     this.populateAutoFillFields = populateAutoFillFields;
@@ -1279,7 +1279,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return expiresAt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getExpiresAt() {
@@ -1287,7 +1287,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
@@ -2134,10 +2134,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

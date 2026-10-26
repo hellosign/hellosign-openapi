@@ -58,7 +58,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestEditEmbeddedWithTemplateRequest.JSON_PROPERTY_TITLE,
   SignatureRequestEditEmbeddedWithTemplateRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SignatureRequestEditEmbeddedWithTemplateRequest {
   public static final String JSON_PROPERTY_TEMPLATE_IDS = "template_ids";
@@ -157,7 +157,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * @return templateIds
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE_IDS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<String> getTemplateIds() {
@@ -165,7 +165,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE_IDS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTemplateIds(@jakarta.annotation.Nonnull List<String> templateIds) {
     this.templateIds = templateIds;
@@ -182,7 +182,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * @return clientId
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getClientId() {
@@ -190,7 +190,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setClientId(@jakarta.annotation.Nonnull String clientId) {
     this.clientId = clientId;
@@ -215,7 +215,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * @return signers
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SIGNERS)
+  @JsonProperty(value = JSON_PROPERTY_SIGNERS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<SubSignatureRequestTemplateSigner> getSigners() {
@@ -223,7 +223,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNERS)
+  @JsonProperty(value = JSON_PROPERTY_SIGNERS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSigners(@jakarta.annotation.Nonnull List<SubSignatureRequestTemplateSigner> signers) {
     this.signers = signers;
@@ -240,7 +240,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * @return allowDecline
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_DECLINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllowDecline() {
@@ -248,7 +248,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_DECLINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowDecline(@jakarta.annotation.Nullable Boolean allowDecline) {
     this.allowDecline = allowDecline;
@@ -273,7 +273,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * @return ccs
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCS)
+  @JsonProperty(value = JSON_PROPERTY_CCS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubCC> getCcs() {
@@ -281,7 +281,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CCS)
+  @JsonProperty(value = JSON_PROPERTY_CCS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCcs(@jakarta.annotation.Nullable List<SubCC> ccs) {
     this.ccs = ccs;
@@ -306,7 +306,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * @return customFields
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubCustomField> getCustomFields() {
@@ -314,7 +314,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomFields(@jakarta.annotation.Nullable List<SubCustomField> customFields) {
     this.customFields = customFields;
@@ -339,7 +339,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * @return files
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<File> getFiles() {
@@ -347,7 +347,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFiles(@jakarta.annotation.Nullable List<File> files) {
     this.files = files;
@@ -372,7 +372,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * @return fileUrls
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_URLS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getFileUrls() {
@@ -380,7 +380,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_URLS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileUrls(@jakarta.annotation.Nullable List<String> fileUrls) {
     this.fileUrls = fileUrls;
@@ -397,7 +397,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * @return message
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMessage() {
@@ -405,7 +405,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
@@ -430,7 +430,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * @return metadata
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, Object> getMetadata() {
@@ -438,7 +438,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
     this.metadata = metadata;
@@ -455,7 +455,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * @return signingOptions
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_SIGNING_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SubSigningOptions getSigningOptions() {
@@ -463,7 +463,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_SIGNING_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSigningOptions(@jakarta.annotation.Nullable SubSigningOptions signingOptions) {
     this.signingOptions = signingOptions;
@@ -480,7 +480,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * @return subject
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubject() {
@@ -488,7 +488,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubject(@jakarta.annotation.Nullable String subject) {
     this.subject = subject;
@@ -505,7 +505,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * @return testMode
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getTestMode() {
@@ -513,7 +513,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
@@ -530,7 +530,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * @return title
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTitle() {
@@ -538,7 +538,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
@@ -555,7 +555,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * @return populateAutoFillFields
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getPopulateAutoFillFields() {
@@ -563,7 +563,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPopulateAutoFillFields(@jakarta.annotation.Nullable Boolean populateAutoFillFields) {
     this.populateAutoFillFields = populateAutoFillFields;
@@ -948,10 +948,7 @@ public class SignatureRequestEditEmbeddedWithTemplateRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }
