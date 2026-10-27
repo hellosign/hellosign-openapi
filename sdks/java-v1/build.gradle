@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'com.dropbox.sign'
-version = '1.11-dev'
+version = '1.15-dev'
 
 base {
     archivesName.set('dropbox-sign')

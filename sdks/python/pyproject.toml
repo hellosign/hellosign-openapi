@@ -1,6 +1,6 @@
 [project]
 name = "dropbox-sign"
-version = "1.11-dev"
+version = "2.0-dev"
 description = "Dropbox Sign API"
 authors = [
   {name = "Dropbox Sign API Team",email = "apisupport@hellosign.com"},

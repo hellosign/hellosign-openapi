@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.dropbox.sign",
     name := "dropbox-sign",
-    version := "1.11-dev",
+    version := "1.15-dev",
     scalaVersion := "2.11.12",
     scalacOptions ++= Seq("-feature"),
     Compile / javacOptions ++= Seq("-Xlint:deprecation"),

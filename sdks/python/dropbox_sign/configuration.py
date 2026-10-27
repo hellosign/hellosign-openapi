@@ -603,7 +603,7 @@ class Configuration:
             "OS: {env}\n"
             "Python Version: {pyversion}\n"
             "Version of the API: 3.0.0\n"
-            "SDK Package Version: 1.11-dev".format(
+            "SDK Package Version: 2.0-dev".format(
                 env=sys.platform, pyversion=sys.version
             )
         )
