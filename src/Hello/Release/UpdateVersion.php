@@ -136,6 +136,14 @@ class UpdateVersion
                     replacement: "packageVersion: \"^{$this->version}\"",
                     subject: $contents,
                 );
+            } elseif ($this->sdk === 'php' && $filename === 'README.md') {
+                // README installation instructions use the composer constraint (^X.Y.Z) from packageVersion
+                $contents = str_replace($this->current_version, $this->version, $contents);
+                $contents = preg_replace(
+                    pattern: '/(dropbox\/sign(?:": "|:)\^)[0-9]+\.[0-9]+\.[0-9]+/',
+                    replacement: "\${1}{$this->version}",
+                    subject: $contents,
+                );
             } else {
                 $contents = str_replace($this->current_version, $this->version, $contents);
             }
