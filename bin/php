@@ -1,21 +1,13 @@
 #!/usr/bin/env bash
 
-# Warning: You should run this from rootless Docker (or Podman, or other)
+set -euo pipefail
 
-set -e
-
-DIR=$(cd `dirname $0` && pwd)
+DIR=$(cd "$(dirname "$0")" && pwd)
 ROOT_DIR="${DIR}/.."
-WORKING_DIR="/app/openapi"
 
-if [[ -n "$GITHUB_ACTIONS" && -n "${DOCKER_USERNAME:-}" && -n "${DOCKER_TOKEN:-}" ]]; then
+if [[ -n "${GITHUB_ACTIONS:-}" && -n "${DOCKER_USERNAME:-}" && -n "${DOCKER_TOKEN:-}" ]]; then
   printf "\nLogging in to docker.com ...\n"
   echo "${DOCKER_TOKEN}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 fi
 
-docker run --rm \
-  -v "${ROOT_DIR}:${WORKING_DIR}" \
-  -v "dropbox-sign-sdk-composer-cache:/.composer" \
-  -w "${WORKING_DIR}" \
-  -u root:root \
-  jtreminio/php-cli:7.4 "$@"
+exec "${DIR}/php-in-docker" /app/openapi "${ROOT_DIR}" jtreminio/php-cli:7.4 "$@"
