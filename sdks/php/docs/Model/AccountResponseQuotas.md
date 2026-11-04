@@ -1,4 +1,4 @@
-# # AccountResponseQuotas
+# AccountResponseQuotas
 
 Details concerning remaining monthly quotas.
 

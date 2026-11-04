@@ -46,7 +46,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocument.JSON_PROPERTY_CUSTOM_FIELDS,
   TemplateResponseDocument.JSON_PROPERTY_STATIC_FIELDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseDocument {
   public static final String JSON_PROPERTY_NAME = "name";
@@ -101,7 +101,7 @@ public class TemplateResponseDocument {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
@@ -109,7 +109,7 @@ public class TemplateResponseDocument {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
@@ -126,7 +126,7 @@ public class TemplateResponseDocument {
    * @return index
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonProperty(value = JSON_PROPERTY_INDEX, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getIndex() {
@@ -134,7 +134,7 @@ public class TemplateResponseDocument {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonProperty(value = JSON_PROPERTY_INDEX, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndex(@jakarta.annotation.Nullable Integer index) {
     this.index = index;
@@ -159,7 +159,7 @@ public class TemplateResponseDocument {
    * @return fieldGroups
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELD_GROUPS)
+  @JsonProperty(value = JSON_PROPERTY_FIELD_GROUPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<TemplateResponseDocumentFieldGroup> getFieldGroups() {
@@ -167,7 +167,7 @@ public class TemplateResponseDocument {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FIELD_GROUPS)
+  @JsonProperty(value = JSON_PROPERTY_FIELD_GROUPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFieldGroups(@jakarta.annotation.Nullable List<TemplateResponseDocumentFieldGroup> fieldGroups) {
     this.fieldGroups = fieldGroups;
@@ -192,7 +192,7 @@ public class TemplateResponseDocument {
    * @return formFields
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<TemplateResponseDocumentFormFieldBase> getFormFields() {
@@ -200,7 +200,7 @@ public class TemplateResponseDocument {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFields(@jakarta.annotation.Nullable List<TemplateResponseDocumentFormFieldBase> formFields) {
     this.formFields = formFields;
@@ -225,7 +225,7 @@ public class TemplateResponseDocument {
    * @return customFields
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<TemplateResponseDocumentCustomFieldBase> getCustomFields() {
@@ -233,7 +233,7 @@ public class TemplateResponseDocument {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomFields(@jakarta.annotation.Nullable List<TemplateResponseDocumentCustomFieldBase> customFields) {
     this.customFields = customFields;
@@ -258,7 +258,7 @@ public class TemplateResponseDocument {
    * @return staticFields
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATIC_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_STATIC_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<TemplateResponseDocumentStaticFieldBase> getStaticFields() {
@@ -266,7 +266,7 @@ public class TemplateResponseDocument {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATIC_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_STATIC_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStaticFields(@jakarta.annotation.Nullable List<TemplateResponseDocumentStaticFieldBase> staticFields) {
     this.staticFields = staticFields;
@@ -462,10 +462,7 @@ public class TemplateResponseDocument {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

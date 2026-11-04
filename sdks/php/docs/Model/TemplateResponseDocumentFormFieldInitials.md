@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentFormFieldInitials
+# TemplateResponseDocumentFormFieldInitials
 
 This class extends `TemplateResponseDocumentFormFieldBase`
 

@@ -67,7 +67,7 @@ import com.dropbox.sign.ApiException;
   BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_SIGNATURES,
   BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_BULK_SEND_JOB_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class BulkSendJobGetResponseSignatureRequests {
   public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
@@ -198,7 +198,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return testMode
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getTestMode() {
@@ -206,7 +206,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
@@ -223,7 +223,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return signatureRequestId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST_ID)
+  @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUEST_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSignatureRequestId() {
@@ -231,7 +231,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST_ID)
+  @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUEST_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignatureRequestId(@jakarta.annotation.Nullable String signatureRequestId) {
     this.signatureRequestId = signatureRequestId;
@@ -248,7 +248,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return requesterEmailAddress
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRequesterEmailAddress() {
@@ -256,7 +256,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequesterEmailAddress(@jakarta.annotation.Nullable String requesterEmailAddress) {
     this.requesterEmailAddress = requesterEmailAddress;
@@ -273,7 +273,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return title
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTitle() {
@@ -281,7 +281,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
@@ -298,7 +298,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return originalTitle
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_ORIGINAL_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getOriginalTitle() {
@@ -306,7 +306,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_ORIGINAL_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalTitle(@jakarta.annotation.Nullable String originalTitle) {
     this.originalTitle = originalTitle;
@@ -323,7 +323,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return subject
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubject() {
@@ -331,7 +331,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubject(@jakarta.annotation.Nullable String subject) {
     this.subject = subject;
@@ -348,7 +348,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return message
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMessage() {
@@ -356,7 +356,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
@@ -381,7 +381,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return metadata
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, Object> getMetadata() {
@@ -389,7 +389,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
     this.metadata = metadata;
@@ -406,7 +406,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return createdAt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCreatedAt() {
@@ -414,7 +414,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(@jakarta.annotation.Nullable Integer createdAt) {
     this.createdAt = createdAt;
@@ -431,7 +431,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return expiresAt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getExpiresAt() {
@@ -439,7 +439,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
@@ -456,7 +456,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return isComplete
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_COMPLETE)
+  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsComplete() {
@@ -464,7 +464,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_COMPLETE)
+  @JsonProperty(value = JSON_PROPERTY_IS_COMPLETE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsComplete(@jakarta.annotation.Nullable Boolean isComplete) {
     this.isComplete = isComplete;
@@ -481,7 +481,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return isDeclined
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_DECLINED)
+  @JsonProperty(value = JSON_PROPERTY_IS_DECLINED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsDeclined() {
@@ -489,7 +489,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_DECLINED)
+  @JsonProperty(value = JSON_PROPERTY_IS_DECLINED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsDeclined(@jakarta.annotation.Nullable Boolean isDeclined) {
     this.isDeclined = isDeclined;
@@ -506,7 +506,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return hasError
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HAS_ERROR)
+  @JsonProperty(value = JSON_PROPERTY_HAS_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getHasError() {
@@ -514,7 +514,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HAS_ERROR)
+  @JsonProperty(value = JSON_PROPERTY_HAS_ERROR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHasError(@jakarta.annotation.Nullable Boolean hasError) {
     this.hasError = hasError;
@@ -531,7 +531,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return filesUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILES_URL)
+  @JsonProperty(value = JSON_PROPERTY_FILES_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFilesUrl() {
@@ -539,7 +539,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILES_URL)
+  @JsonProperty(value = JSON_PROPERTY_FILES_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFilesUrl(@jakarta.annotation.Nullable String filesUrl) {
     this.filesUrl = filesUrl;
@@ -556,7 +556,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return signingUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNING_URL)
+  @JsonProperty(value = JSON_PROPERTY_SIGNING_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSigningUrl() {
@@ -564,7 +564,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNING_URL)
+  @JsonProperty(value = JSON_PROPERTY_SIGNING_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSigningUrl(@jakarta.annotation.Nullable String signingUrl) {
     this.signingUrl = signingUrl;
@@ -581,7 +581,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return detailsUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DETAILS_URL)
+  @JsonProperty(value = JSON_PROPERTY_DETAILS_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDetailsUrl() {
@@ -589,7 +589,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DETAILS_URL)
+  @JsonProperty(value = JSON_PROPERTY_DETAILS_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetailsUrl(@jakarta.annotation.Nullable String detailsUrl) {
     this.detailsUrl = detailsUrl;
@@ -614,7 +614,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return ccEmailAddresses
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CC_EMAIL_ADDRESSES)
+  @JsonProperty(value = JSON_PROPERTY_CC_EMAIL_ADDRESSES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getCcEmailAddresses() {
@@ -622,7 +622,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CC_EMAIL_ADDRESSES)
+  @JsonProperty(value = JSON_PROPERTY_CC_EMAIL_ADDRESSES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCcEmailAddresses(@jakarta.annotation.Nullable List<String> ccEmailAddresses) {
     this.ccEmailAddresses = ccEmailAddresses;
@@ -639,7 +639,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return signingRedirectUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_SIGNING_REDIRECT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSigningRedirectUrl() {
@@ -647,7 +647,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_SIGNING_REDIRECT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSigningRedirectUrl(@jakarta.annotation.Nullable String signingRedirectUrl) {
     this.signingRedirectUrl = signingRedirectUrl;
@@ -664,7 +664,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return finalCopyUri
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FINAL_COPY_URI)
+  @JsonProperty(value = JSON_PROPERTY_FINAL_COPY_URI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFinalCopyUri() {
@@ -672,7 +672,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FINAL_COPY_URI)
+  @JsonProperty(value = JSON_PROPERTY_FINAL_COPY_URI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFinalCopyUri(@jakarta.annotation.Nullable String finalCopyUri) {
     this.finalCopyUri = finalCopyUri;
@@ -697,7 +697,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return templateIds
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getTemplateIds() {
@@ -705,7 +705,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE_IDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTemplateIds(@jakarta.annotation.Nullable List<String> templateIds) {
     this.templateIds = templateIds;
@@ -730,7 +730,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return customFields
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SignatureRequestResponseCustomFieldBase> getCustomFields() {
@@ -738,7 +738,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomFields(@jakarta.annotation.Nullable List<SignatureRequestResponseCustomFieldBase> customFields) {
     this.customFields = customFields;
@@ -763,7 +763,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return attachments
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonProperty(value = JSON_PROPERTY_ATTACHMENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SignatureRequestResponseAttachment> getAttachments() {
@@ -771,7 +771,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonProperty(value = JSON_PROPERTY_ATTACHMENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAttachments(@jakarta.annotation.Nullable List<SignatureRequestResponseAttachment> attachments) {
     this.attachments = attachments;
@@ -796,7 +796,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return responseData
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESPONSE_DATA)
+  @JsonProperty(value = JSON_PROPERTY_RESPONSE_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SignatureRequestResponseDataBase> getResponseData() {
@@ -804,7 +804,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RESPONSE_DATA)
+  @JsonProperty(value = JSON_PROPERTY_RESPONSE_DATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResponseData(@jakarta.annotation.Nullable List<SignatureRequestResponseDataBase> responseData) {
     this.responseData = responseData;
@@ -829,7 +829,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return signatures
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNATURES)
+  @JsonProperty(value = JSON_PROPERTY_SIGNATURES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SignatureRequestResponseSignatures> getSignatures() {
@@ -837,7 +837,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNATURES)
+  @JsonProperty(value = JSON_PROPERTY_SIGNATURES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignatures(@jakarta.annotation.Nullable List<SignatureRequestResponseSignatures> signatures) {
     this.signatures = signatures;
@@ -854,7 +854,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * @return bulkSendJobId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
+  @JsonProperty(value = JSON_PROPERTY_BULK_SEND_JOB_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBulkSendJobId() {
@@ -862,7 +862,7 @@ public class BulkSendJobGetResponseSignatureRequests {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
+  @JsonProperty(value = JSON_PROPERTY_BULK_SEND_JOB_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBulkSendJobId(@jakarta.annotation.Nullable String bulkSendJobId) {
     this.bulkSendJobId = bulkSendJobId;
@@ -1457,10 +1457,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

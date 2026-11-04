@@ -1,5 +1,7 @@
 # Dropbox\Sign\TemplateApi
 
+
+
 All URIs are relative to https://api.hellosign.com/v3.
 
 | Method | HTTP request | Description |

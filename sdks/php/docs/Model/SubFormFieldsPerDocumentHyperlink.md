@@ -1,4 +1,4 @@
-# # SubFormFieldsPerDocumentHyperlink
+# SubFormFieldsPerDocumentHyperlink
 
 This class extends `SubFormFieldsPerDocumentBase`.
 

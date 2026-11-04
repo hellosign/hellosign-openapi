@@ -37,7 +37,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateUpdateFilesRequest {
     public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
@@ -86,13 +86,13 @@ public class TemplateUpdateFilesRequest {
      *
      * @return clientId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getClientId() {
         return clientId;
     }
 
-    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setClientId(@javax.annotation.Nullable String clientId) {
         this.clientId = clientId;
@@ -117,13 +117,13 @@ public class TemplateUpdateFilesRequest {
      *
      * @return files
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILES)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<File> getFiles() {
         return files;
     }
 
-    @JsonProperty(JSON_PROPERTY_FILES)
+    @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFiles(@javax.annotation.Nullable List<File> files) {
         this.files = files;
@@ -148,13 +148,13 @@ public class TemplateUpdateFilesRequest {
      *
      * @return fileUrls
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILE_URLS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<String> getFileUrls() {
         return fileUrls;
     }
 
-    @JsonProperty(JSON_PROPERTY_FILE_URLS)
+    @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFileUrls(@javax.annotation.Nullable List<String> fileUrls) {
         this.fileUrls = fileUrls;
@@ -170,13 +170,13 @@ public class TemplateUpdateFilesRequest {
      *
      * @return message
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_MESSAGE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getMessage() {
         return message;
     }
 
-    @JsonProperty(JSON_PROPERTY_MESSAGE)
+    @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setMessage(@javax.annotation.Nullable String message) {
         this.message = message;
@@ -192,13 +192,13 @@ public class TemplateUpdateFilesRequest {
      *
      * @return subject
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SUBJECT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSubject() {
         return subject;
     }
 
-    @JsonProperty(JSON_PROPERTY_SUBJECT)
+    @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSubject(@javax.annotation.Nullable String subject) {
         this.subject = subject;
@@ -215,13 +215,13 @@ public class TemplateUpdateFilesRequest {
      *
      * @return testMode
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEST_MODE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getTestMode() {
         return testMode;
     }
 
-    @JsonProperty(JSON_PROPERTY_TEST_MODE)
+    @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
@@ -419,9 +419,6 @@ public class TemplateUpdateFilesRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
 Dropbox Sign API
 
@@ -119,7 +117,6 @@ class BulkSendJobApi:
             "200": "BulkSendJobGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -207,7 +204,6 @@ class BulkSendJobApi:
             "200": "BulkSendJobGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -295,7 +291,6 @@ class BulkSendJobApi:
             "200": "BulkSendJobGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -437,7 +432,6 @@ class BulkSendJobApi:
             "200": "BulkSendJobListResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -519,7 +513,6 @@ class BulkSendJobApi:
             "200": "BulkSendJobListResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -601,7 +594,6 @@ class BulkSendJobApi:
             "200": "BulkSendJobListResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

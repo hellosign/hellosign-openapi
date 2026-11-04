@@ -1,4 +1,4 @@
-# # WarningResponse
+# WarningResponse
 
 A list of warnings.
 

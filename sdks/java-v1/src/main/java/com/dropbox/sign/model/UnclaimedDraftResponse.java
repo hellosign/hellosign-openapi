@@ -34,7 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UnclaimedDraftResponse {
     public static final String JSON_PROPERTY_SIGNATURE_REQUEST_ID = "signature_request_id";
@@ -83,13 +83,13 @@ public class UnclaimedDraftResponse {
      *
      * @return signatureRequestId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUEST_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSignatureRequestId() {
         return signatureRequestId;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST_ID)
+    @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUEST_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSignatureRequestId(@javax.annotation.Nullable String signatureRequestId) {
         this.signatureRequestId = signatureRequestId;
@@ -105,13 +105,13 @@ public class UnclaimedDraftResponse {
      *
      * @return claimUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CLAIM_URL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CLAIM_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getClaimUrl() {
         return claimUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_CLAIM_URL)
+    @JsonProperty(value = JSON_PROPERTY_CLAIM_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setClaimUrl(@javax.annotation.Nullable String claimUrl) {
         this.claimUrl = claimUrl;
@@ -128,13 +128,13 @@ public class UnclaimedDraftResponse {
      *
      * @return signingRedirectUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNING_REDIRECT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSigningRedirectUrl() {
         return signingRedirectUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+    @JsonProperty(value = JSON_PROPERTY_SIGNING_REDIRECT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSigningRedirectUrl(@javax.annotation.Nullable String signingRedirectUrl) {
         this.signingRedirectUrl = signingRedirectUrl;
@@ -152,13 +152,13 @@ public class UnclaimedDraftResponse {
      *
      * @return requestingRedirectUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_REQUESTING_REDIRECT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getRequestingRedirectUrl() {
         return requestingRedirectUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+    @JsonProperty(value = JSON_PROPERTY_REQUESTING_REDIRECT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setRequestingRedirectUrl(@javax.annotation.Nullable String requestingRedirectUrl) {
         this.requestingRedirectUrl = requestingRedirectUrl;
@@ -174,13 +174,13 @@ public class UnclaimedDraftResponse {
      *
      * @return expiresAt
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getExpiresAt() {
         return expiresAt;
     }
 
-    @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setExpiresAt(@javax.annotation.Nullable Integer expiresAt) {
         this.expiresAt = expiresAt;
@@ -196,13 +196,13 @@ public class UnclaimedDraftResponse {
      *
      * @return testMode
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEST_MODE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getTestMode() {
         return testMode;
     }
 
-    @JsonProperty(JSON_PROPERTY_TEST_MODE)
+    @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
@@ -428,9 +428,6 @@ public class UnclaimedDraftResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

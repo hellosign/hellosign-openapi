@@ -30,7 +30,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WarningResponse {
     public static final String JSON_PROPERTY_WARNING_MSG = "warning_msg";
@@ -66,13 +66,13 @@ public class WarningResponse {
      * @return warningMsg
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_WARNING_MSG)
+    @JsonProperty(value = JSON_PROPERTY_WARNING_MSG, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getWarningMsg() {
         return warningMsg;
     }
 
-    @JsonProperty(JSON_PROPERTY_WARNING_MSG)
+    @JsonProperty(value = JSON_PROPERTY_WARNING_MSG, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setWarningMsg(@javax.annotation.Nonnull String warningMsg) {
         this.warningMsg = warningMsg;
@@ -89,13 +89,13 @@ public class WarningResponse {
      * @return warningName
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_WARNING_NAME)
+    @JsonProperty(value = JSON_PROPERTY_WARNING_NAME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getWarningName() {
         return warningName;
     }
 
-    @JsonProperty(JSON_PROPERTY_WARNING_NAME)
+    @JsonProperty(value = JSON_PROPERTY_WARNING_NAME, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setWarningName(@javax.annotation.Nonnull String warningName) {
         this.warningName = warningName;
@@ -211,9 +211,6 @@ public class WarningResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

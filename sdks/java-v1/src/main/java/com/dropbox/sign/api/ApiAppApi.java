@@ -18,7 +18,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 public class ApiAppApi {
     private ApiClient apiClient;
 
@@ -62,8 +62,8 @@ public class ApiAppApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiAppGetResponse apiAppCreate(ApiAppCreateRequest apiAppCreateRequest)
-            throws ApiException {
+    public ApiAppGetResponse apiAppCreate(
+            @javax.annotation.Nonnull ApiAppCreateRequest apiAppCreateRequest) throws ApiException {
         return apiAppCreateWithHttpInfo(apiAppCreateRequest).getData();
     }
 
@@ -82,7 +82,7 @@ public class ApiAppApi {
      * </table>
      */
     public ApiResponse<ApiAppGetResponse> apiAppCreateWithHttpInfo(
-            ApiAppCreateRequest apiAppCreateRequest) throws ApiException {
+            @javax.annotation.Nonnull ApiAppCreateRequest apiAppCreateRequest) throws ApiException {
 
         // Check required parameters
         if (apiAppCreateRequest == null) {
@@ -132,7 +132,7 @@ public class ApiAppApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public void apiAppDelete(String clientId) throws ApiException {
+    public void apiAppDelete(@javax.annotation.Nonnull String clientId) throws ApiException {
         apiAppDeleteWithHttpInfo(clientId);
     }
 
@@ -150,7 +150,8 @@ public class ApiAppApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<Void> apiAppDeleteWithHttpInfo(String clientId) throws ApiException {
+    public ApiResponse<Void> apiAppDeleteWithHttpInfo(@javax.annotation.Nonnull String clientId)
+            throws ApiException {
 
         // Check required parameters
         if (clientId == null) {
@@ -200,7 +201,8 @@ public class ApiAppApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiAppGetResponse apiAppGet(String clientId) throws ApiException {
+    public ApiAppGetResponse apiAppGet(@javax.annotation.Nonnull String clientId)
+            throws ApiException {
         return apiAppGetWithHttpInfo(clientId).getData();
     }
 
@@ -218,8 +220,8 @@ public class ApiAppApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<ApiAppGetResponse> apiAppGetWithHttpInfo(String clientId)
-            throws ApiException {
+    public ApiResponse<ApiAppGetResponse> apiAppGetWithHttpInfo(
+            @javax.annotation.Nonnull String clientId) throws ApiException {
 
         // Check required parameters
         if (clientId == null) {
@@ -274,7 +276,9 @@ public class ApiAppApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiAppListResponse apiAppList(Integer page, Integer pageSize) throws ApiException {
+    public ApiAppListResponse apiAppList(
+            @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize)
+            throws ApiException {
         return apiAppListWithHttpInfo(page, pageSize).getData();
     }
 
@@ -335,7 +339,8 @@ public class ApiAppApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<ApiAppListResponse> apiAppListWithHttpInfo(Integer page, Integer pageSize)
+    public ApiResponse<ApiAppListResponse> apiAppListWithHttpInfo(
+            @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize)
             throws ApiException {
 
         if (page == null) {
@@ -391,7 +396,9 @@ public class ApiAppApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiAppGetResponse apiAppUpdate(String clientId, ApiAppUpdateRequest apiAppUpdateRequest)
+    public ApiAppGetResponse apiAppUpdate(
+            @javax.annotation.Nonnull String clientId,
+            @javax.annotation.Nonnull ApiAppUpdateRequest apiAppUpdateRequest)
             throws ApiException {
         return apiAppUpdateWithHttpInfo(clientId, apiAppUpdateRequest).getData();
     }
@@ -414,7 +421,9 @@ public class ApiAppApi {
      * </table>
      */
     public ApiResponse<ApiAppGetResponse> apiAppUpdateWithHttpInfo(
-            String clientId, ApiAppUpdateRequest apiAppUpdateRequest) throws ApiException {
+            @javax.annotation.Nonnull String clientId,
+            @javax.annotation.Nonnull ApiAppUpdateRequest apiAppUpdateRequest)
+            throws ApiException {
 
         // Check required parameters
         if (clientId == null) {

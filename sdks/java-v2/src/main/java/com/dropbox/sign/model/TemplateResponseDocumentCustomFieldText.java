@@ -44,7 +44,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_ORIGINAL_FONT_SIZE,
   TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_FONT_FAMILY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -100,7 +100,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getType() {
@@ -108,7 +108,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
@@ -125,7 +125,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * @return avgTextLength
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
+  @JsonProperty(value = JSON_PROPERTY_AVG_TEXT_LENGTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TemplateResponseFieldAvgTextLength getAvgTextLength() {
@@ -133,7 +133,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
+  @JsonProperty(value = JSON_PROPERTY_AVG_TEXT_LENGTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAvgTextLength(@jakarta.annotation.Nullable TemplateResponseFieldAvgTextLength avgTextLength) {
     this.avgTextLength = avgTextLength;
@@ -150,7 +150,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * @return isMultiline
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
+  @JsonProperty(value = JSON_PROPERTY_IS_MULTILINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsMultiline() {
@@ -158,7 +158,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
+  @JsonProperty(value = JSON_PROPERTY_IS_MULTILINE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsMultiline(@jakarta.annotation.Nullable Boolean isMultiline) {
     this.isMultiline = isMultiline;
@@ -175,7 +175,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * @return originalFontSize
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_ORIGINAL_FONT_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getOriginalFontSize() {
@@ -183,7 +183,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_ORIGINAL_FONT_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOriginalFontSize(@jakarta.annotation.Nullable Integer originalFontSize) {
     this.originalFontSize = originalFontSize;
@@ -200,7 +200,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * @return fontFamily
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getFontFamily() {
@@ -208,7 +208,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFontFamily(@jakarta.annotation.Nullable String fontFamily) {
     this.fontFamily = fontFamily;
@@ -386,10 +386,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   static {

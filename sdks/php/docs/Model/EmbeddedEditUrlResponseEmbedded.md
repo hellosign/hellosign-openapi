@@ -1,4 +1,4 @@
-# # EmbeddedEditUrlResponseEmbedded
+# EmbeddedEditUrlResponseEmbedded
 
 An embedded template object.
 

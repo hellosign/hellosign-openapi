@@ -1,4 +1,4 @@
-# # AccountResponseSettings
+# AccountResponseSettings
 
 Subset of configured settings
 

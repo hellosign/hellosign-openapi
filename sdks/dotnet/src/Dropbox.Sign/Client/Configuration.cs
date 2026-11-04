@@ -36,7 +36,7 @@ namespace Dropbox.Sign.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "2.2-dev";
+        public const string Version = "2.6-dev";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -120,7 +120,7 @@ namespace Dropbox.Sign.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/2.2-dev/csharp");
+            UserAgent = "OpenAPI-Generator/2.6-dev/csharp";
             BasePath = "https://api.hellosign.com/v3";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -529,7 +529,7 @@ namespace Dropbox.Sign.Client
 
                     if (inputVariables.ContainsKey(variable.Key))
                     {
-                        if (((List<string>)serverVariables["enum_values"]).Contains(inputVariables[variable.Key]))
+                        if (!serverVariables.ContainsKey("enum_values") || ((List<string>)serverVariables["enum_values"]).Contains(inputVariables[variable.Key]))
                         {
                             url = url.Replace("{" + variable.Key + "}", inputVariables[variable.Key]);
                         }
@@ -567,7 +567,7 @@ namespace Dropbox.Sign.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: 3.0.0\n";
-            report += "    SDK Package Version: 2.2-dev\n";
+            report += "    SDK Package Version: 2.6-dev\n";
 
             return report;
         }

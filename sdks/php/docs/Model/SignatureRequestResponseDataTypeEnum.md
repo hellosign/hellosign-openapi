@@ -1,4 +1,4 @@
-# # SignatureRequestResponseDataTypeEnum
+# SignatureRequestResponseDataTypeEnum
 
 
 

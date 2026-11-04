@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   BulkSendJobSendResponse.JSON_PROPERTY_BULK_SEND_JOB,
   BulkSendJobSendResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class BulkSendJobSendResponse {
   public static final String JSON_PROPERTY_BULK_SEND_JOB = "bulk_send_job";
@@ -79,7 +79,7 @@ public class BulkSendJobSendResponse {
    * @return bulkSendJob
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB)
+  @JsonProperty(value = JSON_PROPERTY_BULK_SEND_JOB, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public BulkSendJobResponse getBulkSendJob() {
@@ -87,7 +87,7 @@ public class BulkSendJobSendResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB)
+  @JsonProperty(value = JSON_PROPERTY_BULK_SEND_JOB, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBulkSendJob(@jakarta.annotation.Nonnull BulkSendJobResponse bulkSendJob) {
     this.bulkSendJob = bulkSendJob;
@@ -112,7 +112,7 @@ public class BulkSendJobSendResponse {
    * @return warnings
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<WarningResponse> getWarnings() {
@@ -120,7 +120,7 @@ public class BulkSendJobSendResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
@@ -232,10 +232,7 @@ public class BulkSendJobSendResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

@@ -1,4 +1,4 @@
-# # EventCallbackRequestEvent
+# EventCallbackRequestEvent
 
 Basic information about the event that occurred.
 

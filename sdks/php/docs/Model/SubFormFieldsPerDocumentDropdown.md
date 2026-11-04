@@ -1,4 +1,4 @@
-# # SubFormFieldsPerDocumentDropdown
+# SubFormFieldsPerDocumentDropdown
 
 This class extends `SubFormFieldsPerDocumentBase`.
 

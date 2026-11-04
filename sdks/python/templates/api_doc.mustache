@@ -30,6 +30,10 @@ Method | HTTP request | Description
 # ```{{{operationId}}}```
 > ```{{#returnType}}{{{.}}} {{/returnType}}{{{operationId}}}({{#requiredParams}}{{^defaultValue}}{{paramName}}{{^-last}}, {{/-last}}{{/defaultValue}}{{/requiredParams}})```
 {{/useCustomTemplateCode}}
+{{#supportHttpxSync}}
+
+**Synchronous variant:** `{{{operationId}}}_sync(...)` — same parameters and return type, but blocks until completion instead of requiring `await`.
+{{/supportHttpxSync}}
 
 {{#summary}}
 {{{summary}}}
@@ -60,6 +64,7 @@ Method | HTTP request | Description
 {{/authMethods}}
 {{/hasAuthMethods}}
 {{> api_doc_example }}
+
 
 ### Parameters
 {{^useCustomTemplateCode}}

@@ -47,7 +47,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SignatureRequestResponseSignatures {
     public static final String JSON_PROPERTY_SIGNATURE_ID = "signature_id";
@@ -136,13 +136,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return signatureId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNATURE_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNATURE_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSignatureId() {
         return signatureId;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNATURE_ID)
+    @JsonProperty(value = JSON_PROPERTY_SIGNATURE_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSignatureId(@javax.annotation.Nullable String signatureId) {
         this.signatureId = signatureId;
@@ -159,13 +159,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return signerGroupGuid
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_GROUP_GUID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNER_GROUP_GUID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSignerGroupGuid() {
         return signerGroupGuid;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNER_GROUP_GUID)
+    @JsonProperty(value = JSON_PROPERTY_SIGNER_GROUP_GUID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSignerGroupGuid(@javax.annotation.Nullable String signerGroupGuid) {
         this.signerGroupGuid = signerGroupGuid;
@@ -182,13 +182,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return signerEmailAddress
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_EMAIL_ADDRESS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNER_EMAIL_ADDRESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSignerEmailAddress() {
         return signerEmailAddress;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNER_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_SIGNER_EMAIL_ADDRESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSignerEmailAddress(@javax.annotation.Nullable String signerEmailAddress) {
         this.signerEmailAddress = signerEmailAddress;
@@ -205,13 +205,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return signerName
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_NAME)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNER_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSignerName() {
         return signerName;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNER_NAME)
+    @JsonProperty(value = JSON_PROPERTY_SIGNER_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSignerName(@javax.annotation.Nullable String signerName) {
         this.signerName = signerName;
@@ -228,13 +228,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return signerRole
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_ROLE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNER_ROLE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSignerRole() {
         return signerRole;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNER_ROLE)
+    @JsonProperty(value = JSON_PROPERTY_SIGNER_ROLE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSignerRole(@javax.annotation.Nullable String signerRole) {
         this.signerRole = signerRole;
@@ -250,13 +250,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return order
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ORDER)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getOrder() {
         return order;
     }
 
-    @JsonProperty(JSON_PROPERTY_ORDER)
+    @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setOrder(@javax.annotation.Nullable Integer order) {
         this.order = order;
@@ -273,13 +273,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return statusCode
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_STATUS_CODE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_STATUS_CODE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getStatusCode() {
         return statusCode;
     }
 
-    @JsonProperty(JSON_PROPERTY_STATUS_CODE)
+    @JsonProperty(value = JSON_PROPERTY_STATUS_CODE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setStatusCode(@javax.annotation.Nullable String statusCode) {
         this.statusCode = statusCode;
@@ -296,13 +296,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return declineReason
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_DECLINE_REASON)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_DECLINE_REASON, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getDeclineReason() {
         return declineReason;
     }
 
-    @JsonProperty(JSON_PROPERTY_DECLINE_REASON)
+    @JsonProperty(value = JSON_PROPERTY_DECLINE_REASON, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setDeclineReason(@javax.annotation.Nullable String declineReason) {
         this.declineReason = declineReason;
@@ -319,13 +319,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return signedAt
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNED_AT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getSignedAt() {
         return signedAt;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNED_AT)
+    @JsonProperty(value = JSON_PROPERTY_SIGNED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSignedAt(@javax.annotation.Nullable Integer signedAt) {
         this.signedAt = signedAt;
@@ -342,13 +342,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return lastViewedAt
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_LAST_VIEWED_AT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_LAST_VIEWED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getLastViewedAt() {
         return lastViewedAt;
     }
 
-    @JsonProperty(JSON_PROPERTY_LAST_VIEWED_AT)
+    @JsonProperty(value = JSON_PROPERTY_LAST_VIEWED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setLastViewedAt(@javax.annotation.Nullable Integer lastViewedAt) {
         this.lastViewedAt = lastViewedAt;
@@ -365,13 +365,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return lastRemindedAt
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_LAST_REMINDED_AT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_LAST_REMINDED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getLastRemindedAt() {
         return lastRemindedAt;
     }
 
-    @JsonProperty(JSON_PROPERTY_LAST_REMINDED_AT)
+    @JsonProperty(value = JSON_PROPERTY_LAST_REMINDED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setLastRemindedAt(@javax.annotation.Nullable Integer lastRemindedAt) {
         this.lastRemindedAt = lastRemindedAt;
@@ -387,13 +387,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return hasPin
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_HAS_PIN)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_HAS_PIN, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getHasPin() {
         return hasPin;
     }
 
-    @JsonProperty(JSON_PROPERTY_HAS_PIN)
+    @JsonProperty(value = JSON_PROPERTY_HAS_PIN, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setHasPin(@javax.annotation.Nullable Boolean hasPin) {
         this.hasPin = hasPin;
@@ -410,13 +410,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return hasSmsAuth
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_HAS_SMS_AUTH)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_HAS_SMS_AUTH, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getHasSmsAuth() {
         return hasSmsAuth;
     }
 
-    @JsonProperty(JSON_PROPERTY_HAS_SMS_AUTH)
+    @JsonProperty(value = JSON_PROPERTY_HAS_SMS_AUTH, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setHasSmsAuth(@javax.annotation.Nullable Boolean hasSmsAuth) {
         this.hasSmsAuth = hasSmsAuth;
@@ -433,13 +433,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return hasSmsDelivery
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_HAS_SMS_DELIVERY)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_HAS_SMS_DELIVERY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getHasSmsDelivery() {
         return hasSmsDelivery;
     }
 
-    @JsonProperty(JSON_PROPERTY_HAS_SMS_DELIVERY)
+    @JsonProperty(value = JSON_PROPERTY_HAS_SMS_DELIVERY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setHasSmsDelivery(@javax.annotation.Nullable Boolean hasSmsDelivery) {
         this.hasSmsDelivery = hasSmsDelivery;
@@ -456,13 +456,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return smsPhoneNumber
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SMS_PHONE_NUMBER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSmsPhoneNumber() {
         return smsPhoneNumber;
     }
 
-    @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER)
+    @JsonProperty(value = JSON_PROPERTY_SMS_PHONE_NUMBER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSmsPhoneNumber(@javax.annotation.Nullable String smsPhoneNumber) {
         this.smsPhoneNumber = smsPhoneNumber;
@@ -479,13 +479,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return reassignedBy
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REASSIGNED_BY)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_REASSIGNED_BY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getReassignedBy() {
         return reassignedBy;
     }
 
-    @JsonProperty(JSON_PROPERTY_REASSIGNED_BY)
+    @JsonProperty(value = JSON_PROPERTY_REASSIGNED_BY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setReassignedBy(@javax.annotation.Nullable String reassignedBy) {
         this.reassignedBy = reassignedBy;
@@ -502,13 +502,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return reassignmentReason
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REASSIGNMENT_REASON)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_REASSIGNMENT_REASON, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getReassignmentReason() {
         return reassignmentReason;
     }
 
-    @JsonProperty(JSON_PROPERTY_REASSIGNMENT_REASON)
+    @JsonProperty(value = JSON_PROPERTY_REASSIGNMENT_REASON, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setReassignmentReason(@javax.annotation.Nullable String reassignmentReason) {
         this.reassignmentReason = reassignmentReason;
@@ -525,13 +525,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return reassignedFrom
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REASSIGNED_FROM)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_REASSIGNED_FROM, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getReassignedFrom() {
         return reassignedFrom;
     }
 
-    @JsonProperty(JSON_PROPERTY_REASSIGNED_FROM)
+    @JsonProperty(value = JSON_PROPERTY_REASSIGNED_FROM, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setReassignedFrom(@javax.annotation.Nullable String reassignedFrom) {
         this.reassignedFrom = reassignedFrom;
@@ -547,13 +547,13 @@ public class SignatureRequestResponseSignatures {
      *
      * @return error
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ERROR)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getError() {
         return error;
     }
 
-    @JsonProperty(JSON_PROPERTY_ERROR)
+    @JsonProperty(value = JSON_PROPERTY_ERROR, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setError(@javax.annotation.Nullable String error) {
         this.error = error;
@@ -1077,9 +1077,6 @@ public class SignatureRequestResponseSignatures {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

@@ -33,7 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxLineListResponse {
     public static final String JSON_PROPERTY_LIST_INFO = "list_info";
@@ -72,13 +72,13 @@ public class FaxLineListResponse {
      * @return listInfo
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_LIST_INFO)
+    @JsonProperty(value = JSON_PROPERTY_LIST_INFO, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public ListInfoResponse getListInfo() {
         return listInfo;
     }
 
-    @JsonProperty(JSON_PROPERTY_LIST_INFO)
+    @JsonProperty(value = JSON_PROPERTY_LIST_INFO, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setListInfo(@javax.annotation.Nonnull ListInfoResponse listInfo) {
         this.listInfo = listInfo;
@@ -104,13 +104,13 @@ public class FaxLineListResponse {
      * @return faxLines
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_FAX_LINES)
+    @JsonProperty(value = JSON_PROPERTY_FAX_LINES, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<FaxLineResponseFaxLine> getFaxLines() {
         return faxLines;
     }
 
-    @JsonProperty(JSON_PROPERTY_FAX_LINES)
+    @JsonProperty(value = JSON_PROPERTY_FAX_LINES, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setFaxLines(@javax.annotation.Nonnull List<FaxLineResponseFaxLine> faxLines) {
         this.faxLines = faxLines;
@@ -126,13 +126,13 @@ public class FaxLineListResponse {
      *
      * @return warnings
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public WarningResponse getWarnings() {
         return warnings;
     }
 
-    @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setWarnings(@javax.annotation.Nullable WarningResponse warnings) {
         this.warnings = warnings;
@@ -268,9 +268,6 @@ public class FaxLineListResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

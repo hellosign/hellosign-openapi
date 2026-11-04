@@ -33,6 +33,7 @@ from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 
 class DocumentFieldDetectionRequest(BaseModel):
@@ -56,6 +57,7 @@ class DocumentFieldDetectionRequest(BaseModel):
     page_range: Optional[Annotated[str, Field(strict=True)]] = Field(
         default=None,
         description="The zero-based page indexes to analyze. Accepts `all`, individual pages, inclusive ranges, or comma-separated combinations, such as `0-2,5,7-9`. Defaults to `all`.",
+        json_schema_extra={"examples": ["0-2,5,7-9"]},
     )
     __properties: ClassVar[List[str]] = [
         "detection_mode",
@@ -64,20 +66,23 @@ class DocumentFieldDetectionRequest(BaseModel):
         "page_range",
     ]
 
-    @field_validator("page_range")
+    @field_validator("page_range", mode="before")
     def page_range_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not re.match(r"^(?:all|\d+(?:-\d+)?(?:,\d+(?:-\d+)?)*)$", value):
+        if isinstance(value, str) and not re.match(
+            r"^(?:all|\d+(?:-\d+)?(?:,\d+(?:-\d+)?)*)$", value
+        ):
             raise ValueError(
                 r"must validate the regular expression /^(?:all|\d+(?:-\d+)?(?:,\d+(?:-\d+)?)*)$/"
             )
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -89,8 +94,7 @@ class DocumentFieldDetectionRequest(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None

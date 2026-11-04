@@ -19,7 +19,12 @@ import com.github.scribejava.core.model.OAuth2AccessToken;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
+{{^useJackson3}}
 import org.glassfish.jersey.jackson.JacksonFeature;
+{{/useJackson3}}
+{{#useJackson3}}
+import tools.jackson.jakarta.rs.json.JacksonJsonProvider;
+{{/useJackson3}}
 import org.glassfish.jersey.media.multipart.FormDataBodyPart;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.MultiPart;
@@ -29,6 +34,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import java.net.URI;
+{{#generateInsecureTlsHook}}
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
@@ -36,6 +42,7 @@ import java.security.cert.X509Certificate;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+{{/generateInsecureTlsHook}}
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -54,6 +61,7 @@ import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 {{#jsr310}}
@@ -87,14 +95,15 @@ import com.dropbox.sign.model.ErrorResponse;
  * <p>ApiClient class.</p>
  */
 {{>generatedAnnotation}}
+
 public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
-  private static final Pattern JSON_MIME_PATTERN = Pattern.compile("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
+  protected static final Pattern JSON_MIME_PATTERN = Pattern.compile("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
 
   protected Map<String, String> defaultHeaderMap = new HashMap<>();
   protected Map<String, String> defaultCookieMap = new HashMap<>();
   protected String basePath = "{{{basePath}}}";
   protected String userAgent;
-  private static final Logger log = Logger.getLogger(ApiClient.class.getName());
+  protected static final Logger log = Logger.getLogger(ApiClient.class.getName());
 
   protected List<ServerConfiguration> servers = new ArrayList<>({{#servers}}{{#-first}}Arrays.asList(
 {{/-first}}          new ServerConfiguration(
@@ -178,7 +187,7 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
   protected boolean debugging = false;
   protected ClientConfig clientConfig;
   protected int connectionTimeout = 0;
-  private int readTimeout = 0;
+  protected int readTimeout = 0;
 
   protected Client httpClient;
   protected JSON json;
@@ -376,14 +385,14 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
     return this;
   }
 
-  private void updateBasePath() {
+  protected void updateBasePath() {
     if (serverIndex != null) {
         setBasePath(servers.get(serverIndex).URL(serverVariables));
     }
   }
 
   {{#hasOAuthMethods}}
-  private void setOauthBasePath(String basePath) {
+  protected void setOauthBasePath(String basePath) {
     for(Authentication auth : authentications.values()) {
       if (auth instanceof OAuth) {
         ((OAuth) auth).setBasePath(basePath);
@@ -708,6 +717,7 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    */
   public ApiClient setDebugging(boolean debugging) {
     this.debugging = debugging;
+    applyDebugSetting(this.clientConfig);
     // Rebuild HTTP Client according to the new "debugging" value.
     this.httpClient = buildHttpClient();
     return this;
@@ -988,6 +998,41 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
   }
 
   /**
+   * Format the given collection as a path parameter value according to the collection format.
+   * Each item is escaped individually, so that the delimiter is preserved (e.g. "a,b,c" for csv).
+   *
+   * @param collectionFormat Collection format (csv by default)
+   * @param value Collection value
+   * @return Escaped path parameter value
+   */
+  public String collectionPathParameterToString(String collectionFormat, Collection<?> value) {
+    if (value == null || value.isEmpty()) {
+      return "";
+    }
+
+    // "multi" is not valid for path params, fall back to csv
+    String delimiter = ",";
+    if ("ssv".equals(collectionFormat)) {
+      delimiter = escapeString(" ");
+    } else if ("tsv".equals(collectionFormat)) {
+      delimiter = escapeString("\t");
+    } else if ("pipes".equals(collectionFormat)) {
+      delimiter = escapeString("|");
+    }
+
+    StringBuilder sb = new StringBuilder();
+    boolean first = true;
+    for (Object item : value) {
+      if (!first) {
+        sb.append(delimiter);
+      }
+      sb.append(escapeString(parameterToString(item)));
+      first = false;
+    }
+    return sb.toString();
+  }
+
+  /**
    * Serialize the given Java object into string entity according the given
    * Content-Type (only JSON is supported for now).
    *
@@ -1038,11 +1083,11 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Adds the object with the provided key to the MultiPart.
    * Based on the object type sets Content-Disposition and Content-Type.
    *
-   * @param obj Object
+   * @param value Object
    * @param key Key of the object
    * @param multiPart MultiPart to add the form param to
    */
-  private void addParamToMultipart(Object value, String key, MultiPart multiPart) {
+  protected void addParamToMultipart(Object value, String key, MultiPart multiPart) {
     if (value instanceof File) {
       File file = (File) value;
       FormDataContentDisposition contentDisp = FormDataContentDisposition.name(key)
@@ -1208,6 +1253,7 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * @param authNames The authentications to apply
    * @param returnType The return type into which to deserialize the response
    * @param isBodyNullable True if the body is nullable
+   * @param errorTypes Mapping of error codes to types into which to deserialize the response
    * @return The response body in type of string
    * @throws ApiException API exception
    */
@@ -1224,7 +1270,9 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
       String contentType,
       String[] authNames,
       GenericType<T> returnType,
-      boolean isBodyNullable)
+      boolean isBodyNullable,
+      Map<String, GenericType> errorTypes
+      )
       throws ApiException {
 
     String targetURL;
@@ -1235,6 +1283,7 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
       if (index < 0 || index >= serverConfigurations.size()) {
         throw new ArrayIndexOutOfBoundsException(
             String.format(
+                Locale.ROOT,
                 "Invalid index %d when selecting the host settings. Must be less than %d",
                 index, serverConfigurations.size()));
       }
@@ -1245,6 +1294,27 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
     // Not using `.target(targetURL).path(path)` below,
     // to support (constant) query string in `path`, e.g. "/posts?draft=1"
     WebTarget target = httpClient.target(targetURL);
+
+    // put all headers in one place
+    Map<String, String> allHeaderParams = new HashMap<>(defaultHeaderMap);
+    allHeaderParams.putAll(headerParams);
+
+    if (authNames != null) {
+      // update different parameters (e.g. headers) for authentication
+      updateParamsForAuth(
+          authNames,
+          queryParams,
+          allHeaderParams,
+          cookieParams,
+          {{#hasHttpSignatureMethods}}
+          serializeToString(body, formParams, contentType, isBodyNullable),
+          {{/hasHttpSignatureMethods}}
+          {{^hasHttpSignatureMethods}}
+          null,
+          {{/hasHttpSignatureMethods}}
+          method,
+          target.getUri());
+    }
 
     if (queryParams != null) {
       for (Pair queryParam : queryParams) {
@@ -1276,27 +1346,6 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
 
     Entity<?> entity = serialize(body, formParams, contentType, isBodyNullable);
 
-    // put all headers in one place
-    Map<String, String> allHeaderParams = new HashMap<>(defaultHeaderMap);
-    allHeaderParams.putAll(headerParams);
-
-    if (authNames != null) {
-      // update different parameters (e.g. headers) for authentication
-      updateParamsForAuth(
-          authNames,
-          queryParams,
-          allHeaderParams,
-          cookieParams,
-          {{#hasHttpSignatureMethods}}
-          serializeToString(body, formParams, contentType, isBodyNullable),
-          {{/hasHttpSignatureMethods}}
-          {{^hasHttpSignatureMethods}}
-          null,
-          {{/hasHttpSignatureMethods}}
-          method,
-          target.getUri());
-    }
-
     for (Entry<String, String> entry : allHeaderParams.entrySet()) {
       String value = entry.getValue();
       if (value != null) {
@@ -1309,11 +1358,9 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
     try {
       response = sendRequest(method, invocationBuilder, entity);
 
-      final int statusCode = response.getStatusInfo().getStatusCode();
-
       {{#hasOAuthMethods}}
       // If OAuth is used and a status 401 is received, renew the access token and retry the request
-      if (authNames != null && statusCode == Status.UNAUTHORIZED.getStatusCode()) {
+      if (authNames != null && response.getStatusInfo().getStatusCode() == Status.UNAUTHORIZED.getStatusCode()) {
         for (String authName : authNames) {
           Authentication authentication = authentications.get(authName);
           if (authentication instanceof OAuth) {
@@ -1329,6 +1376,8 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
       }
 
       {{/hasOAuthMethods}}
+      final int statusCode = response.getStatusInfo().getStatusCode();
+
       Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
 
       if (statusCode == Status.NO_CONTENT.getStatusCode()) {
@@ -1348,6 +1397,8 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
 {{^useCustomTemplateCode}}
         if (response.hasEntity()) {
           try {
+            // call bufferEntity, so that a subsequent call to `readEntity` in `deserialize` doesn't fail
+            response.bufferEntity();
             respBody = String.valueOf(response.readEntity(String.class));
             message = respBody;
           } catch (RuntimeException e) {
@@ -1355,7 +1406,7 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
           }
         }
         throw new ApiException(
-            response.getStatus(), message, buildResponseHeaders(response), respBody);
+            response.getStatus(), message, buildResponseHeaders(response), respBody, deserializeErrorEntity(errorTypes, response));
 {{/useCustomTemplateCode}}
 {{#useCustomTemplateCode}}
         if (response.hasEntity()) {
@@ -1385,8 +1436,32 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
       }
     }
   }
+  
+  /**
+   * Deserialize the response body into an error entity based on HTTP status code.
+   * Looks up the error type from the errorTypes map using the response status code,
+   * or falls back to the "default" error type if no match is found.
+   *
+   * @param errorTypes Map of status code strings to GenericType for deserialization
+   * @param response The HTTP response
+   * @return The deserialized error entity, or null if not found or deserialization fails
+   */
+  private Object deserializeErrorEntity(Map<String, GenericType> errorTypes, Response response) {
+    if (errorTypes == null) {
+      return null;
+    }
+    GenericType errorType = errorTypes.get(String.valueOf(response.getStatus()));
+    if (errorType == null) {
+        errorType = errorTypes.get("0"); // "0" is the "default" response
+    }
+    try {
+      return deserialize(response, errorType);
+    } catch (Exception e) {
+      return null;
+    }
+  }
 
-  private Response sendRequest(String method, Invocation.Builder invocationBuilder, Entity<?> entity) {
+  protected Response sendRequest(String method, Invocation.Builder invocationBuilder, Entity<?> entity) {
     Response response;
     if ("POST".equals(method)) {
       response = invocationBuilder.post(entity);
@@ -1411,8 +1486,48 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    */
   @Deprecated
   public <T> ApiResponse<T> invokeAPI(String path, String method, List<Pair> queryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String accept, String contentType, String[] authNames, GenericType<T> returnType, boolean isBodyNullable) throws ApiException {
-    return invokeAPI(null, path, method, queryParams, body, headerParams, cookieParams, formParams, accept, contentType, authNames, returnType, isBodyNullable);
+    return invokeAPI(null, path, method, queryParams, body, headerParams, cookieParams, formParams, accept, contentType, authNames, returnType, isBodyNullable, null/*TODO SME manage*/);
   }
+{{#useCustomTemplateCode}}
+
+  /**
+   * Invoke API by sending HTTP request with the given options, without error types.
+   *
+   * @param <T> Type
+   * @param operation The qualified name of the operation
+   * @param path The sub-path of the HTTP URL
+   * @param method The request method, one of "GET", "POST", "PUT", "HEAD" and "DELETE"
+   * @param queryParams The query parameters
+   * @param body The request body object
+   * @param headerParams The header parameters
+   * @param cookieParams The cookie parameters
+   * @param formParams The form parameters
+   * @param accept The request's Accept header
+   * @param contentType The request's Content-Type header
+   * @param authNames The authentications to apply
+   * @param returnType The return type into which to deserialize the response
+   * @param isBodyNullable True if the body is nullable
+   * @return The response body in type of string
+   * @throws ApiException API exception
+   */
+  public <T> ApiResponse<T> invokeAPI(
+      String operation,
+      String path,
+      String method,
+      List<Pair> queryParams,
+      Object body,
+      Map<String, String> headerParams,
+      Map<String, String> cookieParams,
+      Map<String, Object> formParams,
+      String accept,
+      String contentType,
+      String[] authNames,
+      GenericType<T> returnType,
+      boolean isBodyNullable)
+      throws ApiException {
+    return invokeAPI(operation, path, method, queryParams, body, headerParams, cookieParams, formParams, accept, contentType, authNames, returnType, isBodyNullable, null);
+  }
+{{/useCustomTemplateCode}}
 
   /**
    * Build the Client used to make HTTP requests.
@@ -1420,8 +1535,10 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * @return Client
    */
   protected Client buildHttpClient() {
-    // recreate the client config to pickup changes
-    clientConfig = getDefaultClientConfig();
+    // Create ClientConfig if it has not been initialized yet
+    if (clientConfig == null) {
+      clientConfig = getDefaultClientConfig();
+    }
 
     ClientBuilder clientBuilder = ClientBuilder.newBuilder();
     clientBuilder = clientBuilder.withConfig(clientConfig);
@@ -1438,10 +1555,20 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
     ClientConfig clientConfig = new ClientConfig();
     clientConfig.register(MultiPartFeature.class);
     clientConfig.register(json);
+    {{^useJackson3}}
     clientConfig.register(JacksonFeature.class);
+    {{/useJackson3}}
+    {{#useJackson3}}
+    clientConfig.register(new JacksonJsonProvider((tools.jackson.databind.json.JsonMapper) json.getMapper()));
+    {{/useJackson3}}
     clientConfig.property(HttpUrlConnectorProvider.SET_METHOD_WORKAROUND, true);
     // turn off compliance validation to be able to send payloads with DELETE calls
     clientConfig.property(ClientProperties.SUPPRESS_HTTP_COMPLIANCE_VALIDATION, true);
+    applyDebugSetting(clientConfig);
+    return clientConfig;
+  }
+
+  protected void applyDebugSetting(ClientConfig clientConfig) {
     if (debugging) {
       clientConfig.register(new LoggingFeature(java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME), java.util.logging.Level.INFO, LoggingFeature.Verbosity.PAYLOAD_ANY, 1024*50 /* Log payloads up to 50K */));
       clientConfig.property(LoggingFeature.LOGGING_FEATURE_VERBOSITY, LoggingFeature.Verbosity.PAYLOAD_ANY);
@@ -1451,8 +1578,6 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
       // suppress warnings for payloads with DELETE calls:
       java.util.logging.Logger.getLogger("org.glassfish.jersey.client").setLevel(java.util.logging.Level.SEVERE);
     }
-
-    return clientConfig;
   }
 
   /**
@@ -1466,14 +1591,17 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    *    server endpoints from web targets created by the client instance that is using this SSL context.
    * 4. Set the client-side trust store.
    *
+{{#generateInsecureTlsHook}}
    * To completely disable certificate validation (at your own risk), you can
    * override this method and invoke disableCertificateValidation(clientBuilder).
    *
+{{/generateInsecureTlsHook}}
    * @param clientBuilder a {@link {{javaxPackage}}.ws.rs.client.ClientBuilder} object.
    */
   protected void customizeClientBuilder(ClientBuilder clientBuilder) {
     // No-op extension point
   }
+{{#generateInsecureTlsHook}}
 
   /**
    * Disable X.509 certificate validation in TLS connections.
@@ -1504,6 +1632,7 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
     sslContext.init(null, trustAllCerts, new SecureRandom());
     clientBuilder.sslContext(sslContext);
   }
+{{/generateInsecureTlsHook}}
 
   /**
    * <p>Build the response headers.</p>

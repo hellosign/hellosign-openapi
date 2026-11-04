@@ -32,7 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OAuthTokenRefreshRequest {
     public static final String JSON_PROPERTY_GRANT_TYPE = "grant_type";
@@ -76,13 +76,13 @@ public class OAuthTokenRefreshRequest {
      * @return grantType
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_GRANT_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_GRANT_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getGrantType() {
         return grantType;
     }
 
-    @JsonProperty(JSON_PROPERTY_GRANT_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_GRANT_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setGrantType(@javax.annotation.Nonnull String grantType) {
         this.grantType = grantType;
@@ -99,13 +99,13 @@ public class OAuthTokenRefreshRequest {
      * @return refreshToken
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_REFRESH_TOKEN)
+    @JsonProperty(value = JSON_PROPERTY_REFRESH_TOKEN, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getRefreshToken() {
         return refreshToken;
     }
 
-    @JsonProperty(JSON_PROPERTY_REFRESH_TOKEN)
+    @JsonProperty(value = JSON_PROPERTY_REFRESH_TOKEN, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setRefreshToken(@javax.annotation.Nonnull String refreshToken) {
         this.refreshToken = refreshToken;
@@ -122,13 +122,13 @@ public class OAuthTokenRefreshRequest {
      *
      * @return clientId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getClientId() {
         return clientId;
     }
 
-    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setClientId(@javax.annotation.Nullable String clientId) {
         this.clientId = clientId;
@@ -145,13 +145,13 @@ public class OAuthTokenRefreshRequest {
      *
      * @return clientSecret
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CLIENT_SECRET, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getClientSecret() {
         return clientSecret;
     }
 
-    @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
+    @JsonProperty(value = JSON_PROPERTY_CLIENT_SECRET, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setClientSecret(@javax.annotation.Nullable String clientSecret) {
         this.clientSecret = clientSecret;
@@ -311,9 +311,6 @@ public class OAuthTokenRefreshRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

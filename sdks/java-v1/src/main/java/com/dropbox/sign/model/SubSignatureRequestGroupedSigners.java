@@ -33,7 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubSignatureRequestGroupedSigners {
     public static final String JSON_PROPERTY_GROUP = "group";
@@ -74,13 +74,13 @@ public class SubSignatureRequestGroupedSigners {
      * @return group
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_GROUP)
+    @JsonProperty(value = JSON_PROPERTY_GROUP, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getGroup() {
         return group;
     }
 
-    @JsonProperty(JSON_PROPERTY_GROUP)
+    @JsonProperty(value = JSON_PROPERTY_GROUP, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setGroup(@javax.annotation.Nonnull String group) {
         this.group = group;
@@ -108,13 +108,13 @@ public class SubSignatureRequestGroupedSigners {
      * @return signers
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SIGNERS)
+    @JsonProperty(value = JSON_PROPERTY_SIGNERS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<SubSignatureRequestSigner> getSigners() {
         return signers;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNERS)
+    @JsonProperty(value = JSON_PROPERTY_SIGNERS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSigners(@javax.annotation.Nonnull List<SubSignatureRequestSigner> signers) {
         this.signers = signers;
@@ -131,13 +131,13 @@ public class SubSignatureRequestGroupedSigners {
      *
      * @return order
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ORDER)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getOrder() {
         return order;
     }
 
-    @JsonProperty(JSON_PROPERTY_ORDER)
+    @JsonProperty(value = JSON_PROPERTY_ORDER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setOrder(@javax.annotation.Nullable Integer order) {
         this.order = order;
@@ -270,9 +270,6 @@ public class SubSignatureRequestGroupedSigners {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

@@ -73,7 +73,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentFieldDetectionResponse</returns>
-        System.Threading.Tasks.Task<DocumentFieldDetectionResponse> DocumentDetectFieldsAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DocumentFieldDetectionResponse> DocumentDetectFieldsAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Detect Document Fields
@@ -87,7 +87,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentFieldDetectionResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DocumentFieldDetectionResponse>> DocumentDetectFieldsWithHttpInfoAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DocumentFieldDetectionResponse>> DocumentDetectFieldsWithHttpInfoAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -309,7 +309,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentFieldDetectionResponse</returns>
-        public async System.Threading.Tasks.Task<DocumentFieldDetectionResponse> DocumentDetectFieldsAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DocumentFieldDetectionResponse> DocumentDetectFieldsAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse> localVarResponse = await DocumentDetectFieldsWithHttpInfoAsync(documentFieldDetectionRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -324,7 +324,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentFieldDetectionResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse>> DocumentDetectFieldsWithHttpInfoAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<DocumentFieldDetectionResponse>> DocumentDetectFieldsWithHttpInfoAsync(DocumentFieldDetectionRequest documentFieldDetectionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'documentFieldDetectionRequest' is set
             if (documentFieldDetectionRequest == null)

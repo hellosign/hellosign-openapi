@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentStaticFieldRadio
+# TemplateResponseDocumentStaticFieldRadio
 
 This class extends `TemplateResponseDocumentStaticFieldBase`
 

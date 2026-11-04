@@ -29,7 +29,7 @@ import java.util.Objects;
 @JsonPropertyOrder({FaxListResponse.JSON_PROPERTY_FAXES, FaxListResponse.JSON_PROPERTY_LIST_INFO})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxListResponse {
     public static final String JSON_PROPERTY_FAXES = "faxes";
@@ -73,13 +73,13 @@ public class FaxListResponse {
      * @return faxes
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_FAXES)
+    @JsonProperty(value = JSON_PROPERTY_FAXES, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<FaxResponse> getFaxes() {
         return faxes;
     }
 
-    @JsonProperty(JSON_PROPERTY_FAXES)
+    @JsonProperty(value = JSON_PROPERTY_FAXES, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setFaxes(@javax.annotation.Nonnull List<FaxResponse> faxes) {
         this.faxes = faxes;
@@ -96,13 +96,13 @@ public class FaxListResponse {
      * @return listInfo
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_LIST_INFO)
+    @JsonProperty(value = JSON_PROPERTY_LIST_INFO, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public ListInfoResponse getListInfo() {
         return listInfo;
     }
 
-    @JsonProperty(JSON_PROPERTY_LIST_INFO)
+    @JsonProperty(value = JSON_PROPERTY_LIST_INFO, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setListInfo(@javax.annotation.Nonnull ListInfoResponse listInfo) {
         this.listInfo = listInfo;
@@ -216,9 +216,6 @@ public class FaxListResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

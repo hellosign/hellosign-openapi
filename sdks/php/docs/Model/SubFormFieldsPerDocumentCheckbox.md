@@ -1,4 +1,4 @@
-# # SubFormFieldsPerDocumentCheckbox
+# SubFormFieldsPerDocumentCheckbox
 
 This class extends `SubFormFieldsPerDocumentBase`.
 

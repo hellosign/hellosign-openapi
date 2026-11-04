@@ -27,7 +27,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 public class TemplateApi {
     private ApiClient apiClient;
 
@@ -74,7 +74,9 @@ public class TemplateApi {
      * </table>
      */
     public TemplateGetResponse templateAddUser(
-            String templateId, TemplateAddUserRequest templateAddUserRequest) throws ApiException {
+            @javax.annotation.Nonnull String templateId,
+            @javax.annotation.Nonnull TemplateAddUserRequest templateAddUserRequest)
+            throws ApiException {
         return templateAddUserWithHttpInfo(templateId, templateAddUserRequest).getData();
     }
 
@@ -95,7 +97,9 @@ public class TemplateApi {
      * </table>
      */
     public ApiResponse<TemplateGetResponse> templateAddUserWithHttpInfo(
-            String templateId, TemplateAddUserRequest templateAddUserRequest) throws ApiException {
+            @javax.annotation.Nonnull String templateId,
+            @javax.annotation.Nonnull TemplateAddUserRequest templateAddUserRequest)
+            throws ApiException {
 
         // Check required parameters
         if (templateId == null) {
@@ -168,7 +172,8 @@ public class TemplateApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public TemplateCreateResponse templateCreate(TemplateCreateRequest templateCreateRequest)
+    public TemplateCreateResponse templateCreate(
+            @javax.annotation.Nonnull TemplateCreateRequest templateCreateRequest)
             throws ApiException {
         return templateCreateWithHttpInfo(templateCreateRequest).getData();
     }
@@ -199,7 +204,8 @@ public class TemplateApi {
      * </table>
      */
     public ApiResponse<TemplateCreateResponse> templateCreateWithHttpInfo(
-            TemplateCreateRequest templateCreateRequest) throws ApiException {
+            @javax.annotation.Nonnull TemplateCreateRequest templateCreateRequest)
+            throws ApiException {
 
         // Check required parameters
         if (templateCreateRequest == null) {
@@ -253,7 +259,8 @@ public class TemplateApi {
      * </table>
      */
     public TemplateCreateEmbeddedDraftResponse templateCreateEmbeddedDraft(
-            TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest)
+            @javax.annotation.Nonnull
+                    TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest)
             throws ApiException {
         return templateCreateEmbeddedDraftWithHttpInfo(templateCreateEmbeddedDraftRequest)
                 .getData();
@@ -275,7 +282,8 @@ public class TemplateApi {
      * </table>
      */
     public ApiResponse<TemplateCreateEmbeddedDraftResponse> templateCreateEmbeddedDraftWithHttpInfo(
-            TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest)
+            @javax.annotation.Nonnull
+                    TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest)
             throws ApiException {
 
         // Check required parameters
@@ -327,7 +335,7 @@ public class TemplateApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public void templateDelete(String templateId) throws ApiException {
+    public void templateDelete(@javax.annotation.Nonnull String templateId) throws ApiException {
         templateDeleteWithHttpInfo(templateId);
     }
 
@@ -345,7 +353,8 @@ public class TemplateApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<Void> templateDeleteWithHttpInfo(String templateId) throws ApiException {
+    public ApiResponse<Void> templateDeleteWithHttpInfo(@javax.annotation.Nonnull String templateId)
+            throws ApiException {
 
         // Check required parameters
         if (templateId == null) {
@@ -401,7 +410,9 @@ public class TemplateApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public File templateFiles(String templateId, String fileType) throws ApiException {
+    public File templateFiles(
+            @javax.annotation.Nonnull String templateId, @javax.annotation.Nullable String fileType)
+            throws ApiException {
         return templateFilesWithHttpInfo(templateId, fileType).getData();
     }
 
@@ -442,7 +453,8 @@ public class TemplateApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<File> templateFilesWithHttpInfo(String templateId, String fileType)
+    public ApiResponse<File> templateFilesWithHttpInfo(
+            @javax.annotation.Nonnull String templateId, @javax.annotation.Nullable String fileType)
             throws ApiException {
 
         // Check required parameters
@@ -505,7 +517,8 @@ public class TemplateApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public FileResponseDataUri templateFilesAsDataUri(String templateId) throws ApiException {
+    public FileResponseDataUri templateFilesAsDataUri(@javax.annotation.Nonnull String templateId)
+            throws ApiException {
         return templateFilesAsDataUriWithHttpInfo(templateId).getData();
     }
 
@@ -527,8 +540,8 @@ public class TemplateApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<FileResponseDataUri> templateFilesAsDataUriWithHttpInfo(String templateId)
-            throws ApiException {
+    public ApiResponse<FileResponseDataUri> templateFilesAsDataUriWithHttpInfo(
+            @javax.annotation.Nonnull String templateId) throws ApiException {
 
         // Check required parameters
         if (templateId == null) {
@@ -589,7 +602,9 @@ public class TemplateApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public FileResponse templateFilesAsFileUrl(String templateId, Integer forceDownload)
+    public FileResponse templateFilesAsFileUrl(
+            @javax.annotation.Nonnull String templateId,
+            @javax.annotation.Nullable Integer forceDownload)
             throws ApiException {
         return templateFilesAsFileUrlWithHttpInfo(templateId, forceDownload).getData();
     }
@@ -634,7 +649,9 @@ public class TemplateApi {
      * </table>
      */
     public ApiResponse<FileResponse> templateFilesAsFileUrlWithHttpInfo(
-            String templateId, Integer forceDownload) throws ApiException {
+            @javax.annotation.Nonnull String templateId,
+            @javax.annotation.Nullable Integer forceDownload)
+            throws ApiException {
 
         if (forceDownload == null) {
             forceDownload = 1;
@@ -695,7 +712,8 @@ public class TemplateApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public TemplateGetResponse templateGet(String templateId) throws ApiException {
+    public TemplateGetResponse templateGet(@javax.annotation.Nonnull String templateId)
+            throws ApiException {
         return templateGetWithHttpInfo(templateId).getData();
     }
 
@@ -713,8 +731,8 @@ public class TemplateApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<TemplateGetResponse> templateGetWithHttpInfo(String templateId)
-            throws ApiException {
+    public ApiResponse<TemplateGetResponse> templateGetWithHttpInfo(
+            @javax.annotation.Nonnull String templateId) throws ApiException {
 
         // Check required parameters
         if (templateId == null) {
@@ -776,7 +794,11 @@ public class TemplateApi {
      * </table>
      */
     public TemplateListResponse templateList(
-            String accountId, Integer page, Integer pageSize, String query) throws ApiException {
+            @javax.annotation.Nullable String accountId,
+            @javax.annotation.Nullable Integer page,
+            @javax.annotation.Nullable Integer pageSize,
+            @javax.annotation.Nullable String query)
+            throws ApiException {
         return templateListWithHttpInfo(accountId, page, pageSize, query).getData();
     }
 
@@ -891,7 +913,11 @@ public class TemplateApi {
      * </table>
      */
     public ApiResponse<TemplateListResponse> templateListWithHttpInfo(
-            String accountId, Integer page, Integer pageSize, String query) throws ApiException {
+            @javax.annotation.Nullable String accountId,
+            @javax.annotation.Nullable Integer page,
+            @javax.annotation.Nullable Integer pageSize,
+            @javax.annotation.Nullable String query)
+            throws ApiException {
 
         if (page == null) {
             page = 1;
@@ -948,7 +974,8 @@ public class TemplateApi {
      * </table>
      */
     public TemplateGetResponse templateRemoveUser(
-            String templateId, TemplateRemoveUserRequest templateRemoveUserRequest)
+            @javax.annotation.Nonnull String templateId,
+            @javax.annotation.Nonnull TemplateRemoveUserRequest templateRemoveUserRequest)
             throws ApiException {
         return templateRemoveUserWithHttpInfo(templateId, templateRemoveUserRequest).getData();
     }
@@ -970,7 +997,8 @@ public class TemplateApi {
      * </table>
      */
     public ApiResponse<TemplateGetResponse> templateRemoveUserWithHttpInfo(
-            String templateId, TemplateRemoveUserRequest templateRemoveUserRequest)
+            @javax.annotation.Nonnull String templateId,
+            @javax.annotation.Nonnull TemplateRemoveUserRequest templateRemoveUserRequest)
             throws ApiException {
 
         // Check required parameters
@@ -1048,7 +1076,8 @@ public class TemplateApi {
      * </table>
      */
     public TemplateUpdateFilesResponse templateUpdateFiles(
-            String templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest)
+            @javax.annotation.Nonnull String templateId,
+            @javax.annotation.Nonnull TemplateUpdateFilesRequest templateUpdateFilesRequest)
             throws ApiException {
         return templateUpdateFilesWithHttpInfo(templateId, templateUpdateFilesRequest).getData();
     }
@@ -1082,7 +1111,8 @@ public class TemplateApi {
      * </table>
      */
     public ApiResponse<TemplateUpdateFilesResponse> templateUpdateFilesWithHttpInfo(
-            String templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest)
+            @javax.annotation.Nonnull String templateId,
+            @javax.annotation.Nonnull TemplateUpdateFilesRequest templateUpdateFilesRequest)
             throws ApiException {
 
         // Check required parameters

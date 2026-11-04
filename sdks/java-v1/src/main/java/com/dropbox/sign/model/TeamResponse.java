@@ -34,7 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamResponse {
     public static final String JSON_PROPERTY_NAME = "name";
@@ -75,13 +75,13 @@ public class TeamResponse {
      *
      * @return name
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getName() {
         return name;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
@@ -105,13 +105,13 @@ public class TeamResponse {
      *
      * @return accounts
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ACCOUNTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<AccountResponse> getAccounts() {
         return accounts;
     }
 
-    @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+    @JsonProperty(value = JSON_PROPERTY_ACCOUNTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAccounts(@javax.annotation.Nullable List<AccountResponse> accounts) {
         this.accounts = accounts;
@@ -137,13 +137,13 @@ public class TeamResponse {
      *
      * @return invitedAccounts
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_INVITED_ACCOUNTS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_INVITED_ACCOUNTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<AccountResponse> getInvitedAccounts() {
         return invitedAccounts;
     }
 
-    @JsonProperty(JSON_PROPERTY_INVITED_ACCOUNTS)
+    @JsonProperty(value = JSON_PROPERTY_INVITED_ACCOUNTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setInvitedAccounts(
             @javax.annotation.Nullable List<AccountResponse> invitedAccounts) {
@@ -169,13 +169,13 @@ public class TeamResponse {
      *
      * @return invitedEmails
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_INVITED_EMAILS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_INVITED_EMAILS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<String> getInvitedEmails() {
         return invitedEmails;
     }
 
-    @JsonProperty(JSON_PROPERTY_INVITED_EMAILS)
+    @JsonProperty(value = JSON_PROPERTY_INVITED_EMAILS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setInvitedEmails(@javax.annotation.Nullable List<String> invitedEmails) {
         this.invitedEmails = invitedEmails;
@@ -331,9 +331,6 @@ public class TeamResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

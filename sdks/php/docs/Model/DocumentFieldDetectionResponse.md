@@ -1,4 +1,4 @@
-# # DocumentFieldDetectionResponse
+# DocumentFieldDetectionResponse
 
 
 

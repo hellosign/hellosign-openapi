@@ -41,7 +41,7 @@ import com.dropbox.sign.ApiException;
   TemplateCreateEmbeddedDraftResponseTemplate.JSON_PROPERTY_EXPIRES_AT,
   TemplateCreateEmbeddedDraftResponseTemplate.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateCreateEmbeddedDraftResponseTemplate {
   public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
@@ -89,7 +89,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
    * @return templateId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTemplateId() {
@@ -97,7 +97,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTemplateId(@jakarta.annotation.Nullable String templateId) {
     this.templateId = templateId;
@@ -114,7 +114,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
    * @return editUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDIT_URL)
+  @JsonProperty(value = JSON_PROPERTY_EDIT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEditUrl() {
@@ -122,7 +122,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDIT_URL)
+  @JsonProperty(value = JSON_PROPERTY_EDIT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEditUrl(@jakarta.annotation.Nullable String editUrl) {
     this.editUrl = editUrl;
@@ -139,7 +139,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
    * @return expiresAt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getExpiresAt() {
@@ -147,7 +147,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
@@ -175,7 +175,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
    */
   @Deprecated
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<WarningResponse> getWarnings() {
@@ -184,7 +184,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
 
 
   @Deprecated
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
@@ -338,10 +338,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

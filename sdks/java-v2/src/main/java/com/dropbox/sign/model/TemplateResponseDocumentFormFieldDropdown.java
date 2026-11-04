@@ -43,7 +43,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFormFieldDropdown.JSON_PROPERTY_GROUP,
   TemplateResponseDocumentFormFieldDropdown.JSON_PROPERTY_OPTIONS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -91,7 +91,7 @@ public class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseD
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getType() {
@@ -99,7 +99,7 @@ public class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseD
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
@@ -116,7 +116,7 @@ public class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseD
    * @return group
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonProperty(value = JSON_PROPERTY_GROUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getGroup() {
@@ -124,7 +124,7 @@ public class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseD
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonProperty(value = JSON_PROPERTY_GROUP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGroup(@jakarta.annotation.Nullable String group) {
     this.group = group;
@@ -149,7 +149,7 @@ public class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseD
    * @return options
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getOptions() {
@@ -157,7 +157,7 @@ public class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseD
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOptions(@jakarta.annotation.Nullable List<String> options) {
     this.options = options;
@@ -293,10 +293,7 @@ public class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseD
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   static {

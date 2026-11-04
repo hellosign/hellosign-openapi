@@ -16,7 +16,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 public class BulkSendJobApi {
     private ApiClient apiClient;
 
@@ -66,7 +66,10 @@ public class BulkSendJobApi {
      * </table>
      */
     public BulkSendJobGetResponse bulkSendJobGet(
-            String bulkSendJobId, Integer page, Integer pageSize) throws ApiException {
+            @javax.annotation.Nonnull String bulkSendJobId,
+            @javax.annotation.Nullable Integer page,
+            @javax.annotation.Nullable Integer pageSize)
+            throws ApiException {
         return bulkSendJobGetWithHttpInfo(bulkSendJobId, page, pageSize).getData();
     }
 
@@ -131,7 +134,10 @@ public class BulkSendJobApi {
      * </table>
      */
     public ApiResponse<BulkSendJobGetResponse> bulkSendJobGetWithHttpInfo(
-            String bulkSendJobId, Integer page, Integer pageSize) throws ApiException {
+            @javax.annotation.Nonnull String bulkSendJobId,
+            @javax.annotation.Nullable Integer page,
+            @javax.annotation.Nullable Integer pageSize)
+            throws ApiException {
 
         if (page == null) {
             page = 1;
@@ -200,7 +206,8 @@ public class BulkSendJobApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public BulkSendJobListResponse bulkSendJobList(Integer page, Integer pageSize)
+    public BulkSendJobListResponse bulkSendJobList(
+            @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize)
             throws ApiException {
         return bulkSendJobListWithHttpInfo(page, pageSize).getData();
     }
@@ -262,7 +269,8 @@ public class BulkSendJobApi {
      * </table>
      */
     public ApiResponse<BulkSendJobListResponse> bulkSendJobListWithHttpInfo(
-            Integer page, Integer pageSize) throws ApiException {
+            @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize)
+            throws ApiException {
 
         if (page == null) {
             page = 1;

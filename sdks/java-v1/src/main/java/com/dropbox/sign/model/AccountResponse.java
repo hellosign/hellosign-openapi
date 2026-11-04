@@ -40,7 +40,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountResponse {
     public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -105,13 +105,13 @@ public class AccountResponse {
      *
      * @return accountId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getAccountId() {
         return accountId;
     }
 
-    @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+    @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAccountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
@@ -127,13 +127,13 @@ public class AccountResponse {
      *
      * @return emailAddress
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getEmailAddress() {
         return emailAddress;
     }
 
-    @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setEmailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
@@ -149,13 +149,13 @@ public class AccountResponse {
      *
      * @return isLocked
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_LOCKED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsLocked() {
         return isLocked;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+    @JsonProperty(value = JSON_PROPERTY_IS_LOCKED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsLocked(@javax.annotation.Nullable Boolean isLocked) {
         this.isLocked = isLocked;
@@ -171,13 +171,13 @@ public class AccountResponse {
      *
      * @return isPaidHs
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_PAID_HS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsPaidHs() {
         return isPaidHs;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
+    @JsonProperty(value = JSON_PROPERTY_IS_PAID_HS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsPaidHs(@javax.annotation.Nullable Boolean isPaidHs) {
         this.isPaidHs = isPaidHs;
@@ -193,13 +193,13 @@ public class AccountResponse {
      *
      * @return isPaidHf
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_PAID_HF, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsPaidHf() {
         return isPaidHf;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
+    @JsonProperty(value = JSON_PROPERTY_IS_PAID_HF, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsPaidHf(@javax.annotation.Nullable Boolean isPaidHf) {
         this.isPaidHf = isPaidHf;
@@ -215,13 +215,13 @@ public class AccountResponse {
      *
      * @return quotas
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_QUOTAS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_QUOTAS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public AccountResponseQuotas getQuotas() {
         return quotas;
     }
 
-    @JsonProperty(JSON_PROPERTY_QUOTAS)
+    @JsonProperty(value = JSON_PROPERTY_QUOTAS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setQuotas(@javax.annotation.Nullable AccountResponseQuotas quotas) {
         this.quotas = quotas;
@@ -237,13 +237,13 @@ public class AccountResponse {
      *
      * @return callbackUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getCallbackUrl() {
         return callbackUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+    @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCallbackUrl(@javax.annotation.Nullable String callbackUrl) {
         this.callbackUrl = callbackUrl;
@@ -259,13 +259,13 @@ public class AccountResponse {
      *
      * @return roleCode
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ROLE_CODE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ROLE_CODE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getRoleCode() {
         return roleCode;
     }
 
-    @JsonProperty(JSON_PROPERTY_ROLE_CODE)
+    @JsonProperty(value = JSON_PROPERTY_ROLE_CODE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setRoleCode(@javax.annotation.Nullable String roleCode) {
         this.roleCode = roleCode;
@@ -281,13 +281,13 @@ public class AccountResponse {
      *
      * @return teamId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEAM_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getTeamId() {
         return teamId;
     }
 
-    @JsonProperty(JSON_PROPERTY_TEAM_ID)
+    @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTeamId(@javax.annotation.Nullable String teamId) {
         this.teamId = teamId;
@@ -305,13 +305,13 @@ public class AccountResponse {
      *
      * @return locale
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_LOCALE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_LOCALE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getLocale() {
         return locale;
     }
 
-    @JsonProperty(JSON_PROPERTY_LOCALE)
+    @JsonProperty(value = JSON_PROPERTY_LOCALE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setLocale(@javax.annotation.Nullable String locale) {
         this.locale = locale;
@@ -327,13 +327,13 @@ public class AccountResponse {
      *
      * @return usage
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_USAGE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_USAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public AccountResponseUsage getUsage() {
         return usage;
     }
 
-    @JsonProperty(JSON_PROPERTY_USAGE)
+    @JsonProperty(value = JSON_PROPERTY_USAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setUsage(@javax.annotation.Nullable AccountResponseUsage usage) {
         this.usage = usage;
@@ -349,13 +349,13 @@ public class AccountResponse {
      *
      * @return settings
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SETTINGS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public AccountResponseSettings getSettings() {
         return settings;
     }
 
-    @JsonProperty(JSON_PROPERTY_SETTINGS)
+    @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSettings(@javax.annotation.Nullable AccountResponseSettings settings) {
         this.settings = settings;
@@ -693,9 +693,6 @@ public class AccountResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

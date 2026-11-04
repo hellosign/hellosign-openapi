@@ -36,7 +36,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UnclaimedDraftEditAndResendRequest {
     public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
@@ -93,13 +93,13 @@ public class UnclaimedDraftEditAndResendRequest {
      * @return clientId
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getClientId() {
         return clientId;
     }
 
-    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setClientId(@javax.annotation.Nonnull String clientId) {
         this.clientId = clientId;
@@ -116,13 +116,13 @@ public class UnclaimedDraftEditAndResendRequest {
      *
      * @return editorOptions
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EDITOR_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public SubEditorOptions getEditorOptions() {
         return editorOptions;
     }
 
-    @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+    @JsonProperty(value = JSON_PROPERTY_EDITOR_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setEditorOptions(@javax.annotation.Nullable SubEditorOptions editorOptions) {
         this.editorOptions = editorOptions;
@@ -140,13 +140,13 @@ public class UnclaimedDraftEditAndResendRequest {
      *
      * @return isForEmbeddedSigning
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsForEmbeddedSigning() {
         return isForEmbeddedSigning;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
+    @JsonProperty(value = JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsForEmbeddedSigning(@javax.annotation.Nullable Boolean isForEmbeddedSigning) {
         this.isForEmbeddedSigning = isForEmbeddedSigning;
@@ -164,13 +164,13 @@ public class UnclaimedDraftEditAndResendRequest {
      *
      * @return requesterEmailAddress
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getRequesterEmailAddress() {
         return requesterEmailAddress;
     }
 
-    @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setRequesterEmailAddress(@javax.annotation.Nullable String requesterEmailAddress) {
         this.requesterEmailAddress = requesterEmailAddress;
@@ -187,13 +187,13 @@ public class UnclaimedDraftEditAndResendRequest {
      *
      * @return requestingRedirectUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_REQUESTING_REDIRECT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getRequestingRedirectUrl() {
         return requestingRedirectUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+    @JsonProperty(value = JSON_PROPERTY_REQUESTING_REDIRECT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setRequestingRedirectUrl(@javax.annotation.Nullable String requestingRedirectUrl) {
         this.requestingRedirectUrl = requestingRedirectUrl;
@@ -211,13 +211,13 @@ public class UnclaimedDraftEditAndResendRequest {
      *
      * @return showProgressStepper
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SHOW_PROGRESS_STEPPER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getShowProgressStepper() {
         return showProgressStepper;
     }
 
-    @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+    @JsonProperty(value = JSON_PROPERTY_SHOW_PROGRESS_STEPPER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setShowProgressStepper(@javax.annotation.Nullable Boolean showProgressStepper) {
         this.showProgressStepper = showProgressStepper;
@@ -234,13 +234,13 @@ public class UnclaimedDraftEditAndResendRequest {
      *
      * @return signingRedirectUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNING_REDIRECT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSigningRedirectUrl() {
         return signingRedirectUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+    @JsonProperty(value = JSON_PROPERTY_SIGNING_REDIRECT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSigningRedirectUrl(@javax.annotation.Nullable String signingRedirectUrl) {
         this.signingRedirectUrl = signingRedirectUrl;
@@ -258,13 +258,13 @@ public class UnclaimedDraftEditAndResendRequest {
      *
      * @return testMode
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEST_MODE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getTestMode() {
         return testMode;
     }
 
-    @JsonProperty(JSON_PROPERTY_TEST_MODE)
+    @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
@@ -556,9 +556,6 @@ public class UnclaimedDraftEditAndResendRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

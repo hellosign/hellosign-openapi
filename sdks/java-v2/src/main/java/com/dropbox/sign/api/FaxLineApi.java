@@ -23,7 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class FaxLineApi {
   private ApiClient apiClient;
 
@@ -68,7 +68,7 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxLineResponse faxLineAddUser(FaxLineAddUserRequest faxLineAddUserRequest) throws ApiException {
+  public FaxLineResponse faxLineAddUser(@jakarta.annotation.Nonnull FaxLineAddUserRequest faxLineAddUserRequest) throws ApiException {
     return faxLineAddUserWithHttpInfo(faxLineAddUserRequest).getData();
   }
 
@@ -88,7 +88,7 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxLineResponse> faxLineAddUserWithHttpInfo(FaxLineAddUserRequest faxLineAddUserRequest) throws ApiException {
+  public ApiResponse<FaxLineResponse> faxLineAddUserWithHttpInfo(@jakarta.annotation.Nonnull FaxLineAddUserRequest faxLineAddUserRequest) throws ApiException {
     
     // Check required parameters
     if (faxLineAddUserRequest == null) {
@@ -136,7 +136,7 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxLineAreaCodeGetResponse faxLineAreaCodeGet(String country, String state, String province, String city) throws ApiException {
+  public FaxLineAreaCodeGetResponse faxLineAreaCodeGet(@jakarta.annotation.Nonnull String country, @jakarta.annotation.Nullable String state, @jakarta.annotation.Nullable String province, @jakarta.annotation.Nullable String city) throws ApiException {
     return faxLineAreaCodeGetWithHttpInfo(country, state, province, city).getData();
   }
 
@@ -220,7 +220,7 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxLineAreaCodeGetResponse> faxLineAreaCodeGetWithHttpInfo(String country, String state, String province, String city) throws ApiException {
+  public ApiResponse<FaxLineAreaCodeGetResponse> faxLineAreaCodeGetWithHttpInfo(@jakarta.annotation.Nonnull String country, @jakarta.annotation.Nullable String state, @jakarta.annotation.Nullable String province, @jakarta.annotation.Nullable String city) throws ApiException {
     
     // Check required parameters
     if (country == null) {
@@ -273,7 +273,7 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxLineResponse faxLineCreate(FaxLineCreateRequest faxLineCreateRequest) throws ApiException {
+  public FaxLineResponse faxLineCreate(@jakarta.annotation.Nonnull FaxLineCreateRequest faxLineCreateRequest) throws ApiException {
     return faxLineCreateWithHttpInfo(faxLineCreateRequest).getData();
   }
 
@@ -293,7 +293,7 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxLineResponse> faxLineCreateWithHttpInfo(FaxLineCreateRequest faxLineCreateRequest) throws ApiException {
+  public ApiResponse<FaxLineResponse> faxLineCreateWithHttpInfo(@jakarta.annotation.Nonnull FaxLineCreateRequest faxLineCreateRequest) throws ApiException {
     
     // Check required parameters
     if (faxLineCreateRequest == null) {
@@ -337,7 +337,7 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public void faxLineDelete(FaxLineDeleteRequest faxLineDeleteRequest) throws ApiException {
+  public void faxLineDelete(@jakarta.annotation.Nonnull FaxLineDeleteRequest faxLineDeleteRequest) throws ApiException {
     faxLineDeleteWithHttpInfo(faxLineDeleteRequest);
   }
 
@@ -357,7 +357,7 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> faxLineDeleteWithHttpInfo(FaxLineDeleteRequest faxLineDeleteRequest) throws ApiException {
+  public ApiResponse<Void> faxLineDeleteWithHttpInfo(@jakarta.annotation.Nonnull FaxLineDeleteRequest faxLineDeleteRequest) throws ApiException {
     
     // Check required parameters
     if (faxLineDeleteRequest == null) {
@@ -401,7 +401,7 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxLineResponse faxLineGet(String number) throws ApiException {
+  public FaxLineResponse faxLineGet(@jakarta.annotation.Nonnull String number) throws ApiException {
     return faxLineGetWithHttpInfo(number).getData();
   }
 
@@ -421,7 +421,7 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxLineResponse> faxLineGetWithHttpInfo(String number) throws ApiException {
+  public ApiResponse<FaxLineResponse> faxLineGetWithHttpInfo(@jakarta.annotation.Nonnull String number) throws ApiException {
     
     // Check required parameters
     if (number == null) {
@@ -474,7 +474,7 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxLineListResponse faxLineList(String accountId, Integer page, Integer pageSize, Boolean showTeamLines) throws ApiException {
+  public FaxLineListResponse faxLineList(@jakarta.annotation.Nullable String accountId, @jakarta.annotation.Nullable Integer page, @jakarta.annotation.Nullable Integer pageSize, @jakarta.annotation.Nullable Boolean showTeamLines) throws ApiException {
     return faxLineListWithHttpInfo(accountId, page, pageSize, showTeamLines).getData();
   }
 
@@ -582,7 +582,7 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxLineListResponse> faxLineListWithHttpInfo(String accountId, Integer page, Integer pageSize, Boolean showTeamLines) throws ApiException {
+  public ApiResponse<FaxLineListResponse> faxLineListWithHttpInfo(@jakarta.annotation.Nullable String accountId, @jakarta.annotation.Nullable Integer page, @jakarta.annotation.Nullable Integer pageSize, @jakarta.annotation.Nullable Boolean showTeamLines) throws ApiException {
     
     if (page == null) {
         page = 1;
@@ -636,7 +636,7 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxLineResponse faxLineRemoveUser(FaxLineRemoveUserRequest faxLineRemoveUserRequest) throws ApiException {
+  public FaxLineResponse faxLineRemoveUser(@jakarta.annotation.Nonnull FaxLineRemoveUserRequest faxLineRemoveUserRequest) throws ApiException {
     return faxLineRemoveUserWithHttpInfo(faxLineRemoveUserRequest).getData();
   }
 
@@ -656,7 +656,7 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxLineResponse> faxLineRemoveUserWithHttpInfo(FaxLineRemoveUserRequest faxLineRemoveUserRequest) throws ApiException {
+  public ApiResponse<FaxLineResponse> faxLineRemoveUserWithHttpInfo(@jakarta.annotation.Nonnull FaxLineRemoveUserRequest faxLineRemoveUserRequest) throws ApiException {
     
     // Check required parameters
     if (faxLineRemoveUserRequest == null) {

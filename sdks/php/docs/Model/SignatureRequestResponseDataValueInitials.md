@@ -1,4 +1,4 @@
-# # SignatureRequestResponseDataValueInitials
+# SignatureRequestResponseDataValueInitials
 
 
 

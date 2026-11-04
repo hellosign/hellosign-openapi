@@ -1,12 +1,12 @@
 generatorName: php
 additionalProperties:
   packageName: dropbox/sign
-  packageVersion: "^1.11.0"
-  artifactVersion: 1.11-dev
+  packageVersion: "^2.0.0"
+  artifactVersion: 2.0-dev
   invokerPackage: "Dropbox\\Sign"
   sortModelPropertiesByRequiredFlag: true
   srcBasePath: src
-  phpVersion: 7.4
+  phpVersion: 8.1
   composerPackageName: "dropbox/sign"
   artifactUrl: "https://hellosign.com"
   licenseName: "MIT"
@@ -31,6 +31,8 @@ files:
   dropbox-VERSION.mustache:
     templateType: SupportingFiles
     destinationFilename: VERSION
+enumNameMappings:
+  match: MATCH
 globalProperties:
   apiTests: false
   modelTests: false

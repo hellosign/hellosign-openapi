@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentCustomFieldCheckbox
+# TemplateResponseDocumentCustomFieldCheckbox
 
 This class extends `TemplateResponseDocumentCustomFieldBase`
 

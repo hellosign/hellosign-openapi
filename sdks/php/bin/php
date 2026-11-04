@@ -7,7 +7,7 @@ ROOT_DIR="${DIR}/.."
 
 if [[ "${PHP_USE_NATIVE:-0}" -ne 1 ]]; then
   export PHP_DOCKER_PLATFORM=linux/amd64
-  exec "${DIR}/../../../bin/php-in-docker" /app/php "${ROOT_DIR}" jtreminio/php-cli:7.4 "$@"
+  exec "${DIR}/../../../bin/php-in-docker" /app/php "${ROOT_DIR}" jtreminio/php-cli:8.1 "$@"
 fi
 
 cd "${ROOT_DIR}"

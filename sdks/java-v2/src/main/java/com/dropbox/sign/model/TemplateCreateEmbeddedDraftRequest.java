@@ -73,7 +73,7 @@ import com.dropbox.sign.ApiException;
   TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS,
   TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateCreateEmbeddedDraftRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
@@ -208,7 +208,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return clientId
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getClientId() {
@@ -216,7 +216,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setClientId(@jakarta.annotation.Nonnull String clientId) {
     this.clientId = clientId;
@@ -241,7 +241,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return files
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<File> getFiles() {
@@ -249,7 +249,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFiles(@jakarta.annotation.Nullable List<File> files) {
     this.files = files;
@@ -274,7 +274,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return fileUrls
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_URLS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getFileUrls() {
@@ -282,7 +282,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_URLS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileUrls(@jakarta.annotation.Nullable List<String> fileUrls) {
     this.fileUrls = fileUrls;
@@ -299,7 +299,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return allowCcs
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_CCS)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_CCS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllowCcs() {
@@ -307,7 +307,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOW_CCS)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_CCS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowCcs(@jakarta.annotation.Nullable Boolean allowCcs) {
     this.allowCcs = allowCcs;
@@ -324,7 +324,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return allowReassign
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_REASSIGN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getAllowReassign() {
@@ -332,7 +332,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
+  @JsonProperty(value = JSON_PROPERTY_ALLOW_REASSIGN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAllowReassign(@jakarta.annotation.Nullable Boolean allowReassign) {
     this.allowReassign = allowReassign;
@@ -357,7 +357,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return attachments
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonProperty(value = JSON_PROPERTY_ATTACHMENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubAttachment> getAttachments() {
@@ -365,7 +365,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonProperty(value = JSON_PROPERTY_ATTACHMENTS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAttachments(@jakarta.annotation.Nullable List<SubAttachment> attachments) {
     this.attachments = attachments;
@@ -390,7 +390,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return ccRoles
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CC_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_CC_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getCcRoles() {
@@ -398,7 +398,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CC_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_CC_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCcRoles(@jakarta.annotation.Nullable List<String> ccRoles) {
     this.ccRoles = ccRoles;
@@ -415,7 +415,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return editorOptions
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_EDITOR_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SubEditorOptions getEditorOptions() {
@@ -423,7 +423,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_EDITOR_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEditorOptions(@jakarta.annotation.Nullable SubEditorOptions editorOptions) {
     this.editorOptions = editorOptions;
@@ -440,7 +440,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return fieldOptions
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_FIELD_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SubFieldOptions getFieldOptions() {
@@ -448,7 +448,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_FIELD_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFieldOptions(@jakarta.annotation.Nullable SubFieldOptions fieldOptions) {
     this.fieldOptions = fieldOptions;
@@ -465,7 +465,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return forceSignerRoles
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_FORCE_SIGNER_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getForceSignerRoles() {
@@ -473,7 +473,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_FORCE_SIGNER_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForceSignerRoles(@jakarta.annotation.Nullable Boolean forceSignerRoles) {
     this.forceSignerRoles = forceSignerRoles;
@@ -490,7 +490,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return forceSubjectMessage
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_FORCE_SUBJECT_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getForceSubjectMessage() {
@@ -498,7 +498,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_FORCE_SUBJECT_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForceSubjectMessage(@jakarta.annotation.Nullable Boolean forceSubjectMessage) {
     this.forceSubjectMessage = forceSubjectMessage;
@@ -523,7 +523,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return formFieldGroups
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELD_GROUPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubFormFieldGroup> getFormFieldGroups() {
@@ -531,7 +531,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELD_GROUPS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFieldGroups(@jakarta.annotation.Nullable List<SubFormFieldGroup> formFieldGroups) {
     this.formFieldGroups = formFieldGroups;
@@ -556,7 +556,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return formFieldRules
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELD_RULES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubFormFieldRule> getFormFieldRules() {
@@ -564,7 +564,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELD_RULES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFieldRules(@jakarta.annotation.Nullable List<SubFormFieldRule> formFieldRules) {
     this.formFieldRules = formFieldRules;
@@ -589,7 +589,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return formFieldsPerDocument
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubFormFieldsPerDocumentBase> getFormFieldsPerDocument() {
@@ -597,7 +597,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
+  @JsonProperty(value = JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFormFieldsPerDocument(@jakarta.annotation.Nullable List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
     this.formFieldsPerDocument = formFieldsPerDocument;
@@ -622,7 +622,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return mergeFields
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MERGE_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_MERGE_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubMergeField> getMergeFields() {
@@ -630,7 +630,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MERGE_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_MERGE_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMergeFields(@jakarta.annotation.Nullable List<SubMergeField> mergeFields) {
     this.mergeFields = mergeFields;
@@ -647,7 +647,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return message
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getMessage() {
@@ -655,7 +655,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
@@ -680,7 +680,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return metadata
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, Object> getMetadata() {
@@ -688,7 +688,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
     this.metadata = metadata;
@@ -705,7 +705,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return showPreview
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
+  @JsonProperty(value = JSON_PROPERTY_SHOW_PREVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShowPreview() {
@@ -713,7 +713,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
+  @JsonProperty(value = JSON_PROPERTY_SHOW_PREVIEW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowPreview(@jakarta.annotation.Nullable Boolean showPreview) {
     this.showPreview = showPreview;
@@ -730,7 +730,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return showProgressStepper
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+  @JsonProperty(value = JSON_PROPERTY_SHOW_PROGRESS_STEPPER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShowProgressStepper() {
@@ -738,7 +738,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+  @JsonProperty(value = JSON_PROPERTY_SHOW_PROGRESS_STEPPER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowProgressStepper(@jakarta.annotation.Nullable Boolean showProgressStepper) {
     this.showProgressStepper = showProgressStepper;
@@ -763,7 +763,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return signerRoles
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_SIGNER_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubTemplateRole> getSignerRoles() {
@@ -771,7 +771,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
+  @JsonProperty(value = JSON_PROPERTY_SIGNER_ROLES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignerRoles(@jakarta.annotation.Nullable List<SubTemplateRole> signerRoles) {
     this.signerRoles = signerRoles;
@@ -788,7 +788,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return skipMeNow
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SKIP_ME_NOW)
+  @JsonProperty(value = JSON_PROPERTY_SKIP_ME_NOW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSkipMeNow() {
@@ -796,7 +796,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SKIP_ME_NOW)
+  @JsonProperty(value = JSON_PROPERTY_SKIP_ME_NOW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSkipMeNow(@jakarta.annotation.Nullable Boolean skipMeNow) {
     this.skipMeNow = skipMeNow;
@@ -813,7 +813,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return subject
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSubject() {
@@ -821,7 +821,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonProperty(value = JSON_PROPERTY_SUBJECT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSubject(@jakarta.annotation.Nullable String subject) {
     this.subject = subject;
@@ -838,7 +838,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return testMode
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getTestMode() {
@@ -846,7 +846,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
@@ -863,7 +863,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return title
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTitle() {
@@ -871,7 +871,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
@@ -888,7 +888,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return usePreexistingFields
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USE_PREEXISTING_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_USE_PREEXISTING_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getUsePreexistingFields() {
@@ -896,7 +896,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USE_PREEXISTING_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_USE_PREEXISTING_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsePreexistingFields(@jakarta.annotation.Nullable Boolean usePreexistingFields) {
     this.usePreexistingFields = usePreexistingFields;
@@ -913,7 +913,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * @return ignoreTextTagsExtractionErrors
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS)
+  @JsonProperty(value = JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIgnoreTextTagsExtractionErrors() {
@@ -921,7 +921,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS)
+  @JsonProperty(value = JSON_PROPERTY_IGNORE_TEXT_TAGS_EXTRACTION_ERRORS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIgnoreTextTagsExtractionErrors(@jakarta.annotation.Nullable Boolean ignoreTextTagsExtractionErrors) {
     this.ignoreTextTagsExtractionErrors = ignoreTextTagsExtractionErrors;
@@ -1537,10 +1537,7 @@ public class TemplateCreateEmbeddedDraftRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

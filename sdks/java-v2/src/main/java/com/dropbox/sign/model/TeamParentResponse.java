@@ -36,7 +36,7 @@ import com.dropbox.sign.ApiException;
   TeamParentResponse.JSON_PROPERTY_TEAM_ID,
   TeamParentResponse.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamParentResponse {
   public static final String JSON_PROPERTY_TEAM_ID = "team_id";
@@ -75,7 +75,7 @@ public class TeamParentResponse {
    * @return teamId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTeamId() {
@@ -83,7 +83,7 @@ public class TeamParentResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTeamId(@jakarta.annotation.Nullable String teamId) {
     this.teamId = teamId;
@@ -100,7 +100,7 @@ public class TeamParentResponse {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
@@ -108,7 +108,7 @@ public class TeamParentResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
@@ -220,10 +220,7 @@ public class TeamParentResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

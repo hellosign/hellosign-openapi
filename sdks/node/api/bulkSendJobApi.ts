@@ -132,7 +132,7 @@ export class BulkSendJobApi {
     const localVarPath =
       this.basePath +
       "/bulk_send_job/{bulk_send_job_id}".replace(
-        "{" + "bulk_send_job_id" + "}",
+        "{bulk_send_job_id}",
         encodeURIComponent(String(bulkSendJobId))
       );
     let localVarQueryParameters: any = {};

@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentStaticFieldDateSigned
+# TemplateResponseDocumentStaticFieldDateSigned
 
 This class extends `TemplateResponseDocumentStaticFieldBase`
 

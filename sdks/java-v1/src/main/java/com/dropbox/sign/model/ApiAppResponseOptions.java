@@ -27,7 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({ApiAppResponseOptions.JSON_PROPERTY_CAN_INSERT_EVERYWHERE})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiAppResponseOptions {
     public static final String JSON_PROPERTY_CAN_INSERT_EVERYWHERE = "can_insert_everywhere";
@@ -62,13 +62,13 @@ public class ApiAppResponseOptions {
      *
      * @return canInsertEverywhere
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CAN_INSERT_EVERYWHERE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CAN_INSERT_EVERYWHERE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getCanInsertEverywhere() {
         return canInsertEverywhere;
     }
 
-    @JsonProperty(JSON_PROPERTY_CAN_INSERT_EVERYWHERE)
+    @JsonProperty(value = JSON_PROPERTY_CAN_INSERT_EVERYWHERE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCanInsertEverywhere(@javax.annotation.Nullable Boolean canInsertEverywhere) {
         this.canInsertEverywhere = canInsertEverywhere;
@@ -166,9 +166,6 @@ public class ApiAppResponseOptions {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

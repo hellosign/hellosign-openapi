@@ -4,17 +4,67 @@
 
 {{>partial_header}}
 
+
 __version__ = "{{packageVersion}}"
 
-# import apis into sdk package
 {{^useCustomTemplateCode}}
-{{#apiInfo}}{{#apis}}from {{apiPackage}}.{{classFilename}} import {{classname}}
-{{/apis}}{{/apiInfo}}
+# Define package exports
+__all__ = [
+    {{#apiInfo}}{{#apis}}"{{classname}}",
+    {{/apis}}{{/apiInfo}}"ApiResponse",
+    "ApiClient",
+    "Configuration",
+    "OpenApiException",
+    "ApiTypeError",
+    "ApiValueError",
+    "ApiKeyError",
+    "ApiAttributeError",
+    "ApiException",
+    {{#hasHttpSignatureMethods}}"HttpSigningConfiguration",
+    {{/hasHttpSignatureMethods}}{{#models}}{{#model}}"{{classname}}"{{^-last}},
+    {{/-last}}{{#-last}},{{/-last}}{{/model}}{{/models}}
+]
+
+{{^lazyImports}}
+{{>exports_package}}
+{{/lazyImports}}
+{{#lazyImports}}import typing as _typing
+
+if _typing.TYPE_CHECKING:
+    {{>exports_package}}
+else:
+    from importlib import import_module
+
+    _exports = {
+{{#apiInfo}}{{#apis}}        "{{classname}}": ".api.{{classFilename}}",
+{{/apis}}{{/apiInfo}}        "ApiResponse": ".api_response",
+        "ApiClient": ".api_client",
+        "Configuration": ".configuration",
+        "OpenApiException": ".exceptions",
+        "ApiTypeError": ".exceptions",
+        "ApiValueError": ".exceptions",
+        "ApiKeyError": ".exceptions",
+        "ApiAttributeError": ".exceptions",
+        "ApiException": ".exceptions",
+{{#hasHttpSignatureMethods}}        "HttpSigningConfiguration": ".signing",
+{{/hasHttpSignatureMethods}}{{#models}}{{#model}}        "{{classname}}": ".models.{{classFilename}}",
+{{/model}}{{/models}}    }
+
+    def __getattr__(name: str) -> object:
+        if (module_name := _exports.get(name)) is None:
+            raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+        value = getattr(import_module(module_name, __name__), name)
+        globals()[name] = value
+        return value
+
+    def __dir__() -> list[str]:
+        return sorted(globals().keys() | _exports.keys())
+{{/lazyImports}}
 {{/useCustomTemplateCode}}
 {{#useCustomTemplateCode}}
+# import apis into sdk package
 from dropbox_sign.apis import *
 
-{{/useCustomTemplateCode}}
 # import ApiClient
 from {{packageName}}.api_response import ApiResponse
 from {{packageName}}.api_client import ApiClient
@@ -35,7 +85,6 @@ from {{packageName}}.signing import HttpSigningConfiguration
 from {{modelPackage}}.{{classFilename}} import {{classname}}
 {{/model}}
 {{/models}}
-{{#useCustomTemplateCode}}
 from dropbox_sign.event_callback_helper import EventCallbackHelper
 {{/useCustomTemplateCode}}
 {{#recursionLimit}}

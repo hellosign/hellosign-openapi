@@ -40,7 +40,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxSendRequest {
     public static final String JSON_PROPERTY_RECIPIENT = "recipient";
@@ -97,13 +97,13 @@ public class FaxSendRequest {
      * @return recipient
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_RECIPIENT)
+    @JsonProperty(value = JSON_PROPERTY_RECIPIENT, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getRecipient() {
         return recipient;
     }
 
-    @JsonProperty(JSON_PROPERTY_RECIPIENT)
+    @JsonProperty(value = JSON_PROPERTY_RECIPIENT, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setRecipient(@javax.annotation.Nonnull String recipient) {
         this.recipient = recipient;
@@ -119,13 +119,13 @@ public class FaxSendRequest {
      *
      * @return sender
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SENDER)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SENDER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSender() {
         return sender;
     }
 
-    @JsonProperty(JSON_PROPERTY_SENDER)
+    @JsonProperty(value = JSON_PROPERTY_SENDER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSender(@javax.annotation.Nullable String sender) {
         this.sender = sender;
@@ -150,13 +150,13 @@ public class FaxSendRequest {
      *
      * @return files
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILES)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<File> getFiles() {
         return files;
     }
 
-    @JsonProperty(JSON_PROPERTY_FILES)
+    @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFiles(@javax.annotation.Nullable List<File> files) {
         this.files = files;
@@ -181,13 +181,13 @@ public class FaxSendRequest {
      *
      * @return fileUrls
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILE_URLS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<String> getFileUrls() {
         return fileUrls;
     }
 
-    @JsonProperty(JSON_PROPERTY_FILE_URLS)
+    @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFileUrls(@javax.annotation.Nullable List<String> fileUrls) {
         this.fileUrls = fileUrls;
@@ -203,13 +203,13 @@ public class FaxSendRequest {
      *
      * @return testMode
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEST_MODE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getTestMode() {
         return testMode;
     }
 
-    @JsonProperty(JSON_PROPERTY_TEST_MODE)
+    @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTestMode(@javax.annotation.Nullable Boolean testMode) {
         this.testMode = testMode;
@@ -225,13 +225,13 @@ public class FaxSendRequest {
      *
      * @return coverPageTo
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_COVER_PAGE_TO)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_COVER_PAGE_TO, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getCoverPageTo() {
         return coverPageTo;
     }
 
-    @JsonProperty(JSON_PROPERTY_COVER_PAGE_TO)
+    @JsonProperty(value = JSON_PROPERTY_COVER_PAGE_TO, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCoverPageTo(@javax.annotation.Nullable String coverPageTo) {
         this.coverPageTo = coverPageTo;
@@ -247,13 +247,13 @@ public class FaxSendRequest {
      *
      * @return coverPageFrom
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_COVER_PAGE_FROM)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_COVER_PAGE_FROM, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getCoverPageFrom() {
         return coverPageFrom;
     }
 
-    @JsonProperty(JSON_PROPERTY_COVER_PAGE_FROM)
+    @JsonProperty(value = JSON_PROPERTY_COVER_PAGE_FROM, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCoverPageFrom(@javax.annotation.Nullable String coverPageFrom) {
         this.coverPageFrom = coverPageFrom;
@@ -269,13 +269,13 @@ public class FaxSendRequest {
      *
      * @return coverPageMessage
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_COVER_PAGE_MESSAGE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_COVER_PAGE_MESSAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getCoverPageMessage() {
         return coverPageMessage;
     }
 
-    @JsonProperty(JSON_PROPERTY_COVER_PAGE_MESSAGE)
+    @JsonProperty(value = JSON_PROPERTY_COVER_PAGE_MESSAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCoverPageMessage(@javax.annotation.Nullable String coverPageMessage) {
         this.coverPageMessage = coverPageMessage;
@@ -291,13 +291,13 @@ public class FaxSendRequest {
      *
      * @return title
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TITLE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getTitle() {
         return title;
     }
 
-    @JsonProperty(JSON_PROPERTY_TITLE)
+    @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTitle(@javax.annotation.Nullable String title) {
         this.title = title;
@@ -570,9 +570,6 @@ public class FaxSendRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

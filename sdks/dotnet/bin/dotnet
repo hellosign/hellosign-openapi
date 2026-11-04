@@ -15,4 +15,4 @@ exec "${DIR}/../../../bin/docker-run" \
   -e HOME=/tmp/home \
   -e NUGET_PACKAGES=/tmp/nuget \
   -w "${WORKING_DIR}" \
-  mcr.microsoft.com/dotnet/sdk:8.0 "$@"
+  "${DOTNET_IMAGE:-mcr.microsoft.com/dotnet/sdk:10.0}" "$@"

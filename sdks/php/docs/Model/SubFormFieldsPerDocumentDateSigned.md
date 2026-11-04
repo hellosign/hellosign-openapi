@@ -1,4 +1,4 @@
-# # SubFormFieldsPerDocumentDateSigned
+# SubFormFieldsPerDocumentDateSigned
 
 This class extends `SubFormFieldsPerDocumentBase`.
 

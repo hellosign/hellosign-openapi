@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentFormFieldDateSigned
+# TemplateResponseDocumentFormFieldDateSigned
 
 This class extends `TemplateResponseDocumentFormFieldBase`
 

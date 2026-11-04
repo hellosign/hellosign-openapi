@@ -32,7 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EmbeddedSignUrlResponse {
     public static final String JSON_PROPERTY_EMBEDDED = "embedded";
@@ -70,13 +70,13 @@ public class EmbeddedSignUrlResponse {
      * @return embedded
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_EMBEDDED)
+    @JsonProperty(value = JSON_PROPERTY_EMBEDDED, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public EmbeddedSignUrlResponseEmbedded getEmbedded() {
         return embedded;
     }
 
-    @JsonProperty(JSON_PROPERTY_EMBEDDED)
+    @JsonProperty(value = JSON_PROPERTY_EMBEDDED, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setEmbedded(@javax.annotation.Nonnull EmbeddedSignUrlResponseEmbedded embedded) {
         this.embedded = embedded;
@@ -101,13 +101,13 @@ public class EmbeddedSignUrlResponse {
      *
      * @return warnings
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<WarningResponse> getWarnings() {
         return warnings;
     }
 
-    @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
@@ -219,9 +219,6 @@ public class EmbeddedSignUrlResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

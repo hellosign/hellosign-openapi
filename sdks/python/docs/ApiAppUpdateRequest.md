@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 | `callback_url` | ```str``` |  The URL at which the API App should receive event callbacks.  |  |
-| `custom_logo_file` | ```io.IOBase``` |  An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)  |  |
+| `custom_logo_file` | ```bytes``` |  An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)  |  |
 | `domains` | ```List[str]``` |  The domain names the ApiApp will be associated with.  |  |
 | `name` | ```str``` |  The name you want to assign to the ApiApp.  |  |
 | `oauth` | [```SubOAuth```](SubOAuth.md) |    |  |

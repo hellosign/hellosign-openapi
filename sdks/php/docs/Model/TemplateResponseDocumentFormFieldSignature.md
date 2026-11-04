@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentFormFieldSignature
+# TemplateResponseDocumentFormFieldSignature
 
 This class extends `TemplateResponseDocumentFormFieldBase`
 

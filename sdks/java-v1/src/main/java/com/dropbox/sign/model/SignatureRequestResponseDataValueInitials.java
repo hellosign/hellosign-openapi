@@ -32,7 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -80,13 +80,13 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
      *
      * @return type
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TYPE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getType() {
         return type;
     }
 
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setType(@javax.annotation.Nullable String type) {
         this.type = type;
@@ -103,13 +103,13 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
      *
      * @return value
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALUE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getValue() {
         return value;
     }
 
-    @JsonProperty(JSON_PROPERTY_VALUE)
+    @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setValue(@javax.annotation.Nullable String value) {
         this.value = value;
@@ -126,13 +126,13 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
      *
      * @return isSigned
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_SIGNED)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_SIGNED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsSigned() {
         return isSigned;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_SIGNED)
+    @JsonProperty(value = JSON_PROPERTY_IS_SIGNED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsSigned(@javax.annotation.Nullable Boolean isSigned) {
         this.isSigned = isSigned;
@@ -270,10 +270,7 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
     static {

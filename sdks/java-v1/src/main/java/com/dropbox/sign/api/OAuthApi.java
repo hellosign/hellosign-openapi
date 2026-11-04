@@ -14,7 +14,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 public class OAuthApi {
     private ApiClient apiClient;
 
@@ -60,7 +60,8 @@ public class OAuthApi {
      * </table>
      */
     public OAuthTokenResponse oauthTokenGenerate(
-            OAuthTokenGenerateRequest oauthTokenGenerateRequest) throws ApiException {
+            @javax.annotation.Nonnull OAuthTokenGenerateRequest oauthTokenGenerateRequest)
+            throws ApiException {
         return oauthTokenGenerateWithHttpInfo(oauthTokenGenerateRequest).getData();
     }
 
@@ -80,7 +81,8 @@ public class OAuthApi {
      * </table>
      */
     public ApiResponse<OAuthTokenResponse> oauthTokenGenerateWithHttpInfo(
-            OAuthTokenGenerateRequest oauthTokenGenerateRequest) throws ApiException {
+            @javax.annotation.Nonnull OAuthTokenGenerateRequest oauthTokenGenerateRequest)
+            throws ApiException {
 
         // Check required parameters
         if (oauthTokenGenerateRequest == null) {
@@ -133,7 +135,8 @@ public class OAuthApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public OAuthTokenResponse oauthTokenRefresh(OAuthTokenRefreshRequest oauthTokenRefreshRequest)
+    public OAuthTokenResponse oauthTokenRefresh(
+            @javax.annotation.Nonnull OAuthTokenRefreshRequest oauthTokenRefreshRequest)
             throws ApiException {
         return oauthTokenRefreshWithHttpInfo(oauthTokenRefreshRequest).getData();
     }
@@ -156,7 +159,8 @@ public class OAuthApi {
      * </table>
      */
     public ApiResponse<OAuthTokenResponse> oauthTokenRefreshWithHttpInfo(
-            OAuthTokenRefreshRequest oauthTokenRefreshRequest) throws ApiException {
+            @javax.annotation.Nonnull OAuthTokenRefreshRequest oauthTokenRefreshRequest)
+            throws ApiException {
 
         // Check required parameters
         if (oauthTokenRefreshRequest == null) {

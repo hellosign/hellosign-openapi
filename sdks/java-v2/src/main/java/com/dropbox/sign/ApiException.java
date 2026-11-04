@@ -20,13 +20,14 @@ import com.dropbox.sign.model.ErrorResponse;
 /**
  * API Exception
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ApiException extends Exception {
     private static final long serialVersionUID = 1L;
 
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;
+    private transient Object errorEntity = null;
     private ErrorResponse errorResponse;
 
     public ApiException() {}
@@ -69,9 +70,15 @@ public class ApiException extends Exception {
         this.responseBody = responseBody;
     }
 
+    public ApiException(int code, String message, Map<String, List<String>> responseHeaders, String responseBody, Object errorEntity) {
+        this(code, message, responseHeaders, responseBody);
+        this.errorEntity = errorEntity;
+    }
+
     public ApiException(int code, String message, Map<String, List<String>> responseHeaders, String responseBody, ErrorResponse errorResponse) {
         this(code, message, responseHeaders, responseBody);
         this.errorResponse = errorResponse;
+        this.errorEntity = errorResponse;
     }
 
     /**
@@ -99,6 +106,15 @@ public class ApiException extends Exception {
      */
     public String getResponseBody() {
         return responseBody;
+    }
+
+    /**
+     * Get the deserialized error entity (or null if this error doesn't have a model associated).
+     *
+     * @return Deserialized error entity
+     */
+    public Object getErrorEntity() {
+        return errorEntity;
     }
 
     public ErrorResponse getErrorResponse() {

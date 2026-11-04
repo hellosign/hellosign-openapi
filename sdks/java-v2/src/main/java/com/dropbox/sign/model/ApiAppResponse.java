@@ -50,7 +50,7 @@ import com.dropbox.sign.ApiException;
   ApiAppResponse.JSON_PROPERTY_OWNER_ACCOUNT,
   ApiAppResponse.JSON_PROPERTY_WHITE_LABELING_OPTIONS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ApiAppResponse {
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
@@ -121,7 +121,7 @@ public class ApiAppResponse {
    * @return callbackUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+  @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCallbackUrl() {
@@ -129,7 +129,7 @@ public class ApiAppResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+  @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCallbackUrl(@jakarta.annotation.Nullable String callbackUrl) {
     this.callbackUrl = callbackUrl;
@@ -146,7 +146,7 @@ public class ApiAppResponse {
    * @return clientId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getClientId() {
@@ -154,7 +154,7 @@ public class ApiAppResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientId(@jakarta.annotation.Nullable String clientId) {
     this.clientId = clientId;
@@ -171,7 +171,7 @@ public class ApiAppResponse {
    * @return createdAt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCreatedAt() {
@@ -179,7 +179,7 @@ public class ApiAppResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(@jakarta.annotation.Nullable Integer createdAt) {
     this.createdAt = createdAt;
@@ -204,7 +204,7 @@ public class ApiAppResponse {
    * @return domains
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOMAINS)
+  @JsonProperty(value = JSON_PROPERTY_DOMAINS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getDomains() {
@@ -212,7 +212,7 @@ public class ApiAppResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOMAINS)
+  @JsonProperty(value = JSON_PROPERTY_DOMAINS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDomains(@jakarta.annotation.Nullable List<String> domains) {
     this.domains = domains;
@@ -229,7 +229,7 @@ public class ApiAppResponse {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
@@ -237,7 +237,7 @@ public class ApiAppResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
@@ -254,7 +254,7 @@ public class ApiAppResponse {
    * @return isApproved
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_APPROVED)
+  @JsonProperty(value = JSON_PROPERTY_IS_APPROVED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsApproved() {
@@ -262,7 +262,7 @@ public class ApiAppResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_APPROVED)
+  @JsonProperty(value = JSON_PROPERTY_IS_APPROVED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsApproved(@jakarta.annotation.Nullable Boolean isApproved) {
     this.isApproved = isApproved;
@@ -279,7 +279,7 @@ public class ApiAppResponse {
    * @return oauth
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OAUTH)
+  @JsonProperty(value = JSON_PROPERTY_OAUTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiAppResponseOAuth getOauth() {
@@ -287,7 +287,7 @@ public class ApiAppResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OAUTH)
+  @JsonProperty(value = JSON_PROPERTY_OAUTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOauth(@jakarta.annotation.Nullable ApiAppResponseOAuth oauth) {
     this.oauth = oauth;
@@ -304,7 +304,7 @@ public class ApiAppResponse {
    * @return options
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiAppResponseOptions getOptions() {
@@ -312,7 +312,7 @@ public class ApiAppResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOptions(@jakarta.annotation.Nullable ApiAppResponseOptions options) {
     this.options = options;
@@ -329,7 +329,7 @@ public class ApiAppResponse {
    * @return ownerAccount
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OWNER_ACCOUNT)
+  @JsonProperty(value = JSON_PROPERTY_OWNER_ACCOUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiAppResponseOwnerAccount getOwnerAccount() {
@@ -337,7 +337,7 @@ public class ApiAppResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OWNER_ACCOUNT)
+  @JsonProperty(value = JSON_PROPERTY_OWNER_ACCOUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOwnerAccount(@jakarta.annotation.Nullable ApiAppResponseOwnerAccount ownerAccount) {
     this.ownerAccount = ownerAccount;
@@ -354,7 +354,7 @@ public class ApiAppResponse {
    * @return whiteLabelingOptions
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WHITE_LABELING_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_WHITE_LABELING_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public ApiAppResponseWhiteLabelingOptions getWhiteLabelingOptions() {
@@ -362,7 +362,7 @@ public class ApiAppResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WHITE_LABELING_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_WHITE_LABELING_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWhiteLabelingOptions(@jakarta.annotation.Nullable ApiAppResponseWhiteLabelingOptions whiteLabelingOptions) {
     this.whiteLabelingOptions = whiteLabelingOptions;
@@ -642,10 +642,7 @@ public class ApiAppResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

@@ -1,4 +1,4 @@
-# # TemplateGetResponse
+# TemplateGetResponse
 
 
 

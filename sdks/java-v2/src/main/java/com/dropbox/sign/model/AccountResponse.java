@@ -49,7 +49,7 @@ import com.dropbox.sign.ApiException;
   AccountResponse.JSON_PROPERTY_USAGE,
   AccountResponse.JSON_PROPERTY_SETTINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountResponse {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -128,7 +128,7 @@ public class AccountResponse {
    * @return accountId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAccountId() {
@@ -136,7 +136,7 @@ public class AccountResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
@@ -153,7 +153,7 @@ public class AccountResponse {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEmailAddress() {
@@ -161,7 +161,7 @@ public class AccountResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
@@ -178,7 +178,7 @@ public class AccountResponse {
    * @return isLocked
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+  @JsonProperty(value = JSON_PROPERTY_IS_LOCKED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsLocked() {
@@ -186,7 +186,7 @@ public class AccountResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+  @JsonProperty(value = JSON_PROPERTY_IS_LOCKED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsLocked(@jakarta.annotation.Nullable Boolean isLocked) {
     this.isLocked = isLocked;
@@ -203,7 +203,7 @@ public class AccountResponse {
    * @return isPaidHs
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
+  @JsonProperty(value = JSON_PROPERTY_IS_PAID_HS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsPaidHs() {
@@ -211,7 +211,7 @@ public class AccountResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
+  @JsonProperty(value = JSON_PROPERTY_IS_PAID_HS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsPaidHs(@jakarta.annotation.Nullable Boolean isPaidHs) {
     this.isPaidHs = isPaidHs;
@@ -228,7 +228,7 @@ public class AccountResponse {
    * @return isPaidHf
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
+  @JsonProperty(value = JSON_PROPERTY_IS_PAID_HF, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsPaidHf() {
@@ -236,7 +236,7 @@ public class AccountResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
+  @JsonProperty(value = JSON_PROPERTY_IS_PAID_HF, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsPaidHf(@jakarta.annotation.Nullable Boolean isPaidHf) {
     this.isPaidHf = isPaidHf;
@@ -253,7 +253,7 @@ public class AccountResponse {
    * @return quotas
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUOTAS)
+  @JsonProperty(value = JSON_PROPERTY_QUOTAS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AccountResponseQuotas getQuotas() {
@@ -261,7 +261,7 @@ public class AccountResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUOTAS)
+  @JsonProperty(value = JSON_PROPERTY_QUOTAS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuotas(@jakarta.annotation.Nullable AccountResponseQuotas quotas) {
     this.quotas = quotas;
@@ -278,7 +278,7 @@ public class AccountResponse {
    * @return callbackUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+  @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCallbackUrl() {
@@ -286,7 +286,7 @@ public class AccountResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+  @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCallbackUrl(@jakarta.annotation.Nullable String callbackUrl) {
     this.callbackUrl = callbackUrl;
@@ -303,7 +303,7 @@ public class AccountResponse {
    * @return roleCode
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROLE_CODE)
+  @JsonProperty(value = JSON_PROPERTY_ROLE_CODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRoleCode() {
@@ -311,7 +311,7 @@ public class AccountResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROLE_CODE)
+  @JsonProperty(value = JSON_PROPERTY_ROLE_CODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRoleCode(@jakarta.annotation.Nullable String roleCode) {
     this.roleCode = roleCode;
@@ -328,7 +328,7 @@ public class AccountResponse {
    * @return teamId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTeamId() {
@@ -336,7 +336,7 @@ public class AccountResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTeamId(@jakarta.annotation.Nullable String teamId) {
     this.teamId = teamId;
@@ -353,7 +353,7 @@ public class AccountResponse {
    * @return locale
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOCALE)
+  @JsonProperty(value = JSON_PROPERTY_LOCALE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLocale() {
@@ -361,7 +361,7 @@ public class AccountResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOCALE)
+  @JsonProperty(value = JSON_PROPERTY_LOCALE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLocale(@jakarta.annotation.Nullable String locale) {
     this.locale = locale;
@@ -378,7 +378,7 @@ public class AccountResponse {
    * @return usage
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USAGE)
+  @JsonProperty(value = JSON_PROPERTY_USAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AccountResponseUsage getUsage() {
@@ -386,7 +386,7 @@ public class AccountResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_USAGE)
+  @JsonProperty(value = JSON_PROPERTY_USAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsage(@jakarta.annotation.Nullable AccountResponseUsage usage) {
     this.usage = usage;
@@ -403,7 +403,7 @@ public class AccountResponse {
    * @return settings
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AccountResponseSettings getSettings() {
@@ -411,7 +411,7 @@ public class AccountResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSettings(@jakarta.annotation.Nullable AccountResponseSettings settings) {
     this.settings = settings;
@@ -733,10 +733,7 @@ public class AccountResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

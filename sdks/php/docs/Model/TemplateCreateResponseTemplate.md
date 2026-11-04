@@ -1,4 +1,4 @@
-# # TemplateCreateResponseTemplate
+# TemplateCreateResponseTemplate
 
 Template object with parameters: `template_id`.
 

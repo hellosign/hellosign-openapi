@@ -36,7 +36,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFieldGroupRule.JSON_PROPERTY_REQUIREMENT,
   TemplateResponseDocumentFieldGroupRule.JSON_PROPERTY_GROUP_LABEL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseDocumentFieldGroupRule {
   public static final String JSON_PROPERTY_REQUIREMENT = "requirement";
@@ -75,7 +75,7 @@ public class TemplateResponseDocumentFieldGroupRule {
    * @return requirement
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUIREMENT)
+  @JsonProperty(value = JSON_PROPERTY_REQUIREMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRequirement() {
@@ -83,7 +83,7 @@ public class TemplateResponseDocumentFieldGroupRule {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUIREMENT)
+  @JsonProperty(value = JSON_PROPERTY_REQUIREMENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequirement(@jakarta.annotation.Nullable String requirement) {
     this.requirement = requirement;
@@ -100,7 +100,7 @@ public class TemplateResponseDocumentFieldGroupRule {
    * @return groupLabel
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
+  @JsonProperty(value = JSON_PROPERTY_GROUP_LABEL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getGroupLabel() {
@@ -108,7 +108,7 @@ public class TemplateResponseDocumentFieldGroupRule {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
+  @JsonProperty(value = JSON_PROPERTY_GROUP_LABEL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGroupLabel(@jakarta.annotation.Nullable String groupLabel) {
     this.groupLabel = groupLabel;
@@ -220,10 +220,7 @@ public class TemplateResponseDocumentFieldGroupRule {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

@@ -587,7 +587,7 @@ export class UnclaimedDraftApi {
     const localVarPath =
       this.basePath +
       "/unclaimed_draft/edit_and_resend/{signature_request_id}".replace(
-        "{" + "signature_request_id" + "}",
+        "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
       );
     let localVarQueryParameters: any = {};

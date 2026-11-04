@@ -1,4 +1,4 @@
-# # TemplateResponseAccountQuota
+# TemplateResponseAccountQuota
 
 An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
 

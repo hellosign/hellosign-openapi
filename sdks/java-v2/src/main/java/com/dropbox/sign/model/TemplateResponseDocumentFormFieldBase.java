@@ -46,7 +46,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_HEIGHT,
   TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_REQUIRED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -128,7 +128,7 @@ public class TemplateResponseDocumentFormFieldBase {
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getType() {
@@ -136,7 +136,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
@@ -153,7 +153,7 @@ public class TemplateResponseDocumentFormFieldBase {
    * @return apiId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_API_ID)
+  @JsonProperty(value = JSON_PROPERTY_API_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getApiId() {
@@ -161,7 +161,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_API_ID)
+  @JsonProperty(value = JSON_PROPERTY_API_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApiId(@jakarta.annotation.Nullable String apiId) {
     this.apiId = apiId;
@@ -178,7 +178,7 @@ public class TemplateResponseDocumentFormFieldBase {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
@@ -186,7 +186,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
@@ -207,7 +207,7 @@ public class TemplateResponseDocumentFormFieldBase {
    * @return signer
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNER)
+  @JsonProperty(value = JSON_PROPERTY_SIGNER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSigner() {
@@ -215,7 +215,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNER)
+  @JsonProperty(value = JSON_PROPERTY_SIGNER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSigner(@jakarta.annotation.Nullable String signer) {
     this.signer = signer;
@@ -236,7 +236,7 @@ public class TemplateResponseDocumentFormFieldBase {
    * @return x
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_X)
+  @JsonProperty(value = JSON_PROPERTY_X, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getX() {
@@ -244,7 +244,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_X)
+  @JsonProperty(value = JSON_PROPERTY_X, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setX(@jakarta.annotation.Nullable Integer x) {
     this.x = x;
@@ -261,7 +261,7 @@ public class TemplateResponseDocumentFormFieldBase {
    * @return y
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_Y)
+  @JsonProperty(value = JSON_PROPERTY_Y, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getY() {
@@ -269,7 +269,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_Y)
+  @JsonProperty(value = JSON_PROPERTY_Y, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setY(@jakarta.annotation.Nullable Integer y) {
     this.y = y;
@@ -286,7 +286,7 @@ public class TemplateResponseDocumentFormFieldBase {
    * @return width
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WIDTH)
+  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getWidth() {
@@ -294,7 +294,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WIDTH)
+  @JsonProperty(value = JSON_PROPERTY_WIDTH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWidth(@jakarta.annotation.Nullable Integer width) {
     this.width = width;
@@ -311,7 +311,7 @@ public class TemplateResponseDocumentFormFieldBase {
    * @return height
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getHeight() {
@@ -319,7 +319,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HEIGHT)
+  @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHeight(@jakarta.annotation.Nullable Integer height) {
     this.height = height;
@@ -336,7 +336,7 @@ public class TemplateResponseDocumentFormFieldBase {
    * @return required
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUIRED)
+  @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getRequired() {
@@ -344,7 +344,7 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUIRED)
+  @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequired(@jakarta.annotation.Nullable Boolean required) {
     this.required = required;
@@ -603,10 +603,7 @@ public class TemplateResponseDocumentFormFieldBase {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   static {

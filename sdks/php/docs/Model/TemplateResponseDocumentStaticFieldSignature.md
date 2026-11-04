@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentStaticFieldSignature
+# TemplateResponseDocumentStaticFieldSignature
 
 This class extends `TemplateResponseDocumentStaticFieldBase`
 

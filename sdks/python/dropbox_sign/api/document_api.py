@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
 Dropbox Sign API
 
@@ -100,7 +98,6 @@ class DocumentApi:
             "200": "DocumentFieldDetectionResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -168,7 +165,6 @@ class DocumentApi:
             "200": "DocumentFieldDetectionResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -236,7 +232,6 @@ class DocumentApi:
             "200": "DocumentFieldDetectionResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

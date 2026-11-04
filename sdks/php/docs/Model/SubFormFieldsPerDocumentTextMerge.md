@@ -1,4 +1,4 @@
-# # SubFormFieldsPerDocumentTextMerge
+# SubFormFieldsPerDocumentTextMerge
 
 This class extends `SubFormFieldsPerDocumentBase`.
 

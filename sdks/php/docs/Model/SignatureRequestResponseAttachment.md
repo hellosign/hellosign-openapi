@@ -1,4 +1,4 @@
-# # SignatureRequestResponseAttachment
+# SignatureRequestResponseAttachment
 
 Signer attachments.
 

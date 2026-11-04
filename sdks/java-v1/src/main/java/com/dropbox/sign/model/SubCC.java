@@ -27,7 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({SubCC.JSON_PROPERTY_ROLE, SubCC.JSON_PROPERTY_EMAIL_ADDRESS})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubCC {
     public static final String JSON_PROPERTY_ROLE = "role";
@@ -64,13 +64,13 @@ public class SubCC {
      * @return role
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_ROLE)
+    @JsonProperty(value = JSON_PROPERTY_ROLE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getRole() {
         return role;
     }
 
-    @JsonProperty(JSON_PROPERTY_ROLE)
+    @JsonProperty(value = JSON_PROPERTY_ROLE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setRole(@javax.annotation.Nonnull String role) {
         this.role = role;
@@ -87,13 +87,13 @@ public class SubCC {
      * @return emailAddress
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getEmailAddress() {
         return emailAddress;
     }
 
-    @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setEmailAddress(@javax.annotation.Nonnull String emailAddress) {
         this.emailAddress = emailAddress;
@@ -207,9 +207,6 @@ public class SubCC {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

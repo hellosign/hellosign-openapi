@@ -441,7 +441,7 @@ export class SignatureRequestApi {
     const localVarPath =
       this.basePath +
       "/signature_request/cancel/{signature_request_id}".replace(
-        "{" + "signature_request_id" + "}",
+        "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
       );
     let localVarQueryParameters: any = {};
@@ -853,7 +853,7 @@ export class SignatureRequestApi {
     const localVarPath =
       this.basePath +
       "/signature_request/edit/{signature_request_id}".replace(
-        "{" + "signature_request_id" + "}",
+        "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
       );
     let localVarQueryParameters: any = {};
@@ -1016,7 +1016,7 @@ export class SignatureRequestApi {
     const localVarPath =
       this.basePath +
       "/signature_request/edit_embedded/{signature_request_id}".replace(
-        "{" + "signature_request_id" + "}",
+        "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
       );
     let localVarQueryParameters: any = {};
@@ -1179,7 +1179,7 @@ export class SignatureRequestApi {
     const localVarPath =
       this.basePath +
       "/signature_request/edit_embedded_with_template/{signature_request_id}".replace(
-        "{" + "signature_request_id" + "}",
+        "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
       );
     let localVarQueryParameters: any = {};
@@ -1342,7 +1342,7 @@ export class SignatureRequestApi {
     const localVarPath =
       this.basePath +
       "/signature_request/edit_with_template/{signature_request_id}".replace(
-        "{" + "signature_request_id" + "}",
+        "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
       );
     let localVarQueryParameters: any = {};
@@ -1501,7 +1501,7 @@ export class SignatureRequestApi {
     const localVarPath =
       this.basePath +
       "/signature_request/files/{signature_request_id}".replace(
-        "{" + "signature_request_id" + "}",
+        "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
       );
     let localVarQueryParameters: any = {};
@@ -1631,7 +1631,7 @@ export class SignatureRequestApi {
     const localVarPath =
       this.basePath +
       "/signature_request/files_as_data_uri/{signature_request_id}".replace(
-        "{" + "signature_request_id" + "}",
+        "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
       );
     let localVarQueryParameters: any = {};
@@ -1758,7 +1758,7 @@ export class SignatureRequestApi {
     const localVarPath =
       this.basePath +
       "/signature_request/files_as_file_url/{signature_request_id}".replace(
-        "{" + "signature_request_id" + "}",
+        "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
       );
     let localVarQueryParameters: any = {};
@@ -1888,7 +1888,7 @@ export class SignatureRequestApi {
     const localVarPath =
       this.basePath +
       "/signature_request/{signature_request_id}".replace(
-        "{" + "signature_request_id" + "}",
+        "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
       );
     let localVarQueryParameters: any = {};
@@ -2160,7 +2160,7 @@ export class SignatureRequestApi {
     const localVarPath =
       this.basePath +
       "/signature_request/release_hold/{signature_request_id}".replace(
-        "{" + "signature_request_id" + "}",
+        "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
       );
     let localVarQueryParameters: any = {};
@@ -2291,7 +2291,7 @@ export class SignatureRequestApi {
     const localVarPath =
       this.basePath +
       "/signature_request/remind/{signature_request_id}".replace(
-        "{" + "signature_request_id" + "}",
+        "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
       );
     let localVarQueryParameters: any = {};
@@ -2448,7 +2448,7 @@ export class SignatureRequestApi {
     const localVarPath =
       this.basePath +
       "/signature_request/remove/{signature_request_id}".replace(
-        "{" + "signature_request_id" + "}",
+        "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
       );
     let localVarQueryParameters: any = {};
@@ -2855,7 +2855,7 @@ export class SignatureRequestApi {
     const localVarPath =
       this.basePath +
       "/signature_request/update/{signature_request_id}".replace(
-        "{" + "signature_request_id" + "}",
+        "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
       );
     let localVarQueryParameters: any = {};

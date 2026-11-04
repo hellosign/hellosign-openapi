@@ -29,7 +29,7 @@ import java.util.Objects;
 @JsonPropertyOrder({FaxGetResponse.JSON_PROPERTY_FAX, FaxGetResponse.JSON_PROPERTY_WARNINGS})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxGetResponse {
     public static final String JSON_PROPERTY_FAX = "fax";
@@ -65,13 +65,13 @@ public class FaxGetResponse {
      * @return fax
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_FAX)
+    @JsonProperty(value = JSON_PROPERTY_FAX, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public FaxResponse getFax() {
         return fax;
     }
 
-    @JsonProperty(JSON_PROPERTY_FAX)
+    @JsonProperty(value = JSON_PROPERTY_FAX, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setFax(@javax.annotation.Nonnull FaxResponse fax) {
         this.fax = fax;
@@ -95,13 +95,13 @@ public class FaxGetResponse {
      *
      * @return warnings
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<WarningResponse> getWarnings() {
         return warnings;
     }
 
-    @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
@@ -213,9 +213,6 @@ public class FaxGetResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

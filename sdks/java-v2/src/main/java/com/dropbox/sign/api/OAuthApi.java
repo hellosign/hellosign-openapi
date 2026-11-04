@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class OAuthApi {
   private ApiClient apiClient;
 
@@ -64,7 +64,7 @@ public class OAuthApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public OAuthTokenResponse oauthTokenGenerate(OAuthTokenGenerateRequest oauthTokenGenerateRequest) throws ApiException {
+  public OAuthTokenResponse oauthTokenGenerate(@jakarta.annotation.Nonnull OAuthTokenGenerateRequest oauthTokenGenerateRequest) throws ApiException {
     return oauthTokenGenerateWithHttpInfo(oauthTokenGenerateRequest).getData();
   }
 
@@ -84,7 +84,7 @@ public class OAuthApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<OAuthTokenResponse> oauthTokenGenerateWithHttpInfo(OAuthTokenGenerateRequest oauthTokenGenerateRequest) throws ApiException {
+  public ApiResponse<OAuthTokenResponse> oauthTokenGenerateWithHttpInfo(@jakarta.annotation.Nonnull OAuthTokenGenerateRequest oauthTokenGenerateRequest) throws ApiException {
     
     // Check required parameters
     if (oauthTokenGenerateRequest == null) {
@@ -128,7 +128,7 @@ public class OAuthApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public OAuthTokenResponse oauthTokenRefresh(OAuthTokenRefreshRequest oauthTokenRefreshRequest) throws ApiException {
+  public OAuthTokenResponse oauthTokenRefresh(@jakarta.annotation.Nonnull OAuthTokenRefreshRequest oauthTokenRefreshRequest) throws ApiException {
     return oauthTokenRefreshWithHttpInfo(oauthTokenRefreshRequest).getData();
   }
 
@@ -148,7 +148,7 @@ public class OAuthApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<OAuthTokenResponse> oauthTokenRefreshWithHttpInfo(OAuthTokenRefreshRequest oauthTokenRefreshRequest) throws ApiException {
+  public ApiResponse<OAuthTokenResponse> oauthTokenRefreshWithHttpInfo(@jakarta.annotation.Nonnull OAuthTokenRefreshRequest oauthTokenRefreshRequest) throws ApiException {
     
     // Check required parameters
     if (oauthTokenRefreshRequest == null) {

@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentStaticFieldDropdown
+# TemplateResponseDocumentStaticFieldDropdown
 
 This class extends `TemplateResponseDocumentStaticFieldBase`
 

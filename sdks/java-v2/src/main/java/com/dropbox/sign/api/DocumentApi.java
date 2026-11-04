@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class DocumentApi {
   private ApiClient apiClient;
 
@@ -63,7 +63,7 @@ public class DocumentApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public DocumentFieldDetectionResponse documentDetectFields(DocumentFieldDetectionRequest documentFieldDetectionRequest) throws ApiException {
+  public DocumentFieldDetectionResponse documentDetectFields(@jakarta.annotation.Nonnull DocumentFieldDetectionRequest documentFieldDetectionRequest) throws ApiException {
     return documentDetectFieldsWithHttpInfo(documentFieldDetectionRequest).getData();
   }
 
@@ -83,7 +83,7 @@ public class DocumentApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DocumentFieldDetectionResponse> documentDetectFieldsWithHttpInfo(DocumentFieldDetectionRequest documentFieldDetectionRequest) throws ApiException {
+  public ApiResponse<DocumentFieldDetectionResponse> documentDetectFieldsWithHttpInfo(@jakarta.annotation.Nonnull DocumentFieldDetectionRequest documentFieldDetectionRequest) throws ApiException {
     
     // Check required parameters
     if (documentFieldDetectionRequest == null) {

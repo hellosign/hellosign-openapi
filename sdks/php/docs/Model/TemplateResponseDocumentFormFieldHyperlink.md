@@ -1,4 +1,4 @@
-# # TemplateResponseDocumentFormFieldHyperlink
+# TemplateResponseDocumentFormFieldHyperlink
 
 This class extends `TemplateResponseDocumentFormFieldBase`
 

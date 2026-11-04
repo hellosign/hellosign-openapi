@@ -29,7 +29,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class TemplateApi {
   private ApiClient apiClient;
 
@@ -75,7 +75,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TemplateGetResponse templateAddUser(String templateId, TemplateAddUserRequest templateAddUserRequest) throws ApiException {
+  public TemplateGetResponse templateAddUser(@jakarta.annotation.Nonnull String templateId, @jakarta.annotation.Nonnull TemplateAddUserRequest templateAddUserRequest) throws ApiException {
     return templateAddUserWithHttpInfo(templateId, templateAddUserRequest).getData();
   }
 
@@ -96,7 +96,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TemplateGetResponse> templateAddUserWithHttpInfo(String templateId, TemplateAddUserRequest templateAddUserRequest) throws ApiException {
+  public ApiResponse<TemplateGetResponse> templateAddUserWithHttpInfo(@jakarta.annotation.Nonnull String templateId, @jakarta.annotation.Nonnull TemplateAddUserRequest templateAddUserRequest) throws ApiException {
     
     // Check required parameters
     if (templateId == null) {
@@ -148,7 +148,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TemplateCreateResponse templateCreate(TemplateCreateRequest templateCreateRequest) throws ApiException {
+  public TemplateCreateResponse templateCreate(@jakarta.annotation.Nonnull TemplateCreateRequest templateCreateRequest) throws ApiException {
     return templateCreateWithHttpInfo(templateCreateRequest).getData();
   }
 
@@ -168,7 +168,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TemplateCreateResponse> templateCreateWithHttpInfo(TemplateCreateRequest templateCreateRequest) throws ApiException {
+  public ApiResponse<TemplateCreateResponse> templateCreateWithHttpInfo(@jakarta.annotation.Nonnull TemplateCreateRequest templateCreateRequest) throws ApiException {
     
     // Check required parameters
     if (templateCreateRequest == null) {
@@ -213,7 +213,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TemplateCreateEmbeddedDraftResponse templateCreateEmbeddedDraft(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest) throws ApiException {
+  public TemplateCreateEmbeddedDraftResponse templateCreateEmbeddedDraft(@jakarta.annotation.Nonnull TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest) throws ApiException {
     return templateCreateEmbeddedDraftWithHttpInfo(templateCreateEmbeddedDraftRequest).getData();
   }
 
@@ -233,7 +233,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TemplateCreateEmbeddedDraftResponse> templateCreateEmbeddedDraftWithHttpInfo(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest) throws ApiException {
+  public ApiResponse<TemplateCreateEmbeddedDraftResponse> templateCreateEmbeddedDraftWithHttpInfo(@jakarta.annotation.Nonnull TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest) throws ApiException {
     
     // Check required parameters
     if (templateCreateEmbeddedDraftRequest == null) {
@@ -277,7 +277,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public void templateDelete(String templateId) throws ApiException {
+  public void templateDelete(@jakarta.annotation.Nonnull String templateId) throws ApiException {
     templateDeleteWithHttpInfo(templateId);
   }
 
@@ -297,7 +297,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> templateDeleteWithHttpInfo(String templateId) throws ApiException {
+  public ApiResponse<Void> templateDeleteWithHttpInfo(@jakarta.annotation.Nonnull String templateId) throws ApiException {
     
     // Check required parameters
     if (templateId == null) {
@@ -346,7 +346,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public File templateFiles(String templateId, String fileType) throws ApiException {
+  public File templateFiles(@jakarta.annotation.Nonnull String templateId, @jakarta.annotation.Nullable String fileType) throws ApiException {
     return templateFilesWithHttpInfo(templateId, fileType).getData();
   }
 
@@ -386,7 +386,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<File> templateFilesWithHttpInfo(String templateId, String fileType) throws ApiException {
+  public ApiResponse<File> templateFilesWithHttpInfo(@jakarta.annotation.Nonnull String templateId, @jakarta.annotation.Nullable String fileType) throws ApiException {
     
     // Check required parameters
     if (templateId == null) {
@@ -440,7 +440,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FileResponseDataUri templateFilesAsDataUri(String templateId) throws ApiException {
+  public FileResponseDataUri templateFilesAsDataUri(@jakarta.annotation.Nonnull String templateId) throws ApiException {
     return templateFilesAsDataUriWithHttpInfo(templateId).getData();
   }
 
@@ -460,7 +460,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FileResponseDataUri> templateFilesAsDataUriWithHttpInfo(String templateId) throws ApiException {
+  public ApiResponse<FileResponseDataUri> templateFilesAsDataUriWithHttpInfo(@jakarta.annotation.Nonnull String templateId) throws ApiException {
     
     // Check required parameters
     if (templateId == null) {
@@ -510,7 +510,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FileResponse templateFilesAsFileUrl(String templateId, Integer forceDownload) throws ApiException {
+  public FileResponse templateFilesAsFileUrl(@jakarta.annotation.Nonnull String templateId, @jakarta.annotation.Nullable Integer forceDownload) throws ApiException {
     return templateFilesAsFileUrlWithHttpInfo(templateId, forceDownload).getData();
   }
 
@@ -550,7 +550,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FileResponse> templateFilesAsFileUrlWithHttpInfo(String templateId, Integer forceDownload) throws ApiException {
+  public ApiResponse<FileResponse> templateFilesAsFileUrlWithHttpInfo(@jakarta.annotation.Nonnull String templateId, @jakarta.annotation.Nullable Integer forceDownload) throws ApiException {
     
     if (forceDownload == null) {
         forceDownload = 1;
@@ -607,7 +607,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TemplateGetResponse templateGet(String templateId) throws ApiException {
+  public TemplateGetResponse templateGet(@jakarta.annotation.Nonnull String templateId) throws ApiException {
     return templateGetWithHttpInfo(templateId).getData();
   }
 
@@ -627,7 +627,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TemplateGetResponse> templateGetWithHttpInfo(String templateId) throws ApiException {
+  public ApiResponse<TemplateGetResponse> templateGetWithHttpInfo(@jakarta.annotation.Nonnull String templateId) throws ApiException {
     
     // Check required parameters
     if (templateId == null) {
@@ -679,7 +679,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TemplateListResponse templateList(String accountId, Integer page, Integer pageSize, String query) throws ApiException {
+  public TemplateListResponse templateList(@jakarta.annotation.Nullable String accountId, @jakarta.annotation.Nullable Integer page, @jakarta.annotation.Nullable Integer pageSize, @jakarta.annotation.Nullable String query) throws ApiException {
     return templateListWithHttpInfo(accountId, page, pageSize, query).getData();
   }
 
@@ -787,7 +787,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TemplateListResponse> templateListWithHttpInfo(String accountId, Integer page, Integer pageSize, String query) throws ApiException {
+  public ApiResponse<TemplateListResponse> templateListWithHttpInfo(@jakarta.annotation.Nullable String accountId, @jakarta.annotation.Nullable Integer page, @jakarta.annotation.Nullable Integer pageSize, @jakarta.annotation.Nullable String query) throws ApiException {
     
     if (page == null) {
         page = 1;
@@ -842,7 +842,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TemplateGetResponse templateRemoveUser(String templateId, TemplateRemoveUserRequest templateRemoveUserRequest) throws ApiException {
+  public TemplateGetResponse templateRemoveUser(@jakarta.annotation.Nonnull String templateId, @jakarta.annotation.Nonnull TemplateRemoveUserRequest templateRemoveUserRequest) throws ApiException {
     return templateRemoveUserWithHttpInfo(templateId, templateRemoveUserRequest).getData();
   }
 
@@ -863,7 +863,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TemplateGetResponse> templateRemoveUserWithHttpInfo(String templateId, TemplateRemoveUserRequest templateRemoveUserRequest) throws ApiException {
+  public ApiResponse<TemplateGetResponse> templateRemoveUserWithHttpInfo(@jakarta.annotation.Nonnull String templateId, @jakarta.annotation.Nonnull TemplateRemoveUserRequest templateRemoveUserRequest) throws ApiException {
     
     // Check required parameters
     if (templateId == null) {
@@ -916,7 +916,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TemplateUpdateFilesResponse templateUpdateFiles(String templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest) throws ApiException {
+  public TemplateUpdateFilesResponse templateUpdateFiles(@jakarta.annotation.Nonnull String templateId, @jakarta.annotation.Nonnull TemplateUpdateFilesRequest templateUpdateFilesRequest) throws ApiException {
     return templateUpdateFilesWithHttpInfo(templateId, templateUpdateFilesRequest).getData();
   }
 
@@ -937,7 +937,7 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TemplateUpdateFilesResponse> templateUpdateFilesWithHttpInfo(String templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest) throws ApiException {
+  public ApiResponse<TemplateUpdateFilesResponse> templateUpdateFilesWithHttpInfo(@jakarta.annotation.Nonnull String templateId, @jakarta.annotation.Nonnull TemplateUpdateFilesRequest templateUpdateFilesRequest) throws ApiException {
     
     // Check required parameters
     if (templateId == null) {

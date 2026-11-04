@@ -34,7 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubFormFieldRuleAction {
     public static final String JSON_PROPERTY_HIDDEN = "hidden";
@@ -113,13 +113,13 @@ public class SubFormFieldRuleAction {
      * @return hidden
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_HIDDEN)
+    @JsonProperty(value = JSON_PROPERTY_HIDDEN, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Boolean getHidden() {
         return hidden;
     }
 
-    @JsonProperty(JSON_PROPERTY_HIDDEN)
+    @JsonProperty(value = JSON_PROPERTY_HIDDEN, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setHidden(@javax.annotation.Nonnull Boolean hidden) {
         this.hidden = hidden;
@@ -136,13 +136,13 @@ public class SubFormFieldRuleAction {
      * @return type
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public TypeEnum getType() {
         return type;
     }
 
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setType(@javax.annotation.Nonnull TypeEnum type) {
         this.type = type;
@@ -160,13 +160,13 @@ public class SubFormFieldRuleAction {
      *
      * @return fieldId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FIELD_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FIELD_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getFieldId() {
         return fieldId;
     }
 
-    @JsonProperty(JSON_PROPERTY_FIELD_ID)
+    @JsonProperty(value = JSON_PROPERTY_FIELD_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFieldId(@javax.annotation.Nullable String fieldId) {
         this.fieldId = fieldId;
@@ -184,13 +184,13 @@ public class SubFormFieldRuleAction {
      *
      * @return groupId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_GROUP_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_GROUP_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getGroupId() {
         return groupId;
     }
 
-    @JsonProperty(JSON_PROPERTY_GROUP_ID)
+    @JsonProperty(value = JSON_PROPERTY_GROUP_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setGroupId(@javax.annotation.Nullable String groupId) {
         this.groupId = groupId;
@@ -342,9 +342,6 @@ public class SubFormFieldRuleAction {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

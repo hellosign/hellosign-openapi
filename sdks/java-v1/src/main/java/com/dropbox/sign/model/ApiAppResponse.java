@@ -40,7 +40,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiAppResponse {
     public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
@@ -99,13 +99,13 @@ public class ApiAppResponse {
      *
      * @return callbackUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getCallbackUrl() {
         return callbackUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+    @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCallbackUrl(@javax.annotation.Nullable String callbackUrl) {
         this.callbackUrl = callbackUrl;
@@ -121,13 +121,13 @@ public class ApiAppResponse {
      *
      * @return clientId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getClientId() {
         return clientId;
     }
 
-    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setClientId(@javax.annotation.Nullable String clientId) {
         this.clientId = clientId;
@@ -143,13 +143,13 @@ public class ApiAppResponse {
      *
      * @return createdAt
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CREATED_AT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getCreatedAt() {
         return createdAt;
     }
 
-    @JsonProperty(JSON_PROPERTY_CREATED_AT)
+    @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCreatedAt(@javax.annotation.Nullable Integer createdAt) {
         this.createdAt = createdAt;
@@ -173,13 +173,13 @@ public class ApiAppResponse {
      *
      * @return domains
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_DOMAINS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_DOMAINS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<String> getDomains() {
         return domains;
     }
 
-    @JsonProperty(JSON_PROPERTY_DOMAINS)
+    @JsonProperty(value = JSON_PROPERTY_DOMAINS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setDomains(@javax.annotation.Nullable List<String> domains) {
         this.domains = domains;
@@ -195,13 +195,13 @@ public class ApiAppResponse {
      *
      * @return name
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getName() {
         return name;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
@@ -217,13 +217,13 @@ public class ApiAppResponse {
      *
      * @return isApproved
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_APPROVED)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_APPROVED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsApproved() {
         return isApproved;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_APPROVED)
+    @JsonProperty(value = JSON_PROPERTY_IS_APPROVED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsApproved(@javax.annotation.Nullable Boolean isApproved) {
         this.isApproved = isApproved;
@@ -239,13 +239,13 @@ public class ApiAppResponse {
      *
      * @return oauth
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_OAUTH)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_OAUTH, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public ApiAppResponseOAuth getOauth() {
         return oauth;
     }
 
-    @JsonProperty(JSON_PROPERTY_OAUTH)
+    @JsonProperty(value = JSON_PROPERTY_OAUTH, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setOauth(@javax.annotation.Nullable ApiAppResponseOAuth oauth) {
         this.oauth = oauth;
@@ -261,13 +261,13 @@ public class ApiAppResponse {
      *
      * @return options
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_OPTIONS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public ApiAppResponseOptions getOptions() {
         return options;
     }
 
-    @JsonProperty(JSON_PROPERTY_OPTIONS)
+    @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setOptions(@javax.annotation.Nullable ApiAppResponseOptions options) {
         this.options = options;
@@ -284,13 +284,13 @@ public class ApiAppResponse {
      *
      * @return ownerAccount
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_OWNER_ACCOUNT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_OWNER_ACCOUNT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public ApiAppResponseOwnerAccount getOwnerAccount() {
         return ownerAccount;
     }
 
-    @JsonProperty(JSON_PROPERTY_OWNER_ACCOUNT)
+    @JsonProperty(value = JSON_PROPERTY_OWNER_ACCOUNT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setOwnerAccount(
             @javax.annotation.Nullable ApiAppResponseOwnerAccount ownerAccount) {
@@ -308,13 +308,13 @@ public class ApiAppResponse {
      *
      * @return whiteLabelingOptions
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WHITE_LABELING_OPTIONS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_WHITE_LABELING_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public ApiAppResponseWhiteLabelingOptions getWhiteLabelingOptions() {
         return whiteLabelingOptions;
     }
 
-    @JsonProperty(JSON_PROPERTY_WHITE_LABELING_OPTIONS)
+    @JsonProperty(value = JSON_PROPERTY_WHITE_LABELING_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setWhiteLabelingOptions(
             @javax.annotation.Nullable ApiAppResponseWhiteLabelingOptions whiteLabelingOptions) {
@@ -613,9 +613,6 @@ public class ApiAppResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

@@ -25,6 +25,7 @@ from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 
 class FaxSendRequest(BaseModel):
@@ -33,10 +34,13 @@ class FaxSendRequest(BaseModel):
     """  # noqa: E501
 
     recipient: StrictStr = Field(
-        description="Recipient of the fax  Can be a phone number in E.164 format or email address"
+        description="Recipient of the fax  Can be a phone number in E.164 format or email address",
+        json_schema_extra={"examples": ["recipient@example.com"]},
     )
     sender: Optional[StrictStr] = Field(
-        default=None, description="Fax Send From Sender (used only with fax number)"
+        default=None,
+        description="Fax Send From Sender (used only with fax number)",
+        json_schema_extra={"examples": ["sender@example.com"]},
     )
     files: Optional[
         List[Union[StrictBytes, StrictStr, io.IOBase, Tuple[StrictStr, StrictBytes, io.IOBase]]]
@@ -52,15 +56,25 @@ class FaxSendRequest(BaseModel):
         default=False, description="API Test Mode Setting"
     )
     cover_page_to: Optional[StrictStr] = Field(
-        default=None, description="Fax cover page recipient information"
+        default=None,
+        description="Fax cover page recipient information",
+        json_schema_extra={"examples": ["Recipient Name"]},
     )
     cover_page_from: Optional[StrictStr] = Field(
-        default=None, description="Fax cover page sender information"
+        default=None,
+        description="Fax cover page sender information",
+        json_schema_extra={"examples": ["Sender Name"]},
     )
     cover_page_message: Optional[StrictStr] = Field(
-        default=None, description="Fax Cover Page Message"
+        default=None,
+        description="Fax Cover Page Message",
+        json_schema_extra={"examples": ["Please find the attached documents."]},
     )
-    title: Optional[StrictStr] = Field(default=None, description="Fax Title")
+    title: Optional[StrictStr] = Field(
+        default=None,
+        description="Fax Title",
+        json_schema_extra={"examples": ["Fax Title"]},
+    )
     __properties: ClassVar[List[str]] = [
         "recipient",
         "sender",
@@ -74,7 +88,8 @@ class FaxSendRequest(BaseModel):
     ]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -86,8 +101,7 @@ class FaxSendRequest(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None

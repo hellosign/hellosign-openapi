@@ -32,7 +32,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 public class SignatureRequestApi {
     private ApiClient apiClient;
 
@@ -81,8 +81,9 @@ public class SignatureRequestApi {
      * </table>
      */
     public BulkSendJobSendResponse signatureRequestBulkCreateEmbeddedWithTemplate(
-            SignatureRequestBulkCreateEmbeddedWithTemplateRequest
-                    signatureRequestBulkCreateEmbeddedWithTemplateRequest)
+            @javax.annotation.Nonnull
+                    SignatureRequestBulkCreateEmbeddedWithTemplateRequest
+                            signatureRequestBulkCreateEmbeddedWithTemplateRequest)
             throws ApiException {
         return signatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(
                         signatureRequestBulkCreateEmbeddedWithTemplateRequest)
@@ -109,8 +110,9 @@ public class SignatureRequestApi {
      */
     public ApiResponse<BulkSendJobSendResponse>
             signatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(
-                    SignatureRequestBulkCreateEmbeddedWithTemplateRequest
-                            signatureRequestBulkCreateEmbeddedWithTemplateRequest)
+                    @javax.annotation.Nonnull
+                            SignatureRequestBulkCreateEmbeddedWithTemplateRequest
+                                    signatureRequestBulkCreateEmbeddedWithTemplateRequest)
                     throws ApiException {
 
         // Check required parameters
@@ -167,7 +169,9 @@ public class SignatureRequestApi {
      * </table>
      */
     public BulkSendJobSendResponse signatureRequestBulkSendWithTemplate(
-            SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest)
+            @javax.annotation.Nonnull
+                    SignatureRequestBulkSendWithTemplateRequest
+                            signatureRequestBulkSendWithTemplateRequest)
             throws ApiException {
         return signatureRequestBulkSendWithTemplateWithHttpInfo(
                         signatureRequestBulkSendWithTemplateRequest)
@@ -191,7 +195,9 @@ public class SignatureRequestApi {
      * </table>
      */
     public ApiResponse<BulkSendJobSendResponse> signatureRequestBulkSendWithTemplateWithHttpInfo(
-            SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest)
+            @javax.annotation.Nonnull
+                    SignatureRequestBulkSendWithTemplateRequest
+                            signatureRequestBulkSendWithTemplateRequest)
             throws ApiException {
 
         // Check required parameters
@@ -260,7 +266,8 @@ public class SignatureRequestApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public void signatureRequestCancel(String signatureRequestId) throws ApiException {
+    public void signatureRequestCancel(@javax.annotation.Nonnull String signatureRequestId)
+            throws ApiException {
         signatureRequestCancelWithHttpInfo(signatureRequestId);
     }
 
@@ -295,8 +302,8 @@ public class SignatureRequestApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<Void> signatureRequestCancelWithHttpInfo(String signatureRequestId)
-            throws ApiException {
+    public ApiResponse<Void> signatureRequestCancelWithHttpInfo(
+            @javax.annotation.Nonnull String signatureRequestId) throws ApiException {
 
         // Check required parameters
         if (signatureRequestId == null) {
@@ -356,7 +363,8 @@ public class SignatureRequestApi {
      * </table>
      */
     public SignatureRequestGetResponse signatureRequestCreateEmbedded(
-            SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest)
+            @javax.annotation.Nonnull
+                    SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest)
             throws ApiException {
         return signatureRequestCreateEmbeddedWithHttpInfo(signatureRequestCreateEmbeddedRequest)
                 .getData();
@@ -382,7 +390,8 @@ public class SignatureRequestApi {
      * </table>
      */
     public ApiResponse<SignatureRequestGetResponse> signatureRequestCreateEmbeddedWithHttpInfo(
-            SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest)
+            @javax.annotation.Nonnull
+                    SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest)
             throws ApiException {
 
         // Check required parameters
@@ -439,8 +448,9 @@ public class SignatureRequestApi {
      * </table>
      */
     public SignatureRequestGetResponse signatureRequestCreateEmbeddedWithTemplate(
-            SignatureRequestCreateEmbeddedWithTemplateRequest
-                    signatureRequestCreateEmbeddedWithTemplateRequest)
+            @javax.annotation.Nonnull
+                    SignatureRequestCreateEmbeddedWithTemplateRequest
+                            signatureRequestCreateEmbeddedWithTemplateRequest)
             throws ApiException {
         return signatureRequestCreateEmbeddedWithTemplateWithHttpInfo(
                         signatureRequestCreateEmbeddedWithTemplateRequest)
@@ -466,8 +476,9 @@ public class SignatureRequestApi {
      */
     public ApiResponse<SignatureRequestGetResponse>
             signatureRequestCreateEmbeddedWithTemplateWithHttpInfo(
-                    SignatureRequestCreateEmbeddedWithTemplateRequest
-                            signatureRequestCreateEmbeddedWithTemplateRequest)
+                    @javax.annotation.Nonnull
+                            SignatureRequestCreateEmbeddedWithTemplateRequest
+                                    signatureRequestCreateEmbeddedWithTemplateRequest)
                     throws ApiException {
 
         // Check required parameters
@@ -526,7 +537,8 @@ public class SignatureRequestApi {
      * </table>
      */
     public SignatureRequestGetResponse signatureRequestEdit(
-            String signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest)
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nonnull SignatureRequestEditRequest signatureRequestEditRequest)
             throws ApiException {
         return signatureRequestEditWithHttpInfo(signatureRequestId, signatureRequestEditRequest)
                 .getData();
@@ -551,7 +563,8 @@ public class SignatureRequestApi {
      * </table>
      */
     public ApiResponse<SignatureRequestGetResponse> signatureRequestEditWithHttpInfo(
-            String signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest)
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nonnull SignatureRequestEditRequest signatureRequestEditRequest)
             throws ApiException {
 
         // Check required parameters
@@ -624,8 +637,9 @@ public class SignatureRequestApi {
      * </table>
      */
     public SignatureRequestGetResponse signatureRequestEditEmbedded(
-            String signatureRequestId,
-            SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest)
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nonnull
+                    SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest)
             throws ApiException {
         return signatureRequestEditEmbeddedWithHttpInfo(
                         signatureRequestId, signatureRequestEditEmbeddedRequest)
@@ -653,8 +667,9 @@ public class SignatureRequestApi {
      * </table>
      */
     public ApiResponse<SignatureRequestGetResponse> signatureRequestEditEmbeddedWithHttpInfo(
-            String signatureRequestId,
-            SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest)
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nonnull
+                    SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest)
             throws ApiException {
 
         // Check required parameters
@@ -725,9 +740,10 @@ public class SignatureRequestApi {
      * </table>
      */
     public SignatureRequestGetResponse signatureRequestEditEmbeddedWithTemplate(
-            String signatureRequestId,
-            SignatureRequestEditEmbeddedWithTemplateRequest
-                    signatureRequestEditEmbeddedWithTemplateRequest)
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nonnull
+                    SignatureRequestEditEmbeddedWithTemplateRequest
+                            signatureRequestEditEmbeddedWithTemplateRequest)
             throws ApiException {
         return signatureRequestEditEmbeddedWithTemplateWithHttpInfo(
                         signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest)
@@ -754,9 +770,10 @@ public class SignatureRequestApi {
      */
     public ApiResponse<SignatureRequestGetResponse>
             signatureRequestEditEmbeddedWithTemplateWithHttpInfo(
-                    String signatureRequestId,
-                    SignatureRequestEditEmbeddedWithTemplateRequest
-                            signatureRequestEditEmbeddedWithTemplateRequest)
+                    @javax.annotation.Nonnull String signatureRequestId,
+                    @javax.annotation.Nonnull
+                            SignatureRequestEditEmbeddedWithTemplateRequest
+                                    signatureRequestEditEmbeddedWithTemplateRequest)
                     throws ApiException {
 
         // Check required parameters
@@ -827,8 +844,9 @@ public class SignatureRequestApi {
      * </table>
      */
     public SignatureRequestGetResponse signatureRequestEditWithTemplate(
-            String signatureRequestId,
-            SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest)
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nonnull
+                    SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest)
             throws ApiException {
         return signatureRequestEditWithTemplateWithHttpInfo(
                         signatureRequestId, signatureRequestEditWithTemplateRequest)
@@ -853,8 +871,9 @@ public class SignatureRequestApi {
      * </table>
      */
     public ApiResponse<SignatureRequestGetResponse> signatureRequestEditWithTemplateWithHttpInfo(
-            String signatureRequestId,
-            SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest)
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nonnull
+                    SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest)
             throws ApiException {
 
         // Check required parameters
@@ -924,7 +943,9 @@ public class SignatureRequestApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public File signatureRequestFiles(String signatureRequestId, String fileType)
+    public File signatureRequestFiles(
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nullable String fileType)
             throws ApiException {
         return signatureRequestFilesWithHttpInfo(signatureRequestId, fileType).getData();
     }
@@ -967,7 +988,9 @@ public class SignatureRequestApi {
      * </table>
      */
     public ApiResponse<File> signatureRequestFilesWithHttpInfo(
-            String signatureRequestId, String fileType) throws ApiException {
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nullable String fileType)
+            throws ApiException {
 
         if (fileType == null) {
             fileType = "pdf";
@@ -1034,8 +1057,8 @@ public class SignatureRequestApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public FileResponseDataUri signatureRequestFilesAsDataUri(String signatureRequestId)
-            throws ApiException {
+    public FileResponseDataUri signatureRequestFilesAsDataUri(
+            @javax.annotation.Nonnull String signatureRequestId) throws ApiException {
         return signatureRequestFilesAsDataUriWithHttpInfo(signatureRequestId).getData();
     }
 
@@ -1057,7 +1080,7 @@ public class SignatureRequestApi {
      * </table>
      */
     public ApiResponse<FileResponseDataUri> signatureRequestFilesAsDataUriWithHttpInfo(
-            String signatureRequestId) throws ApiException {
+            @javax.annotation.Nonnull String signatureRequestId) throws ApiException {
 
         // Check required parameters
         if (signatureRequestId == null) {
@@ -1120,7 +1143,9 @@ public class SignatureRequestApi {
      * </table>
      */
     public FileResponse signatureRequestFilesAsFileUrl(
-            String signatureRequestId, Integer forceDownload) throws ApiException {
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nullable Integer forceDownload)
+            throws ApiException {
         return signatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId, forceDownload)
                 .getData();
     }
@@ -1167,7 +1192,9 @@ public class SignatureRequestApi {
      * </table>
      */
     public ApiResponse<FileResponse> signatureRequestFilesAsFileUrlWithHttpInfo(
-            String signatureRequestId, Integer forceDownload) throws ApiException {
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nullable Integer forceDownload)
+            throws ApiException {
 
         if (forceDownload == null) {
             forceDownload = 1;
@@ -1230,8 +1257,8 @@ public class SignatureRequestApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public SignatureRequestGetResponse signatureRequestGet(String signatureRequestId)
-            throws ApiException {
+    public SignatureRequestGetResponse signatureRequestGet(
+            @javax.annotation.Nonnull String signatureRequestId) throws ApiException {
         return signatureRequestGetWithHttpInfo(signatureRequestId).getData();
     }
 
@@ -1251,7 +1278,7 @@ public class SignatureRequestApi {
      * </table>
      */
     public ApiResponse<SignatureRequestGetResponse> signatureRequestGetWithHttpInfo(
-            String signatureRequestId) throws ApiException {
+            @javax.annotation.Nonnull String signatureRequestId) throws ApiException {
 
         // Check required parameters
         if (signatureRequestId == null) {
@@ -1318,7 +1345,11 @@ public class SignatureRequestApi {
      * </table>
      */
     public SignatureRequestListResponse signatureRequestList(
-            String accountId, Integer page, Integer pageSize, String query) throws ApiException {
+            @javax.annotation.Nullable String accountId,
+            @javax.annotation.Nullable Integer page,
+            @javax.annotation.Nullable Integer pageSize,
+            @javax.annotation.Nullable String query)
+            throws ApiException {
         return signatureRequestListWithHttpInfo(accountId, page, pageSize, query).getData();
     }
 
@@ -1437,7 +1468,11 @@ public class SignatureRequestApi {
      * </table>
      */
     public ApiResponse<SignatureRequestListResponse> signatureRequestListWithHttpInfo(
-            String accountId, Integer page, Integer pageSize, String query) throws ApiException {
+            @javax.annotation.Nullable String accountId,
+            @javax.annotation.Nullable Integer page,
+            @javax.annotation.Nullable Integer pageSize,
+            @javax.annotation.Nullable String query)
+            throws ApiException {
 
         if (page == null) {
             page = 1;
@@ -1494,8 +1529,8 @@ public class SignatureRequestApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public SignatureRequestGetResponse signatureRequestReleaseHold(String signatureRequestId)
-            throws ApiException {
+    public SignatureRequestGetResponse signatureRequestReleaseHold(
+            @javax.annotation.Nonnull String signatureRequestId) throws ApiException {
         return signatureRequestReleaseHoldWithHttpInfo(signatureRequestId).getData();
     }
 
@@ -1517,7 +1552,7 @@ public class SignatureRequestApi {
      * </table>
      */
     public ApiResponse<SignatureRequestGetResponse> signatureRequestReleaseHoldWithHttpInfo(
-            String signatureRequestId) throws ApiException {
+            @javax.annotation.Nonnull String signatureRequestId) throws ApiException {
 
         // Check required parameters
         if (signatureRequestId == null) {
@@ -1578,7 +1613,8 @@ public class SignatureRequestApi {
      * </table>
      */
     public SignatureRequestGetResponse signatureRequestRemind(
-            String signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest)
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nonnull SignatureRequestRemindRequest signatureRequestRemindRequest)
             throws ApiException {
         return signatureRequestRemindWithHttpInfo(signatureRequestId, signatureRequestRemindRequest)
                 .getData();
@@ -1603,7 +1639,8 @@ public class SignatureRequestApi {
      * </table>
      */
     public ApiResponse<SignatureRequestGetResponse> signatureRequestRemindWithHttpInfo(
-            String signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest)
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nonnull SignatureRequestRemindRequest signatureRequestRemindRequest)
             throws ApiException {
 
         // Check required parameters
@@ -1672,7 +1709,8 @@ public class SignatureRequestApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public void signatureRequestRemove(String signatureRequestId) throws ApiException {
+    public void signatureRequestRemove(@javax.annotation.Nonnull String signatureRequestId)
+            throws ApiException {
         signatureRequestRemoveWithHttpInfo(signatureRequestId);
     }
 
@@ -1695,8 +1733,8 @@ public class SignatureRequestApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<Void> signatureRequestRemoveWithHttpInfo(String signatureRequestId)
-            throws ApiException {
+    public ApiResponse<Void> signatureRequestRemoveWithHttpInfo(
+            @javax.annotation.Nonnull String signatureRequestId) throws ApiException {
 
         // Check required parameters
         if (signatureRequestId == null) {
@@ -1754,7 +1792,8 @@ public class SignatureRequestApi {
      * </table>
      */
     public SignatureRequestGetResponse signatureRequestSend(
-            SignatureRequestSendRequest signatureRequestSendRequest) throws ApiException {
+            @javax.annotation.Nonnull SignatureRequestSendRequest signatureRequestSendRequest)
+            throws ApiException {
         return signatureRequestSendWithHttpInfo(signatureRequestSendRequest).getData();
     }
 
@@ -1776,7 +1815,8 @@ public class SignatureRequestApi {
      * </table>
      */
     public ApiResponse<SignatureRequestGetResponse> signatureRequestSendWithHttpInfo(
-            SignatureRequestSendRequest signatureRequestSendRequest) throws ApiException {
+            @javax.annotation.Nonnull SignatureRequestSendRequest signatureRequestSendRequest)
+            throws ApiException {
 
         // Check required parameters
         if (signatureRequestSendRequest == null) {
@@ -1830,7 +1870,8 @@ public class SignatureRequestApi {
      * </table>
      */
     public SignatureRequestGetResponse signatureRequestSendWithTemplate(
-            SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest)
+            @javax.annotation.Nonnull
+                    SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest)
             throws ApiException {
         return signatureRequestSendWithTemplateWithHttpInfo(signatureRequestSendWithTemplateRequest)
                 .getData();
@@ -1852,7 +1893,8 @@ public class SignatureRequestApi {
      * </table>
      */
     public ApiResponse<SignatureRequestGetResponse> signatureRequestSendWithTemplateWithHttpInfo(
-            SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest)
+            @javax.annotation.Nonnull
+                    SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest)
             throws ApiException {
 
         // Check required parameters
@@ -1911,7 +1953,8 @@ public class SignatureRequestApi {
      * </table>
      */
     public SignatureRequestGetResponse signatureRequestUpdate(
-            String signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest)
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nonnull SignatureRequestUpdateRequest signatureRequestUpdateRequest)
             throws ApiException {
         return signatureRequestUpdateWithHttpInfo(signatureRequestId, signatureRequestUpdateRequest)
                 .getData();
@@ -1937,7 +1980,8 @@ public class SignatureRequestApi {
      * </table>
      */
     public ApiResponse<SignatureRequestGetResponse> signatureRequestUpdateWithHttpInfo(
-            String signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest)
+            @javax.annotation.Nonnull String signatureRequestId,
+            @javax.annotation.Nonnull SignatureRequestUpdateRequest signatureRequestUpdateRequest)
             throws ApiException {
 
         // Check required parameters
