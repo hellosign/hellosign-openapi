@@ -24,4 +24,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Check SDK scripts on Bash 3.2
-        run: ./bin/check-bash32
+        uses: hellosign/bash32-action@v1
+        with:
+          paths: |
+            bin/**
+            sdks/*/bin/**
+            sdks/*/run-build
