@@ -40,6 +40,8 @@ tags:
     description: An object that contains necessary information to set up embedded signing
   - name: Api App
     description: Contains information about an API App
+  - name: API Keys
+    description: 'Create, list, and manage API keys for an account.'
   - name: OAuth
     description: |-
       OAuth allows you to perform actions on behalf of other users after they grant you the authorization to do so. For example, you could send signature requests on behalf of your users.

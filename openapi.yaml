@@ -16877,6 +16877,10 @@ tags:
     description:
       $ref: ./markdown/en/tags/api-app-tag-description.md
   -
+    name: 'API Keys'
+    description:
+      $ref: ./markdown/en/tags/api-key-tag-description.md
+  -
     name: OAuth
     description:
       $ref: ./markdown/en/tags/oauth-tag-description.md

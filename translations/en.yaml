@@ -12,6 +12,7 @@
   ❌ **Not supported** by Try it console.
 "OpenApi::TAG::ACCOUNT::DESCRIPTION": ./markdown/en/tags/account-tag-description.md
 "OpenApi::TAG::API_APP::DESCRIPTION": ./markdown/en/tags/api-app-tag-description.md
+"OpenApi::TAG::API_KEY::DESCRIPTION": ./markdown/en/tags/api-key-tag-description.md
 "OpenApi::TAG::BULK_SEND_JOB::DESCRIPTION": ./markdown/en/tags/bulk-send-job-tag-description.md
 "OpenApi::TAG::EMBEDDED::DESCRIPTION": ./markdown/en/tags/embedded-tag-description.md
 "OpenApi::TAG::REPORT::DESCRIPTION": ./markdown/en/tags/report-tag-description.md
@@ -66,6 +67,55 @@
 "AccountVerify::DESCRIPTION": |-
   Verifies whether an Dropbox Sign Account exists for the given email address.
 "AccountVerify::EMAIL_ADDRESS": Email address to run the verification for.
+
+"AccountApiKeyList::SUMMARY": List API Keys
+"AccountApiKeyList::DESCRIPTION": Returns the API keys on the specified account. The key secret is not included.
+"AccountApiKeyList::ACCOUNT_ID": The ID of the account whose API keys to list. Defaults to the authenticated account when omitted.
+"AccountApiKeyList::SEO::TITLE": "List API Keys | API Documentation | Dropbox Sign for Developers"
+"AccountApiKeyList::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a wide range of tools. To find out how to list API keys on an account, click here."
+
+"AccountApiKeyCreate::SUMMARY": Create API Key
+"AccountApiKeyCreate::DESCRIPTION": Creates a named API key on the specified account. The secret is returned only in this response.
+"AccountApiKeyCreate::ACCOUNT_ID": The ID of the account that will own the new API key. Defaults to the authenticated account when omitted.
+"AccountApiKeyCreate::NAME": Name for the API key. Must be unique on the account and at most 25 characters.
+"AccountApiKeyCreate::SECRET": The API key secret. Returned only when the key is created.
+"AccountApiKeyCreate::SEO::TITLE": "Create API Key | API Documentation | Dropbox Sign for Developers"
+"AccountApiKeyCreate::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a wide range of tools. To find out how to create an API key, click here."
+
+"AccountApiKeyGet::SUMMARY": Get API Key
+"AccountApiKeyGet::DESCRIPTION": Returns one API key on the specified account. The key secret is not included.
+"AccountApiKeyGet::ACCOUNT_ID": The ID of the account that owns the API key. Defaults to the authenticated account when omitted.
+"AccountApiKeyGet::API_KEY_ID": The ID of the API key.
+"AccountApiKeyGet::SEO::TITLE": "Get API Key | API Documentation | Dropbox Sign for Developers"
+"AccountApiKeyGet::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a wide range of tools. To find out how to retrieve an API key, click here."
+
+"AccountApiKeyUpdate::SUMMARY": Update API Key
+"AccountApiKeyUpdate::DESCRIPTION": Updates an API key's name, or promotes it to the primary key. Provide at least one of `name` or `is_primary`. `is_primary` can only be set to `true`.
+"AccountApiKeyUpdate::ACCOUNT_ID": The ID of the account that owns the API key. Defaults to the authenticated account when omitted.
+"AccountApiKeyUpdate::API_KEY_ID": The ID of the API key to update.
+"AccountApiKeyUpdate::NAME": New name for the API key. Must be unique on the account and at most 25 characters.
+"AccountApiKeyUpdate::IS_PRIMARY": Set to `true` to make this key the account's primary API key. The previous primary key remains on the account and is no longer primary.
+"AccountApiKeyUpdate::SEO::TITLE": "Update API Key | API Documentation | Dropbox Sign for Developers"
+"AccountApiKeyUpdate::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a wide range of tools. To find out how to update an API key, click here."
+
+"AccountApiKeyDelete::SUMMARY": Delete API Key
+"AccountApiKeyDelete::DESCRIPTION": Deletes an API key. The primary key cannot be deleted. Promote another key first.
+"AccountApiKeyDelete::ACCOUNT_ID": The ID of the account that owns the API key. Defaults to the authenticated account when omitted.
+"AccountApiKeyDelete::API_KEY_ID": The ID of the API key to delete.
+"AccountApiKeyDelete::SEO::TITLE": "Delete API Key | API Documentation | Dropbox Sign for Developers"
+"AccountApiKeyDelete::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a wide range of tools. To find out how to delete an API key, click here."
+
+"AccountApiKey::API_KEY_ID": The ID of the API key.
+"AccountApiKey::ACCOUNT_ID": The ID of the account that owns the API key.
+"AccountApiKey::NAME": The name of the API key.
+"AccountApiKey::IS_PRIMARY": Whether this is the account's primary API key.
+"AccountApiKey::LAST_USED_AT": When the API key was last used, as a Unix timestamp. `null` if the key has not been used.
+"AccountApiKey::CREATED_AT": When the API key was created, as a Unix timestamp.
+"AccountApiKey::UPDATED_AT": When the API key was last updated, as a Unix timestamp.
+
+"AccountApiKeyListResponse::DESCRIPTION": The API keys on the account.
+"AccountApiKeyGetResponseExample::SUMMARY": API key
+"AccountApiKeyListResponseExample::SUMMARY": API key list
 
 "ApiAppCreate::SUMMARY": Create API App
 "ApiAppCreate::DESCRIPTION": Creates a new API App.
