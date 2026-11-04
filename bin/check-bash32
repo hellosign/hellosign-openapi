@@ -26,38 +26,41 @@ fi
 # just a command name; the shell only fails when that line runs.
 bash4_pattern='(^|[[:space:]])(mapfile|readarray|coproc)([[:space:]]|$)|declare[[:space:]]+-A|\[\[[[:space:]]+-v[[:space:]]|\$\{[A-Za-z_][A-Za-z0-9_]*(,,|\^\^)|\$\{[A-Za-z_][A-Za-z0-9_]*@[A-Za-z]|\$\{[^}]*\[-[0-9]+\]|&>>|[|][&]'
 
-scripts=(
-  bin/docker-run
-  bin/docker-user-args
-  bin/normalize-sdk-modes
-  bin/php
-  bin/php-in-docker
-  bin/sandbox-dotnet
-  bin/sandbox-java
-  bin/sandbox-node
-  bin/sandbox-ruby
-  sdks/dotnet/bin/dotnet
-  sdks/dotnet/bin/php
-  sdks/dotnet/run-build
-  sdks/java-v1/bin/gradle
-  sdks/java-v1/bin/php
-  sdks/java-v1/run-build
-  sdks/java-v2/bin/gradle
-  sdks/java-v2/bin/php
-  sdks/java-v2/run-build
-  sdks/node/bin/node
-  sdks/node/bin/php
-  sdks/node/run-build
-  sdks/php/bin/php
-  sdks/php/bin/php-8
-  sdks/php/run-build
-  sdks/python/bin/php
-  sdks/python/bin/python
-  sdks/python/run-build
-  sdks/ruby/bin/php
-  sdks/ruby/bin/ruby
-  sdks/ruby/run-build
-)
+is_bash_script() {
+  local line
+  [[ -f "$1" ]] || return 1
+  IFS= read -r line < "$1" || return 1
+  [[ "${line}" == *bash* ]]
+}
+
+# Wrappers hand their arguments to docker-run or php-in-docker. Those two
+# need their own calls, and this file mentions the same command names.
+is_docker_wrapper() {
+  local base
+  base=$(basename "$1")
+  case "${base}" in
+    docker-run|php-in-docker|check-bash32) return 1 ;;
+  esac
+  grep -qE 'exec[[:space:]].*(docker-run|php-in-docker)' "$1"
+}
+
+shopt -s nullglob
+scripts=()
+runtime=()
+for path in bin/* sdks/*/bin/* sdks/*/run-build; do
+  if is_bash_script "${path}"; then
+    scripts+=("${path}")
+    if is_docker_wrapper "${path}"; then
+      runtime+=("${path}")
+    fi
+  fi
+done
+shopt -u nullglob
+
+if [[ ${#scripts[@]} -eq 0 || ${#runtime[@]} -eq 0 ]]; then
+  printf 'found no Bash scripts to check\n' >&2
+  exit 1
+fi
 
 reject_bash4() {
   local script="$1"
@@ -118,7 +121,10 @@ for script in "${scripts[@]}"; do
     printf 'Bash 3.2 rejected %s\n' "${script}" >&2
     exit 1
   fi
-  reject_bash4 "${script}"
+  # The denylist pattern itself contains the tokens it searches for.
+  if [[ "${script}" != "bin/check-bash32" ]]; then
+    reject_bash4 "${script}"
+  fi
 done
 
 work=$(mktemp -d)
@@ -184,24 +190,6 @@ assert_log_contains ok
 
 DOCKER_RUN_AS_ROOT=1 run_docker_wrapper "${work}/bin/docker-run" echo ok
 assert_log_contains root:root
-
-runtime=(
-  bin/php
-  sdks/dotnet/bin/dotnet
-  sdks/dotnet/bin/php
-  sdks/java-v1/bin/gradle
-  sdks/java-v1/bin/php
-  sdks/java-v2/bin/gradle
-  sdks/java-v2/bin/php
-  sdks/node/bin/node
-  sdks/node/bin/php
-  sdks/php/bin/php
-  sdks/php/bin/php-8
-  sdks/python/bin/php
-  sdks/python/bin/python
-  sdks/ruby/bin/php
-  sdks/ruby/bin/ruby
-)
 
 for script in "${runtime[@]}"; do
   run_docker_wrapper "${work}/${script}" true
