@@ -4,23 +4,8 @@ on:
   push:
     branches: [ main ]
     paths: &script-paths
-      - bin/check-bash32
-      - bin/docker-run
-      - bin/docker-user-args
-      - bin/normalize-sdk-modes
-      - bin/php
-      - bin/php-in-docker
-      - bin/sandbox-dotnet
-      - bin/sandbox-java
-      - bin/sandbox-node
-      - bin/sandbox-ruby
-      - sdks/*/bin/dotnet
-      - sdks/*/bin/gradle
-      - sdks/*/bin/node
-      - sdks/*/bin/php
-      - sdks/*/bin/php-8
-      - sdks/*/bin/python
-      - sdks/*/bin/ruby
+      - bin/**
+      - sdks/*/bin/**
       - sdks/*/run-build
       - .github/workflows/bash32-script-compat.yml
   pull_request:
