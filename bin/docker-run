@@ -6,6 +6,9 @@
 set -euo pipefail
 
 DIR=$(cd "$(dirname "$0")" && pwd)
-mapfile -t DOCKER_USER_ARGS < <("${DIR}/docker-user-args")
+DOCKER_USER_ARGS=()
+while IFS= read -r arg; do
+  DOCKER_USER_ARGS+=("$arg")
+done < <("${DIR}/docker-user-args")
 
 exec docker run --rm "${DOCKER_USER_ARGS[@]}" "$@"
