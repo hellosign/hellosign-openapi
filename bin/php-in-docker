@@ -14,16 +14,17 @@ shift 3
 
 mkdir -p "${ROOT_DIR}/.docker/composer"
 
-platform=()
+# Keep this array non-empty. Bash 3.2 with set -u errors on an empty
+# "${array[@]}", and that is the Bash macOS ships.
+docker_args=(
+  -v "${ROOT_DIR}:${WORKING_DIR}"
+  -v "${ROOT_DIR}/.docker/composer:/tmp/composer"
+  -e COMPOSER_HOME=/tmp/composer
+  -w "${WORKING_DIR}"
+  "${IMAGE}"
+)
 if [[ -n "${PHP_DOCKER_PLATFORM:-}" ]]; then
-  platform=(--platform "${PHP_DOCKER_PLATFORM}")
+  docker_args=(--platform "${PHP_DOCKER_PLATFORM}" "${docker_args[@]}")
 fi
 
-exec "${DIR}/docker-run" \
-  "${platform[@]}" \
-  -v "${ROOT_DIR}:${WORKING_DIR}" \
-  -v "${ROOT_DIR}/.docker/composer:/tmp/composer" \
-  -e COMPOSER_HOME=/tmp/composer \
-  -w "${WORKING_DIR}" \
-  "${IMAGE}" \
-  "$@"
+exec "${DIR}/docker-run" "${docker_args[@]}" "$@"
