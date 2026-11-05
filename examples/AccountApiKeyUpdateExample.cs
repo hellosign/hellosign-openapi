@@ -19,7 +19,7 @@ public class AccountApiKeyUpdateExample
                 name: "Billing",
                 isPrimary: true
             );
-            var response = new ApiKeyApi(config).ApiKeyUpdate("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e", request);
+            var response = new ApiKeyApi(config).ApiKeyUpdate("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", request);
 
             Console.WriteLine(response);
         }

@@ -529,7 +529,10 @@ paths:
           required: true
           schema:
             type: string
-          example: c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e
+            maxLength: 40
+            minLength: 40
+            pattern: ^[0-9a-fA-F]{40}$
+          example: c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345
         - name: account_id
           in: query
           description: The ID of the account that owns the API key. Defaults to the authenticated account when omitted.
@@ -594,7 +597,7 @@ paths:
 
             try {
                 $response = (new Dropbox\Sign\Api\ApiKeyApi(config: $config))->apiKeyGet(
-                    api_key_id: "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e",
+                    api_key_id: "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345",
                 );
 
                 print_r($response);
@@ -621,7 +624,7 @@ paths:
 
                     try
                     {
-                        var response = new ApiKeyApi(config).ApiKeyGet("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e");
+                        var response = new ApiKeyApi(config).ApiKeyGet("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345");
 
                         Console.WriteLine(response);
                     }
@@ -643,7 +646,7 @@ paths:
             apiCaller.username = "YOUR_API_KEY";
 
             apiCaller.apiKeyGet(
-              "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e", // apiKeyId
+              "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", // apiKeyId
             ).then(response => {
               console.log(response.body);
             }).catch(error => {
@@ -671,7 +674,7 @@ paths:
                     try
                     {
                         var response = new ApiKeyApi(config).apiKeyGet(
-                            "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e" // apiKeyId
+                            "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345" // apiKeyId
                         );
 
                         System.out.println(response);
@@ -695,7 +698,7 @@ paths:
 
             begin
                 response = Dropbox::Sign::ApiKeyApi.new.api_key_get(
-                    "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e", # api_key_id
+                    "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", # api_key_id
                 )
 
                 p response
@@ -715,7 +718,7 @@ paths:
 
             with ApiClient(configuration) as api_client:
                 try:
-                    response = api.ApiKeyApi(api_client).api_key_get("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e")
+                    response = api.ApiKeyApi(api_client).api_key_get("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345")
 
                     pprint(response)
                 except ApiException as e:
@@ -723,7 +726,7 @@ paths:
         - lang: cURL
           label: cURL
           source: |
-            curl -X GET 'https://api.hellosign.com/v3/api_key/c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e' \
+            curl -X GET 'https://api.hellosign.com/v3/api_key/c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345' \
               -u 'YOUR_API_KEY:'
       x-meta:
         seo:
@@ -743,7 +746,10 @@ paths:
           required: true
           schema:
             type: string
-          example: c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e
+            maxLength: 40
+            minLength: 40
+            pattern: ^[0-9a-fA-F]{40}$
+          example: c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345
         - name: account_id
           in: query
           description: The ID of the account that owns the API key. Defaults to the authenticated account when omitted.
@@ -823,7 +829,7 @@ paths:
 
             try {
                 $response = (new Dropbox\Sign\Api\ApiKeyApi(config: $config))->apiKeyUpdate(
-                    api_key_id: "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e",
+                    api_key_id: "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345",
                     account_api_key_update_request: $request,
                 );
 
@@ -855,7 +861,7 @@ paths:
                             name: "Billing",
                             isPrimary: true
                         );
-                        var response = new ApiKeyApi(config).ApiKeyUpdate("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e", request);
+                        var response = new ApiKeyApi(config).ApiKeyUpdate("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", request);
 
                         Console.WriteLine(response);
                     }
@@ -882,7 +888,7 @@ paths:
             };
 
             apiCaller.apiKeyUpdate(
-              "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e", // apiKeyId
+              "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", // apiKeyId
               request,
             ).then(response => {
               console.log(response.body);
@@ -915,7 +921,7 @@ paths:
                         request.setName("Billing");
                         request.setIsPrimary(true);
                         var response = new ApiKeyApi(config).apiKeyUpdate(
-                            "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e", // apiKeyId
+                            "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", // apiKeyId
                             request
                         );
 
@@ -944,7 +950,7 @@ paths:
                 request.is_primary = true
 
                 response = Dropbox::Sign::ApiKeyApi.new.api_key_update(
-                    "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e", # api_key_id
+                    "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", # api_key_id
                     request,
                 )
 
@@ -967,7 +973,7 @@ paths:
                 try:
                     request = models.AccountApiKeyUpdateRequest(name="Billing", is_primary=True)
 
-                    response = api.ApiKeyApi(api_client).api_key_update("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e", request)
+                    response = api.ApiKeyApi(api_client).api_key_update("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", request)
 
                     pprint(response)
                 except ApiException as e:
@@ -975,7 +981,7 @@ paths:
         - lang: cURL
           label: cURL
           source: |
-            curl -X PUT 'https://api.hellosign.com/v3/api_key/c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e' \
+            curl -X PUT 'https://api.hellosign.com/v3/api_key/c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345' \
               -u 'YOUR_API_KEY:' \
               -H 'Content-Type: application/json' \
               -d '{"name":"Billing","is_primary":true}'
@@ -997,7 +1003,10 @@ paths:
           required: true
           schema:
             type: string
-          example: c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e
+            maxLength: 40
+            minLength: 40
+            pattern: ^[0-9a-fA-F]{40}$
+          example: c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345
         - name: account_id
           in: query
           description: The ID of the account that owns the API key. Defaults to the authenticated account when omitted.
@@ -1057,7 +1066,7 @@ paths:
 
             try {
                 (new Dropbox\Sign\Api\ApiKeyApi(config: $config))->apiKeyDelete(
-                    api_key_id: "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e",
+                    api_key_id: "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345",
                 );
             } catch (Dropbox\Sign\ApiException $e) {
                 echo "Exception when calling ApiKeyApi#apiKeyDelete: {$e->getMessage()}";
@@ -1082,7 +1091,7 @@ paths:
 
                     try
                     {
-                        new ApiKeyApi(config).ApiKeyDelete("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e");
+                        new ApiKeyApi(config).ApiKeyDelete("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345");
                     }
                     catch (ApiException e)
                     {
@@ -1102,7 +1111,7 @@ paths:
             apiCaller.username = "YOUR_API_KEY";
 
             apiCaller.apiKeyDelete(
-              "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e", // apiKeyId
+              "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", // apiKeyId
             ).catch(error => {
               console.log("Exception when calling ApiKeyApi#apiKeyDelete:");
               console.log(error.body);
@@ -1128,7 +1137,7 @@ paths:
                     try
                     {
                         new ApiKeyApi(config).apiKeyDelete(
-                            "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e" // apiKeyId
+                            "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345" // apiKeyId
                         );
                     } catch (ApiException e) {
                         System.err.println("Exception when calling ApiKeyApi#apiKeyDelete");
@@ -1150,7 +1159,7 @@ paths:
 
             begin
                 Dropbox::Sign::ApiKeyApi.new.api_key_delete(
-                    "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e", # api_key_id
+                    "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", # api_key_id
                 )
             rescue Dropbox::Sign::ApiError => e
                 puts "Exception when calling ApiKeyApi#api_key_delete: #{e}"
@@ -1168,13 +1177,13 @@ paths:
 
             with ApiClient(configuration) as api_client:
                 try:
-                    api.ApiKeyApi(api_client).api_key_delete("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e")
+                    api.ApiKeyApi(api_client).api_key_delete("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345")
                 except ApiException as e:
                     print("Exception when calling ApiKeyApi#api_key_delete: %s\n" % e)
         - lang: cURL
           label: cURL
           source: |
-            curl -X DELETE 'https://api.hellosign.com/v3/api_key/c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e' \
+            curl -X DELETE 'https://api.hellosign.com/v3/api_key/c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345' \
               -u 'YOUR_API_KEY:'
       x-meta:
         seo:
@@ -30227,6 +30236,9 @@ components:
         api_key_id:
           description: The ID of the API key.
           type: string
+          maxLength: 40
+          minLength: 40
+          pattern: ^[0-9a-fA-F]{40}$
         account_id:
           description: The ID of the account that owns the API key.
           type: string
@@ -30267,6 +30279,9 @@ components:
         api_key_id:
           description: The ID of the API key.
           type: string
+          maxLength: 40
+          minLength: 40
+          pattern: ^[0-9a-fA-F]{40}$
         account_id:
           description: The ID of the account that owns the API key.
           type: string
@@ -34868,7 +34883,7 @@ components:
       summary: Default Example
       value:
         api_key:
-          api_key_id: c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e
+          api_key_id: c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345
           account_id: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
           name: Production
           is_primary: true
@@ -34881,7 +34896,7 @@ components:
       summary: API key
       value:
         api_key:
-          api_key_id: c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e
+          api_key_id: c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345
           account_id: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
           name: Production
           is_primary: false
@@ -34893,7 +34908,7 @@ components:
       summary: API key list
       value:
         api_keys:
-          - api_key_id: c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e
+          - api_key_id: c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345
             account_id: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
             name: Production
             is_primary: false

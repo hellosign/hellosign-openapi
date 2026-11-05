@@ -15,7 +15,7 @@ $request = (new Dropbox\Sign\Model\AccountApiKeyUpdateRequest())
 
 try {
     $response = (new Dropbox\Sign\Api\ApiKeyApi(config: $config))->apiKeyUpdate(
-        api_key_id: "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e",
+        api_key_id: "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345",
         account_api_key_update_request: $request,
     );
 

@@ -8,7 +8,7 @@ configuration = Configuration(
 
 with ApiClient(configuration) as api_client:
     try:
-        response = api.ApiKeyApi(api_client).api_key_get("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e")
+        response = api.ApiKeyApi(api_client).api_key_get("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345")
 
         pprint(response)
     except ApiException as e:

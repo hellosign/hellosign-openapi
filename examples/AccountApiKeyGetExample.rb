@@ -7,7 +7,7 @@ end
 
 begin
     response = Dropbox::Sign::ApiKeyApi.new.api_key_get(
-        "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e", # api_key_id
+        "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", # api_key_id
     )
 
     p response

@@ -10,7 +10,7 @@ with ApiClient(configuration) as api_client:
     try:
         request = models.AccountApiKeyUpdateRequest(name="Billing", is_primary=True)
 
-        response = api.ApiKeyApi(api_client).api_key_update("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e", request)
+        response = api.ApiKeyApi(api_client).api_key_update("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", request)
 
         pprint(response)
     except ApiException as e:
