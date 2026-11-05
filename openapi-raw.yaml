@@ -112,7 +112,6 @@ paths:
           description: '_t__AccountApiKeyList::SEO::DESCRIPTION'
       x-hideOn:
         - sdk
-        - doc
       x-beta: closed
     post:
       tags:
@@ -223,7 +222,6 @@ paths:
           description: '_t__AccountApiKeyCreate::SEO::DESCRIPTION'
       x-hideOn:
         - sdk
-        - doc
       x-beta: closed
   '/api_key/{api_key_id}':
     get:
@@ -332,7 +330,6 @@ paths:
           description: '_t__AccountApiKeyGet::SEO::DESCRIPTION'
       x-hideOn:
         - sdk
-        - doc
       x-beta: closed
     put:
       tags:
@@ -451,7 +448,6 @@ paths:
           description: '_t__AccountApiKeyUpdate::SEO::DESCRIPTION'
       x-hideOn:
         - sdk
-        - doc
       x-beta: closed
     delete:
       tags:
@@ -554,7 +550,6 @@ paths:
           description: '_t__AccountApiKeyDelete::SEO::DESCRIPTION'
       x-hideOn:
         - sdk
-        - doc
       x-beta: closed
   /account/create:
     post:
@@ -8941,7 +8936,6 @@ components:
       type: object
       x-hideOn:
         - sdk
-        - doc
     AccountApiKeyUpdateRequest:
       properties:
         name:
@@ -8956,7 +8950,6 @@ components:
       type: object
       x-hideOn:
         - sdk
-        - doc
     AccountCreateRequest:
       required:
         - email_address
@@ -12691,7 +12684,6 @@ components:
       x-internal-class: true
       x-hideOn:
         - sdk
-        - doc
     AccountApiKeyGetResponse:
       required:
         - api_key
@@ -12707,7 +12699,6 @@ components:
       x-internal-class: true
       x-hideOn:
         - sdk
-        - doc
     AccountApiKeyListResponse:
       required:
         - api_keys
@@ -12726,7 +12717,6 @@ components:
       x-internal-class: true
       x-hideOn:
         - sdk
-        - doc
     AccountCreateResponse:
       required:
         - account
@@ -13125,7 +13115,6 @@ components:
       x-internal-class: true
       x-hideOn:
         - sdk
-        - doc
     AccountApiKeySummaryResponse:
       required:
         - api_key_id
@@ -13163,7 +13152,6 @@ components:
       x-internal-class: true
       x-hideOn:
         - sdk
-        - doc
     OAuthTokenResponse:
       properties:
         access_token:
@@ -16388,14 +16376,12 @@ components:
         $ref: examples/json/AccountApiKeyCreateRequest.json
       x-hideOn:
         - sdk
-        - doc
     AccountApiKeyUpdateRequest:
       summary: 'Default Example'
       value:
         $ref: examples/json/AccountApiKeyUpdateRequest.json
       x-hideOn:
         - sdk
-        - doc
     AccountCreateRequest:
       summary: 'Default Example'
       value:
@@ -16641,21 +16627,18 @@ components:
         $ref: examples/json/AccountApiKeyCreateResponse.json
       x-hideOn:
         - sdk
-        - doc
     AccountApiKeyGetResponse:
       summary: '_t__AccountApiKeyGetResponseExample::SUMMARY'
       value:
         $ref: examples/json/AccountApiKeyGetResponse.json
       x-hideOn:
         - sdk
-        - doc
     AccountApiKeyListResponse:
       summary: '_t__AccountApiKeyListResponseExample::SUMMARY'
       value:
         $ref: examples/json/AccountApiKeyListResponse.json
       x-hideOn:
         - sdk
-        - doc
     AccountCreateResponse:
       summary: '_t__AccountCreateResponseExample::SUMMARY'
       value:
