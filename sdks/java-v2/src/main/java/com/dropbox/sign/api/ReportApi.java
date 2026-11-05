@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class ReportApi {
   private ApiClient apiClient;
 
@@ -63,7 +63,7 @@ public class ReportApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ReportCreateResponse reportCreate(ReportCreateRequest reportCreateRequest) throws ApiException {
+  public ReportCreateResponse reportCreate(@jakarta.annotation.Nonnull ReportCreateRequest reportCreateRequest) throws ApiException {
     return reportCreateWithHttpInfo(reportCreateRequest).getData();
   }
 
@@ -83,7 +83,7 @@ public class ReportApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ReportCreateResponse> reportCreateWithHttpInfo(ReportCreateRequest reportCreateRequest) throws ApiException {
+  public ApiResponse<ReportCreateResponse> reportCreateWithHttpInfo(@jakarta.annotation.Nonnull ReportCreateRequest reportCreateRequest) throws ApiException {
     
     // Check required parameters
     if (reportCreateRequest == null) {

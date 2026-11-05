@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   TeamInvitesResponse.JSON_PROPERTY_TEAM_INVITES,
   TeamInvitesResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamInvitesResponse {
   public static final String JSON_PROPERTY_TEAM_INVITES = "team_invites";
@@ -87,7 +87,7 @@ public class TeamInvitesResponse {
    * @return teamInvites
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TEAM_INVITES)
+  @JsonProperty(value = JSON_PROPERTY_TEAM_INVITES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<TeamInviteResponse> getTeamInvites() {
@@ -95,7 +95,7 @@ public class TeamInvitesResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEAM_INVITES)
+  @JsonProperty(value = JSON_PROPERTY_TEAM_INVITES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTeamInvites(@jakarta.annotation.Nonnull List<TeamInviteResponse> teamInvites) {
     this.teamInvites = teamInvites;
@@ -120,7 +120,7 @@ public class TeamInvitesResponse {
    * @return warnings
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<WarningResponse> getWarnings() {
@@ -128,7 +128,7 @@ public class TeamInvitesResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
@@ -240,10 +240,7 @@ public class TeamInvitesResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

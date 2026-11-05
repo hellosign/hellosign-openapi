@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
 Dropbox Sign API
 
@@ -107,7 +105,6 @@ class AccountApi:
             "200": "AccountCreateResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -175,7 +172,6 @@ class AccountApi:
             "200": "AccountCreateResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -243,7 +239,6 @@ class AccountApi:
             "200": "AccountCreateResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -407,7 +402,6 @@ class AccountApi:
             "200": "AccountGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -489,7 +483,6 @@ class AccountApi:
             "200": "AccountGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -571,7 +564,6 @@ class AccountApi:
             "200": "AccountGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1285,7 +1277,6 @@ class AccountApi:
             "200": "AccountGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1353,7 +1344,6 @@ class AccountApi:
             "200": "AccountGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1421,7 +1411,6 @@ class AccountApi:
             "200": "AccountGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1571,7 +1560,6 @@ class AccountApi:
             "200": "AccountVerifyResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1639,7 +1627,6 @@ class AccountApi:
             "200": "AccountVerifyResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1707,7 +1694,6 @@ class AccountApi:
             "200": "AccountVerifyResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

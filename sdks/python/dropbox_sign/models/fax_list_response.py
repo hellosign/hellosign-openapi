@@ -27,6 +27,7 @@ from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 
 class FaxListResponse(BaseModel):
@@ -39,7 +40,8 @@ class FaxListResponse(BaseModel):
     __properties: ClassVar[List[str]] = ["faxes", "list_info"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -51,8 +53,7 @@ class FaxListResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None
@@ -92,8 +93,9 @@ class FaxListResponse(BaseModel):
         _items = []
         if self.faxes:
             for _item_faxes in self.faxes:
-                if _item_faxes:
-                    _items.append(_item_faxes.to_dict())
+                _items.append(
+                    _item_faxes.to_dict() if _item_faxes is not None else None
+                )
             _dict["faxes"] = _items
         # override the default output from pydantic by calling `to_dict()` of list_info
         if self.list_info:

@@ -33,7 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamInfoResponse {
     public static final String JSON_PROPERTY_TEAM_ID = "team_id";
@@ -77,13 +77,13 @@ public class TeamInfoResponse {
      *
      * @return teamId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEAM_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getTeamId() {
         return teamId;
     }
 
-    @JsonProperty(JSON_PROPERTY_TEAM_ID)
+    @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTeamId(@javax.annotation.Nullable String teamId) {
         this.teamId = teamId;
@@ -99,13 +99,13 @@ public class TeamInfoResponse {
      *
      * @return teamParent
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEAM_PARENT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TEAM_PARENT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public TeamParentResponse getTeamParent() {
         return teamParent;
     }
 
-    @JsonProperty(JSON_PROPERTY_TEAM_PARENT)
+    @JsonProperty(value = JSON_PROPERTY_TEAM_PARENT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTeamParent(@javax.annotation.Nullable TeamParentResponse teamParent) {
         this.teamParent = teamParent;
@@ -121,13 +121,13 @@ public class TeamInfoResponse {
      *
      * @return name
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getName() {
         return name;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
@@ -143,13 +143,13 @@ public class TeamInfoResponse {
      *
      * @return numMembers
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NUM_MEMBERS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NUM_MEMBERS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getNumMembers() {
         return numMembers;
     }
 
-    @JsonProperty(JSON_PROPERTY_NUM_MEMBERS)
+    @JsonProperty(value = JSON_PROPERTY_NUM_MEMBERS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setNumMembers(@javax.annotation.Nullable Integer numMembers) {
         this.numMembers = numMembers;
@@ -165,13 +165,13 @@ public class TeamInfoResponse {
      *
      * @return numSubTeams
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NUM_SUB_TEAMS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NUM_SUB_TEAMS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getNumSubTeams() {
         return numSubTeams;
     }
 
-    @JsonProperty(JSON_PROPERTY_NUM_SUB_TEAMS)
+    @JsonProperty(value = JSON_PROPERTY_NUM_SUB_TEAMS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setNumSubTeams(@javax.annotation.Nullable Integer numSubTeams) {
         this.numSubTeams = numSubTeams;
@@ -349,9 +349,6 @@ public class TeamInfoResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

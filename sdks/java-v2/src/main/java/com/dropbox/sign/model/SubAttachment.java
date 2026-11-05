@@ -38,7 +38,7 @@ import com.dropbox.sign.ApiException;
   SubAttachment.JSON_PROPERTY_INSTRUCTIONS,
   SubAttachment.JSON_PROPERTY_REQUIRED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubAttachment {
   public static final String JSON_PROPERTY_NAME = "name";
@@ -85,7 +85,7 @@ public class SubAttachment {
    * @return name
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
@@ -93,7 +93,7 @@ public class SubAttachment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(@jakarta.annotation.Nonnull String name) {
     this.name = name;
@@ -110,7 +110,7 @@ public class SubAttachment {
    * @return signerIndex
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SIGNER_INDEX)
+  @JsonProperty(value = JSON_PROPERTY_SIGNER_INDEX, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getSignerIndex() {
@@ -118,7 +118,7 @@ public class SubAttachment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNER_INDEX)
+  @JsonProperty(value = JSON_PROPERTY_SIGNER_INDEX, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSignerIndex(@jakarta.annotation.Nonnull Integer signerIndex) {
     this.signerIndex = signerIndex;
@@ -135,7 +135,7 @@ public class SubAttachment {
    * @return instructions
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INSTRUCTIONS)
+  @JsonProperty(value = JSON_PROPERTY_INSTRUCTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getInstructions() {
@@ -143,7 +143,7 @@ public class SubAttachment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INSTRUCTIONS)
+  @JsonProperty(value = JSON_PROPERTY_INSTRUCTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstructions(@jakarta.annotation.Nullable String instructions) {
     this.instructions = instructions;
@@ -160,7 +160,7 @@ public class SubAttachment {
    * @return required
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUIRED)
+  @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getRequired() {
@@ -168,7 +168,7 @@ public class SubAttachment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUIRED)
+  @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequired(@jakarta.annotation.Nullable Boolean required) {
     this.required = required;
@@ -322,10 +322,7 @@ public class SubAttachment {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

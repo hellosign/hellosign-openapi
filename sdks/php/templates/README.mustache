@@ -9,6 +9,15 @@ For more information, please visit [{{{infoUrl}}}]({{{infoUrl}}}).
 {{/infoUrl}}
 
 {{#useCustomTemplateCode}}
+## Upgrading to 2.0.0
+
+Version 2.0.0 is generated with OpenAPI Generator 7.26.0. Existing code keeps working, with these changes:
+
+- **PHP 8.1 or later is required.** PHP 7.4 and 8.0 are no longer supported. Projects on those versions should stay on `dropbox/sign:^1.14`, which receives security and bug-fix patches for one year per the [SDK versioning policy](https://developers.hellosign.com/docs/sdks/versioning-policy).
+- **Dependencies:** `guzzlehttp/guzzle >= 7.15.2` (also required since 1.14.1).
+- **Model `ArrayAccess` methods** (`offsetExists`, `offsetGet`, `offsetUnset`) now declare `mixed $offset`. Existing calls keep working.
+- **New, opt-in:** client certificates (mTLS) with `Configuration::setCertFile()` and `Configuration::setKeyFile()`.
+
 ## Migrating from legacy SDK
 
 This SDK is generated from our officially maintained [OpenAPI spec](https://github.com/hellosign/hellosign-openapi/blob/main/openapi.yaml).

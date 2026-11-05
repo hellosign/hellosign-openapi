@@ -35,7 +35,7 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   AccountVerifyResponseAccount.JSON_PROPERTY_EMAIL_ADDRESS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountVerifyResponseAccount {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
@@ -70,7 +70,7 @@ public class AccountVerifyResponseAccount {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEmailAddress() {
@@ -78,7 +78,7 @@ public class AccountVerifyResponseAccount {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
@@ -169,10 +169,7 @@ public class AccountVerifyResponseAccount {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

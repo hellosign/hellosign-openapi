@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
 Dropbox Sign API
 
@@ -114,7 +112,6 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -188,7 +185,6 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -262,7 +258,6 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -417,7 +412,6 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -485,7 +479,6 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -553,7 +546,6 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -699,7 +691,6 @@ class TeamApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -763,7 +754,6 @@ class TeamApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -827,7 +817,6 @@ class TeamApi:
             "200": None,
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -938,7 +927,6 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1002,7 +990,6 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1066,7 +1053,6 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1183,7 +1169,6 @@ class TeamApi:
             "200": "TeamGetInfoResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1253,7 +1238,6 @@ class TeamApi:
             "200": "TeamGetInfoResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1323,7 +1307,6 @@ class TeamApi:
             "200": "TeamGetInfoResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1448,7 +1431,6 @@ class TeamApi:
             "200": "TeamInvitesResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1521,7 +1503,6 @@ class TeamApi:
             "200": "TeamInvitesResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1594,7 +1575,6 @@ class TeamApi:
             "200": "TeamInvitesResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1737,7 +1717,6 @@ class TeamApi:
             "200": "TeamMembersResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1828,7 +1807,6 @@ class TeamApi:
             "200": "TeamMembersResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -1919,7 +1897,6 @@ class TeamApi:
             "200": "TeamMembersResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2047,7 +2024,6 @@ class TeamApi:
             "201": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2115,7 +2091,6 @@ class TeamApi:
             "201": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2183,7 +2158,6 @@ class TeamApi:
             "201": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -2940,7 +2914,6 @@ class TeamApi:
             "200": "TeamSubTeamsResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3026,7 +2999,6 @@ class TeamApi:
             "200": "TeamSubTeamsResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3112,7 +3084,6 @@ class TeamApi:
             "200": "TeamSubTeamsResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3240,7 +3211,6 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3308,7 +3278,6 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )
@@ -3376,7 +3345,6 @@ class TeamApi:
             "200": "TeamGetResponse",
             "4XX": "ErrorResponse",
         }
-
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
         )

@@ -42,7 +42,7 @@ import com.dropbox.sign.ApiException;
   BulkSendJobListResponse.JSON_PROPERTY_LIST_INFO,
   BulkSendJobListResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class BulkSendJobListResponse {
   public static final String JSON_PROPERTY_BULK_SEND_JOBS = "bulk_send_jobs";
@@ -93,7 +93,7 @@ public class BulkSendJobListResponse {
    * @return bulkSendJobs
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_BULK_SEND_JOBS)
+  @JsonProperty(value = JSON_PROPERTY_BULK_SEND_JOBS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<BulkSendJobResponse> getBulkSendJobs() {
@@ -101,7 +101,7 @@ public class BulkSendJobListResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BULK_SEND_JOBS)
+  @JsonProperty(value = JSON_PROPERTY_BULK_SEND_JOBS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBulkSendJobs(@jakarta.annotation.Nonnull List<BulkSendJobResponse> bulkSendJobs) {
     this.bulkSendJobs = bulkSendJobs;
@@ -118,7 +118,7 @@ public class BulkSendJobListResponse {
    * @return listInfo
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LIST_INFO)
+  @JsonProperty(value = JSON_PROPERTY_LIST_INFO, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ListInfoResponse getListInfo() {
@@ -126,7 +126,7 @@ public class BulkSendJobListResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LIST_INFO)
+  @JsonProperty(value = JSON_PROPERTY_LIST_INFO, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setListInfo(@jakarta.annotation.Nonnull ListInfoResponse listInfo) {
     this.listInfo = listInfo;
@@ -151,7 +151,7 @@ public class BulkSendJobListResponse {
    * @return warnings
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<WarningResponse> getWarnings() {
@@ -159,7 +159,7 @@ public class BulkSendJobListResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
@@ -292,10 +292,7 @@ public class BulkSendJobListResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

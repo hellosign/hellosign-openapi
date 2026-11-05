@@ -33,7 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BulkSendJobListResponse {
     public static final String JSON_PROPERTY_BULK_SEND_JOBS = "bulk_send_jobs";
@@ -82,13 +82,13 @@ public class BulkSendJobListResponse {
      * @return bulkSendJobs
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_BULK_SEND_JOBS)
+    @JsonProperty(value = JSON_PROPERTY_BULK_SEND_JOBS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<BulkSendJobResponse> getBulkSendJobs() {
         return bulkSendJobs;
     }
 
-    @JsonProperty(JSON_PROPERTY_BULK_SEND_JOBS)
+    @JsonProperty(value = JSON_PROPERTY_BULK_SEND_JOBS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setBulkSendJobs(@javax.annotation.Nonnull List<BulkSendJobResponse> bulkSendJobs) {
         this.bulkSendJobs = bulkSendJobs;
@@ -105,13 +105,13 @@ public class BulkSendJobListResponse {
      * @return listInfo
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_LIST_INFO)
+    @JsonProperty(value = JSON_PROPERTY_LIST_INFO, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public ListInfoResponse getListInfo() {
         return listInfo;
     }
 
-    @JsonProperty(JSON_PROPERTY_LIST_INFO)
+    @JsonProperty(value = JSON_PROPERTY_LIST_INFO, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setListInfo(@javax.annotation.Nonnull ListInfoResponse listInfo) {
         this.listInfo = listInfo;
@@ -136,13 +136,13 @@ public class BulkSendJobListResponse {
      *
      * @return warnings
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<WarningResponse> getWarnings() {
         return warnings;
     }
 
-    @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
@@ -278,9 +278,6 @@ public class BulkSendJobListResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

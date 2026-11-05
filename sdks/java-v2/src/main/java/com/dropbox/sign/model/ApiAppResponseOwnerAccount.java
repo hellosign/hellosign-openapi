@@ -36,7 +36,7 @@ import com.dropbox.sign.ApiException;
   ApiAppResponseOwnerAccount.JSON_PROPERTY_ACCOUNT_ID,
   ApiAppResponseOwnerAccount.JSON_PROPERTY_EMAIL_ADDRESS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ApiAppResponseOwnerAccount {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -75,7 +75,7 @@ public class ApiAppResponseOwnerAccount {
    * @return accountId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAccountId() {
@@ -83,7 +83,7 @@ public class ApiAppResponseOwnerAccount {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
@@ -100,7 +100,7 @@ public class ApiAppResponseOwnerAccount {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEmailAddress() {
@@ -108,7 +108,7 @@ public class ApiAppResponseOwnerAccount {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
@@ -220,10 +220,7 @@ public class ApiAppResponseOwnerAccount {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

@@ -57,7 +57,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -145,13 +145,13 @@ public class SubFormFieldsPerDocumentBase {
      * @return documentIndex
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_DOCUMENT_INDEX)
+    @JsonProperty(value = JSON_PROPERTY_DOCUMENT_INDEX, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Integer getDocumentIndex() {
         return documentIndex;
     }
 
-    @JsonProperty(JSON_PROPERTY_DOCUMENT_INDEX)
+    @JsonProperty(value = JSON_PROPERTY_DOCUMENT_INDEX, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setDocumentIndex(@javax.annotation.Nonnull Integer documentIndex) {
         this.documentIndex = documentIndex;
@@ -168,13 +168,13 @@ public class SubFormFieldsPerDocumentBase {
      * @return apiId
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_API_ID)
+    @JsonProperty(value = JSON_PROPERTY_API_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getApiId() {
         return apiId;
     }
 
-    @JsonProperty(JSON_PROPERTY_API_ID)
+    @JsonProperty(value = JSON_PROPERTY_API_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setApiId(@javax.annotation.Nonnull String apiId) {
         this.apiId = apiId;
@@ -191,13 +191,13 @@ public class SubFormFieldsPerDocumentBase {
      * @return height
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_HEIGHT)
+    @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Integer getHeight() {
         return height;
     }
 
-    @JsonProperty(JSON_PROPERTY_HEIGHT)
+    @JsonProperty(value = JSON_PROPERTY_HEIGHT, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setHeight(@javax.annotation.Nonnull Integer height) {
         this.height = height;
@@ -214,13 +214,13 @@ public class SubFormFieldsPerDocumentBase {
      * @return required
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_REQUIRED)
+    @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Boolean getRequired() {
         return required;
     }
 
-    @JsonProperty(JSON_PROPERTY_REQUIRED)
+    @JsonProperty(value = JSON_PROPERTY_REQUIRED, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setRequired(@javax.annotation.Nonnull Boolean required) {
         this.required = required;
@@ -245,13 +245,13 @@ public class SubFormFieldsPerDocumentBase {
      * @return signer
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SIGNER)
+    @JsonProperty(value = JSON_PROPERTY_SIGNER, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getSigner() {
         return signer;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNER)
+    @JsonProperty(value = JSON_PROPERTY_SIGNER, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSigner(@javax.annotation.Nonnull String signer) {
         this.signer = signer;
@@ -272,13 +272,13 @@ public class SubFormFieldsPerDocumentBase {
      * @return type
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getType() {
         return type;
     }
 
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
@@ -295,13 +295,13 @@ public class SubFormFieldsPerDocumentBase {
      * @return width
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_WIDTH)
+    @JsonProperty(value = JSON_PROPERTY_WIDTH, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Integer getWidth() {
         return width;
     }
 
-    @JsonProperty(JSON_PROPERTY_WIDTH)
+    @JsonProperty(value = JSON_PROPERTY_WIDTH, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setWidth(@javax.annotation.Nonnull Integer width) {
         this.width = width;
@@ -318,13 +318,13 @@ public class SubFormFieldsPerDocumentBase {
      * @return x
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_X)
+    @JsonProperty(value = JSON_PROPERTY_X, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Integer getX() {
         return x;
     }
 
-    @JsonProperty(JSON_PROPERTY_X)
+    @JsonProperty(value = JSON_PROPERTY_X, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setX(@javax.annotation.Nonnull Integer x) {
         this.x = x;
@@ -341,13 +341,13 @@ public class SubFormFieldsPerDocumentBase {
      * @return y
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_Y)
+    @JsonProperty(value = JSON_PROPERTY_Y, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Integer getY() {
         return y;
     }
 
-    @JsonProperty(JSON_PROPERTY_Y)
+    @JsonProperty(value = JSON_PROPERTY_Y, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setY(@javax.annotation.Nonnull Integer y) {
         this.y = y;
@@ -363,13 +363,13 @@ public class SubFormFieldsPerDocumentBase {
      *
      * @return name
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getName() {
         return name;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
@@ -388,13 +388,13 @@ public class SubFormFieldsPerDocumentBase {
      *
      * @return page
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_PAGE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_PAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getPage() {
         return page;
     }
 
-    @JsonProperty(JSON_PROPERTY_PAGE)
+    @JsonProperty(value = JSON_PROPERTY_PAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setPage(@javax.annotation.Nullable Integer page) {
         this.page = page;
@@ -690,10 +690,7 @@ public class SubFormFieldsPerDocumentBase {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
     static {

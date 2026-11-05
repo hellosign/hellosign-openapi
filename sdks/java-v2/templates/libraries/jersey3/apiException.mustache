@@ -16,12 +16,14 @@ import com.dropbox.sign.model.ErrorResponse;
  * API Exception
  */
 {{>generatedAnnotation}}
+
 public class ApiException extends{{#useRuntimeException}} RuntimeException {{/useRuntimeException}}{{^useRuntimeException}} Exception {{/useRuntimeException}}{
     private static final long serialVersionUID = 1L;
 
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;
+    private transient Object errorEntity = null;
 {{#useCustomTemplateCode}}
     private ErrorResponse errorResponse;
 {{/useCustomTemplateCode}}
@@ -78,10 +80,16 @@ public class ApiException extends{{#useRuntimeException}} RuntimeException {{/us
         this.responseBody = responseBody;
     }
 
+    public ApiException(int code, String message, Map<String, List<String>> responseHeaders, String responseBody, Object errorEntity) {
+        this(code, message, responseHeaders, responseBody);
+        this.errorEntity = errorEntity;
+    }
+
 {{#useCustomTemplateCode}}
     public ApiException(int code, String message, Map<String, List<String>> responseHeaders, String responseBody, ErrorResponse errorResponse) {
         this(code, message, responseHeaders, responseBody);
         this.errorResponse = errorResponse;
+        this.errorEntity = errorResponse;
     }
 
 {{/useCustomTemplateCode}}
@@ -110,6 +118,15 @@ public class ApiException extends{{#useRuntimeException}} RuntimeException {{/us
      */
     public String getResponseBody() {
         return responseBody;
+    }
+
+    /**
+     * Get the deserialized error entity (or null if this error doesn't have a model associated).
+     *
+     * @return Deserialized error entity
+     */
+    public Object getErrorEntity() {
+        return errorEntity;
     }
 {{#useCustomTemplateCode}}
 

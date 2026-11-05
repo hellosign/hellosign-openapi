@@ -30,7 +30,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubEditorOptions {
     public static final String JSON_PROPERTY_ALLOW_EDIT_SIGNERS = "allow_edit_signers";
@@ -65,13 +65,13 @@ public class SubEditorOptions {
      *
      * @return allowEditSigners
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_SIGNERS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ALLOW_EDIT_SIGNERS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getAllowEditSigners() {
         return allowEditSigners;
     }
 
-    @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_SIGNERS)
+    @JsonProperty(value = JSON_PROPERTY_ALLOW_EDIT_SIGNERS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAllowEditSigners(@javax.annotation.Nullable Boolean allowEditSigners) {
         this.allowEditSigners = allowEditSigners;
@@ -88,13 +88,13 @@ public class SubEditorOptions {
      *
      * @return allowEditDocuments
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getAllowEditDocuments() {
         return allowEditDocuments;
     }
 
-    @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS)
+    @JsonProperty(value = JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAllowEditDocuments(@javax.annotation.Nullable Boolean allowEditDocuments) {
         this.allowEditDocuments = allowEditDocuments;
@@ -214,9 +214,6 @@ public class SubEditorOptions {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

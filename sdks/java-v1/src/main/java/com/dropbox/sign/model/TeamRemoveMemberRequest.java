@@ -35,7 +35,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamRemoveMemberRequest {
     public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -121,13 +121,13 @@ public class TeamRemoveMemberRequest {
      *
      * @return accountId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getAccountId() {
         return accountId;
     }
 
-    @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+    @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAccountId(@javax.annotation.Nullable String accountId) {
         this.accountId = accountId;
@@ -144,13 +144,13 @@ public class TeamRemoveMemberRequest {
      *
      * @return emailAddress
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getEmailAddress() {
         return emailAddress;
     }
 
-    @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setEmailAddress(@javax.annotation.Nullable String emailAddress) {
         this.emailAddress = emailAddress;
@@ -170,13 +170,13 @@ public class TeamRemoveMemberRequest {
      *
      * @return newOwnerEmailAddress
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NEW_OWNER_EMAIL_ADDRESS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NEW_OWNER_EMAIL_ADDRESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getNewOwnerEmailAddress() {
         return newOwnerEmailAddress;
     }
 
-    @JsonProperty(JSON_PROPERTY_NEW_OWNER_EMAIL_ADDRESS)
+    @JsonProperty(value = JSON_PROPERTY_NEW_OWNER_EMAIL_ADDRESS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setNewOwnerEmailAddress(@javax.annotation.Nullable String newOwnerEmailAddress) {
         this.newOwnerEmailAddress = newOwnerEmailAddress;
@@ -192,13 +192,13 @@ public class TeamRemoveMemberRequest {
      *
      * @return newTeamId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NEW_TEAM_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NEW_TEAM_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getNewTeamId() {
         return newTeamId;
     }
 
-    @JsonProperty(JSON_PROPERTY_NEW_TEAM_ID)
+    @JsonProperty(value = JSON_PROPERTY_NEW_TEAM_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setNewTeamId(@javax.annotation.Nullable String newTeamId) {
         this.newTeamId = newTeamId;
@@ -215,13 +215,13 @@ public class TeamRemoveMemberRequest {
      *
      * @return newRole
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NEW_ROLE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NEW_ROLE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public NewRoleEnum getNewRole() {
         return newRole;
     }
 
-    @JsonProperty(JSON_PROPERTY_NEW_ROLE)
+    @JsonProperty(value = JSON_PROPERTY_NEW_ROLE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setNewRole(@javax.annotation.Nullable NewRoleEnum newRole) {
         this.newRole = newRole;
@@ -406,9 +406,6 @@ public class TeamRemoveMemberRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

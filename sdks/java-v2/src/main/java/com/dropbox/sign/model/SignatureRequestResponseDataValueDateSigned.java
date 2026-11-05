@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseDataValueDateSigned.JSON_PROPERTY_TYPE,
   SignatureRequestResponseDataValueDateSigned.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -84,7 +84,7 @@ public class SignatureRequestResponseDataValueDateSigned extends SignatureReques
    * @return type
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getType() {
@@ -92,7 +92,7 @@ public class SignatureRequestResponseDataValueDateSigned extends SignatureReques
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(@jakarta.annotation.Nullable String type) {
     this.type = type;
@@ -109,7 +109,7 @@ public class SignatureRequestResponseDataValueDateSigned extends SignatureReques
    * @return value
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getValue() {
@@ -117,7 +117,7 @@ public class SignatureRequestResponseDataValueDateSigned extends SignatureReques
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(@jakarta.annotation.Nullable String value) {
     this.value = value;
@@ -232,10 +232,7 @@ public class SignatureRequestResponseDataValueDateSigned extends SignatureReques
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   static {

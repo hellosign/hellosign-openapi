@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   SubSigningOptions.JSON_PROPERTY_UPLOAD,
   SubSigningOptions.JSON_PROPERTY_FORCE_ADVANCED_SIGNATURE_DETAILS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubSigningOptions {
   /**
@@ -134,7 +134,7 @@ public class SubSigningOptions {
    * @return defaultType
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DEFAULT_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_DEFAULT_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public DefaultTypeEnum getDefaultType() {
@@ -142,7 +142,7 @@ public class SubSigningOptions {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DEFAULT_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_DEFAULT_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDefaultType(@jakarta.annotation.Nonnull DefaultTypeEnum defaultType) {
     this.defaultType = defaultType;
@@ -159,7 +159,7 @@ public class SubSigningOptions {
    * @return draw
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DRAW)
+  @JsonProperty(value = JSON_PROPERTY_DRAW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getDraw() {
@@ -167,7 +167,7 @@ public class SubSigningOptions {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DRAW)
+  @JsonProperty(value = JSON_PROPERTY_DRAW, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDraw(@jakarta.annotation.Nullable Boolean draw) {
     this.draw = draw;
@@ -184,7 +184,7 @@ public class SubSigningOptions {
    * @return phone
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PHONE)
+  @JsonProperty(value = JSON_PROPERTY_PHONE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getPhone() {
@@ -192,7 +192,7 @@ public class SubSigningOptions {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PHONE)
+  @JsonProperty(value = JSON_PROPERTY_PHONE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPhone(@jakarta.annotation.Nullable Boolean phone) {
     this.phone = phone;
@@ -209,7 +209,7 @@ public class SubSigningOptions {
    * @return type
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getType() {
@@ -217,7 +217,7 @@ public class SubSigningOptions {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(@jakarta.annotation.Nullable Boolean type) {
     this.type = type;
@@ -234,7 +234,7 @@ public class SubSigningOptions {
    * @return upload
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPLOAD)
+  @JsonProperty(value = JSON_PROPERTY_UPLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getUpload() {
@@ -242,7 +242,7 @@ public class SubSigningOptions {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UPLOAD)
+  @JsonProperty(value = JSON_PROPERTY_UPLOAD, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpload(@jakarta.annotation.Nullable Boolean upload) {
     this.upload = upload;
@@ -259,7 +259,7 @@ public class SubSigningOptions {
    * @return forceAdvancedSignatureDetails
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORCE_ADVANCED_SIGNATURE_DETAILS)
+  @JsonProperty(value = JSON_PROPERTY_FORCE_ADVANCED_SIGNATURE_DETAILS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getForceAdvancedSignatureDetails() {
@@ -267,7 +267,7 @@ public class SubSigningOptions {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORCE_ADVANCED_SIGNATURE_DETAILS)
+  @JsonProperty(value = JSON_PROPERTY_FORCE_ADVANCED_SIGNATURE_DETAILS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForceAdvancedSignatureDetails(@jakarta.annotation.Nullable Boolean forceAdvancedSignatureDetails) {
     this.forceAdvancedSignatureDetails = forceAdvancedSignatureDetails;
@@ -463,10 +463,7 @@ public class SubSigningOptions {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

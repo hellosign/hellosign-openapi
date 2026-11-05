@@ -41,7 +41,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseAccount.JSON_PROPERTY_IS_PAID_HF,
   TemplateResponseAccount.JSON_PROPERTY_QUOTAS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseAccount {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -96,7 +96,7 @@ public class TemplateResponseAccount {
    * @return accountId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAccountId() {
@@ -104,7 +104,7 @@ public class TemplateResponseAccount {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
@@ -121,7 +121,7 @@ public class TemplateResponseAccount {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEmailAddress() {
@@ -129,7 +129,7 @@ public class TemplateResponseAccount {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
@@ -146,7 +146,7 @@ public class TemplateResponseAccount {
    * @return isLocked
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+  @JsonProperty(value = JSON_PROPERTY_IS_LOCKED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsLocked() {
@@ -154,7 +154,7 @@ public class TemplateResponseAccount {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+  @JsonProperty(value = JSON_PROPERTY_IS_LOCKED, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsLocked(@jakarta.annotation.Nullable Boolean isLocked) {
     this.isLocked = isLocked;
@@ -171,7 +171,7 @@ public class TemplateResponseAccount {
    * @return isPaidHs
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
+  @JsonProperty(value = JSON_PROPERTY_IS_PAID_HS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsPaidHs() {
@@ -179,7 +179,7 @@ public class TemplateResponseAccount {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
+  @JsonProperty(value = JSON_PROPERTY_IS_PAID_HS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsPaidHs(@jakarta.annotation.Nullable Boolean isPaidHs) {
     this.isPaidHs = isPaidHs;
@@ -196,7 +196,7 @@ public class TemplateResponseAccount {
    * @return isPaidHf
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
+  @JsonProperty(value = JSON_PROPERTY_IS_PAID_HF, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsPaidHf() {
@@ -204,7 +204,7 @@ public class TemplateResponseAccount {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
+  @JsonProperty(value = JSON_PROPERTY_IS_PAID_HF, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsPaidHf(@jakarta.annotation.Nullable Boolean isPaidHf) {
     this.isPaidHf = isPaidHf;
@@ -221,7 +221,7 @@ public class TemplateResponseAccount {
    * @return quotas
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUOTAS)
+  @JsonProperty(value = JSON_PROPERTY_QUOTAS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TemplateResponseAccountQuota getQuotas() {
@@ -229,7 +229,7 @@ public class TemplateResponseAccount {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUOTAS)
+  @JsonProperty(value = JSON_PROPERTY_QUOTAS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuotas(@jakarta.annotation.Nullable TemplateResponseAccountQuota quotas) {
     this.quotas = quotas;
@@ -425,10 +425,7 @@ public class TemplateResponseAccount {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

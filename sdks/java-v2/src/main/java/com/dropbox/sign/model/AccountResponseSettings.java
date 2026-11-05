@@ -37,7 +37,7 @@ import com.dropbox.sign.ApiException;
   AccountResponseSettings.JSON_PROPERTY_SMS_DELIVERY,
   AccountResponseSettings.JSON_PROPERTY_SMS_AUTHENTICATION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountResponseSettings {
   public static final String JSON_PROPERTY_SIGNER_ACCESS_CODES = "signer_access_codes";
@@ -80,7 +80,7 @@ public class AccountResponseSettings {
    * @return signerAccessCodes
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNER_ACCESS_CODES)
+  @JsonProperty(value = JSON_PROPERTY_SIGNER_ACCESS_CODES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSignerAccessCodes() {
@@ -88,7 +88,7 @@ public class AccountResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNER_ACCESS_CODES)
+  @JsonProperty(value = JSON_PROPERTY_SIGNER_ACCESS_CODES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignerAccessCodes(@jakarta.annotation.Nullable Boolean signerAccessCodes) {
     this.signerAccessCodes = signerAccessCodes;
@@ -105,7 +105,7 @@ public class AccountResponseSettings {
    * @return smsDelivery
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SMS_DELIVERY)
+  @JsonProperty(value = JSON_PROPERTY_SMS_DELIVERY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSmsDelivery() {
@@ -113,7 +113,7 @@ public class AccountResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SMS_DELIVERY)
+  @JsonProperty(value = JSON_PROPERTY_SMS_DELIVERY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSmsDelivery(@jakarta.annotation.Nullable Boolean smsDelivery) {
     this.smsDelivery = smsDelivery;
@@ -130,7 +130,7 @@ public class AccountResponseSettings {
    * @return smsAuthentication
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SMS_AUTHENTICATION)
+  @JsonProperty(value = JSON_PROPERTY_SMS_AUTHENTICATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getSmsAuthentication() {
@@ -138,7 +138,7 @@ public class AccountResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SMS_AUTHENTICATION)
+  @JsonProperty(value = JSON_PROPERTY_SMS_AUTHENTICATION, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSmsAuthentication(@jakarta.annotation.Nullable Boolean smsAuthentication) {
     this.smsAuthentication = smsAuthentication;
@@ -271,10 +271,7 @@ public class AccountResponseSettings {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

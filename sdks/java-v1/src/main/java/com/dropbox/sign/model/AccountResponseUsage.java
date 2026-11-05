@@ -27,7 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({AccountResponseUsage.JSON_PROPERTY_FAX_PAGES_SENT})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountResponseUsage {
     public static final String JSON_PROPERTY_FAX_PAGES_SENT = "fax_pages_sent";
@@ -59,13 +59,13 @@ public class AccountResponseUsage {
      *
      * @return faxPagesSent
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FAX_PAGES_SENT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FAX_PAGES_SENT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getFaxPagesSent() {
         return faxPagesSent;
     }
 
-    @JsonProperty(JSON_PROPERTY_FAX_PAGES_SENT)
+    @JsonProperty(value = JSON_PROPERTY_FAX_PAGES_SENT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFaxPagesSent(@javax.annotation.Nullable Integer faxPagesSent) {
         this.faxPagesSent = faxPagesSent;
@@ -159,9 +159,6 @@ public class AccountResponseUsage {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

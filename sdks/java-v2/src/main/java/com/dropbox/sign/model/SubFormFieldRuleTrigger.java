@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldRuleTrigger.JSON_PROPERTY_VALUE,
   SubFormFieldRuleTrigger.JSON_PROPERTY_VALUES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubFormFieldRuleTrigger {
   public static final String JSON_PROPERTY_ID = "id";
@@ -128,7 +128,7 @@ public class SubFormFieldRuleTrigger {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getId() {
@@ -136,7 +136,7 @@ public class SubFormFieldRuleTrigger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@jakarta.annotation.Nonnull String id) {
     this.id = id;
@@ -153,7 +153,7 @@ public class SubFormFieldRuleTrigger {
    * @return operator
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_OPERATOR)
+  @JsonProperty(value = JSON_PROPERTY_OPERATOR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OperatorEnum getOperator() {
@@ -161,7 +161,7 @@ public class SubFormFieldRuleTrigger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OPERATOR)
+  @JsonProperty(value = JSON_PROPERTY_OPERATOR, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOperator(@jakarta.annotation.Nonnull OperatorEnum operator) {
     this.operator = operator;
@@ -178,7 +178,7 @@ public class SubFormFieldRuleTrigger {
    * @return value
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getValue() {
@@ -186,7 +186,7 @@ public class SubFormFieldRuleTrigger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValue(@jakarta.annotation.Nullable String value) {
     this.value = value;
@@ -211,7 +211,7 @@ public class SubFormFieldRuleTrigger {
    * @return values
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALUES)
+  @JsonProperty(value = JSON_PROPERTY_VALUES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getValues() {
@@ -219,7 +219,7 @@ public class SubFormFieldRuleTrigger {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUES)
+  @JsonProperty(value = JSON_PROPERTY_VALUES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setValues(@jakarta.annotation.Nullable List<String> values) {
     this.values = values;
@@ -373,10 +373,7 @@ public class SubFormFieldRuleTrigger {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

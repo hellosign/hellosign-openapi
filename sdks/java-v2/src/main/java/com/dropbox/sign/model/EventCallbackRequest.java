@@ -42,7 +42,7 @@ import com.dropbox.sign.ApiException;
   EventCallbackRequest.JSON_PROPERTY_SIGNATURE_REQUEST,
   EventCallbackRequest.JSON_PROPERTY_TEMPLATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class EventCallbackRequest {
   public static final String JSON_PROPERTY_EVENT = "event";
@@ -89,7 +89,7 @@ public class EventCallbackRequest {
    * @return event
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EVENT)
+  @JsonProperty(value = JSON_PROPERTY_EVENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public EventCallbackRequestEvent getEvent() {
@@ -97,7 +97,7 @@ public class EventCallbackRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EVENT)
+  @JsonProperty(value = JSON_PROPERTY_EVENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEvent(@jakarta.annotation.Nonnull EventCallbackRequestEvent event) {
     this.event = event;
@@ -114,7 +114,7 @@ public class EventCallbackRequest {
    * @return account
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNT)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AccountResponse getAccount() {
@@ -122,7 +122,7 @@ public class EventCallbackRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACCOUNT)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccount(@jakarta.annotation.Nullable AccountResponse account) {
     this.account = account;
@@ -139,7 +139,7 @@ public class EventCallbackRequest {
    * @return signatureRequest
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST)
+  @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUEST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SignatureRequestResponse getSignatureRequest() {
@@ -147,7 +147,7 @@ public class EventCallbackRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST)
+  @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUEST, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignatureRequest(@jakarta.annotation.Nullable SignatureRequestResponse signatureRequest) {
     this.signatureRequest = signatureRequest;
@@ -164,7 +164,7 @@ public class EventCallbackRequest {
    * @return template
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TemplateResponse getTemplate() {
@@ -172,7 +172,7 @@ public class EventCallbackRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTemplate(@jakarta.annotation.Nullable TemplateResponse template) {
     this.template = template;
@@ -326,10 +326,7 @@ public class EventCallbackRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

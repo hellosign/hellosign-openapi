@@ -36,6 +36,7 @@ from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 
 class TemplateCreateEmbeddedDraftRequest(BaseModel):
@@ -169,7 +170,8 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
     ]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -181,8 +183,7 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None
@@ -222,8 +223,11 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
         _items = []
         if self.attachments:
             for _item_attachments in self.attachments:
-                if _item_attachments:
-                    _items.append(_item_attachments.to_dict())
+                _items.append(
+                    _item_attachments.to_dict()
+                    if _item_attachments is not None
+                    else None
+                )
             _dict["attachments"] = _items
         # override the default output from pydantic by calling `to_dict()` of editor_options
         if self.editor_options:
@@ -235,36 +239,51 @@ class TemplateCreateEmbeddedDraftRequest(BaseModel):
         _items = []
         if self.form_field_groups:
             for _item_form_field_groups in self.form_field_groups:
-                if _item_form_field_groups:
-                    _items.append(_item_form_field_groups.to_dict())
+                _items.append(
+                    _item_form_field_groups.to_dict()
+                    if _item_form_field_groups is not None
+                    else None
+                )
             _dict["form_field_groups"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in form_field_rules (list)
         _items = []
         if self.form_field_rules:
             for _item_form_field_rules in self.form_field_rules:
-                if _item_form_field_rules:
-                    _items.append(_item_form_field_rules.to_dict())
+                _items.append(
+                    _item_form_field_rules.to_dict()
+                    if _item_form_field_rules is not None
+                    else None
+                )
             _dict["form_field_rules"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in form_fields_per_document (list)
         _items = []
         if self.form_fields_per_document:
             for _item_form_fields_per_document in self.form_fields_per_document:
-                if _item_form_fields_per_document:
-                    _items.append(_item_form_fields_per_document.to_dict())
+                _items.append(
+                    _item_form_fields_per_document.to_dict()
+                    if _item_form_fields_per_document is not None
+                    else None
+                )
             _dict["form_fields_per_document"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in merge_fields (list)
         _items = []
         if self.merge_fields:
             for _item_merge_fields in self.merge_fields:
-                if _item_merge_fields:
-                    _items.append(_item_merge_fields.to_dict())
+                _items.append(
+                    _item_merge_fields.to_dict()
+                    if _item_merge_fields is not None
+                    else None
+                )
             _dict["merge_fields"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in signer_roles (list)
         _items = []
         if self.signer_roles:
             for _item_signer_roles in self.signer_roles:
-                if _item_signer_roles:
-                    _items.append(_item_signer_roles.to_dict())
+                _items.append(
+                    _item_signer_roles.to_dict()
+                    if _item_signer_roles is not None
+                    else None
+                )
             _dict["signer_roles"] = _items
         return _dict
 

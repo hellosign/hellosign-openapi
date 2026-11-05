@@ -195,14 +195,14 @@ namespace {{packageName}}.Client
         /// Allows for extending request processing for <see cref="ApiClient"/> generated code.
         /// </summary>
         /// <param name="request">The RestSharp request object</param>
-        partial void InterceptRequest(RestRequest request);
+        {{#useVirtualForHooks}}public virtual{{/useVirtualForHooks}}{{^useVirtualForHooks}}partial{{/useVirtualForHooks}} void InterceptRequest(RestRequest request){{#useVirtualForHooks}} { }{{/useVirtualForHooks}}{{^useVirtualForHooks}};{{/useVirtualForHooks}}
 
         /// <summary>
         /// Allows for extending response processing for <see cref="ApiClient"/> generated code.
         /// </summary>
         /// <param name="request">The RestSharp request object</param>
         /// <param name="response">The RestSharp response object</param>
-        partial void InterceptResponse(RestRequest request, RestResponse response);
+        {{#useVirtualForHooks}}public virtual{{/useVirtualForHooks}}{{^useVirtualForHooks}}partial{{/useVirtualForHooks}} void InterceptResponse(RestRequest request, RestResponse response){{#useVirtualForHooks}} { }{{/useVirtualForHooks}}{{^useVirtualForHooks}};{{/useVirtualForHooks}}
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" />, defaulting to the global configurations' base url.
@@ -488,7 +488,8 @@ namespace {{packageName}}.Client
                 Proxy = configuration.Proxy,
                 UserAgent = configuration.UserAgent,
                 UseDefaultCredentials = configuration.UseDefaultCredentials,
-                RemoteCertificateValidationCallback = configuration.RemoteCertificateValidationCallback
+                RemoteCertificateValidationCallback = configuration.RemoteCertificateValidationCallback{{#throwOnAnyError}},
+                ThrowOnAnyError = true{{/throwOnAnyError}}
             };
             setOptions(clientOptions);
             
@@ -528,7 +529,7 @@ namespace {{packageName}}.Client
             {
                 InterceptRequest(request);
 
-                RestResponse<T> response = await getResponse(client);
+                RestResponse<T> response = await getResponse(client).ConfigureAwait(false);
 
                 // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
                 if (typeof(AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
@@ -597,14 +598,19 @@ namespace {{packageName}}.Client
         {
             if (policyResult.Outcome == OutcomeType.Successful) 
             {
-                return await client.Deserialize<T>(policyResult.Result, cancellationToken);
+                return await client.Deserialize<T>(policyResult.Result, cancellationToken).ConfigureAwait(false);
             }
             else
             {
+                {{#throwOnAnyError}}
+                throw policyResult.FinalException ?? new InvalidOperationException("The retry policy failed without an exception.");
+                {{/throwOnAnyError}}
+                {{^throwOnAnyError}}
                 return new RestResponse<T>(request)
                 {
                     ErrorException = policyResult.FinalException
                 };
+                {{/throwOnAnyError}}
             }
         }
                 
@@ -642,7 +648,7 @@ namespace {{packageName}}.Client
         }
 
         {{#supportsAsync}}
-        private Task<ApiResponse<T>> ExecAsync<T>(RestRequest request, RequestOptions options, IReadableConfiguration configuration, CancellationToken cancellationToken = default(CancellationToken))
+        private Task<ApiResponse<T>> ExecAsync<T>(RestRequest request, RequestOptions options, IReadableConfiguration configuration, CancellationToken cancellationToken = default)
         {
             Action<RestClientOptions> setOptions = (clientOptions) =>
             {
@@ -656,7 +662,7 @@ namespace {{packageName}}.Client
                 {
                     var policy = RetryConfiguration.AsyncRetryPolicy;
                     var policyResult = await policy.ExecuteAndCaptureAsync((ct) => client.ExecuteAsync(request, ct), cancellationToken).ConfigureAwait(false);
-                    return await DeserializeRestResponseFromPolicyAsync<T>(client, request, policyResult, cancellationToken);
+                    return await DeserializeRestResponseFromPolicyAsync<T>(client, request, policyResult, cancellationToken).ConfigureAwait(false);
                 }
                 else
                 {

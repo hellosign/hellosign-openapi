@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class BulkSendJobApi {
   private ApiClient apiClient;
 
@@ -65,7 +65,7 @@ public class BulkSendJobApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public BulkSendJobGetResponse bulkSendJobGet(String bulkSendJobId, Integer page, Integer pageSize) throws ApiException {
+  public BulkSendJobGetResponse bulkSendJobGet(@jakarta.annotation.Nonnull String bulkSendJobId, @jakarta.annotation.Nullable Integer page, @jakarta.annotation.Nullable Integer pageSize) throws ApiException {
     return bulkSendJobGetWithHttpInfo(bulkSendJobId, page, pageSize).getData();
   }
 
@@ -126,7 +126,7 @@ public class BulkSendJobApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<BulkSendJobGetResponse> bulkSendJobGetWithHttpInfo(String bulkSendJobId, Integer page, Integer pageSize) throws ApiException {
+  public ApiResponse<BulkSendJobGetResponse> bulkSendJobGetWithHttpInfo(@jakarta.annotation.Nonnull String bulkSendJobId, @jakarta.annotation.Nullable Integer page, @jakarta.annotation.Nullable Integer pageSize) throws ApiException {
     
     if (page == null) {
         page = 1;
@@ -188,7 +188,7 @@ public class BulkSendJobApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public BulkSendJobListResponse bulkSendJobList(Integer page, Integer pageSize) throws ApiException {
+  public BulkSendJobListResponse bulkSendJobList(@jakarta.annotation.Nullable Integer page, @jakarta.annotation.Nullable Integer pageSize) throws ApiException {
     return bulkSendJobListWithHttpInfo(page, pageSize).getData();
   }
 
@@ -248,7 +248,7 @@ public class BulkSendJobApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<BulkSendJobListResponse> bulkSendJobListWithHttpInfo(Integer page, Integer pageSize) throws ApiException {
+  public ApiResponse<BulkSendJobListResponse> bulkSendJobListWithHttpInfo(@jakarta.annotation.Nullable Integer page, @jakarta.annotation.Nullable Integer pageSize) throws ApiException {
     
     if (page == null) {
         page = 1;

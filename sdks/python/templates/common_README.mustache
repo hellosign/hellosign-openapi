@@ -7,8 +7,9 @@ from pprint import pprint
 {{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
 {{> python_doc_auth_partial}}
 
+
 # Enter a context with an instance of the API client
-{{#asyncio}}async {{/asyncio}}with {{{packageName}}}.ApiClient(configuration) as api_client:
+{{#async}}async {{/async}}with {{{packageName}}}.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = {{{packageName}}}.{{{classname}}}(api_client)
     {{#allParams}}
@@ -19,7 +20,7 @@ from pprint import pprint
         {{#summary}}
         # {{{.}}}
         {{/summary}}
-        {{#returnType}}api_response = {{/returnType}}{{#asyncio}}await {{/asyncio}}api_instance.{{{operationId}}}({{#allParams}}{{#required}}{{paramName}}{{/required}}{{^required}}{{paramName}}={{paramName}}{{/required}}{{^-last}}, {{/-last}}{{/allParams}})
+        {{#returnType}}api_response = {{/returnType}}{{#async}}await {{/async}}api_instance.{{{operationId}}}({{#allParams}}{{#required}}{{paramName}}{{/required}}{{^required}}{{paramName}}={{paramName}}{{/required}}{{^-last}}, {{/-last}}{{/allParams}})
         {{#returnType}}
         print("The response of {{classname}}->{{operationId}}:\n")
         pprint(api_response)
@@ -37,6 +38,31 @@ REPLACE_ME_WITH_EXAMPLE_FOR__{{{operationId}}}_Python_CODE
 {{/-first}}{{/operation}}{{/operations}}{{/-first}}{{/apis}}{{/apiInfo}}
 {{/useCustomTemplateCode}}
 
+{{#useIndependentImplicitClients}}
+An API instance constructed without an explicit or registered default
+`ApiClient` owns its client. Use the API as a context manager:
+
+```python
+{{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#async}}async {{/async}}with {{{packageName}}}.{{{classname}}}() as api_instance:
+    # Call API methods through api_instance.
+    pass
+{{/operations}}{{/-first}}{{/apis}}{{/apiInfo}}
+```
+
+Direct construction requires
+`{{#async}}await {{/async}}api_instance.close()`. Closing an API constructed
+with an explicit or registered default client is a no-op; the caller remains
+responsible for that client. Configuration-owned values are copied for an
+implicit client. Logging resources retain their identity. Configuration
+containers and proxy-header mappings are copied; other stateful transport
+extension objects remain caller-owned.
+
+`Configuration.set_default()` stores a copy, so later changes to the supplied
+object do not affect new implicit clients. `Configuration.get_default()`
+returns that stored baseline, while `Configuration.get_default_copy()` returns
+a copy.
+
+{{/useIndependentImplicitClients}}
 ## Documentation for API Endpoints
 
 All URIs are relative to *{{{basePath}}}*

@@ -34,7 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -92,13 +92,13 @@ public class TemplateResponseDocumentCustomFieldText
      * @return type
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getType() {
         return type;
     }
 
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
@@ -115,13 +115,13 @@ public class TemplateResponseDocumentCustomFieldText
      *
      * @return avgTextLength
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_AVG_TEXT_LENGTH, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public TemplateResponseFieldAvgTextLength getAvgTextLength() {
         return avgTextLength;
     }
 
-    @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
+    @JsonProperty(value = JSON_PROPERTY_AVG_TEXT_LENGTH, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAvgTextLength(
             @javax.annotation.Nullable TemplateResponseFieldAvgTextLength avgTextLength) {
@@ -139,13 +139,13 @@ public class TemplateResponseDocumentCustomFieldText
      *
      * @return isMultiline
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_IS_MULTILINE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsMultiline() {
         return isMultiline;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
+    @JsonProperty(value = JSON_PROPERTY_IS_MULTILINE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsMultiline(@javax.annotation.Nullable Boolean isMultiline) {
         this.isMultiline = isMultiline;
@@ -162,13 +162,13 @@ public class TemplateResponseDocumentCustomFieldText
      *
      * @return originalFontSize
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ORIGINAL_FONT_SIZE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getOriginalFontSize() {
         return originalFontSize;
     }
 
-    @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+    @JsonProperty(value = JSON_PROPERTY_ORIGINAL_FONT_SIZE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setOriginalFontSize(@javax.annotation.Nullable Integer originalFontSize) {
         this.originalFontSize = originalFontSize;
@@ -185,13 +185,13 @@ public class TemplateResponseDocumentCustomFieldText
      *
      * @return fontFamily
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getFontFamily() {
         return fontFamily;
     }
 
-    @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+    @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFontFamily(@javax.annotation.Nullable String fontFamily) {
         this.fontFamily = fontFamily;
@@ -381,10 +381,7 @@ public class TemplateResponseDocumentCustomFieldText
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
     static {

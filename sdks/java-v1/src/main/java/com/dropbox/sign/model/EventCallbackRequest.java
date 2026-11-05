@@ -32,7 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EventCallbackRequest {
     public static final String JSON_PROPERTY_EVENT = "event";
@@ -74,13 +74,13 @@ public class EventCallbackRequest {
      * @return event
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_EVENT)
+    @JsonProperty(value = JSON_PROPERTY_EVENT, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public EventCallbackRequestEvent getEvent() {
         return event;
     }
 
-    @JsonProperty(JSON_PROPERTY_EVENT)
+    @JsonProperty(value = JSON_PROPERTY_EVENT, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setEvent(@javax.annotation.Nonnull EventCallbackRequestEvent event) {
         this.event = event;
@@ -96,13 +96,13 @@ public class EventCallbackRequest {
      *
      * @return account
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ACCOUNT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ACCOUNT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public AccountResponse getAccount() {
         return account;
     }
 
-    @JsonProperty(JSON_PROPERTY_ACCOUNT)
+    @JsonProperty(value = JSON_PROPERTY_ACCOUNT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAccount(@javax.annotation.Nullable AccountResponse account) {
         this.account = account;
@@ -119,13 +119,13 @@ public class EventCallbackRequest {
      *
      * @return signatureRequest
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUEST, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public SignatureRequestResponse getSignatureRequest() {
         return signatureRequest;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST)
+    @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUEST, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSignatureRequest(
             @javax.annotation.Nullable SignatureRequestResponse signatureRequest) {
@@ -142,13 +142,13 @@ public class EventCallbackRequest {
      *
      * @return template
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEMPLATE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TEMPLATE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public TemplateResponse getTemplate() {
         return template;
     }
 
-    @JsonProperty(JSON_PROPERTY_TEMPLATE)
+    @JsonProperty(value = JSON_PROPERTY_TEMPLATE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTemplate(@javax.annotation.Nullable TemplateResponse template) {
         this.template = template;
@@ -302,9 +302,6 @@ public class EventCallbackRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

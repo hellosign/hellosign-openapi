@@ -41,7 +41,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_FONT_FAMILY,
   SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_FONT_SIZE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
@@ -152,7 +152,7 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getType() {
@@ -160,7 +160,7 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
@@ -177,7 +177,7 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
    * @return fontFamily
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public FontFamilyEnum getFontFamily() {
@@ -185,7 +185,7 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFontFamily(@jakarta.annotation.Nullable FontFamilyEnum fontFamily) {
     this.fontFamily = fontFamily;
@@ -202,7 +202,7 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
    * @return fontSize
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_FONT_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getFontSize() {
@@ -210,7 +210,7 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+  @JsonProperty(value = JSON_PROPERTY_FONT_SIZE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFontSize(@jakarta.annotation.Nullable Integer fontSize) {
     this.fontSize = fontSize;
@@ -346,10 +346,7 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   static {

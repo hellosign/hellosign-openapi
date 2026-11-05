@@ -38,7 +38,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -153,13 +153,13 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
      * @return type
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getType() {
         return type;
     }
 
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
@@ -185,13 +185,13 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
      * @return options
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_OPTIONS)
+    @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<String> getOptions() {
         return options;
     }
 
-    @JsonProperty(JSON_PROPERTY_OPTIONS)
+    @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setOptions(@javax.annotation.Nonnull List<String> options) {
         this.options = options;
@@ -207,13 +207,13 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
      *
      * @return content
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CONTENT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CONTENT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getContent() {
         return content;
     }
 
-    @JsonProperty(JSON_PROPERTY_CONTENT)
+    @JsonProperty(value = JSON_PROPERTY_CONTENT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setContent(@javax.annotation.Nullable String content) {
         this.content = content;
@@ -230,13 +230,13 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
      *
      * @return fontFamily
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public FontFamilyEnum getFontFamily() {
         return fontFamily;
     }
 
-    @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+    @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFontFamily(@javax.annotation.Nullable FontFamilyEnum fontFamily) {
         this.fontFamily = fontFamily;
@@ -254,13 +254,13 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
      *
      * @return fontSize
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FONT_SIZE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getFontSize() {
         return fontSize;
     }
 
-    @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+    @JsonProperty(value = JSON_PROPERTY_FONT_SIZE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFontSize(@javax.annotation.Nullable Integer fontSize) {
         this.fontSize = fontSize;
@@ -440,10 +440,7 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
     static {

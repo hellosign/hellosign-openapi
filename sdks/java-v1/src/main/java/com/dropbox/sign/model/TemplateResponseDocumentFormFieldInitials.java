@@ -31,7 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -86,13 +86,13 @@ public class TemplateResponseDocumentFormFieldInitials
      * @return type
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getType() {
         return type;
     }
 
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
@@ -110,13 +110,13 @@ public class TemplateResponseDocumentFormFieldInitials
      *
      * @return group
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_GROUP)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_GROUP, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getGroup() {
         return group;
     }
 
-    @JsonProperty(JSON_PROPERTY_GROUP)
+    @JsonProperty(value = JSON_PROPERTY_GROUP, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setGroup(@javax.annotation.Nullable String group) {
         this.group = group;
@@ -232,10 +232,7 @@ public class TemplateResponseDocumentFormFieldInitials
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
     static {

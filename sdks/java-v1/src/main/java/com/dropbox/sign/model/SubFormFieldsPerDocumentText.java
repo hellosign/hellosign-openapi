@@ -42,7 +42,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -232,13 +232,13 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
      * @return type
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getType() {
         return type;
     }
 
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setType(@javax.annotation.Nonnull String type) {
         this.type = type;
@@ -254,13 +254,13 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
      *
      * @return placeholder
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_PLACEHOLDER)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_PLACEHOLDER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getPlaceholder() {
         return placeholder;
     }
 
-    @JsonProperty(JSON_PROPERTY_PLACEHOLDER)
+    @JsonProperty(value = JSON_PROPERTY_PLACEHOLDER, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setPlaceholder(@javax.annotation.Nullable String placeholder) {
         this.placeholder = placeholder;
@@ -278,13 +278,13 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
      *
      * @return autoFillType
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_AUTO_FILL_TYPE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_AUTO_FILL_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getAutoFillType() {
         return autoFillType;
     }
 
-    @JsonProperty(JSON_PROPERTY_AUTO_FILL_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_AUTO_FILL_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAutoFillType(@javax.annotation.Nullable String autoFillType) {
         this.autoFillType = autoFillType;
@@ -301,13 +301,13 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
      *
      * @return linkId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_LINK_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_LINK_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getLinkId() {
         return linkId;
     }
 
-    @JsonProperty(JSON_PROPERTY_LINK_ID)
+    @JsonProperty(value = JSON_PROPERTY_LINK_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setLinkId(@javax.annotation.Nullable String linkId) {
         this.linkId = linkId;
@@ -325,13 +325,13 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
      *
      * @return masked
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_MASKED)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_MASKED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getMasked() {
         return masked;
     }
 
-    @JsonProperty(JSON_PROPERTY_MASKED)
+    @JsonProperty(value = JSON_PROPERTY_MASKED, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setMasked(@javax.annotation.Nullable Boolean masked) {
         this.masked = masked;
@@ -353,13 +353,13 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
      *
      * @return validationType
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_VALIDATION_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public ValidationTypeEnum getValidationType() {
         return validationType;
     }
 
-    @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_VALIDATION_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setValidationType(@javax.annotation.Nullable ValidationTypeEnum validationType) {
         this.validationType = validationType;
@@ -376,13 +376,13 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
      *
      * @return validationCustomRegex
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_VALIDATION_CUSTOM_REGEX, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getValidationCustomRegex() {
         return validationCustomRegex;
     }
 
-    @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
+    @JsonProperty(value = JSON_PROPERTY_VALIDATION_CUSTOM_REGEX, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setValidationCustomRegex(@javax.annotation.Nullable String validationCustomRegex) {
         this.validationCustomRegex = validationCustomRegex;
@@ -399,13 +399,13 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
      *
      * @return validationCustomRegexFormatLabel
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getValidationCustomRegexFormatLabel() {
         return validationCustomRegexFormatLabel;
     }
 
-    @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
+    @JsonProperty(value = JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setValidationCustomRegexFormatLabel(
             @javax.annotation.Nullable String validationCustomRegexFormatLabel) {
@@ -422,13 +422,13 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
      *
      * @return content
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CONTENT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CONTENT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getContent() {
         return content;
     }
 
-    @JsonProperty(JSON_PROPERTY_CONTENT)
+    @JsonProperty(value = JSON_PROPERTY_CONTENT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setContent(@javax.annotation.Nullable String content) {
         this.content = content;
@@ -445,13 +445,13 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
      *
      * @return fontFamily
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public FontFamilyEnum getFontFamily() {
         return fontFamily;
     }
 
-    @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+    @JsonProperty(value = JSON_PROPERTY_FONT_FAMILY, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFontFamily(@javax.annotation.Nullable FontFamilyEnum fontFamily) {
         this.fontFamily = fontFamily;
@@ -469,13 +469,13 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
      *
      * @return fontSize
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_FONT_SIZE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getFontSize() {
         return fontSize;
     }
 
-    @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+    @JsonProperty(value = JSON_PROPERTY_FONT_SIZE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFontSize(@javax.annotation.Nullable Integer fontSize) {
         this.fontSize = fontSize;
@@ -815,10 +815,7 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
     static {

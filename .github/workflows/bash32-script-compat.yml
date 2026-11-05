@@ -1,0 +1,32 @@
+name: Bash 3.2 script compatibility
+
+on:
+  push:
+    branches: [ main ]
+    paths: &script-paths
+      - bin/**
+      - sdks/*/bin/**
+      - sdks/*/run-build
+      - .github/workflows/bash32-script-compat.yml
+  pull_request:
+    branches: [ main ]
+    paths: *script-paths
+
+permissions:
+  contents: read
+
+jobs:
+  bash32:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Check SDK scripts on Bash 3.2
+        uses: hellosign/bash32-action@v1
+        with:
+          paths: |
+            bin/**
+            sdks/*/bin/**
+            sdks/*/run-build

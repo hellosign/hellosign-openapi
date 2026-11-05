@@ -43,7 +43,7 @@ import com.dropbox.sign.ApiException;
   SubBulkSignerList.JSON_PROPERTY_SIGNERS,
   SubBulkSignerList.JSON_PROPERTY_METADATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubBulkSignerList {
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
@@ -94,7 +94,7 @@ public class SubBulkSignerList {
    * @return customFields
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubBulkSignerListCustomField> getCustomFields() {
@@ -102,7 +102,7 @@ public class SubBulkSignerList {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCustomFields(@jakarta.annotation.Nullable List<SubBulkSignerListCustomField> customFields) {
     this.customFields = customFields;
@@ -127,7 +127,7 @@ public class SubBulkSignerList {
    * @return signers
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNERS)
+  @JsonProperty(value = JSON_PROPERTY_SIGNERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<SubSignatureRequestTemplateSigner> getSigners() {
@@ -135,7 +135,7 @@ public class SubBulkSignerList {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNERS)
+  @JsonProperty(value = JSON_PROPERTY_SIGNERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSigners(@jakarta.annotation.Nullable List<SubSignatureRequestTemplateSigner> signers) {
     this.signers = signers;
@@ -301,10 +301,7 @@ public class SubBulkSignerList {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

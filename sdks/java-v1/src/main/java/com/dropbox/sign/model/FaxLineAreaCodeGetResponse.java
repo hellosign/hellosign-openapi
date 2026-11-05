@@ -29,7 +29,7 @@ import java.util.Objects;
 @JsonPropertyOrder({FaxLineAreaCodeGetResponse.JSON_PROPERTY_AREA_CODES})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxLineAreaCodeGetResponse {
     public static final String JSON_PROPERTY_AREA_CODES = "area_codes";
@@ -72,13 +72,13 @@ public class FaxLineAreaCodeGetResponse {
      * @return areaCodes
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_AREA_CODES)
+    @JsonProperty(value = JSON_PROPERTY_AREA_CODES, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<Integer> getAreaCodes() {
         return areaCodes;
     }
 
-    @JsonProperty(JSON_PROPERTY_AREA_CODES)
+    @JsonProperty(value = JSON_PROPERTY_AREA_CODES, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setAreaCodes(@javax.annotation.Nonnull List<Integer> areaCodes) {
         this.areaCodes = areaCodes;
@@ -172,9 +172,6 @@ public class FaxLineAreaCodeGetResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

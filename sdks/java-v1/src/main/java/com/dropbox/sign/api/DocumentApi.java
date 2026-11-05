@@ -13,7 +13,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 public class DocumentApi {
     private ApiClient apiClient;
 
@@ -59,7 +59,8 @@ public class DocumentApi {
      * </table>
      */
     public DocumentFieldDetectionResponse documentDetectFields(
-            DocumentFieldDetectionRequest documentFieldDetectionRequest) throws ApiException {
+            @javax.annotation.Nonnull DocumentFieldDetectionRequest documentFieldDetectionRequest)
+            throws ApiException {
         return documentDetectFieldsWithHttpInfo(documentFieldDetectionRequest).getData();
     }
 
@@ -79,7 +80,8 @@ public class DocumentApi {
      * </table>
      */
     public ApiResponse<DocumentFieldDetectionResponse> documentDetectFieldsWithHttpInfo(
-            DocumentFieldDetectionRequest documentFieldDetectionRequest) throws ApiException {
+            @javax.annotation.Nonnull DocumentFieldDetectionRequest documentFieldDetectionRequest)
+            throws ApiException {
 
         // Check required parameters
         if (documentFieldDetectionRequest == null) {

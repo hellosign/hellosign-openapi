@@ -38,7 +38,7 @@ import com.dropbox.sign.ApiException;
   OAuthTokenRefreshRequest.JSON_PROPERTY_CLIENT_ID,
   OAuthTokenRefreshRequest.JSON_PROPERTY_CLIENT_SECRET
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class OAuthTokenRefreshRequest {
   public static final String JSON_PROPERTY_GRANT_TYPE = "grant_type";
@@ -85,7 +85,7 @@ public class OAuthTokenRefreshRequest {
    * @return grantType
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_GRANT_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_GRANT_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getGrantType() {
@@ -93,7 +93,7 @@ public class OAuthTokenRefreshRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GRANT_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_GRANT_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGrantType(@jakarta.annotation.Nonnull String grantType) {
     this.grantType = grantType;
@@ -110,7 +110,7 @@ public class OAuthTokenRefreshRequest {
    * @return refreshToken
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_REFRESH_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_REFRESH_TOKEN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getRefreshToken() {
@@ -118,7 +118,7 @@ public class OAuthTokenRefreshRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REFRESH_TOKEN)
+  @JsonProperty(value = JSON_PROPERTY_REFRESH_TOKEN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRefreshToken(@jakarta.annotation.Nonnull String refreshToken) {
     this.refreshToken = refreshToken;
@@ -135,7 +135,7 @@ public class OAuthTokenRefreshRequest {
    * @return clientId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getClientId() {
@@ -143,7 +143,7 @@ public class OAuthTokenRefreshRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientId(@jakarta.annotation.Nullable String clientId) {
     this.clientId = clientId;
@@ -160,7 +160,7 @@ public class OAuthTokenRefreshRequest {
    * @return clientSecret
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_SECRET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getClientSecret() {
@@ -168,7 +168,7 @@ public class OAuthTokenRefreshRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_SECRET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientSecret(@jakarta.annotation.Nullable String clientSecret) {
     this.clientSecret = clientSecret;
@@ -322,10 +322,7 @@ public class OAuthTokenRefreshRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

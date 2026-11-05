@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   AccountVerifyResponse.JSON_PROPERTY_ACCOUNT,
   AccountVerifyResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountVerifyResponse {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
@@ -79,7 +79,7 @@ public class AccountVerifyResponse {
    * @return account
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNT)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public AccountVerifyResponseAccount getAccount() {
@@ -87,7 +87,7 @@ public class AccountVerifyResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACCOUNT)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccount(@jakarta.annotation.Nullable AccountVerifyResponseAccount account) {
     this.account = account;
@@ -112,7 +112,7 @@ public class AccountVerifyResponse {
    * @return warnings
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<WarningResponse> getWarnings() {
@@ -120,7 +120,7 @@ public class AccountVerifyResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
@@ -232,10 +232,7 @@ public class AccountVerifyResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

@@ -33,7 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubBulkSignerList {
     public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
@@ -80,13 +80,13 @@ public class SubBulkSignerList {
      *
      * @return customFields
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<SubBulkSignerListCustomField> getCustomFields() {
         return customFields;
     }
 
-    @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+    @JsonProperty(value = JSON_PROPERTY_CUSTOM_FIELDS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCustomFields(
             @javax.annotation.Nullable List<SubBulkSignerListCustomField> customFields) {
@@ -114,13 +114,13 @@ public class SubBulkSignerList {
      *
      * @return signers
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNERS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SIGNERS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<SubSignatureRequestTemplateSigner> getSigners() {
         return signers;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNERS)
+    @JsonProperty(value = JSON_PROPERTY_SIGNERS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSigners(
             @javax.annotation.Nullable List<SubSignatureRequestTemplateSigner> signers) {
@@ -285,9 +285,6 @@ public class SubBulkSignerList {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

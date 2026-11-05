@@ -35,7 +35,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateResponseAccountQuota {
     public static final String JSON_PROPERTY_TEMPLATES_LEFT = "templates_left";
@@ -80,13 +80,13 @@ public class TemplateResponseAccountQuota {
      *
      * @return templatesLeft
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEMPLATES_LEFT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TEMPLATES_LEFT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getTemplatesLeft() {
         return templatesLeft;
     }
 
-    @JsonProperty(JSON_PROPERTY_TEMPLATES_LEFT)
+    @JsonProperty(value = JSON_PROPERTY_TEMPLATES_LEFT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTemplatesLeft(@javax.annotation.Nullable Integer templatesLeft) {
         this.templatesLeft = templatesLeft;
@@ -103,13 +103,13 @@ public class TemplateResponseAccountQuota {
      *
      * @return apiSignatureRequestsLeft
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getApiSignatureRequestsLeft() {
         return apiSignatureRequestsLeft;
     }
 
-    @JsonProperty(JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT)
+    @JsonProperty(value = JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setApiSignatureRequestsLeft(
             @javax.annotation.Nullable Integer apiSignatureRequestsLeft) {
@@ -127,13 +127,13 @@ public class TemplateResponseAccountQuota {
      *
      * @return documentsLeft
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_DOCUMENTS_LEFT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_DOCUMENTS_LEFT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getDocumentsLeft() {
         return documentsLeft;
     }
 
-    @JsonProperty(JSON_PROPERTY_DOCUMENTS_LEFT)
+    @JsonProperty(value = JSON_PROPERTY_DOCUMENTS_LEFT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setDocumentsLeft(@javax.annotation.Nullable Integer documentsLeft) {
         this.documentsLeft = documentsLeft;
@@ -150,13 +150,13 @@ public class TemplateResponseAccountQuota {
      *
      * @return smsVerificationsLeft
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SMS_VERIFICATIONS_LEFT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SMS_VERIFICATIONS_LEFT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getSmsVerificationsLeft() {
         return smsVerificationsLeft;
     }
 
-    @JsonProperty(JSON_PROPERTY_SMS_VERIFICATIONS_LEFT)
+    @JsonProperty(value = JSON_PROPERTY_SMS_VERIFICATIONS_LEFT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSmsVerificationsLeft(@javax.annotation.Nullable Integer smsVerificationsLeft) {
         this.smsVerificationsLeft = smsVerificationsLeft;
@@ -332,9 +332,6 @@ public class TemplateResponseAccountQuota {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

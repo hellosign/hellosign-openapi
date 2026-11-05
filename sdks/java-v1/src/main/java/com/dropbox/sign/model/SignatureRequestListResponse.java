@@ -33,7 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SignatureRequestListResponse {
     public static final String JSON_PROPERTY_SIGNATURE_REQUESTS = "signature_requests";
@@ -86,13 +86,13 @@ public class SignatureRequestListResponse {
      * @return signatureRequests
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUESTS)
+    @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUESTS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<SignatureRequestResponse> getSignatureRequests() {
         return signatureRequests;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUESTS)
+    @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUESTS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSignatureRequests(
             @javax.annotation.Nonnull List<SignatureRequestResponse> signatureRequests) {
@@ -111,13 +111,13 @@ public class SignatureRequestListResponse {
      * @return listInfo
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_LIST_INFO)
+    @JsonProperty(value = JSON_PROPERTY_LIST_INFO, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public ListInfoResponse getListInfo() {
         return listInfo;
     }
 
-    @JsonProperty(JSON_PROPERTY_LIST_INFO)
+    @JsonProperty(value = JSON_PROPERTY_LIST_INFO, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setListInfo(@javax.annotation.Nonnull ListInfoResponse listInfo) {
         this.listInfo = listInfo;
@@ -142,13 +142,13 @@ public class SignatureRequestListResponse {
      *
      * @return warnings
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<WarningResponse> getWarnings() {
         return warnings;
     }
 
-    @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
@@ -288,9 +288,6 @@ public class SignatureRequestListResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

@@ -37,7 +37,7 @@ import com.dropbox.sign.ApiException;
   TeamMemberResponse.JSON_PROPERTY_EMAIL_ADDRESS,
   TeamMemberResponse.JSON_PROPERTY_ROLE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamMemberResponse {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -80,7 +80,7 @@ public class TeamMemberResponse {
    * @return accountId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAccountId() {
@@ -88,7 +88,7 @@ public class TeamMemberResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
@@ -105,7 +105,7 @@ public class TeamMemberResponse {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEmailAddress() {
@@ -113,7 +113,7 @@ public class TeamMemberResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmailAddress(@jakarta.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
@@ -130,7 +130,7 @@ public class TeamMemberResponse {
    * @return role
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROLE)
+  @JsonProperty(value = JSON_PROPERTY_ROLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRole() {
@@ -138,7 +138,7 @@ public class TeamMemberResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROLE)
+  @JsonProperty(value = JSON_PROPERTY_ROLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRole(@jakarta.annotation.Nullable String role) {
     this.role = role;
@@ -271,10 +271,7 @@ public class TeamMemberResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

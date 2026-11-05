@@ -37,7 +37,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFieldGroup.JSON_PROPERTY_NAME,
   TemplateResponseDocumentFieldGroup.JSON_PROPERTY_RULE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseDocumentFieldGroup {
   public static final String JSON_PROPERTY_NAME = "name";
@@ -76,7 +76,7 @@ public class TemplateResponseDocumentFieldGroup {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
@@ -84,7 +84,7 @@ public class TemplateResponseDocumentFieldGroup {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
@@ -101,7 +101,7 @@ public class TemplateResponseDocumentFieldGroup {
    * @return rule
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RULE)
+  @JsonProperty(value = JSON_PROPERTY_RULE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TemplateResponseDocumentFieldGroupRule getRule() {
@@ -109,7 +109,7 @@ public class TemplateResponseDocumentFieldGroup {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RULE)
+  @JsonProperty(value = JSON_PROPERTY_RULE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRule(@jakarta.annotation.Nullable TemplateResponseDocumentFieldGroupRule rule) {
     this.rule = rule;
@@ -221,10 +221,7 @@ public class TemplateResponseDocumentFieldGroup {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

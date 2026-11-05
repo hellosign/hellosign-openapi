@@ -21,6 +21,25 @@ For more information, please visit [{{{infoUrl}}}]({{{infoUrl}}})
 
 Python {{{generatorLanguageVersion}}}
 
+{{#poetry1}}
+Packaging retains the deprecated `[tool.poetry.dev-dependencies]` table for
+compatibility with legacy Poetry 1 releases. Generate with `poetry1=false` to use
+standard project metadata and PEP 735 development dependency groups.
+{{/poetry1}}
+{{^poetry1}}
+Packaging uses standard `[project]` metadata and `[dependency-groups]` (PEP 621/735).
+Install the package with `python -m pip install .`; install development dependencies
+with Poetry 2.2 or newer using `poetry install`, or pip 25.1 or newer using
+`python -m pip install --group dev`. The latter installs the group, not the package.
+{{/poetry1}}
+
+{{#httpx2}}
+The HTTP transport is HTTPX2 (`httpx2 >= 2.13.0, < 3`). API methods are asynchronous.
+
+{{#supportHttpxSync}}
+Synchronous `_sync` variants are also available through `supportHttpxSync=true`.
+{{/supportHttpxSync}}
+{{/httpx2}}
 ## Installation & Usage
 ### pip install
 
@@ -46,6 +65,19 @@ python setup.py install --user
 (or `sudo python setup.py install` to install the package for all users)
 {{/useCustomTemplateCode}}
 {{#useCustomTemplateCode}}
+## Upgrading to 2.0.0
+
+Version 2.0.0 is generated with OpenAPI Generator 7.26.0. Existing code keeps working, with these changes:
+
+- **Python 3.10 or later is required.** Python 3.8 and 3.9 are no longer supported; pip keeps installing 1.x on those versions.
+- **Dependencies:** `urllib3 >= 2.8.0` and `pydantic >= 2.11`.
+- **Proxy settings are now detected automatically.** When `Configuration.proxy` is not set, the SDK uses the proxy configured in the environment (`HTTPS_PROXY`, `HTTP_PROXY`, `ALL_PROXY`) and, on macOS and Windows, the system proxy settings. Previously, a proxy was only used when set explicitly.
+  - To bypass the proxy for the Dropbox Sign API, set `NO_PROXY=hellosign.com` or `configuration.no_proxy = "hellosign.com"`. This covers both `api.hellosign.com` and `app.hellosign.com` (used by the OAuth endpoints).
+  - To ignore all proxy settings, set `configuration.proxy = None` after creating the `Configuration` and before creating the `ApiClient`. Passing `proxy=None` to the constructor does not disable detection.
+  - SOCKS proxies (for example `ALL_PROXY=socks5://...`) require `pip install "urllib3[socks]"`.
+  - Known limitations: the proxy decision is made once per `ApiClient` for the configured host, and macOS/Windows proxy exclusion lists and PAC files are not applied. If you rely on them, set `NO_PROXY` or `configuration.no_proxy` explicitly.
+- **Behaviour changes:** `to_json()` now serializes datetimes, `to_dict()` keeps `None` items in lists, boolean query parameters are sent as `true` / `false`, and the `ApiException` message lists the response body and data separately.
+
 ## Migrating from legacy SDK
 
 This SDK is generated from our officially maintained [OpenAPI spec](https://github.com/hellosign/hellosign-openapi/blob/main/openapi.yaml).

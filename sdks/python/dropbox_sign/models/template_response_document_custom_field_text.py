@@ -31,6 +31,7 @@ from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 
 class TemplateResponseDocumentCustomFieldText(TemplateResponseDocumentCustomFieldBase):
@@ -75,7 +76,8 @@ class TemplateResponseDocumentCustomFieldText(TemplateResponseDocumentCustomFiel
     ]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -87,8 +89,7 @@ class TemplateResponseDocumentCustomFieldText(TemplateResponseDocumentCustomFiel
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None

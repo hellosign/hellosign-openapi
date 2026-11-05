@@ -31,7 +31,7 @@ import java.util.Objects;
 @JsonPropertyOrder({SubOAuth.JSON_PROPERTY_CALLBACK_URL, SubOAuth.JSON_PROPERTY_SCOPES})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubOAuth {
     public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
@@ -112,13 +112,13 @@ public class SubOAuth {
      *
      * @return callbackUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getCallbackUrl() {
         return callbackUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+    @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCallbackUrl(@javax.annotation.Nullable String callbackUrl) {
         this.callbackUrl = callbackUrl;
@@ -143,13 +143,13 @@ public class SubOAuth {
      *
      * @return scopes
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SCOPES)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SCOPES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<ScopesEnum> getScopes() {
         return scopes;
     }
 
-    @JsonProperty(JSON_PROPERTY_SCOPES)
+    @JsonProperty(value = JSON_PROPERTY_SCOPES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setScopes(@javax.annotation.Nullable List<ScopesEnum> scopes) {
         this.scopes = scopes;
@@ -263,9 +263,6 @@ public class SubOAuth {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

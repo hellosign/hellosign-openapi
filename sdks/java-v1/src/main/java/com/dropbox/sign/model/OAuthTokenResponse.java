@@ -33,7 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OAuthTokenResponse {
     public static final String JSON_PROPERTY_ACCESS_TOKEN = "access_token";
@@ -77,13 +77,13 @@ public class OAuthTokenResponse {
      *
      * @return accessToken
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_ACCESS_TOKEN, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getAccessToken() {
         return accessToken;
     }
 
-    @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
+    @JsonProperty(value = JSON_PROPERTY_ACCESS_TOKEN, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAccessToken(@javax.annotation.Nullable String accessToken) {
         this.accessToken = accessToken;
@@ -99,13 +99,13 @@ public class OAuthTokenResponse {
      *
      * @return tokenType
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TOKEN_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getTokenType() {
         return tokenType;
     }
 
-    @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TOKEN_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTokenType(@javax.annotation.Nullable String tokenType) {
         this.tokenType = tokenType;
@@ -121,13 +121,13 @@ public class OAuthTokenResponse {
      *
      * @return refreshToken
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REFRESH_TOKEN)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_REFRESH_TOKEN, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getRefreshToken() {
         return refreshToken;
     }
 
-    @JsonProperty(JSON_PROPERTY_REFRESH_TOKEN)
+    @JsonProperty(value = JSON_PROPERTY_REFRESH_TOKEN, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setRefreshToken(@javax.annotation.Nullable String refreshToken) {
         this.refreshToken = refreshToken;
@@ -143,13 +143,13 @@ public class OAuthTokenResponse {
      *
      * @return expiresIn
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EXPIRES_IN)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EXPIRES_IN, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getExpiresIn() {
         return expiresIn;
     }
 
-    @JsonProperty(JSON_PROPERTY_EXPIRES_IN)
+    @JsonProperty(value = JSON_PROPERTY_EXPIRES_IN, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setExpiresIn(@javax.annotation.Nullable Integer expiresIn) {
         this.expiresIn = expiresIn;
@@ -165,13 +165,13 @@ public class OAuthTokenResponse {
      *
      * @return state
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_STATE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_STATE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getState() {
         return state;
     }
 
-    @JsonProperty(JSON_PROPERTY_STATE)
+    @JsonProperty(value = JSON_PROPERTY_STATE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setState(@javax.annotation.Nullable String state) {
         this.state = state;
@@ -351,9 +351,6 @@ public class OAuthTokenResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

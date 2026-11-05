@@ -65,6 +65,9 @@
             {{#vars}}
             {{#hasValidation}}
             {{^isEnum}}
+            {{^isDateTime}}
+            {{^isDate}}
+            {{^isTime}}
             {{#maxLength}}
             // {{{name}}} ({{{dataType}}}) maxLength
             if (this.{{{name}}} != null && this.{{{name}}}.Length > {{maxLength}})
@@ -81,6 +84,9 @@
             }
 
             {{/minLength}}
+            {{/isTime}}
+            {{/isDate}}
+            {{/isDateTime}}
             {{#maximum}}
             // {{{name}}} ({{{dataType}}}) maximum
             if ({{#useGenericHost}}{{^required}}this.{{{name}}}Option.IsSet && {{/required}}{{/useGenericHost}}this.{{{name}}}{{#useGenericHost}}{{^required}}Option.Value{{/required}}{{/useGenericHost}} {{#exclusiveMaximum}}<={{/exclusiveMaximum}}{{^exclusiveMaximum}}>{{/exclusiveMaximum}} ({{{dataType}}}){{maximum}})
@@ -104,7 +110,7 @@
             if (this.{{{name}}}{{#useGenericHost}}{{^required}}Option.Value{{/required}}{{/useGenericHost}} != null){
                 {{#lambda.trimTrailingWithNewLine}}
                 {{#lambda.indent4}}
-                {{>ValidateRegex}}
+                {{>ValidateRegex}}{{! prevent indent}}
                 {{/lambda.indent4}}
 
                 {{/lambda.trimTrailingWithNewLine}}
@@ -114,7 +120,7 @@
             {{^isNullable}}
             {{#lambda.trimTrailingWithNewLine}}
             {{#lambda.indent3}}
-            {{>ValidateRegex}}
+            {{>ValidateRegex}}{{! prevent indent}}
             {{/lambda.indent3}}
 
             {{/lambda.trimTrailingWithNewLine}}
@@ -124,7 +130,7 @@
             if (this.{{{name}}}{{#useGenericHost}}{{^required}}Option.Value{{/required}}{{/useGenericHost}} != null) {
                 {{#lambda.trimTrailingWithNewLine}}
                 {{#lambda.indent4}}
-                {{>ValidateRegex}}
+                {{>ValidateRegex}}{{! prevent indent}}
                 {{/lambda.indent4}}
 
                 {{/lambda.trimTrailingWithNewLine}}

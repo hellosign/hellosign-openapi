@@ -2,16 +2,19 @@
 
 # You probably want to run ./bin/gradle ./gradlew clean build
 
-set -e
+set -euo pipefail
 
-DIR=$(cd `dirname $0` && pwd)
+DIR=$(cd "$(dirname "$0")" && pwd)
 ROOT_DIR="${DIR}/.."
 WORKING_DIR="/app/java"
 
-docker run --rm \
+mkdir -p "${ROOT_DIR}/.docker/gradle"
+
+exec "${DIR}/../../../bin/docker-run" \
   -v "${ROOT_DIR}:${WORKING_DIR}" \
-  -v "dropbox-sign-sdk-v2-gradle-cache:/home/gradle/.gradle" \
-  -v "dropbox-sign-sdk-v2-maven-cache:/root/.m2" \
-  -w "${WORKING_DIR}" \
+  -v "${ROOT_DIR}/.docker/gradle:/tmp/gradle-user-home" \
+  -e GRADLE_USER_HOME=/tmp/gradle-user-home \
+  -e HOME=/tmp/gradle-user-home \
   -e GEN_DIR=/app \
+  -w "${WORKING_DIR}" \
   gradle:7.6.1-jdk11 "$@"

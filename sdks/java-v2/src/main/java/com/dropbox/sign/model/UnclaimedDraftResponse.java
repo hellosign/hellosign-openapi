@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftResponse.JSON_PROPERTY_EXPIRES_AT,
   UnclaimedDraftResponse.JSON_PROPERTY_TEST_MODE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class UnclaimedDraftResponse {
   public static final String JSON_PROPERTY_SIGNATURE_REQUEST_ID = "signature_request_id";
@@ -95,7 +95,7 @@ public class UnclaimedDraftResponse {
    * @return signatureRequestId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST_ID)
+  @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUEST_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSignatureRequestId() {
@@ -103,7 +103,7 @@ public class UnclaimedDraftResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST_ID)
+  @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUEST_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignatureRequestId(@jakarta.annotation.Nullable String signatureRequestId) {
     this.signatureRequestId = signatureRequestId;
@@ -120,7 +120,7 @@ public class UnclaimedDraftResponse {
    * @return claimUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLAIM_URL)
+  @JsonProperty(value = JSON_PROPERTY_CLAIM_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getClaimUrl() {
@@ -128,7 +128,7 @@ public class UnclaimedDraftResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CLAIM_URL)
+  @JsonProperty(value = JSON_PROPERTY_CLAIM_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClaimUrl(@jakarta.annotation.Nullable String claimUrl) {
     this.claimUrl = claimUrl;
@@ -145,7 +145,7 @@ public class UnclaimedDraftResponse {
    * @return signingRedirectUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_SIGNING_REDIRECT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSigningRedirectUrl() {
@@ -153,7 +153,7 @@ public class UnclaimedDraftResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_SIGNING_REDIRECT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSigningRedirectUrl(@jakarta.annotation.Nullable String signingRedirectUrl) {
     this.signingRedirectUrl = signingRedirectUrl;
@@ -170,7 +170,7 @@ public class UnclaimedDraftResponse {
    * @return requestingRedirectUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_REQUESTING_REDIRECT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRequestingRedirectUrl() {
@@ -178,7 +178,7 @@ public class UnclaimedDraftResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_REQUESTING_REDIRECT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestingRedirectUrl(@jakarta.annotation.Nullable String requestingRedirectUrl) {
     this.requestingRedirectUrl = requestingRedirectUrl;
@@ -195,7 +195,7 @@ public class UnclaimedDraftResponse {
    * @return expiresAt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getExpiresAt() {
@@ -203,7 +203,7 @@ public class UnclaimedDraftResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiresAt(@jakarta.annotation.Nullable Integer expiresAt) {
     this.expiresAt = expiresAt;
@@ -220,7 +220,7 @@ public class UnclaimedDraftResponse {
    * @return testMode
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getTestMode() {
@@ -228,7 +228,7 @@ public class UnclaimedDraftResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
@@ -424,10 +424,7 @@ public class UnclaimedDraftResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

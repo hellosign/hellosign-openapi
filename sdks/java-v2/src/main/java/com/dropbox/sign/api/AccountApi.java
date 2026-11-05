@@ -24,7 +24,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 public class AccountApi {
   private ApiClient apiClient;
 
@@ -69,7 +69,7 @@ public class AccountApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public AccountCreateResponse accountCreate(AccountCreateRequest accountCreateRequest) throws ApiException {
+  public AccountCreateResponse accountCreate(@jakarta.annotation.Nonnull AccountCreateRequest accountCreateRequest) throws ApiException {
     return accountCreateWithHttpInfo(accountCreateRequest).getData();
   }
 
@@ -89,7 +89,7 @@ public class AccountApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<AccountCreateResponse> accountCreateWithHttpInfo(AccountCreateRequest accountCreateRequest) throws ApiException {
+  public ApiResponse<AccountCreateResponse> accountCreateWithHttpInfo(@jakarta.annotation.Nonnull AccountCreateRequest accountCreateRequest) throws ApiException {
     
     // Check required parameters
     if (accountCreateRequest == null) {
@@ -135,7 +135,7 @@ public class AccountApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public AccountGetResponse accountGet(String accountId, String emailAddress) throws ApiException {
+  public AccountGetResponse accountGet(@jakarta.annotation.Nullable String accountId, @jakarta.annotation.Nullable String emailAddress) throws ApiException {
     return accountGetWithHttpInfo(accountId, emailAddress).getData();
   }
 
@@ -195,7 +195,7 @@ public class AccountApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<AccountGetResponse> accountGetWithHttpInfo(String accountId, String emailAddress) throws ApiException {
+  public ApiResponse<AccountGetResponse> accountGetWithHttpInfo(@jakarta.annotation.Nullable String accountId, @jakarta.annotation.Nullable String emailAddress) throws ApiException {
     
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
@@ -416,7 +416,7 @@ public class AccountApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public AccountGetResponse accountUpdate(AccountUpdateRequest accountUpdateRequest) throws ApiException {
+  public AccountGetResponse accountUpdate(@jakarta.annotation.Nonnull AccountUpdateRequest accountUpdateRequest) throws ApiException {
     return accountUpdateWithHttpInfo(accountUpdateRequest).getData();
   }
 
@@ -436,7 +436,7 @@ public class AccountApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<AccountGetResponse> accountUpdateWithHttpInfo(AccountUpdateRequest accountUpdateRequest) throws ApiException {
+  public ApiResponse<AccountGetResponse> accountUpdateWithHttpInfo(@jakarta.annotation.Nonnull AccountUpdateRequest accountUpdateRequest) throws ApiException {
     
     // Check required parameters
     if (accountUpdateRequest == null) {
@@ -481,7 +481,7 @@ public class AccountApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public AccountVerifyResponse accountVerify(AccountVerifyRequest accountVerifyRequest) throws ApiException {
+  public AccountVerifyResponse accountVerify(@jakarta.annotation.Nonnull AccountVerifyRequest accountVerifyRequest) throws ApiException {
     return accountVerifyWithHttpInfo(accountVerifyRequest).getData();
   }
 
@@ -501,7 +501,7 @@ public class AccountApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<AccountVerifyResponse> accountVerifyWithHttpInfo(AccountVerifyRequest accountVerifyRequest) throws ApiException {
+  public ApiResponse<AccountVerifyResponse> accountVerifyWithHttpInfo(@jakarta.annotation.Nonnull AccountVerifyRequest accountVerifyRequest) throws ApiException {
     
     // Check required parameters
     if (accountVerifyRequest == null) {

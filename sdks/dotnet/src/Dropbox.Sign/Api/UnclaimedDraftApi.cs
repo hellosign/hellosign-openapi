@@ -150,7 +150,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Unclaimed Draft
@@ -164,7 +164,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateWithHttpInfoAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateWithHttpInfoAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Embedded Unclaimed Draft
         /// </summary>
@@ -177,7 +177,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Embedded Unclaimed Draft
@@ -191,7 +191,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Embedded Unclaimed Draft with Template
         /// </summary>
@@ -204,7 +204,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Embedded Unclaimed Draft with Template
@@ -218,7 +218,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Edit and Resend Unclaimed Draft
         /// </summary>
@@ -232,7 +232,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Edit and Resend Unclaimed Draft
@@ -247,7 +247,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftEditAndResendWithHttpInfoAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftEditAndResendWithHttpInfoAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -469,7 +469,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftCreateWithHttpInfoAsync(unclaimedDraftCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -484,7 +484,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateWithHttpInfoAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateWithHttpInfoAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'unclaimedDraftCreateRequest' is set
             if (unclaimedDraftCreateRequest == null)
@@ -657,7 +657,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(unclaimedDraftCreateEmbeddedRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -672,7 +672,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'unclaimedDraftCreateEmbeddedRequest' is set
             if (unclaimedDraftCreateEmbeddedRequest == null)
@@ -845,7 +845,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(unclaimedDraftCreateEmbeddedWithTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -860,7 +860,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'unclaimedDraftCreateEmbeddedWithTemplateRequest' is set
             if (unclaimedDraftCreateEmbeddedWithTemplateRequest == null)
@@ -1043,7 +1043,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftEditAndResendWithHttpInfoAsync(signatureRequestId, unclaimedDraftEditAndResendRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1059,7 +1059,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftEditAndResendWithHttpInfoAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftEditAndResendWithHttpInfoAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)

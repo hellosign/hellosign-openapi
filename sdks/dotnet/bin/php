@@ -1,16 +1,8 @@
 #!/usr/bin/env bash
 
-# Warning: You should run this from rootless Docker (or Podman, or other)
+set -euo pipefail
 
-set -e
-
-DIR=$(cd `dirname $0` && pwd)
+DIR=$(cd "$(dirname "$0")" && pwd)
 ROOT_DIR="${DIR}/.."
-WORKING_DIR="/app/dotnet"
 
-docker run --rm \
-  -v "${ROOT_DIR}:${WORKING_DIR}" \
-  -v "dropbox-sign-sdk-composer-cache:/.composer" \
-  -w "${WORKING_DIR}" \
-  -u root:root \
-  jtreminio/php-cli:7.4 "$@"
+exec "${DIR}/../../../bin/php-in-docker" /app/dotnet "${ROOT_DIR}" jtreminio/php-cli:7.4 "$@"

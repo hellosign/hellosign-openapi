@@ -28,6 +28,7 @@ from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 
 class SubFormFieldRule(BaseModel):
@@ -55,7 +56,8 @@ class SubFormFieldRule(BaseModel):
     ]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -67,8 +69,7 @@ class SubFormFieldRule(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None
@@ -108,15 +109,17 @@ class SubFormFieldRule(BaseModel):
         _items = []
         if self.triggers:
             for _item_triggers in self.triggers:
-                if _item_triggers:
-                    _items.append(_item_triggers.to_dict())
+                _items.append(
+                    _item_triggers.to_dict() if _item_triggers is not None else None
+                )
             _dict["triggers"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in actions (list)
         _items = []
         if self.actions:
             for _item_actions in self.actions:
-                if _item_actions:
-                    _items.append(_item_actions.to_dict())
+                _items.append(
+                    _item_actions.to_dict() if _item_actions is not None else None
+                )
             _dict["actions"] = _items
         return _dict
 

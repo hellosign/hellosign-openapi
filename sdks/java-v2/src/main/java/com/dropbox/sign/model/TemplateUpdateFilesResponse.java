@@ -36,7 +36,7 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   TemplateUpdateFilesResponse.JSON_PROPERTY_TEMPLATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateUpdateFilesResponse {
   public static final String JSON_PROPERTY_TEMPLATE = "template";
@@ -71,7 +71,7 @@ public class TemplateUpdateFilesResponse {
    * @return template
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TemplateUpdateFilesResponseTemplate getTemplate() {
@@ -79,7 +79,7 @@ public class TemplateUpdateFilesResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTemplate(@jakarta.annotation.Nonnull TemplateUpdateFilesResponseTemplate template) {
     this.template = template;
@@ -170,10 +170,7 @@ public class TemplateUpdateFilesResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

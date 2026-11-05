@@ -11,6 +11,7 @@ using {{packageName}}.Extensions;
 {{>testInstructions}}
 
 
+
 namespace {{packageName}}.Test.{{apiPackage}}
 {
     /// <summary>
@@ -26,7 +27,7 @@ namespace {{packageName}}.Test.{{apiPackage}}
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) => Host.CreateDefaultBuilder(args)
-            .Configure{{apiName}}((context, services, options) =>
+            .Configure{{apiName}}((context, options) =>
             {
                 {{#lambda.trimTrailingWithNewLine}}
                 {{#apiKeyMethods}}

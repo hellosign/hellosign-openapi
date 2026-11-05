@@ -39,7 +39,7 @@ import com.dropbox.sign.ApiException;
   ReportCreateRequest.JSON_PROPERTY_REPORT_TYPE,
   ReportCreateRequest.JSON_PROPERTY_START_DATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ReportCreateRequest {
   public static final String JSON_PROPERTY_END_DATE = "end_date";
@@ -121,7 +121,7 @@ public class ReportCreateRequest {
    * @return endDate
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_END_DATE)
+  @JsonProperty(value = JSON_PROPERTY_END_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEndDate() {
@@ -129,7 +129,7 @@ public class ReportCreateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_END_DATE)
+  @JsonProperty(value = JSON_PROPERTY_END_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEndDate(@jakarta.annotation.Nonnull String endDate) {
     this.endDate = endDate;
@@ -154,7 +154,7 @@ public class ReportCreateRequest {
    * @return reportType
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_REPORT_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<ReportTypeEnum> getReportType() {
@@ -162,7 +162,7 @@ public class ReportCreateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_REPORT_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setReportType(@jakarta.annotation.Nonnull List<ReportTypeEnum> reportType) {
     this.reportType = reportType;
@@ -179,7 +179,7 @@ public class ReportCreateRequest {
    * @return startDate
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_START_DATE)
+  @JsonProperty(value = JSON_PROPERTY_START_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getStartDate() {
@@ -187,7 +187,7 @@ public class ReportCreateRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_START_DATE)
+  @JsonProperty(value = JSON_PROPERTY_START_DATE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStartDate(@jakarta.annotation.Nonnull String startDate) {
     this.startDate = startDate;
@@ -320,10 +320,7 @@ public class ReportCreateRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

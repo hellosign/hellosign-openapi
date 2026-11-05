@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-DIR=$(cd `dirname $0` && pwd)
+DIR=$(cd "$(dirname "$0")" && pwd)
 ROOT_DIR="${DIR}/.."
 WORKING_DIR="/app/ruby"
 
-docker run --rm \
-  -e GEM_HOME="/.gem-cache" \
-  -e BUNDLE_PATH="/.bundle-cache" \
-  -e RUBYGEMS_API_KEY=${RUBYGEMS_API_KEY-:''} \
+mkdir -p "${ROOT_DIR}/.docker/gem" "${ROOT_DIR}/.docker/bundle"
+
+exec "${DIR}/../../../bin/docker-run" \
+  -e GEM_HOME=/tmp/gem \
+  -e BUNDLE_PATH=/tmp/bundle \
+  -e HOME=/tmp/gem \
+  -e RUBYGEMS_API_KEY="${RUBYGEMS_API_KEY-:''}" \
   -v "${ROOT_DIR}:${WORKING_DIR}" \
-  -v "dropbox-sign-sdk-gem-cache:/.gem-cache" \
-  -v "dropbox-sign-sdk-bundle-cache:/.bundle-cache" \
+  -v "${ROOT_DIR}/.docker/gem:/tmp/gem" \
+  -v "${ROOT_DIR}/.docker/bundle:/tmp/bundle" \
   -w "${WORKING_DIR}" \
   ruby:3.1 "$@"

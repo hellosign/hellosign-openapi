@@ -38,7 +38,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseAccountQuota.JSON_PROPERTY_DOCUMENTS_LEFT,
   TemplateResponseAccountQuota.JSON_PROPERTY_SMS_VERIFICATIONS_LEFT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseAccountQuota {
   public static final String JSON_PROPERTY_TEMPLATES_LEFT = "templates_left";
@@ -85,7 +85,7 @@ public class TemplateResponseAccountQuota {
    * @return templatesLeft
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEMPLATES_LEFT)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATES_LEFT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getTemplatesLeft() {
@@ -93,7 +93,7 @@ public class TemplateResponseAccountQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEMPLATES_LEFT)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATES_LEFT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTemplatesLeft(@jakarta.annotation.Nullable Integer templatesLeft) {
     this.templatesLeft = templatesLeft;
@@ -110,7 +110,7 @@ public class TemplateResponseAccountQuota {
    * @return apiSignatureRequestsLeft
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT)
+  @JsonProperty(value = JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getApiSignatureRequestsLeft() {
@@ -118,7 +118,7 @@ public class TemplateResponseAccountQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT)
+  @JsonProperty(value = JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApiSignatureRequestsLeft(@jakarta.annotation.Nullable Integer apiSignatureRequestsLeft) {
     this.apiSignatureRequestsLeft = apiSignatureRequestsLeft;
@@ -135,7 +135,7 @@ public class TemplateResponseAccountQuota {
    * @return documentsLeft
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOCUMENTS_LEFT)
+  @JsonProperty(value = JSON_PROPERTY_DOCUMENTS_LEFT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getDocumentsLeft() {
@@ -143,7 +143,7 @@ public class TemplateResponseAccountQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DOCUMENTS_LEFT)
+  @JsonProperty(value = JSON_PROPERTY_DOCUMENTS_LEFT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocumentsLeft(@jakarta.annotation.Nullable Integer documentsLeft) {
     this.documentsLeft = documentsLeft;
@@ -160,7 +160,7 @@ public class TemplateResponseAccountQuota {
    * @return smsVerificationsLeft
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SMS_VERIFICATIONS_LEFT)
+  @JsonProperty(value = JSON_PROPERTY_SMS_VERIFICATIONS_LEFT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getSmsVerificationsLeft() {
@@ -168,7 +168,7 @@ public class TemplateResponseAccountQuota {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SMS_VERIFICATIONS_LEFT)
+  @JsonProperty(value = JSON_PROPERTY_SMS_VERIFICATIONS_LEFT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSmsVerificationsLeft(@jakarta.annotation.Nullable Integer smsVerificationsLeft) {
     this.smsVerificationsLeft = smsVerificationsLeft;
@@ -322,10 +322,7 @@ public class TemplateResponseAccountQuota {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

@@ -46,7 +46,7 @@ import com.dropbox.sign.ApiException;
   FaxSendRequest.JSON_PROPERTY_COVER_PAGE_MESSAGE,
   FaxSendRequest.JSON_PROPERTY_TITLE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxSendRequest {
   public static final String JSON_PROPERTY_RECIPIENT = "recipient";
@@ -113,7 +113,7 @@ public class FaxSendRequest {
    * @return recipient
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RECIPIENT)
+  @JsonProperty(value = JSON_PROPERTY_RECIPIENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getRecipient() {
@@ -121,7 +121,7 @@ public class FaxSendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RECIPIENT)
+  @JsonProperty(value = JSON_PROPERTY_RECIPIENT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRecipient(@jakarta.annotation.Nonnull String recipient) {
     this.recipient = recipient;
@@ -138,7 +138,7 @@ public class FaxSendRequest {
    * @return sender
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SENDER)
+  @JsonProperty(value = JSON_PROPERTY_SENDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSender() {
@@ -146,7 +146,7 @@ public class FaxSendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SENDER)
+  @JsonProperty(value = JSON_PROPERTY_SENDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSender(@jakarta.annotation.Nullable String sender) {
     this.sender = sender;
@@ -171,7 +171,7 @@ public class FaxSendRequest {
    * @return files
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<File> getFiles() {
@@ -179,7 +179,7 @@ public class FaxSendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonProperty(value = JSON_PROPERTY_FILES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFiles(@jakarta.annotation.Nullable List<File> files) {
     this.files = files;
@@ -204,7 +204,7 @@ public class FaxSendRequest {
    * @return fileUrls
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_URLS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getFileUrls() {
@@ -212,7 +212,7 @@ public class FaxSendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_URLS)
+  @JsonProperty(value = JSON_PROPERTY_FILE_URLS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileUrls(@jakarta.annotation.Nullable List<String> fileUrls) {
     this.fileUrls = fileUrls;
@@ -229,7 +229,7 @@ public class FaxSendRequest {
    * @return testMode
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getTestMode() {
@@ -237,7 +237,7 @@ public class FaxSendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
@@ -254,7 +254,7 @@ public class FaxSendRequest {
    * @return coverPageTo
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COVER_PAGE_TO)
+  @JsonProperty(value = JSON_PROPERTY_COVER_PAGE_TO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCoverPageTo() {
@@ -262,7 +262,7 @@ public class FaxSendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COVER_PAGE_TO)
+  @JsonProperty(value = JSON_PROPERTY_COVER_PAGE_TO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCoverPageTo(@jakarta.annotation.Nullable String coverPageTo) {
     this.coverPageTo = coverPageTo;
@@ -279,7 +279,7 @@ public class FaxSendRequest {
    * @return coverPageFrom
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COVER_PAGE_FROM)
+  @JsonProperty(value = JSON_PROPERTY_COVER_PAGE_FROM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCoverPageFrom() {
@@ -287,7 +287,7 @@ public class FaxSendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COVER_PAGE_FROM)
+  @JsonProperty(value = JSON_PROPERTY_COVER_PAGE_FROM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCoverPageFrom(@jakarta.annotation.Nullable String coverPageFrom) {
     this.coverPageFrom = coverPageFrom;
@@ -304,7 +304,7 @@ public class FaxSendRequest {
    * @return coverPageMessage
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COVER_PAGE_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_COVER_PAGE_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCoverPageMessage() {
@@ -312,7 +312,7 @@ public class FaxSendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COVER_PAGE_MESSAGE)
+  @JsonProperty(value = JSON_PROPERTY_COVER_PAGE_MESSAGE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCoverPageMessage(@jakarta.annotation.Nullable String coverPageMessage) {
     this.coverPageMessage = coverPageMessage;
@@ -329,7 +329,7 @@ public class FaxSendRequest {
    * @return title
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTitle() {
@@ -337,7 +337,7 @@ public class FaxSendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
@@ -596,10 +596,7 @@ public class FaxSendRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

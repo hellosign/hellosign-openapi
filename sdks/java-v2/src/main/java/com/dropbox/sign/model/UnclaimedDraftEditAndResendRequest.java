@@ -43,7 +43,7 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
   UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_TEST_MODE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class UnclaimedDraftEditAndResendRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
@@ -106,7 +106,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * @return clientId
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getClientId() {
@@ -114,7 +114,7 @@ public class UnclaimedDraftEditAndResendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_CLIENT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setClientId(@jakarta.annotation.Nonnull String clientId) {
     this.clientId = clientId;
@@ -131,7 +131,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * @return editorOptions
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_EDITOR_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SubEditorOptions getEditorOptions() {
@@ -139,7 +139,7 @@ public class UnclaimedDraftEditAndResendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+  @JsonProperty(value = JSON_PROPERTY_EDITOR_OPTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEditorOptions(@jakarta.annotation.Nullable SubEditorOptions editorOptions) {
     this.editorOptions = editorOptions;
@@ -156,7 +156,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * @return isForEmbeddedSigning
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
+  @JsonProperty(value = JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsForEmbeddedSigning() {
@@ -164,7 +164,7 @@ public class UnclaimedDraftEditAndResendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
+  @JsonProperty(value = JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsForEmbeddedSigning(@jakarta.annotation.Nullable Boolean isForEmbeddedSigning) {
     this.isForEmbeddedSigning = isForEmbeddedSigning;
@@ -181,7 +181,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * @return requesterEmailAddress
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRequesterEmailAddress() {
@@ -189,7 +189,7 @@ public class UnclaimedDraftEditAndResendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
+  @JsonProperty(value = JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequesterEmailAddress(@jakarta.annotation.Nullable String requesterEmailAddress) {
     this.requesterEmailAddress = requesterEmailAddress;
@@ -206,7 +206,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * @return requestingRedirectUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_REQUESTING_REDIRECT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getRequestingRedirectUrl() {
@@ -214,7 +214,7 @@ public class UnclaimedDraftEditAndResendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_REQUESTING_REDIRECT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRequestingRedirectUrl(@jakarta.annotation.Nullable String requestingRedirectUrl) {
     this.requestingRedirectUrl = requestingRedirectUrl;
@@ -231,7 +231,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * @return showProgressStepper
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+  @JsonProperty(value = JSON_PROPERTY_SHOW_PROGRESS_STEPPER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getShowProgressStepper() {
@@ -239,7 +239,7 @@ public class UnclaimedDraftEditAndResendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+  @JsonProperty(value = JSON_PROPERTY_SHOW_PROGRESS_STEPPER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setShowProgressStepper(@jakarta.annotation.Nullable Boolean showProgressStepper) {
     this.showProgressStepper = showProgressStepper;
@@ -256,7 +256,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * @return signingRedirectUrl
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_SIGNING_REDIRECT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSigningRedirectUrl() {
@@ -264,7 +264,7 @@ public class UnclaimedDraftEditAndResendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_SIGNING_REDIRECT_URL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSigningRedirectUrl(@jakarta.annotation.Nullable String signingRedirectUrl) {
     this.signingRedirectUrl = signingRedirectUrl;
@@ -281,7 +281,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * @return testMode
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getTestMode() {
@@ -289,7 +289,7 @@ public class UnclaimedDraftEditAndResendRequest {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
+  @JsonProperty(value = JSON_PROPERTY_TEST_MODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTestMode(@jakarta.annotation.Nullable Boolean testMode) {
     this.testMode = testMode;
@@ -527,10 +527,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

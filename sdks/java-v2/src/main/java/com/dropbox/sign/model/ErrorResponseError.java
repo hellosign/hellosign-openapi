@@ -37,7 +37,7 @@ import com.dropbox.sign.ApiException;
   ErrorResponseError.JSON_PROPERTY_ERROR_NAME,
   ErrorResponseError.JSON_PROPERTY_ERROR_PATH
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ErrorResponseError {
   public static final String JSON_PROPERTY_ERROR_MSG = "error_msg";
@@ -80,7 +80,7 @@ public class ErrorResponseError {
    * @return errorMsg
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ERROR_MSG)
+  @JsonProperty(value = JSON_PROPERTY_ERROR_MSG, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getErrorMsg() {
@@ -88,7 +88,7 @@ public class ErrorResponseError {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ERROR_MSG)
+  @JsonProperty(value = JSON_PROPERTY_ERROR_MSG, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setErrorMsg(@jakarta.annotation.Nonnull String errorMsg) {
     this.errorMsg = errorMsg;
@@ -105,7 +105,7 @@ public class ErrorResponseError {
    * @return errorName
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ERROR_NAME)
+  @JsonProperty(value = JSON_PROPERTY_ERROR_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getErrorName() {
@@ -113,7 +113,7 @@ public class ErrorResponseError {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ERROR_NAME)
+  @JsonProperty(value = JSON_PROPERTY_ERROR_NAME, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setErrorName(@jakarta.annotation.Nonnull String errorName) {
     this.errorName = errorName;
@@ -130,7 +130,7 @@ public class ErrorResponseError {
    * @return errorPath
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR_PATH)
+  @JsonProperty(value = JSON_PROPERTY_ERROR_PATH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getErrorPath() {
@@ -138,7 +138,7 @@ public class ErrorResponseError {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ERROR_PATH)
+  @JsonProperty(value = JSON_PROPERTY_ERROR_PATH, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setErrorPath(@jakarta.annotation.Nullable String errorPath) {
     this.errorPath = errorPath;
@@ -271,10 +271,7 @@ public class ErrorResponseError {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

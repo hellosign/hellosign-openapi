@@ -35,7 +35,7 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   SubOptions.JSON_PROPERTY_CAN_INSERT_EVERYWHERE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubOptions {
   public static final String JSON_PROPERTY_CAN_INSERT_EVERYWHERE = "can_insert_everywhere";
@@ -70,7 +70,7 @@ public class SubOptions {
    * @return canInsertEverywhere
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CAN_INSERT_EVERYWHERE)
+  @JsonProperty(value = JSON_PROPERTY_CAN_INSERT_EVERYWHERE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCanInsertEverywhere() {
@@ -78,7 +78,7 @@ public class SubOptions {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CAN_INSERT_EVERYWHERE)
+  @JsonProperty(value = JSON_PROPERTY_CAN_INSERT_EVERYWHERE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCanInsertEverywhere(@jakarta.annotation.Nullable Boolean canInsertEverywhere) {
     this.canInsertEverywhere = canInsertEverywhere;
@@ -169,10 +169,7 @@ public class SubOptions {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

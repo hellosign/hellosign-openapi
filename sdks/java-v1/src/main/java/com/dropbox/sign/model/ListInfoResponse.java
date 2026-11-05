@@ -32,7 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ListInfoResponse {
     public static final String JSON_PROPERTY_NUM_PAGES = "num_pages";
@@ -73,13 +73,13 @@ public class ListInfoResponse {
      *
      * @return numPages
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NUM_PAGES)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NUM_PAGES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getNumPages() {
         return numPages;
     }
 
-    @JsonProperty(JSON_PROPERTY_NUM_PAGES)
+    @JsonProperty(value = JSON_PROPERTY_NUM_PAGES, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setNumPages(@javax.annotation.Nullable Integer numPages) {
         this.numPages = numPages;
@@ -95,13 +95,13 @@ public class ListInfoResponse {
      *
      * @return numResults
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NUM_RESULTS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NUM_RESULTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getNumResults() {
         return numResults;
     }
 
-    @JsonProperty(JSON_PROPERTY_NUM_RESULTS)
+    @JsonProperty(value = JSON_PROPERTY_NUM_RESULTS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setNumResults(@javax.annotation.Nullable Integer numResults) {
         this.numResults = numResults;
@@ -117,13 +117,13 @@ public class ListInfoResponse {
      *
      * @return page
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_PAGE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_PAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getPage() {
         return page;
     }
 
-    @JsonProperty(JSON_PROPERTY_PAGE)
+    @JsonProperty(value = JSON_PROPERTY_PAGE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setPage(@javax.annotation.Nullable Integer page) {
         this.page = page;
@@ -139,13 +139,13 @@ public class ListInfoResponse {
      *
      * @return pageSize
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_PAGE_SIZE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_PAGE_SIZE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getPageSize() {
         return pageSize;
     }
 
-    @JsonProperty(JSON_PROPERTY_PAGE_SIZE)
+    @JsonProperty(value = JSON_PROPERTY_PAGE_SIZE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setPageSize(@javax.annotation.Nullable Integer pageSize) {
         this.pageSize = pageSize;
@@ -303,9 +303,6 @@ public class ListInfoResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   TeamInfoResponse.JSON_PROPERTY_NUM_MEMBERS,
   TeamInfoResponse.JSON_PROPERTY_NUM_SUB_TEAMS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamInfoResponse {
   public static final String JSON_PROPERTY_TEAM_ID = "team_id";
@@ -91,7 +91,7 @@ public class TeamInfoResponse {
    * @return teamId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTeamId() {
@@ -99,7 +99,7 @@ public class TeamInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTeamId(@jakarta.annotation.Nullable String teamId) {
     this.teamId = teamId;
@@ -116,7 +116,7 @@ public class TeamInfoResponse {
    * @return teamParent
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEAM_PARENT)
+  @JsonProperty(value = JSON_PROPERTY_TEAM_PARENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TeamParentResponse getTeamParent() {
@@ -124,7 +124,7 @@ public class TeamInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEAM_PARENT)
+  @JsonProperty(value = JSON_PROPERTY_TEAM_PARENT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTeamParent(@jakarta.annotation.Nullable TeamParentResponse teamParent) {
     this.teamParent = teamParent;
@@ -141,7 +141,7 @@ public class TeamInfoResponse {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
@@ -149,7 +149,7 @@ public class TeamInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(@jakarta.annotation.Nullable String name) {
     this.name = name;
@@ -166,7 +166,7 @@ public class TeamInfoResponse {
    * @return numMembers
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NUM_MEMBERS)
+  @JsonProperty(value = JSON_PROPERTY_NUM_MEMBERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getNumMembers() {
@@ -174,7 +174,7 @@ public class TeamInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NUM_MEMBERS)
+  @JsonProperty(value = JSON_PROPERTY_NUM_MEMBERS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumMembers(@jakarta.annotation.Nullable Integer numMembers) {
     this.numMembers = numMembers;
@@ -191,7 +191,7 @@ public class TeamInfoResponse {
    * @return numSubTeams
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NUM_SUB_TEAMS)
+  @JsonProperty(value = JSON_PROPERTY_NUM_SUB_TEAMS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getNumSubTeams() {
@@ -199,7 +199,7 @@ public class TeamInfoResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NUM_SUB_TEAMS)
+  @JsonProperty(value = JSON_PROPERTY_NUM_SUB_TEAMS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumSubTeams(@jakarta.annotation.Nullable Integer numSubTeams) {
     this.numSubTeams = numSubTeams;
@@ -374,10 +374,7 @@ public class TeamInfoResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

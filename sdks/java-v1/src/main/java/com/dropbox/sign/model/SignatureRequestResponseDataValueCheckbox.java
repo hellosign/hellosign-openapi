@@ -31,7 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(
         allowSetters = true, // allows the type to be set during deserialization
         ignoreUnknown = true)
@@ -76,13 +76,13 @@ public class SignatureRequestResponseDataValueCheckbox extends SignatureRequestR
      *
      * @return type
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TYPE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getType() {
         return type;
     }
 
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setType(@javax.annotation.Nullable String type) {
         this.type = type;
@@ -99,13 +99,13 @@ public class SignatureRequestResponseDataValueCheckbox extends SignatureRequestR
      *
      * @return value
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALUE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getValue() {
         return value;
     }
 
-    @JsonProperty(JSON_PROPERTY_VALUE)
+    @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setValue(@javax.annotation.Nullable Boolean value) {
         this.value = value;
@@ -221,10 +221,7 @@ public class SignatureRequestResponseDataValueCheckbox extends SignatureRequestR
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
     static {

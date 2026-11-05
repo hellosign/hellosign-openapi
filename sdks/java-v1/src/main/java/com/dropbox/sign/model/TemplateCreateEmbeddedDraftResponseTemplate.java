@@ -37,7 +37,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateCreateEmbeddedDraftResponseTemplate {
     public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
@@ -83,13 +83,13 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
      *
      * @return templateId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TEMPLATE_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getTemplateId() {
         return templateId;
     }
 
-    @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
+    @JsonProperty(value = JSON_PROPERTY_TEMPLATE_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTemplateId(@javax.annotation.Nullable String templateId) {
         this.templateId = templateId;
@@ -106,13 +106,13 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
      *
      * @return editUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EDIT_URL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EDIT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getEditUrl() {
         return editUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_EDIT_URL)
+    @JsonProperty(value = JSON_PROPERTY_EDIT_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setEditUrl(@javax.annotation.Nullable String editUrl) {
         this.editUrl = editUrl;
@@ -129,13 +129,13 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
      *
      * @return expiresAt
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getExpiresAt() {
         return expiresAt;
     }
 
-    @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @JsonProperty(value = JSON_PROPERTY_EXPIRES_AT, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setExpiresAt(@javax.annotation.Nullable Integer expiresAt) {
         this.expiresAt = expiresAt;
@@ -164,14 +164,14 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<WarningResponse> getWarnings() {
         return warnings;
     }
 
     @Deprecated
-    @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
@@ -331,9 +331,6 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

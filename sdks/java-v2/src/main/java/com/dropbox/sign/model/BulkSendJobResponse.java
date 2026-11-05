@@ -38,7 +38,7 @@ import com.dropbox.sign.ApiException;
   BulkSendJobResponse.JSON_PROPERTY_IS_CREATOR,
   BulkSendJobResponse.JSON_PROPERTY_CREATED_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class BulkSendJobResponse {
   public static final String JSON_PROPERTY_BULK_SEND_JOB_ID = "bulk_send_job_id";
@@ -85,7 +85,7 @@ public class BulkSendJobResponse {
    * @return bulkSendJobId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
+  @JsonProperty(value = JSON_PROPERTY_BULK_SEND_JOB_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getBulkSendJobId() {
@@ -93,7 +93,7 @@ public class BulkSendJobResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
+  @JsonProperty(value = JSON_PROPERTY_BULK_SEND_JOB_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBulkSendJobId(@jakarta.annotation.Nullable String bulkSendJobId) {
     this.bulkSendJobId = bulkSendJobId;
@@ -110,7 +110,7 @@ public class BulkSendJobResponse {
    * @return total
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOTAL)
+  @JsonProperty(value = JSON_PROPERTY_TOTAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getTotal() {
@@ -118,7 +118,7 @@ public class BulkSendJobResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOTAL)
+  @JsonProperty(value = JSON_PROPERTY_TOTAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotal(@jakarta.annotation.Nullable Integer total) {
     this.total = total;
@@ -135,7 +135,7 @@ public class BulkSendJobResponse {
    * @return isCreator
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_CREATOR)
+  @JsonProperty(value = JSON_PROPERTY_IS_CREATOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getIsCreator() {
@@ -143,7 +143,7 @@ public class BulkSendJobResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_CREATOR)
+  @JsonProperty(value = JSON_PROPERTY_IS_CREATOR, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsCreator(@jakarta.annotation.Nullable Boolean isCreator) {
     this.isCreator = isCreator;
@@ -160,7 +160,7 @@ public class BulkSendJobResponse {
    * @return createdAt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getCreatedAt() {
@@ -168,7 +168,7 @@ public class BulkSendJobResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonProperty(value = JSON_PROPERTY_CREATED_AT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreatedAt(@jakarta.annotation.Nullable Integer createdAt) {
     this.createdAt = createdAt;
@@ -322,10 +322,7 @@ public class BulkSendJobResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

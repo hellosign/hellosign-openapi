@@ -38,7 +38,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiAppUpdateRequest {
     public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
@@ -88,13 +88,13 @@ public class ApiAppUpdateRequest {
      *
      * @return callbackUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getCallbackUrl() {
         return callbackUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+    @JsonProperty(value = JSON_PROPERTY_CALLBACK_URL, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCallbackUrl(@javax.annotation.Nullable String callbackUrl) {
         this.callbackUrl = callbackUrl;
@@ -110,13 +110,13 @@ public class ApiAppUpdateRequest {
      *
      * @return customLogoFile
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CUSTOM_LOGO_FILE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_CUSTOM_LOGO_FILE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public File getCustomLogoFile() {
         return customLogoFile;
     }
 
-    @JsonProperty(JSON_PROPERTY_CUSTOM_LOGO_FILE)
+    @JsonProperty(value = JSON_PROPERTY_CUSTOM_LOGO_FILE, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCustomLogoFile(@javax.annotation.Nullable File customLogoFile) {
         this.customLogoFile = customLogoFile;
@@ -140,13 +140,13 @@ public class ApiAppUpdateRequest {
      *
      * @return domains
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_DOMAINS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_DOMAINS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<String> getDomains() {
         return domains;
     }
 
-    @JsonProperty(JSON_PROPERTY_DOMAINS)
+    @JsonProperty(value = JSON_PROPERTY_DOMAINS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setDomains(@javax.annotation.Nullable List<String> domains) {
         this.domains = domains;
@@ -162,13 +162,13 @@ public class ApiAppUpdateRequest {
      *
      * @return name
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getName() {
         return name;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonProperty(value = JSON_PROPERTY_NAME, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setName(@javax.annotation.Nullable String name) {
         this.name = name;
@@ -184,13 +184,13 @@ public class ApiAppUpdateRequest {
      *
      * @return oauth
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_OAUTH)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_OAUTH, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public SubOAuth getOauth() {
         return oauth;
     }
 
-    @JsonProperty(JSON_PROPERTY_OAUTH)
+    @JsonProperty(value = JSON_PROPERTY_OAUTH, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setOauth(@javax.annotation.Nullable SubOAuth oauth) {
         this.oauth = oauth;
@@ -206,13 +206,13 @@ public class ApiAppUpdateRequest {
      *
      * @return options
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_OPTIONS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public SubOptions getOptions() {
         return options;
     }
 
-    @JsonProperty(JSON_PROPERTY_OPTIONS)
+    @JsonProperty(value = JSON_PROPERTY_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setOptions(@javax.annotation.Nullable SubOptions options) {
         this.options = options;
@@ -229,13 +229,13 @@ public class ApiAppUpdateRequest {
      *
      * @return whiteLabelingOptions
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WHITE_LABELING_OPTIONS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_WHITE_LABELING_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public SubWhiteLabelingOptions getWhiteLabelingOptions() {
         return whiteLabelingOptions;
     }
 
-    @JsonProperty(JSON_PROPERTY_WHITE_LABELING_OPTIONS)
+    @JsonProperty(value = JSON_PROPERTY_WHITE_LABELING_OPTIONS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setWhiteLabelingOptions(
             @javax.annotation.Nullable SubWhiteLabelingOptions whiteLabelingOptions) {
@@ -460,9 +460,6 @@ public class ApiAppUpdateRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

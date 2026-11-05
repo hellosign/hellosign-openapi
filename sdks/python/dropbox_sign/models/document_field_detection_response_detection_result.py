@@ -32,6 +32,7 @@ from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 
 class DocumentFieldDetectionResponseDetectionResult(BaseModel):
@@ -49,7 +50,8 @@ class DocumentFieldDetectionResponseDetectionResult(BaseModel):
         description="The total number of pages in the document."
     )
     pages_analyzed: StrictStr = Field(
-        description="The zero-based page indexes analyzed, represented by the requested `page_range`, or `all` when every page was analyzed."
+        description="The zero-based page indexes analyzed, represented by the requested `page_range`, or `all` when every page was analyzed.",
+        json_schema_extra={"examples": ["all"]},
     )
     detected_at: StrictInt = Field(
         description="The Unix timestamp when the field detection result was generated."
@@ -83,7 +85,8 @@ class DocumentFieldDetectionResponseDetectionResult(BaseModel):
     ]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -95,8 +98,7 @@ class DocumentFieldDetectionResponseDetectionResult(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None
@@ -136,29 +138,37 @@ class DocumentFieldDetectionResponseDetectionResult(BaseModel):
         _items = []
         if self.form_fields_per_document:
             for _item_form_fields_per_document in self.form_fields_per_document:
-                if _item_form_fields_per_document:
-                    _items.append(_item_form_fields_per_document.to_dict())
+                _items.append(
+                    _item_form_fields_per_document.to_dict()
+                    if _item_form_fields_per_document is not None
+                    else None
+                )
             _dict["form_fields_per_document"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in form_field_groups (list)
         _items = []
         if self.form_field_groups:
             for _item_form_field_groups in self.form_field_groups:
-                if _item_form_field_groups:
-                    _items.append(_item_form_field_groups.to_dict())
+                _items.append(
+                    _item_form_field_groups.to_dict()
+                    if _item_form_field_groups is not None
+                    else None
+                )
             _dict["form_field_groups"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in warnings (list)
         _items = []
         if self.warnings:
             for _item_warnings in self.warnings:
-                if _item_warnings:
-                    _items.append(_item_warnings.to_dict())
+                _items.append(
+                    _item_warnings.to_dict() if _item_warnings is not None else None
+                )
             _dict["warnings"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in errors (list)
         _items = []
         if self.errors:
             for _item_errors in self.errors:
-                if _item_errors:
-                    _items.append(_item_errors.to_dict())
+                _items.append(
+                    _item_errors.to_dict() if _item_errors is not None else None
+                )
             _dict["errors"] = _items
         return _dict
 

@@ -1,29 +1,35 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-DIR=$(cd `dirname $0` && pwd)
+DIR=$(cd "$(dirname "$0")" && pwd)
 
 WORKING_DIR="/app/openapi"
 SDK_DIR="${DIR}/../sdks/dotnet"
 TARGET_DIR="${DIR}/../sandbox/dotnet"
 ARTIFACTS_DIR="${DIR}/../sandbox/dotnet/artifacts"
 
-mkdir -p "${ARTIFACTS_DIR}"
+mkdir -p "${ARTIFACTS_DIR}" "${SDK_DIR}/.docker/nuget" "${SDK_DIR}/.docker/home"
 rm -f "${ARTIFACTS_DIR}/*.nupkg"
 rm -f "${TARGET_DIR}/src/Dropbox.SignSandbox/*.cs"
 cp "${SDK_DIR}/templates/Entry.cs" "${TARGET_DIR}/src/Dropbox.SignSandbox/Entry.cs"
 
-docker run --rm -it \
+"${DIR}/docker-run" -it \
   -v "${SDK_DIR}:${WORKING_DIR}" \
   -v "${ARTIFACTS_DIR}:/artifacts" \
   -v "${TARGET_DIR}:/target" \
+  -v "${SDK_DIR}/.docker/home:/tmp/home" \
+  -v "${SDK_DIR}/.docker/nuget:/tmp/nuget" \
+  -e HOME=/tmp/home \
+  -e NUGET_PACKAGES=/tmp/nuget \
   -w "${WORKING_DIR}" \
-  -u root:root \
   mcr.microsoft.com/dotnet/sdk:9.0 dotnet pack -o /artifacts
 
-docker run --rm -it \
+"${DIR}/docker-run" -it \
   -v "${TARGET_DIR}:${WORKING_DIR}" \
+  -v "${SDK_DIR}/.docker/home:/tmp/home" \
+  -v "${SDK_DIR}/.docker/nuget:/tmp/nuget" \
+  -e HOME=/tmp/home \
+  -e NUGET_PACKAGES=/tmp/nuget \
   -w "${WORKING_DIR}" \
-  -u root:root \
   mcr.microsoft.com/dotnet/sdk:9.0 dotnet build

@@ -25,7 +25,7 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 public class TeamApi {
     private ApiClient apiClient;
 
@@ -73,7 +73,9 @@ public class TeamApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public TeamGetResponse teamAddMember(TeamAddMemberRequest teamAddMemberRequest, String teamId)
+    public TeamGetResponse teamAddMember(
+            @javax.annotation.Nonnull TeamAddMemberRequest teamAddMemberRequest,
+            @javax.annotation.Nullable String teamId)
             throws ApiException {
         return teamAddMemberWithHttpInfo(teamAddMemberRequest, teamId).getData();
     }
@@ -117,7 +119,9 @@ public class TeamApi {
      * </table>
      */
     public ApiResponse<TeamGetResponse> teamAddMemberWithHttpInfo(
-            TeamAddMemberRequest teamAddMemberRequest, String teamId) throws ApiException {
+            @javax.annotation.Nonnull TeamAddMemberRequest teamAddMemberRequest,
+            @javax.annotation.Nullable String teamId)
+            throws ApiException {
 
         // Check required parameters
         if (teamAddMemberRequest == null) {
@@ -172,7 +176,8 @@ public class TeamApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public TeamGetResponse teamCreate(TeamCreateRequest teamCreateRequest) throws ApiException {
+    public TeamGetResponse teamCreate(@javax.annotation.Nonnull TeamCreateRequest teamCreateRequest)
+            throws ApiException {
         return teamCreateWithHttpInfo(teamCreateRequest).getData();
     }
 
@@ -191,8 +196,8 @@ public class TeamApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<TeamGetResponse> teamCreateWithHttpInfo(TeamCreateRequest teamCreateRequest)
-            throws ApiException {
+    public ApiResponse<TeamGetResponse> teamCreateWithHttpInfo(
+            @javax.annotation.Nonnull TeamCreateRequest teamCreateRequest) throws ApiException {
 
         // Check required parameters
         if (teamCreateRequest == null) {
@@ -355,7 +360,8 @@ public class TeamApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public TeamGetInfoResponse teamInfo(String teamId) throws ApiException {
+    public TeamGetInfoResponse teamInfo(@javax.annotation.Nullable String teamId)
+            throws ApiException {
         return teamInfoWithHttpInfo(teamId).getData();
     }
 
@@ -391,8 +397,8 @@ public class TeamApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<TeamGetInfoResponse> teamInfoWithHttpInfo(String teamId)
-            throws ApiException {
+    public ApiResponse<TeamGetInfoResponse> teamInfoWithHttpInfo(
+            @javax.annotation.Nullable String teamId) throws ApiException {
 
         // Query parameters
         List<Pair> localVarQueryParams =
@@ -437,7 +443,8 @@ public class TeamApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public TeamInvitesResponse teamInvites(String emailAddress) throws ApiException {
+    public TeamInvitesResponse teamInvites(@javax.annotation.Nullable String emailAddress)
+            throws ApiException {
         return teamInvitesWithHttpInfo(emailAddress).getData();
     }
 
@@ -473,8 +480,8 @@ public class TeamApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<TeamInvitesResponse> teamInvitesWithHttpInfo(String emailAddress)
-            throws ApiException {
+    public ApiResponse<TeamInvitesResponse> teamInvitesWithHttpInfo(
+            @javax.annotation.Nullable String emailAddress) throws ApiException {
 
         // Query parameters
         List<Pair> localVarQueryParams =
@@ -524,7 +531,10 @@ public class TeamApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public TeamMembersResponse teamMembers(String teamId, Integer page, Integer pageSize)
+    public TeamMembersResponse teamMembers(
+            @javax.annotation.Nonnull String teamId,
+            @javax.annotation.Nullable Integer page,
+            @javax.annotation.Nullable Integer pageSize)
             throws ApiException {
         return teamMembersWithHttpInfo(teamId, page, pageSize).getData();
     }
@@ -589,7 +599,10 @@ public class TeamApi {
      * </table>
      */
     public ApiResponse<TeamMembersResponse> teamMembersWithHttpInfo(
-            String teamId, Integer page, Integer pageSize) throws ApiException {
+            @javax.annotation.Nonnull String teamId,
+            @javax.annotation.Nullable Integer page,
+            @javax.annotation.Nullable Integer pageSize)
+            throws ApiException {
 
         if (page == null) {
             page = 1;
@@ -657,7 +670,8 @@ public class TeamApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public TeamGetResponse teamRemoveMember(TeamRemoveMemberRequest teamRemoveMemberRequest)
+    public TeamGetResponse teamRemoveMember(
+            @javax.annotation.Nonnull TeamRemoveMemberRequest teamRemoveMemberRequest)
             throws ApiException {
         return teamRemoveMemberWithHttpInfo(teamRemoveMemberRequest).getData();
     }
@@ -682,7 +696,8 @@ public class TeamApi {
      * </table>
      */
     public ApiResponse<TeamGetResponse> teamRemoveMemberWithHttpInfo(
-            TeamRemoveMemberRequest teamRemoveMemberRequest) throws ApiException {
+            @javax.annotation.Nonnull TeamRemoveMemberRequest teamRemoveMemberRequest)
+            throws ApiException {
 
         // Check required parameters
         if (teamRemoveMemberRequest == null) {
@@ -925,7 +940,10 @@ public class TeamApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public TeamSubTeamsResponse teamSubTeams(String teamId, Integer page, Integer pageSize)
+    public TeamSubTeamsResponse teamSubTeams(
+            @javax.annotation.Nonnull String teamId,
+            @javax.annotation.Nullable Integer page,
+            @javax.annotation.Nullable Integer pageSize)
             throws ApiException {
         return teamSubTeamsWithHttpInfo(teamId, page, pageSize).getData();
     }
@@ -989,7 +1007,10 @@ public class TeamApi {
      * </table>
      */
     public ApiResponse<TeamSubTeamsResponse> teamSubTeamsWithHttpInfo(
-            String teamId, Integer page, Integer pageSize) throws ApiException {
+            @javax.annotation.Nonnull String teamId,
+            @javax.annotation.Nullable Integer page,
+            @javax.annotation.Nullable Integer pageSize)
+            throws ApiException {
 
         if (page == null) {
             page = 1;
@@ -1052,7 +1073,8 @@ public class TeamApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public TeamGetResponse teamUpdate(TeamUpdateRequest teamUpdateRequest) throws ApiException {
+    public TeamGetResponse teamUpdate(@javax.annotation.Nonnull TeamUpdateRequest teamUpdateRequest)
+            throws ApiException {
         return teamUpdateWithHttpInfo(teamUpdateRequest).getData();
     }
 
@@ -1070,8 +1092,8 @@ public class TeamApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<TeamGetResponse> teamUpdateWithHttpInfo(TeamUpdateRequest teamUpdateRequest)
-            throws ApiException {
+    public ApiResponse<TeamGetResponse> teamUpdateWithHttpInfo(
+            @javax.annotation.Nonnull TeamUpdateRequest teamUpdateRequest) throws ApiException {
 
         // Check required parameters
         if (teamUpdateRequest == null) {
