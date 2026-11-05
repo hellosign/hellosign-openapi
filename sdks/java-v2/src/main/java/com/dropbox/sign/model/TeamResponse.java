@@ -98,7 +98,7 @@ public class TeamResponse {
    * @return teamId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTeamId() {
@@ -106,7 +106,7 @@ public class TeamResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTeamId(@jakarta.annotation.Nullable String teamId) {
     this.teamId = teamId;
@@ -123,7 +123,7 @@ public class TeamResponse {
    * @return parentTeamId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PARENT_TEAM_ID)
+  @JsonProperty(value = JSON_PROPERTY_PARENT_TEAM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getParentTeamId() {
@@ -131,7 +131,7 @@ public class TeamResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PARENT_TEAM_ID)
+  @JsonProperty(value = JSON_PROPERTY_PARENT_TEAM_ID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setParentTeamId(@jakarta.annotation.Nullable String parentTeamId) {
     this.parentTeamId = parentTeamId;

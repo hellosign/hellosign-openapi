@@ -32,7 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountSettingsUpdateRequest {
     public static final String JSON_PROPERTY_SET = "set";
@@ -78,13 +78,13 @@ public class AccountSettingsUpdateRequest {
      *
      * @return set
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SET)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_SET, required = false)
     @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
     public Map<String, Object> getSet() {
         return set;
     }
 
-    @JsonProperty(JSON_PROPERTY_SET)
+    @JsonProperty(value = JSON_PROPERTY_SET, required = false)
     @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
     public void setSet(@javax.annotation.Nullable Map<String, Object> set) {
         this.set = set;
@@ -109,13 +109,13 @@ public class AccountSettingsUpdateRequest {
      *
      * @return unset
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_UNSET)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_UNSET, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<String> getUnset() {
         return unset;
     }
 
-    @JsonProperty(JSON_PROPERTY_UNSET)
+    @JsonProperty(value = JSON_PROPERTY_UNSET, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setUnset(@javax.annotation.Nullable List<String> unset) {
         this.unset = unset;
@@ -228,9 +228,6 @@ public class AccountSettingsUpdateRequest {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

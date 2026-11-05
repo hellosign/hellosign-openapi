@@ -1,6 +1,6 @@
 # Dropbox::Sign::DataResidency
 
-Storage region for team documents.
+Region where the team&#39;s documents are stored at rest.
 
 ## Properties
 

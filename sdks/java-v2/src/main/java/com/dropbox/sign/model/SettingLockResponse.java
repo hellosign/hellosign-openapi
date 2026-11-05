@@ -37,7 +37,7 @@ import com.dropbox.sign.ApiException;
   SettingLockResponse.JSON_PROPERTY_MODE,
   SettingLockResponse.JSON_PROPERTY_SOURCE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SettingLockResponse {
   public static final String JSON_PROPERTY_MODE = "mode";
@@ -113,7 +113,7 @@ public class SettingLockResponse {
    * @return mode
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_MODE)
+  @JsonProperty(value = JSON_PROPERTY_MODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TeamSettingLock getMode() {
@@ -121,7 +121,7 @@ public class SettingLockResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MODE)
+  @JsonProperty(value = JSON_PROPERTY_MODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMode(@jakarta.annotation.Nonnull TeamSettingLock mode) {
     this.mode = mode;
@@ -138,7 +138,7 @@ public class SettingLockResponse {
    * @return source
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonProperty(value = JSON_PROPERTY_SOURCE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SourceEnum getSource() {
@@ -146,7 +146,7 @@ public class SettingLockResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonProperty(value = JSON_PROPERTY_SOURCE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSource(@jakarta.annotation.Nonnull SourceEnum source) {
     this.source = source;
@@ -258,10 +258,7 @@ public class SettingLockResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

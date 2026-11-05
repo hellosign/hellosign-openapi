@@ -61,7 +61,7 @@ import com.dropbox.sign.ApiException;
   AccountSettingsResponseSettings.JSON_PROPERTY_SHOULD_SEND_OUTBOUND_CONF_EMAILS,
   AccountSettingsResponseSettings.JSON_PROPERTY_TEMPLATE_LINK_SIGNATURE_EMAILS_ENABLED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountSettingsResponseSettings {
   public static final String JSON_PROPERTY_COMPANY = "company";
@@ -196,7 +196,7 @@ public class AccountSettingsResponseSettings {
    * @return company
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_COMPANY)
+  @JsonProperty(value = JSON_PROPERTY_COMPANY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getCompany() {
@@ -204,7 +204,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COMPANY)
+  @JsonProperty(value = JSON_PROPERTY_COMPANY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCompany(@jakarta.annotation.Nonnull SettingResponse company) {
     this.company = company;
@@ -221,7 +221,7 @@ public class AccountSettingsResponseSettings {
    * @return customSigningRedirectEnabled
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getCustomSigningRedirectEnabled() {
@@ -229,7 +229,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCustomSigningRedirectEnabled(@jakarta.annotation.Nonnull SettingResponse customSigningRedirectEnabled) {
     this.customSigningRedirectEnabled = customSigningRedirectEnabled;
@@ -246,7 +246,7 @@ public class AccountSettingsResponseSettings {
    * @return customSigningRedirectUrl
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_URL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getCustomSigningRedirectUrl() {
@@ -254,7 +254,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_URL)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_URL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCustomSigningRedirectUrl(@jakarta.annotation.Nonnull SettingResponse customSigningRedirectUrl) {
     this.customSigningRedirectUrl = customSigningRedirectUrl;
@@ -271,7 +271,7 @@ public class AccountSettingsResponseSettings {
    * @return customTagline
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CUSTOM_TAGLINE)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_TAGLINE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getCustomTagline() {
@@ -279,7 +279,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CUSTOM_TAGLINE)
+  @JsonProperty(value = JSON_PROPERTY_CUSTOM_TAGLINE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCustomTagline(@jakarta.annotation.Nonnull SettingResponse customTagline) {
     this.customTagline = customTagline;
@@ -296,7 +296,7 @@ public class AccountSettingsResponseSettings {
    * @return dateFormat
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DATE_FORMAT)
+  @JsonProperty(value = JSON_PROPERTY_DATE_FORMAT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getDateFormat() {
@@ -304,7 +304,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATE_FORMAT)
+  @JsonProperty(value = JSON_PROPERTY_DATE_FORMAT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDateFormat(@jakarta.annotation.Nonnull SettingResponse dateFormat) {
     this.dateFormat = dateFormat;
@@ -321,7 +321,7 @@ public class AccountSettingsResponseSettings {
    * @return isSignatureRemindersEnabled
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_SIGNATURE_REMINDERS_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_IS_SIGNATURE_REMINDERS_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getIsSignatureRemindersEnabled() {
@@ -329,7 +329,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_SIGNATURE_REMINDERS_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_IS_SIGNATURE_REMINDERS_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsSignatureRemindersEnabled(@jakarta.annotation.Nonnull SettingResponse isSignatureRemindersEnabled) {
     this.isSignatureRemindersEnabled = isSignatureRemindersEnabled;
@@ -346,7 +346,7 @@ public class AccountSettingsResponseSettings {
    * @return requestEmailFrom
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_REQUEST_EMAIL_FROM)
+  @JsonProperty(value = JSON_PROPERTY_REQUEST_EMAIL_FROM, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getRequestEmailFrom() {
@@ -354,7 +354,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUEST_EMAIL_FROM)
+  @JsonProperty(value = JSON_PROPERTY_REQUEST_EMAIL_FROM, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequestEmailFrom(@jakarta.annotation.Nonnull SettingResponse requestEmailFrom) {
     this.requestEmailFrom = requestEmailFrom;
@@ -371,7 +371,7 @@ public class AccountSettingsResponseSettings {
    * @return requestEmailSignature
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_REQUEST_EMAIL_SIGNATURE)
+  @JsonProperty(value = JSON_PROPERTY_REQUEST_EMAIL_SIGNATURE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getRequestEmailSignature() {
@@ -379,7 +379,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUEST_EMAIL_SIGNATURE)
+  @JsonProperty(value = JSON_PROPERTY_REQUEST_EMAIL_SIGNATURE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequestEmailSignature(@jakarta.annotation.Nonnull SettingResponse requestEmailSignature) {
     this.requestEmailSignature = requestEmailSignature;
@@ -396,7 +396,7 @@ public class AccountSettingsResponseSettings {
    * @return requiredSignatureTypes
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_REQUIRED_SIGNATURE_TYPES)
+  @JsonProperty(value = JSON_PROPERTY_REQUIRED_SIGNATURE_TYPES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getRequiredSignatureTypes() {
@@ -404,7 +404,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REQUIRED_SIGNATURE_TYPES)
+  @JsonProperty(value = JSON_PROPERTY_REQUIRED_SIGNATURE_TYPES, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequiredSignatureTypes(@jakarta.annotation.Nonnull SettingResponse requiredSignatureTypes) {
     this.requiredSignatureTypes = requiredSignatureTypes;
@@ -421,7 +421,7 @@ public class AccountSettingsResponseSettings {
    * @return shouldEnableTamperProof
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SHOULD_ENABLE_TAMPER_PROOF)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_ENABLE_TAMPER_PROOF, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getShouldEnableTamperProof() {
@@ -429,7 +429,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_ENABLE_TAMPER_PROOF)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_ENABLE_TAMPER_PROOF, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldEnableTamperProof(@jakarta.annotation.Nonnull SettingResponse shouldEnableTamperProof) {
     this.shouldEnableTamperProof = shouldEnableTamperProof;
@@ -446,7 +446,7 @@ public class AccountSettingsResponseSettings {
    * @return shouldIncludeDistinctPdfs
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SHOULD_INCLUDE_DISTINCT_PDFS)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_INCLUDE_DISTINCT_PDFS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getShouldIncludeDistinctPdfs() {
@@ -454,7 +454,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_INCLUDE_DISTINCT_PDFS)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_INCLUDE_DISTINCT_PDFS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldIncludeDistinctPdfs(@jakarta.annotation.Nonnull SettingResponse shouldIncludeDistinctPdfs) {
     this.shouldIncludeDistinctPdfs = shouldIncludeDistinctPdfs;
@@ -471,7 +471,7 @@ public class AccountSettingsResponseSettings {
    * @return shouldOfferSignerAccessCode
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SHOULD_OFFER_SIGNER_ACCESS_CODE)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_OFFER_SIGNER_ACCESS_CODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getShouldOfferSignerAccessCode() {
@@ -479,7 +479,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_OFFER_SIGNER_ACCESS_CODE)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_OFFER_SIGNER_ACCESS_CODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldOfferSignerAccessCode(@jakarta.annotation.Nonnull SettingResponse shouldOfferSignerAccessCode) {
     this.shouldOfferSignerAccessCode = shouldOfferSignerAccessCode;
@@ -496,7 +496,7 @@ public class AccountSettingsResponseSettings {
    * @return shouldOfferSignerSmsAuthentication
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getShouldOfferSignerSmsAuthentication() {
@@ -504,7 +504,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldOfferSignerSmsAuthentication(@jakarta.annotation.Nonnull SettingResponse shouldOfferSignerSmsAuthentication) {
     this.shouldOfferSignerSmsAuthentication = shouldOfferSignerSmsAuthentication;
@@ -521,7 +521,7 @@ public class AccountSettingsResponseSettings {
    * @return shouldRemoveDocumentId
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SHOULD_REMOVE_DOCUMENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_REMOVE_DOCUMENT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getShouldRemoveDocumentId() {
@@ -529,7 +529,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_REMOVE_DOCUMENT_ID)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_REMOVE_DOCUMENT_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldRemoveDocumentId(@jakarta.annotation.Nonnull SettingResponse shouldRemoveDocumentId) {
     this.shouldRemoveDocumentId = shouldRemoveDocumentId;
@@ -546,7 +546,7 @@ public class AccountSettingsResponseSettings {
    * @return isNotifyOnSignEnabled
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_NOTIFY_ON_SIGN_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_IS_NOTIFY_ON_SIGN_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getIsNotifyOnSignEnabled() {
@@ -554,7 +554,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_NOTIFY_ON_SIGN_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_IS_NOTIFY_ON_SIGN_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsNotifyOnSignEnabled(@jakarta.annotation.Nonnull SettingResponse isNotifyOnSignEnabled) {
     this.isNotifyOnSignEnabled = isNotifyOnSignEnabled;
@@ -571,7 +571,7 @@ public class AccountSettingsResponseSettings {
    * @return isNotifyOnViewEnabled
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_NOTIFY_ON_VIEW_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_IS_NOTIFY_ON_VIEW_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getIsNotifyOnViewEnabled() {
@@ -579,7 +579,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_NOTIFY_ON_VIEW_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_IS_NOTIFY_ON_VIEW_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsNotifyOnViewEnabled(@jakarta.annotation.Nonnull SettingResponse isNotifyOnViewEnabled) {
     this.isNotifyOnViewEnabled = isNotifyOnViewEnabled;
@@ -596,7 +596,7 @@ public class AccountSettingsResponseSettings {
    * @return shouldAutocomplete
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SHOULD_AUTOCOMPLETE)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_AUTOCOMPLETE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getShouldAutocomplete() {
@@ -604,7 +604,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_AUTOCOMPLETE)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_AUTOCOMPLETE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldAutocomplete(@jakarta.annotation.Nonnull SettingResponse shouldAutocomplete) {
     this.shouldAutocomplete = shouldAutocomplete;
@@ -621,7 +621,7 @@ public class AccountSettingsResponseSettings {
    * @return shouldIncludeRequestedPdfs
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SHOULD_INCLUDE_REQUESTED_PDFS)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_INCLUDE_REQUESTED_PDFS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getShouldIncludeRequestedPdfs() {
@@ -629,7 +629,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_INCLUDE_REQUESTED_PDFS)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_INCLUDE_REQUESTED_PDFS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldIncludeRequestedPdfs(@jakarta.annotation.Nonnull SettingResponse shouldIncludeRequestedPdfs) {
     this.shouldIncludeRequestedPdfs = shouldIncludeRequestedPdfs;
@@ -646,7 +646,7 @@ public class AccountSettingsResponseSettings {
    * @return shouldIncludeRequestedPdfsForOthers
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SHOULD_INCLUDE_REQUESTED_PDFS_FOR_OTHERS)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_INCLUDE_REQUESTED_PDFS_FOR_OTHERS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getShouldIncludeRequestedPdfsForOthers() {
@@ -654,7 +654,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_INCLUDE_REQUESTED_PDFS_FOR_OTHERS)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_INCLUDE_REQUESTED_PDFS_FOR_OTHERS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldIncludeRequestedPdfsForOthers(@jakarta.annotation.Nonnull SettingResponse shouldIncludeRequestedPdfsForOthers) {
     this.shouldIncludeRequestedPdfsForOthers = shouldIncludeRequestedPdfsForOthers;
@@ -671,7 +671,7 @@ public class AccountSettingsResponseSettings {
    * @return shouldIncludeSentDocPdfs
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SHOULD_INCLUDE_SENT_DOC_PDFS)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_INCLUDE_SENT_DOC_PDFS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getShouldIncludeSentDocPdfs() {
@@ -679,7 +679,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_INCLUDE_SENT_DOC_PDFS)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_INCLUDE_SENT_DOC_PDFS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldIncludeSentDocPdfs(@jakarta.annotation.Nonnull SettingResponse shouldIncludeSentDocPdfs) {
     this.shouldIncludeSentDocPdfs = shouldIncludeSentDocPdfs;
@@ -696,7 +696,7 @@ public class AccountSettingsResponseSettings {
    * @return shouldIncludeSentDocPdfsForOthers
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SHOULD_INCLUDE_SENT_DOC_PDFS_FOR_OTHERS)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_INCLUDE_SENT_DOC_PDFS_FOR_OTHERS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getShouldIncludeSentDocPdfsForOthers() {
@@ -704,7 +704,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_INCLUDE_SENT_DOC_PDFS_FOR_OTHERS)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_INCLUDE_SENT_DOC_PDFS_FOR_OTHERS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldIncludeSentDocPdfsForOthers(@jakarta.annotation.Nonnull SettingResponse shouldIncludeSentDocPdfsForOthers) {
     this.shouldIncludeSentDocPdfsForOthers = shouldIncludeSentDocPdfsForOthers;
@@ -721,7 +721,7 @@ public class AccountSettingsResponseSettings {
    * @return shouldSendDailySummary
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SHOULD_SEND_DAILY_SUMMARY)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_SEND_DAILY_SUMMARY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getShouldSendDailySummary() {
@@ -729,7 +729,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_SEND_DAILY_SUMMARY)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_SEND_DAILY_SUMMARY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldSendDailySummary(@jakarta.annotation.Nonnull SettingResponse shouldSendDailySummary) {
     this.shouldSendDailySummary = shouldSendDailySummary;
@@ -746,7 +746,7 @@ public class AccountSettingsResponseSettings {
    * @return shouldSendEmbeddedSignatureConfEmails
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SHOULD_SEND_EMBEDDED_SIGNATURE_CONF_EMAILS)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_SEND_EMBEDDED_SIGNATURE_CONF_EMAILS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getShouldSendEmbeddedSignatureConfEmails() {
@@ -754,7 +754,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_SEND_EMBEDDED_SIGNATURE_CONF_EMAILS)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_SEND_EMBEDDED_SIGNATURE_CONF_EMAILS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldSendEmbeddedSignatureConfEmails(@jakarta.annotation.Nonnull SettingResponse shouldSendEmbeddedSignatureConfEmails) {
     this.shouldSendEmbeddedSignatureConfEmails = shouldSendEmbeddedSignatureConfEmails;
@@ -771,7 +771,7 @@ public class AccountSettingsResponseSettings {
    * @return shouldSendOrderedSrEmail
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SHOULD_SEND_ORDERED_SR_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_SEND_ORDERED_SR_EMAIL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getShouldSendOrderedSrEmail() {
@@ -779,7 +779,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_SEND_ORDERED_SR_EMAIL)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_SEND_ORDERED_SR_EMAIL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldSendOrderedSrEmail(@jakarta.annotation.Nonnull SettingResponse shouldSendOrderedSrEmail) {
     this.shouldSendOrderedSrEmail = shouldSendOrderedSrEmail;
@@ -796,7 +796,7 @@ public class AccountSettingsResponseSettings {
    * @return shouldSendOutboundConfEmails
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SHOULD_SEND_OUTBOUND_CONF_EMAILS)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_SEND_OUTBOUND_CONF_EMAILS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getShouldSendOutboundConfEmails() {
@@ -804,7 +804,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHOULD_SEND_OUTBOUND_CONF_EMAILS)
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_SEND_OUTBOUND_CONF_EMAILS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setShouldSendOutboundConfEmails(@jakarta.annotation.Nonnull SettingResponse shouldSendOutboundConfEmails) {
     this.shouldSendOutboundConfEmails = shouldSendOutboundConfEmails;
@@ -821,7 +821,7 @@ public class AccountSettingsResponseSettings {
    * @return templateLinkSignatureEmailsEnabled
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_LINK_SIGNATURE_EMAILS_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE_LINK_SIGNATURE_EMAILS_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingResponse getTemplateLinkSignatureEmailsEnabled() {
@@ -829,7 +829,7 @@ public class AccountSettingsResponseSettings {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_LINK_SIGNATURE_EMAILS_ENABLED)
+  @JsonProperty(value = JSON_PROPERTY_TEMPLATE_LINK_SIGNATURE_EMAILS_ENABLED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTemplateLinkSignatureEmailsEnabled(@jakarta.annotation.Nonnull SettingResponse templateLinkSignatureEmailsEnabled) {
     this.templateLinkSignatureEmailsEnabled = templateLinkSignatureEmailsEnabled;
@@ -1445,10 +1445,7 @@ public class AccountSettingsResponseSettings {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

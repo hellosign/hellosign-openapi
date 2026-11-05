@@ -42,14 +42,14 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="TeamSettingsUpdateRequest" /> class.
         /// </summary>
         /// <param name="set">Values to store, keyed by setting name. A name in &#x60;set&#x60; cannot also appear in &#x60;unset&#x60;..</param>
-        /// <param name="unset">Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request..</param>
-        /// <param name="varLock">Lock modes keyed by setting name. Only team settings support locks. A name in &#x60;lock&#x60; cannot also appear in &#x60;unset&#x60;..</param>
-        public TeamSettingsUpdateRequest(Dictionary<string, Object> set = default(Dictionary<string, Object>), List<string> unset = default(List<string>), Dictionary<string, TeamSettingLock> varLock = default(Dictionary<string, TeamSettingLock>))
+        /// <param name="varLock">Lock a setting to prevent subteams or accounts from overriding it. A team admin can set a lock on their own team. An organization admin can set a lock on the organization or on a subteam. &#x60;organization_admins&#x60; prevents subteams and accounts from overriding the value. &#x60;team_admins&#x60; lets admins of that team and its subteams set their own value. &#x60;members&#x60; lets each account set its own value. A name in &#x60;lock&#x60; cannot also appear in &#x60;unset&#x60;..</param>
+        /// <param name="unset">Any setting that can be set can also be unset. Unset clears the stored value and its lock so both are inherited. A listed name cannot also be set or locked in the same request..</param>
+        public TeamSettingsUpdateRequest(Dictionary<string, Object> set = default(Dictionary<string, Object>), Dictionary<string, TeamSettingLock> varLock = default(Dictionary<string, TeamSettingLock>), List<string> unset = default(List<string>))
         {
 
             this.Set = set;
-            this.Unset = unset;
             this.Lock = varLock;
+            this.Unset = unset;
         }
 
         /// <summary>
@@ -76,18 +76,18 @@ namespace Dropbox.Sign.Model
         public Dictionary<string, Object> Set { get; set; }
 
         /// <summary>
-        /// Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.
+        /// Lock a setting to prevent subteams or accounts from overriding it. A team admin can set a lock on their own team. An organization admin can set a lock on the organization or on a subteam. &#x60;organization_admins&#x60; prevents subteams and accounts from overriding the value. &#x60;team_admins&#x60; lets admins of that team and its subteams set their own value. &#x60;members&#x60; lets each account set its own value. A name in &#x60;lock&#x60; cannot also appear in &#x60;unset&#x60;.
         /// </summary>
-        /// <value>Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.</value>
-        [DataMember(Name = "unset", EmitDefaultValue = true)]
-        public List<string> Unset { get; set; }
-
-        /// <summary>
-        /// Lock modes keyed by setting name. Only team settings support locks. A name in &#x60;lock&#x60; cannot also appear in &#x60;unset&#x60;.
-        /// </summary>
-        /// <value>Lock modes keyed by setting name. Only team settings support locks. A name in &#x60;lock&#x60; cannot also appear in &#x60;unset&#x60;.</value>
+        /// <value>Lock a setting to prevent subteams or accounts from overriding it. A team admin can set a lock on their own team. An organization admin can set a lock on the organization or on a subteam. &#x60;organization_admins&#x60; prevents subteams and accounts from overriding the value. &#x60;team_admins&#x60; lets admins of that team and its subteams set their own value. &#x60;members&#x60; lets each account set its own value. A name in &#x60;lock&#x60; cannot also appear in &#x60;unset&#x60;.</value>
         [DataMember(Name = "lock", EmitDefaultValue = true)]
         public Dictionary<string, TeamSettingLock> Lock { get; set; }
+
+        /// <summary>
+        /// Any setting that can be set can also be unset. Unset clears the stored value and its lock so both are inherited. A listed name cannot also be set or locked in the same request.
+        /// </summary>
+        /// <value>Any setting that can be set can also be unset. Unset clears the stored value and its lock so both are inherited. A listed name cannot also be set or locked in the same request.</value>
+        [DataMember(Name = "unset", EmitDefaultValue = true)]
+        public List<string> Unset { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -98,8 +98,8 @@ namespace Dropbox.Sign.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class TeamSettingsUpdateRequest {\n");
             sb.Append("  Set: ").Append(Set).Append("\n");
-            sb.Append("  Unset: ").Append(Unset).Append("\n");
             sb.Append("  Lock: ").Append(Lock).Append("\n");
+            sb.Append("  Unset: ").Append(Unset).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,16 +142,16 @@ namespace Dropbox.Sign.Model
                     this.Set.SequenceEqual(input.Set)
                 ) &&
                 (
-                    this.Unset == input.Unset ||
-                    this.Unset != null &&
-                    input.Unset != null &&
-                    this.Unset.SequenceEqual(input.Unset)
-                ) &&
-                (
                     this.Lock == input.Lock ||
                     this.Lock != null &&
                     input.Lock != null &&
                     this.Lock.SequenceEqual(input.Lock)
+                ) &&
+                (
+                    this.Unset == input.Unset ||
+                    this.Unset != null &&
+                    input.Unset != null &&
+                    this.Unset.SequenceEqual(input.Unset)
                 );
         }
 
@@ -168,13 +168,13 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.Set.GetHashCode();
                 }
-                if (this.Unset != null)
-                {
-                    hashCode = (hashCode * 59) + this.Unset.GetHashCode();
-                }
                 if (this.Lock != null)
                 {
                     hashCode = (hashCode * 59) + this.Lock.GetHashCode();
+                }
+                if (this.Unset != null)
+                {
+                    hashCode = (hashCode * 59) + this.Unset.GetHashCode();
                 }
                 return hashCode;
             }
@@ -201,17 +201,17 @@ namespace Dropbox.Sign.Model
             });
             types.Add(new OpenApiType()
             {
-                Name = "unset",
-                Property = "Unset",
-                Type = "List<string>",
-                Value = Unset,
-            });
-            types.Add(new OpenApiType()
-            {
                 Name = "lock",
                 Property = "Lock",
                 Type = "Dictionary<string, TeamSettingLock>",
                 Value = Lock,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "unset",
+                Property = "Unset",
+                Type = "List<string>",
+                Value = Unset,
             });
 
             return types;

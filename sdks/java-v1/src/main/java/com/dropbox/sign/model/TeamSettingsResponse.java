@@ -33,7 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamSettingsResponse {
     public static final String JSON_PROPERTY_TEAM_ID = "team_id";
@@ -72,13 +72,13 @@ public class TeamSettingsResponse {
      * @return teamId
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TEAM_ID)
+    @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getTeamId() {
         return teamId;
     }
 
-    @JsonProperty(JSON_PROPERTY_TEAM_ID)
+    @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setTeamId(@javax.annotation.Nonnull String teamId) {
         this.teamId = teamId;
@@ -96,13 +96,13 @@ public class TeamSettingsResponse {
      * @return settings
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SETTINGS)
+    @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public TeamSettingsResponseSettings getSettings() {
         return settings;
     }
 
-    @JsonProperty(JSON_PROPERTY_SETTINGS)
+    @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSettings(@javax.annotation.Nonnull TeamSettingsResponseSettings settings) {
         this.settings = settings;
@@ -127,13 +127,13 @@ public class TeamSettingsResponse {
      *
      * @return warnings
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<WarningResponse> getWarnings() {
         return warnings;
     }
 
-    @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
@@ -265,9 +265,6 @@ public class TeamSettingsResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

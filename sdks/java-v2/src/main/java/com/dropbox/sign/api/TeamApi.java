@@ -699,7 +699,7 @@ public class TeamApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TeamSettingsResponse teamSettingsGet(String teamId) throws ApiException {
+  public TeamSettingsResponse teamSettingsGet(@jakarta.annotation.Nullable String teamId) throws ApiException {
     return teamSettingsGetWithHttpInfo(teamId).getData();
   }
 
@@ -738,7 +738,7 @@ public class TeamApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TeamSettingsResponse> teamSettingsGetWithHttpInfo(String teamId) throws ApiException {
+  public ApiResponse<TeamSettingsResponse> teamSettingsGetWithHttpInfo(@jakarta.annotation.Nullable String teamId) throws ApiException {
     
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
@@ -784,7 +784,7 @@ public class TeamApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TeamSettingsResponse teamSettingsUpdate(TeamSettingsUpdateRequest teamSettingsUpdateRequest, String teamId) throws ApiException {
+  public TeamSettingsResponse teamSettingsUpdate(@jakarta.annotation.Nonnull TeamSettingsUpdateRequest teamSettingsUpdateRequest, @jakarta.annotation.Nullable String teamId) throws ApiException {
     return teamSettingsUpdateWithHttpInfo(teamSettingsUpdateRequest, teamId).getData();
   }
 
@@ -824,7 +824,7 @@ public class TeamApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TeamSettingsResponse> teamSettingsUpdateWithHttpInfo(TeamSettingsUpdateRequest teamSettingsUpdateRequest, String teamId) throws ApiException {
+  public ApiResponse<TeamSettingsResponse> teamSettingsUpdateWithHttpInfo(@jakarta.annotation.Nonnull TeamSettingsUpdateRequest teamSettingsUpdateRequest, @jakarta.annotation.Nullable String teamId) throws ApiException {
     
     // Check required parameters
     if (teamSettingsUpdateRequest == null) {

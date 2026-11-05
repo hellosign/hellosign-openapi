@@ -590,7 +590,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets custom_signing_redirect_enabled
      *
-     * @param SettingResponse $custom_signing_redirect_enabled whether signers are redirected to a custom URL after completing a signature request
+     * @param SettingResponse $custom_signing_redirect_enabled whether signers are redirected to a custom webpage after they sign
      *
      * @return self
      */
@@ -617,7 +617,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets custom_signing_redirect_url
      *
-     * @param SettingResponse $custom_signing_redirect_url URL where signers are redirected after completing a signature request when custom redirects are enabled
+     * @param SettingResponse $custom_signing_redirect_url webpage where signers are redirected after they sign, when custom redirects are enabled
      *
      * @return self
      */
@@ -644,7 +644,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets custom_tagline
      *
-     * @param SettingResponse $custom_tagline custom tagline displayed with the account or team branding
+     * @param SettingResponse $custom_tagline company tagline shown with the account or team branding
      *
      * @return self
      */
@@ -671,7 +671,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets date_format
      *
-     * @param SettingResponse $date_format Date format used to display dates. List the setting in `unset` to inherit the default.
+     * @param SettingResponse $date_format Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.
      *
      * @return self
      */
@@ -698,7 +698,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets is_signature_reminders_enabled
      *
-     * @param SettingResponse $is_signature_reminders_enabled whether automatic reminder emails are enabled for incomplete signature requests
+     * @param SettingResponse $is_signature_reminders_enabled whether reminder emails are sent to signers 3 days and 7 days after a signature request is sent
      *
      * @return self
      */
@@ -725,7 +725,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets request_email_from
      *
-     * @param SettingResponse $request_email_from sender name shown on signature request emails
+     * @param SettingResponse $request_email_from Name shown in the From field of signature request emails. When unset, each user's first and last name is shown.
      *
      * @return self
      */
@@ -752,7 +752,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets request_email_signature
      *
-     * @param SettingResponse $request_email_signature signature appended to signature request emails
+     * @param SettingResponse $request_email_signature text appended to the end of signature request emails
      *
      * @return self
      */
@@ -779,7 +779,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets required_signature_types
      *
-     * @param SettingResponse $required_signature_types signature creation methods signers may use
+     * @param SettingResponse $required_signature_types signature creation methods a signer is allowed to use
      *
      * @return self
      */
@@ -806,7 +806,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets should_enable_tamper_proof
      *
-     * @param SettingResponse $should_enable_tamper_proof whether completed documents include a digital tamper-proof seal
+     * @param SettingResponse $should_enable_tamper_proof whether a tamper-proof seal is applied to sent signature requests
      *
      * @return self
      */
@@ -860,7 +860,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets should_offer_signer_access_code
      *
-     * @param SettingResponse $should_offer_signer_access_code whether senders can require an access code to verify a signer
+     * @param SettingResponse $should_offer_signer_access_code whether senders can require a custom access code before a signer can open a document
      *
      * @return self
      */
@@ -887,7 +887,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets should_offer_signer_sms_authentication
      *
-     * @param SettingResponse $should_offer_signer_sms_authentication whether senders can require SMS authentication to verify a signer
+     * @param SettingResponse $should_offer_signer_sms_authentication whether senders can require a text-message verification code before a signer can open a document
      *
      * @return self
      */
@@ -914,7 +914,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets should_remove_document_id
      *
-     * @param SettingResponse $should_remove_document_id whether the Dropbox Sign document ID is hidden on sent documents
+     * @param SettingResponse $should_remove_document_id whether the document ID is removed from all pages of sent documents
      *
      * @return self
      */
@@ -1022,7 +1022,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets should_include_requested_pdfs
      *
-     * @param SettingResponse $should_include_requested_pdfs whether completed signature requests include PDF copies in emails sent to the account
+     * @param SettingResponse $should_include_requested_pdfs whether to email the account a PDF copy when a signature request it sent is completed
      *
      * @return self
      */
@@ -1049,7 +1049,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets should_include_requested_pdfs_for_others
      *
-     * @param SettingResponse $should_include_requested_pdfs_for_others whether completed signature requests include PDF copies in emails sent to signers and CC recipients
+     * @param SettingResponse $should_include_requested_pdfs_for_others whether to email a PDF copy to the other signers and CC recipients when a signature request is completed
      *
      * @return self
      */
@@ -1076,7 +1076,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets should_include_sent_doc_pdfs
      *
-     * @param SettingResponse $should_include_sent_doc_pdfs whether emails sent to the account include PDF copies of documents it sends
+     * @param SettingResponse $should_include_sent_doc_pdfs whether to email the account a PDF copy when it sends a document
      *
      * @return self
      */
@@ -1103,7 +1103,7 @@ class AccountSettingsResponseSettings implements ModelInterface, ArrayAccess, Js
     /**
      * Sets should_include_sent_doc_pdfs_for_others
      *
-     * @param SettingResponse $should_include_sent_doc_pdfs_for_others whether emails sent to recipients include PDF copies of documents the account sends
+     * @param SettingResponse $should_include_sent_doc_pdfs_for_others whether to email recipients a PDF copy, instead of only a link, when the account sends a document
      *
      * @return self
      */

@@ -27,9 +27,9 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Storage region for team documents.
+    /// Region where the team&#39;s documents are stored at rest.
     /// </summary>
-    /// <value>Storage region for team documents.</value>
+    /// <value>Region where the team&#39;s documents are stored at rest.</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum DataResidency
     {

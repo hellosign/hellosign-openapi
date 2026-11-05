@@ -53,7 +53,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamSettingsResponseSettings {
     public static final String JSON_PROPERTY_COMPANY = "company";
@@ -172,13 +172,13 @@ public class TeamSettingsResponseSettings {
      * @return company
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_COMPANY)
+    @JsonProperty(value = JSON_PROPERTY_COMPANY, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getCompany() {
         return company;
     }
 
-    @JsonProperty(JSON_PROPERTY_COMPANY)
+    @JsonProperty(value = JSON_PROPERTY_COMPANY, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setCompany(@javax.annotation.Nonnull SettingResponse company) {
         this.company = company;
@@ -196,13 +196,13 @@ public class TeamSettingsResponseSettings {
      * @return customSigningRedirectEnabled
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_ENABLED)
+    @JsonProperty(value = JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_ENABLED, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getCustomSigningRedirectEnabled() {
         return customSigningRedirectEnabled;
     }
 
-    @JsonProperty(JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_ENABLED)
+    @JsonProperty(value = JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_ENABLED, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setCustomSigningRedirectEnabled(
             @javax.annotation.Nonnull SettingResponse customSigningRedirectEnabled) {
@@ -221,13 +221,13 @@ public class TeamSettingsResponseSettings {
      * @return customSigningRedirectUrl
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_URL)
+    @JsonProperty(value = JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_URL, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getCustomSigningRedirectUrl() {
         return customSigningRedirectUrl;
     }
 
-    @JsonProperty(JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_URL)
+    @JsonProperty(value = JSON_PROPERTY_CUSTOM_SIGNING_REDIRECT_URL, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setCustomSigningRedirectUrl(
             @javax.annotation.Nonnull SettingResponse customSigningRedirectUrl) {
@@ -246,13 +246,13 @@ public class TeamSettingsResponseSettings {
      * @return customTagline
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_CUSTOM_TAGLINE)
+    @JsonProperty(value = JSON_PROPERTY_CUSTOM_TAGLINE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getCustomTagline() {
         return customTagline;
     }
 
-    @JsonProperty(JSON_PROPERTY_CUSTOM_TAGLINE)
+    @JsonProperty(value = JSON_PROPERTY_CUSTOM_TAGLINE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setCustomTagline(@javax.annotation.Nonnull SettingResponse customTagline) {
         this.customTagline = customTagline;
@@ -271,13 +271,13 @@ public class TeamSettingsResponseSettings {
      * @return dateFormat
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_DATE_FORMAT)
+    @JsonProperty(value = JSON_PROPERTY_DATE_FORMAT, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getDateFormat() {
         return dateFormat;
     }
 
-    @JsonProperty(JSON_PROPERTY_DATE_FORMAT)
+    @JsonProperty(value = JSON_PROPERTY_DATE_FORMAT, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setDateFormat(@javax.annotation.Nonnull SettingResponse dateFormat) {
         this.dateFormat = dateFormat;
@@ -296,13 +296,13 @@ public class TeamSettingsResponseSettings {
      * @return isSignatureRemindersEnabled
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_IS_SIGNATURE_REMINDERS_ENABLED)
+    @JsonProperty(value = JSON_PROPERTY_IS_SIGNATURE_REMINDERS_ENABLED, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getIsSignatureRemindersEnabled() {
         return isSignatureRemindersEnabled;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_SIGNATURE_REMINDERS_ENABLED)
+    @JsonProperty(value = JSON_PROPERTY_IS_SIGNATURE_REMINDERS_ENABLED, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setIsSignatureRemindersEnabled(
             @javax.annotation.Nonnull SettingResponse isSignatureRemindersEnabled) {
@@ -322,13 +322,13 @@ public class TeamSettingsResponseSettings {
      * @return requestEmailFrom
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_REQUEST_EMAIL_FROM)
+    @JsonProperty(value = JSON_PROPERTY_REQUEST_EMAIL_FROM, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getRequestEmailFrom() {
         return requestEmailFrom;
     }
 
-    @JsonProperty(JSON_PROPERTY_REQUEST_EMAIL_FROM)
+    @JsonProperty(value = JSON_PROPERTY_REQUEST_EMAIL_FROM, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setRequestEmailFrom(@javax.annotation.Nonnull SettingResponse requestEmailFrom) {
         this.requestEmailFrom = requestEmailFrom;
@@ -346,13 +346,13 @@ public class TeamSettingsResponseSettings {
      * @return requestEmailSignature
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_REQUEST_EMAIL_SIGNATURE)
+    @JsonProperty(value = JSON_PROPERTY_REQUEST_EMAIL_SIGNATURE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getRequestEmailSignature() {
         return requestEmailSignature;
     }
 
-    @JsonProperty(JSON_PROPERTY_REQUEST_EMAIL_SIGNATURE)
+    @JsonProperty(value = JSON_PROPERTY_REQUEST_EMAIL_SIGNATURE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setRequestEmailSignature(
             @javax.annotation.Nonnull SettingResponse requestEmailSignature) {
@@ -371,13 +371,13 @@ public class TeamSettingsResponseSettings {
      * @return requiredSignatureTypes
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_REQUIRED_SIGNATURE_TYPES)
+    @JsonProperty(value = JSON_PROPERTY_REQUIRED_SIGNATURE_TYPES, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getRequiredSignatureTypes() {
         return requiredSignatureTypes;
     }
 
-    @JsonProperty(JSON_PROPERTY_REQUIRED_SIGNATURE_TYPES)
+    @JsonProperty(value = JSON_PROPERTY_REQUIRED_SIGNATURE_TYPES, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setRequiredSignatureTypes(
             @javax.annotation.Nonnull SettingResponse requiredSignatureTypes) {
@@ -396,13 +396,13 @@ public class TeamSettingsResponseSettings {
      * @return shouldEnableTamperProof
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SHOULD_ENABLE_TAMPER_PROOF)
+    @JsonProperty(value = JSON_PROPERTY_SHOULD_ENABLE_TAMPER_PROOF, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getShouldEnableTamperProof() {
         return shouldEnableTamperProof;
     }
 
-    @JsonProperty(JSON_PROPERTY_SHOULD_ENABLE_TAMPER_PROOF)
+    @JsonProperty(value = JSON_PROPERTY_SHOULD_ENABLE_TAMPER_PROOF, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setShouldEnableTamperProof(
             @javax.annotation.Nonnull SettingResponse shouldEnableTamperProof) {
@@ -422,13 +422,13 @@ public class TeamSettingsResponseSettings {
      * @return shouldIncludeDistinctPdfs
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SHOULD_INCLUDE_DISTINCT_PDFS)
+    @JsonProperty(value = JSON_PROPERTY_SHOULD_INCLUDE_DISTINCT_PDFS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getShouldIncludeDistinctPdfs() {
         return shouldIncludeDistinctPdfs;
     }
 
-    @JsonProperty(JSON_PROPERTY_SHOULD_INCLUDE_DISTINCT_PDFS)
+    @JsonProperty(value = JSON_PROPERTY_SHOULD_INCLUDE_DISTINCT_PDFS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setShouldIncludeDistinctPdfs(
             @javax.annotation.Nonnull SettingResponse shouldIncludeDistinctPdfs) {
@@ -447,13 +447,13 @@ public class TeamSettingsResponseSettings {
      * @return shouldOfferSignerAccessCode
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SHOULD_OFFER_SIGNER_ACCESS_CODE)
+    @JsonProperty(value = JSON_PROPERTY_SHOULD_OFFER_SIGNER_ACCESS_CODE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getShouldOfferSignerAccessCode() {
         return shouldOfferSignerAccessCode;
     }
 
-    @JsonProperty(JSON_PROPERTY_SHOULD_OFFER_SIGNER_ACCESS_CODE)
+    @JsonProperty(value = JSON_PROPERTY_SHOULD_OFFER_SIGNER_ACCESS_CODE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setShouldOfferSignerAccessCode(
             @javax.annotation.Nonnull SettingResponse shouldOfferSignerAccessCode) {
@@ -473,13 +473,13 @@ public class TeamSettingsResponseSettings {
      * @return shouldOfferSignerSmsAuthentication
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION)
+    @JsonProperty(value = JSON_PROPERTY_SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getShouldOfferSignerSmsAuthentication() {
         return shouldOfferSignerSmsAuthentication;
     }
 
-    @JsonProperty(JSON_PROPERTY_SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION)
+    @JsonProperty(value = JSON_PROPERTY_SHOULD_OFFER_SIGNER_SMS_AUTHENTICATION, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setShouldOfferSignerSmsAuthentication(
             @javax.annotation.Nonnull SettingResponse shouldOfferSignerSmsAuthentication) {
@@ -498,13 +498,13 @@ public class TeamSettingsResponseSettings {
      * @return shouldRemoveDocumentId
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SHOULD_REMOVE_DOCUMENT_ID)
+    @JsonProperty(value = JSON_PROPERTY_SHOULD_REMOVE_DOCUMENT_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getShouldRemoveDocumentId() {
         return shouldRemoveDocumentId;
     }
 
-    @JsonProperty(JSON_PROPERTY_SHOULD_REMOVE_DOCUMENT_ID)
+    @JsonProperty(value = JSON_PROPERTY_SHOULD_REMOVE_DOCUMENT_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setShouldRemoveDocumentId(
             @javax.annotation.Nonnull SettingResponse shouldRemoveDocumentId) {
@@ -523,13 +523,13 @@ public class TeamSettingsResponseSettings {
      * @return dataResidency
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_DATA_RESIDENCY)
+    @JsonProperty(value = JSON_PROPERTY_DATA_RESIDENCY, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getDataResidency() {
         return dataResidency;
     }
 
-    @JsonProperty(JSON_PROPERTY_DATA_RESIDENCY)
+    @JsonProperty(value = JSON_PROPERTY_DATA_RESIDENCY, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setDataResidency(@javax.annotation.Nonnull SettingResponse dataResidency) {
         this.dataResidency = dataResidency;
@@ -548,13 +548,13 @@ public class TeamSettingsResponseSettings {
      * @return allowTeamDeleteDocumentForEveryone
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_ALLOW_TEAM_DELETE_DOCUMENT_FOR_EVERYONE)
+    @JsonProperty(value = JSON_PROPERTY_ALLOW_TEAM_DELETE_DOCUMENT_FOR_EVERYONE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getAllowTeamDeleteDocumentForEveryone() {
         return allowTeamDeleteDocumentForEveryone;
     }
 
-    @JsonProperty(JSON_PROPERTY_ALLOW_TEAM_DELETE_DOCUMENT_FOR_EVERYONE)
+    @JsonProperty(value = JSON_PROPERTY_ALLOW_TEAM_DELETE_DOCUMENT_FOR_EVERYONE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setAllowTeamDeleteDocumentForEveryone(
             @javax.annotation.Nonnull SettingResponse allowTeamDeleteDocumentForEveryone) {
@@ -573,13 +573,13 @@ public class TeamSettingsResponseSettings {
      * @return allowTeamDownloadCsv
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_ALLOW_TEAM_DOWNLOAD_CSV)
+    @JsonProperty(value = JSON_PROPERTY_ALLOW_TEAM_DOWNLOAD_CSV, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getAllowTeamDownloadCsv() {
         return allowTeamDownloadCsv;
     }
 
-    @JsonProperty(JSON_PROPERTY_ALLOW_TEAM_DOWNLOAD_CSV)
+    @JsonProperty(value = JSON_PROPERTY_ALLOW_TEAM_DOWNLOAD_CSV, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setAllowTeamDownloadCsv(
             @javax.annotation.Nonnull SettingResponse allowTeamDownloadCsv) {
@@ -598,13 +598,13 @@ public class TeamSettingsResponseSettings {
      * @return lockTeamTemplateCreation
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_LOCK_TEAM_TEMPLATE_CREATION)
+    @JsonProperty(value = JSON_PROPERTY_LOCK_TEAM_TEMPLATE_CREATION, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getLockTeamTemplateCreation() {
         return lockTeamTemplateCreation;
     }
 
-    @JsonProperty(JSON_PROPERTY_LOCK_TEAM_TEMPLATE_CREATION)
+    @JsonProperty(value = JSON_PROPERTY_LOCK_TEAM_TEMPLATE_CREATION, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setLockTeamTemplateCreation(
             @javax.annotation.Nonnull SettingResponse lockTeamTemplateCreation) {
@@ -623,13 +623,13 @@ public class TeamSettingsResponseSettings {
      * @return lockTeamTemplateGallery
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_LOCK_TEAM_TEMPLATE_GALLERY)
+    @JsonProperty(value = JSON_PROPERTY_LOCK_TEAM_TEMPLATE_GALLERY, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getLockTeamTemplateGallery() {
         return lockTeamTemplateGallery;
     }
 
-    @JsonProperty(JSON_PROPERTY_LOCK_TEAM_TEMPLATE_GALLERY)
+    @JsonProperty(value = JSON_PROPERTY_LOCK_TEAM_TEMPLATE_GALLERY, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setLockTeamTemplateGallery(
             @javax.annotation.Nonnull SettingResponse lockTeamTemplateGallery) {
@@ -649,13 +649,13 @@ public class TeamSettingsResponseSettings {
      * @return selfSignMessage
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SELF_SIGN_MESSAGE)
+    @JsonProperty(value = JSON_PROPERTY_SELF_SIGN_MESSAGE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getSelfSignMessage() {
         return selfSignMessage;
     }
 
-    @JsonProperty(JSON_PROPERTY_SELF_SIGN_MESSAGE)
+    @JsonProperty(value = JSON_PROPERTY_SELF_SIGN_MESSAGE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSelfSignMessage(@javax.annotation.Nonnull SettingResponse selfSignMessage) {
         this.selfSignMessage = selfSignMessage;
@@ -674,13 +674,13 @@ public class TeamSettingsResponseSettings {
      * @return selfSignTitle
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SELF_SIGN_TITLE)
+    @JsonProperty(value = JSON_PROPERTY_SELF_SIGN_TITLE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getSelfSignTitle() {
         return selfSignTitle;
     }
 
-    @JsonProperty(JSON_PROPERTY_SELF_SIGN_TITLE)
+    @JsonProperty(value = JSON_PROPERTY_SELF_SIGN_TITLE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSelfSignTitle(@javax.annotation.Nonnull SettingResponse selfSignTitle) {
         this.selfSignTitle = selfSignTitle;
@@ -699,13 +699,13 @@ public class TeamSettingsResponseSettings {
      * @return signatureRequestMessage
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST_MESSAGE)
+    @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUEST_MESSAGE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getSignatureRequestMessage() {
         return signatureRequestMessage;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST_MESSAGE)
+    @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUEST_MESSAGE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSignatureRequestMessage(
             @javax.annotation.Nonnull SettingResponse signatureRequestMessage) {
@@ -725,13 +725,13 @@ public class TeamSettingsResponseSettings {
      * @return signatureRequestTitle
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST_TITLE)
+    @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUEST_TITLE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getSignatureRequestTitle() {
         return signatureRequestTitle;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST_TITLE)
+    @JsonProperty(value = JSON_PROPERTY_SIGNATURE_REQUEST_TITLE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSignatureRequestTitle(
             @javax.annotation.Nonnull SettingResponse signatureRequestTitle) {
@@ -751,13 +751,13 @@ public class TeamSettingsResponseSettings {
      * @return multifactorAuthApp
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_MULTIFACTOR_AUTH_APP)
+    @JsonProperty(value = JSON_PROPERTY_MULTIFACTOR_AUTH_APP, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getMultifactorAuthApp() {
         return multifactorAuthApp;
     }
 
-    @JsonProperty(JSON_PROPERTY_MULTIFACTOR_AUTH_APP)
+    @JsonProperty(value = JSON_PROPERTY_MULTIFACTOR_AUTH_APP, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setMultifactorAuthApp(
             @javax.annotation.Nonnull SettingResponse multifactorAuthApp) {
@@ -778,13 +778,13 @@ public class TeamSettingsResponseSettings {
      * @return multifactorAuthSms
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_MULTIFACTOR_AUTH_SMS)
+    @JsonProperty(value = JSON_PROPERTY_MULTIFACTOR_AUTH_SMS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingResponse getMultifactorAuthSms() {
         return multifactorAuthSms;
     }
 
-    @JsonProperty(JSON_PROPERTY_MULTIFACTOR_AUTH_SMS)
+    @JsonProperty(value = JSON_PROPERTY_MULTIFACTOR_AUTH_SMS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setMultifactorAuthSms(
             @javax.annotation.Nonnull SettingResponse multifactorAuthSms) {
@@ -1573,9 +1573,6 @@ public class TeamSettingsResponseSettings {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

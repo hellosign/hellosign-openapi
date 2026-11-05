@@ -58,8 +58,8 @@ class TeamSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonSeri
      */
     protected static $openAPITypes = [
         'set' => 'array<string,mixed>',
-        'unset' => 'string[]',
         'lock' => 'array<string,\Dropbox\Sign\Model\TeamSettingLock>',
+        'unset' => 'string[]',
     ];
 
     /**
@@ -71,8 +71,8 @@ class TeamSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonSeri
      */
     protected static $openAPIFormats = [
         'set' => null,
-        'unset' => null,
         'lock' => null,
+        'unset' => null,
     ];
 
     /**
@@ -82,8 +82,8 @@ class TeamSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonSeri
      */
     protected static array $openAPINullables = [
         'set' => false,
-        'unset' => false,
         'lock' => false,
+        'unset' => false,
     ];
 
     /**
@@ -165,8 +165,8 @@ class TeamSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonSeri
      */
     protected static $attributeMap = [
         'set' => 'set',
-        'unset' => 'unset',
         'lock' => 'lock',
+        'unset' => 'unset',
     ];
 
     /**
@@ -176,8 +176,8 @@ class TeamSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonSeri
      */
     protected static $setters = [
         'set' => 'setSet',
-        'unset' => 'setUnset',
         'lock' => 'setLock',
+        'unset' => 'setUnset',
     ];
 
     /**
@@ -187,8 +187,8 @@ class TeamSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonSeri
      */
     protected static $getters = [
         'set' => 'getSet',
-        'unset' => 'getUnset',
         'lock' => 'getLock',
+        'unset' => 'getUnset',
     ];
 
     /**
@@ -248,8 +248,8 @@ class TeamSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonSeri
     public function __construct(?array $data = null)
     {
         $this->setIfExists('set', $data ?? [], null);
-        $this->setIfExists('unset', $data ?? [], null);
         $this->setIfExists('lock', $data ?? [], null);
+        $this->setIfExists('unset', $data ?? [], null);
     }
 
     /**
@@ -337,34 +337,6 @@ class TeamSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonSeri
     }
 
     /**
-     * Gets unset
-     *
-     * @return string[]|null
-     */
-    public function getUnset()
-    {
-        return $this->container['unset'];
-    }
-
-    /**
-     * Sets unset
-     *
-     * @param string[]|null $unset Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.
-     *
-     * @return self
-     */
-    public function setUnset(?array $unset)
-    {
-        if (is_null($unset)) {
-            throw new InvalidArgumentException('non-nullable unset cannot be null');
-        }
-
-        $this->container['unset'] = $unset;
-
-        return $this;
-    }
-
-    /**
      * Gets lock
      *
      * @return array<string,TeamSettingLock>|null
@@ -377,7 +349,7 @@ class TeamSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets lock
      *
-     * @param array<string,TeamSettingLock>|null $lock Lock modes keyed by setting name. Only team settings support locks. A name in `lock` cannot also appear in `unset`.
+     * @param array<string,TeamSettingLock>|null $lock Lock a setting to prevent subteams or accounts from overriding it. A team admin can set a lock on their own team. An organization admin can set a lock on the organization or on a subteam. `organization_admins` prevents subteams and accounts from overriding the value. `team_admins` lets admins of that team and its subteams set their own value. `members` lets each account set its own value. A name in `lock` cannot also appear in `unset`.
      *
      * @return self
      */
@@ -387,6 +359,33 @@ class TeamSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonSeri
             throw new InvalidArgumentException('non-nullable lock cannot be null');
         }
         $this->container['lock'] = $lock;
+
+        return $this;
+    }
+
+    /**
+     * Gets unset
+     *
+     * @return string[]|null
+     */
+    public function getUnset()
+    {
+        return $this->container['unset'];
+    }
+
+    /**
+     * Sets unset
+     *
+     * @param string[]|null $unset Any setting that can be set can also be unset. Unset clears the stored value and its lock so both are inherited. A listed name cannot also be set or locked in the same request.
+     *
+     * @return self
+     */
+    public function setUnset(?array $unset)
+    {
+        if (is_null($unset)) {
+            throw new InvalidArgumentException('non-nullable unset cannot be null');
+        }
+        $this->container['unset'] = $unset;
 
         return $this;
     }

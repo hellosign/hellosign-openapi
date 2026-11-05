@@ -27,9 +27,9 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// Date format used to display dates.
+    /// Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.
     /// </summary>
-    /// <value>Date format used to display dates.</value>
+    /// <value>Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum DateFormat
     {

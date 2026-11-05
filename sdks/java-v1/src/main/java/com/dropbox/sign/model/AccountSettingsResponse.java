@@ -33,7 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountSettingsResponse {
     public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -73,13 +73,13 @@ public class AccountSettingsResponse {
      * @return accountId
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+    @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getAccountId() {
         return accountId;
     }
 
-    @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+    @JsonProperty(value = JSON_PROPERTY_ACCOUNT_ID, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setAccountId(@javax.annotation.Nonnull String accountId) {
         this.accountId = accountId;
@@ -97,13 +97,13 @@ public class AccountSettingsResponse {
      * @return settings
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SETTINGS)
+    @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public AccountSettingsResponseSettings getSettings() {
         return settings;
     }
 
-    @JsonProperty(JSON_PROPERTY_SETTINGS)
+    @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSettings(@javax.annotation.Nonnull AccountSettingsResponseSettings settings) {
         this.settings = settings;
@@ -128,13 +128,13 @@ public class AccountSettingsResponse {
      *
      * @return warnings
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public List<WarningResponse> getWarnings() {
         return warnings;
     }
 
-    @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setWarnings(@javax.annotation.Nullable List<WarningResponse> warnings) {
         this.warnings = warnings;
@@ -268,9 +268,6 @@ public class AccountSettingsResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

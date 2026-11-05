@@ -42,26 +42,26 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="AccountSettingsResponseSettings" /> class.
         /// </summary>
         /// <param name="company">Company name associated with this account or team. (required).</param>
-        /// <param name="customSigningRedirectEnabled">Whether signers are redirected to a custom URL after completing a signature request. (required).</param>
-        /// <param name="customSigningRedirectUrl">URL where signers are redirected after completing a signature request when custom redirects are enabled. (required).</param>
-        /// <param name="customTagline">Custom tagline displayed with the account or team branding. (required).</param>
-        /// <param name="dateFormat">Date format used to display dates. List the setting in &#x60;unset&#x60; to inherit the default. (required).</param>
-        /// <param name="isSignatureRemindersEnabled">Whether automatic reminder emails are enabled for incomplete signature requests. (required).</param>
-        /// <param name="requestEmailFrom">Sender name shown on signature request emails. (required).</param>
-        /// <param name="requestEmailSignature">Signature appended to signature request emails. (required).</param>
-        /// <param name="requiredSignatureTypes">Signature creation methods signers may use. (required).</param>
-        /// <param name="shouldEnableTamperProof">Whether completed documents include a digital tamper-proof seal. (required).</param>
+        /// <param name="customSigningRedirectEnabled">Whether signers are redirected to a custom webpage after they sign. (required).</param>
+        /// <param name="customSigningRedirectUrl">Webpage where signers are redirected after they sign, when custom redirects are enabled. (required).</param>
+        /// <param name="customTagline">Company tagline shown with the account or team branding. (required).</param>
+        /// <param name="dateFormat">Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field. (required).</param>
+        /// <param name="isSignatureRemindersEnabled">Whether reminder emails are sent to signers 3 days and 7 days after a signature request is sent. (required).</param>
+        /// <param name="requestEmailFrom">Name shown in the From field of signature request emails. When unset, each user&#39;s first and last name is shown. (required).</param>
+        /// <param name="requestEmailSignature">Text appended to the end of signature request emails. (required).</param>
+        /// <param name="requiredSignatureTypes">Signature creation methods a signer is allowed to use. (required).</param>
+        /// <param name="shouldEnableTamperProof">Whether a tamper-proof seal is applied to sent signature requests. (required).</param>
         /// <param name="shouldIncludeDistinctPdfs">Whether completed documents remain as separate PDF files instead of being merged into one PDF. (required).</param>
-        /// <param name="shouldOfferSignerAccessCode">Whether senders can require an access code to verify a signer. (required).</param>
-        /// <param name="shouldOfferSignerSmsAuthentication">Whether senders can require SMS authentication to verify a signer. (required).</param>
-        /// <param name="shouldRemoveDocumentId">Whether the Dropbox Sign document ID is hidden on sent documents. (required).</param>
+        /// <param name="shouldOfferSignerAccessCode">Whether senders can require a custom access code before a signer can open a document. (required).</param>
+        /// <param name="shouldOfferSignerSmsAuthentication">Whether senders can require a text-message verification code before a signer can open a document. (required).</param>
+        /// <param name="shouldRemoveDocumentId">Whether the document ID is removed from all pages of sent documents. (required).</param>
         /// <param name="isNotifyOnSignEnabled">Whether to notify the account when someone signs a document it sent. (required).</param>
         /// <param name="isNotifyOnViewEnabled">Whether to notify the account when someone opens a document it sent. (required).</param>
         /// <param name="shouldAutocomplete">Whether values entered in text fields are saved and suggested for future signature requests. (required).</param>
-        /// <param name="shouldIncludeRequestedPdfs">Whether completed signature requests include PDF copies in emails sent to the account. (required).</param>
-        /// <param name="shouldIncludeRequestedPdfsForOthers">Whether completed signature requests include PDF copies in emails sent to signers and CC recipients. (required).</param>
-        /// <param name="shouldIncludeSentDocPdfs">Whether emails sent to the account include PDF copies of documents it sends. (required).</param>
-        /// <param name="shouldIncludeSentDocPdfsForOthers">Whether emails sent to recipients include PDF copies of documents the account sends. (required).</param>
+        /// <param name="shouldIncludeRequestedPdfs">Whether to email the account a PDF copy when a signature request it sent is completed. (required).</param>
+        /// <param name="shouldIncludeRequestedPdfsForOthers">Whether to email a PDF copy to the other signers and CC recipients when a signature request is completed. (required).</param>
+        /// <param name="shouldIncludeSentDocPdfs">Whether to email the account a PDF copy when it sends a document. (required).</param>
+        /// <param name="shouldIncludeSentDocPdfsForOthers">Whether to email recipients a PDF copy, instead of only a link, when the account sends a document. (required).</param>
         /// <param name="shouldSendDailySummary">Whether to send the account a daily email summarizing outstanding signature requests. (required).</param>
         /// <param name="shouldSendEmbeddedSignatureConfEmails">Whether to notify the account when it signs a document on a third-party site. (required).</param>
         /// <param name="shouldSendOrderedSrEmail">Whether to notify all parties when an ordered signature request starts. (required).</param>
@@ -252,65 +252,65 @@ namespace Dropbox.Sign.Model
         public SettingResponse Company { get; set; }
 
         /// <summary>
-        /// Whether signers are redirected to a custom URL after completing a signature request.
+        /// Whether signers are redirected to a custom webpage after they sign.
         /// </summary>
-        /// <value>Whether signers are redirected to a custom URL after completing a signature request.</value>
+        /// <value>Whether signers are redirected to a custom webpage after they sign.</value>
         [DataMember(Name = "custom_signing_redirect_enabled", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse CustomSigningRedirectEnabled { get; set; }
 
         /// <summary>
-        /// URL where signers are redirected after completing a signature request when custom redirects are enabled.
+        /// Webpage where signers are redirected after they sign, when custom redirects are enabled.
         /// </summary>
-        /// <value>URL where signers are redirected after completing a signature request when custom redirects are enabled.</value>
+        /// <value>Webpage where signers are redirected after they sign, when custom redirects are enabled.</value>
         [DataMember(Name = "custom_signing_redirect_url", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse CustomSigningRedirectUrl { get; set; }
 
         /// <summary>
-        /// Custom tagline displayed with the account or team branding.
+        /// Company tagline shown with the account or team branding.
         /// </summary>
-        /// <value>Custom tagline displayed with the account or team branding.</value>
+        /// <value>Company tagline shown with the account or team branding.</value>
         [DataMember(Name = "custom_tagline", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse CustomTagline { get; set; }
 
         /// <summary>
-        /// Date format used to display dates. List the setting in &#x60;unset&#x60; to inherit the default.
+        /// Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.
         /// </summary>
-        /// <value>Date format used to display dates. List the setting in &#x60;unset&#x60; to inherit the default.</value>
+        /// <value>Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.</value>
         [DataMember(Name = "date_format", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse DateFormat { get; set; }
 
         /// <summary>
-        /// Whether automatic reminder emails are enabled for incomplete signature requests.
+        /// Whether reminder emails are sent to signers 3 days and 7 days after a signature request is sent.
         /// </summary>
-        /// <value>Whether automatic reminder emails are enabled for incomplete signature requests.</value>
+        /// <value>Whether reminder emails are sent to signers 3 days and 7 days after a signature request is sent.</value>
         [DataMember(Name = "is_signature_reminders_enabled", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse IsSignatureRemindersEnabled { get; set; }
 
         /// <summary>
-        /// Sender name shown on signature request emails.
+        /// Name shown in the From field of signature request emails. When unset, each user&#39;s first and last name is shown.
         /// </summary>
-        /// <value>Sender name shown on signature request emails.</value>
+        /// <value>Name shown in the From field of signature request emails. When unset, each user&#39;s first and last name is shown.</value>
         [DataMember(Name = "request_email_from", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse RequestEmailFrom { get; set; }
 
         /// <summary>
-        /// Signature appended to signature request emails.
+        /// Text appended to the end of signature request emails.
         /// </summary>
-        /// <value>Signature appended to signature request emails.</value>
+        /// <value>Text appended to the end of signature request emails.</value>
         [DataMember(Name = "request_email_signature", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse RequestEmailSignature { get; set; }
 
         /// <summary>
-        /// Signature creation methods signers may use.
+        /// Signature creation methods a signer is allowed to use.
         /// </summary>
-        /// <value>Signature creation methods signers may use.</value>
+        /// <value>Signature creation methods a signer is allowed to use.</value>
         [DataMember(Name = "required_signature_types", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse RequiredSignatureTypes { get; set; }
 
         /// <summary>
-        /// Whether completed documents include a digital tamper-proof seal.
+        /// Whether a tamper-proof seal is applied to sent signature requests.
         /// </summary>
-        /// <value>Whether completed documents include a digital tamper-proof seal.</value>
+        /// <value>Whether a tamper-proof seal is applied to sent signature requests.</value>
         [DataMember(Name = "should_enable_tamper_proof", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse ShouldEnableTamperProof { get; set; }
 
@@ -322,23 +322,23 @@ namespace Dropbox.Sign.Model
         public SettingResponse ShouldIncludeDistinctPdfs { get; set; }
 
         /// <summary>
-        /// Whether senders can require an access code to verify a signer.
+        /// Whether senders can require a custom access code before a signer can open a document.
         /// </summary>
-        /// <value>Whether senders can require an access code to verify a signer.</value>
+        /// <value>Whether senders can require a custom access code before a signer can open a document.</value>
         [DataMember(Name = "should_offer_signer_access_code", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse ShouldOfferSignerAccessCode { get; set; }
 
         /// <summary>
-        /// Whether senders can require SMS authentication to verify a signer.
+        /// Whether senders can require a text-message verification code before a signer can open a document.
         /// </summary>
-        /// <value>Whether senders can require SMS authentication to verify a signer.</value>
+        /// <value>Whether senders can require a text-message verification code before a signer can open a document.</value>
         [DataMember(Name = "should_offer_signer_sms_authentication", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse ShouldOfferSignerSmsAuthentication { get; set; }
 
         /// <summary>
-        /// Whether the Dropbox Sign document ID is hidden on sent documents.
+        /// Whether the document ID is removed from all pages of sent documents.
         /// </summary>
-        /// <value>Whether the Dropbox Sign document ID is hidden on sent documents.</value>
+        /// <value>Whether the document ID is removed from all pages of sent documents.</value>
         [DataMember(Name = "should_remove_document_id", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse ShouldRemoveDocumentId { get; set; }
 
@@ -364,30 +364,30 @@ namespace Dropbox.Sign.Model
         public SettingResponse ShouldAutocomplete { get; set; }
 
         /// <summary>
-        /// Whether completed signature requests include PDF copies in emails sent to the account.
+        /// Whether to email the account a PDF copy when a signature request it sent is completed.
         /// </summary>
-        /// <value>Whether completed signature requests include PDF copies in emails sent to the account.</value>
+        /// <value>Whether to email the account a PDF copy when a signature request it sent is completed.</value>
         [DataMember(Name = "should_include_requested_pdfs", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse ShouldIncludeRequestedPdfs { get; set; }
 
         /// <summary>
-        /// Whether completed signature requests include PDF copies in emails sent to signers and CC recipients.
+        /// Whether to email a PDF copy to the other signers and CC recipients when a signature request is completed.
         /// </summary>
-        /// <value>Whether completed signature requests include PDF copies in emails sent to signers and CC recipients.</value>
+        /// <value>Whether to email a PDF copy to the other signers and CC recipients when a signature request is completed.</value>
         [DataMember(Name = "should_include_requested_pdfs_for_others", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse ShouldIncludeRequestedPdfsForOthers { get; set; }
 
         /// <summary>
-        /// Whether emails sent to the account include PDF copies of documents it sends.
+        /// Whether to email the account a PDF copy when it sends a document.
         /// </summary>
-        /// <value>Whether emails sent to the account include PDF copies of documents it sends.</value>
+        /// <value>Whether to email the account a PDF copy when it sends a document.</value>
         [DataMember(Name = "should_include_sent_doc_pdfs", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse ShouldIncludeSentDocPdfs { get; set; }
 
         /// <summary>
-        /// Whether emails sent to recipients include PDF copies of documents the account sends.
+        /// Whether to email recipients a PDF copy, instead of only a link, when the account sends a document.
         /// </summary>
-        /// <value>Whether emails sent to recipients include PDF copies of documents the account sends.</value>
+        /// <value>Whether to email recipients a PDF copy, instead of only a link, when the account sends a document.</value>
         [DataMember(Name = "should_include_sent_doc_pdfs_for_others", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse ShouldIncludeSentDocPdfsForOthers { get; set; }
 

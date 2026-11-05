@@ -241,7 +241,7 @@ public class AccountApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public AccountSettingsResponse accountSettingsGet(String accountId) throws ApiException {
+  public AccountSettingsResponse accountSettingsGet(@jakarta.annotation.Nullable String accountId) throws ApiException {
     return accountSettingsGetWithHttpInfo(accountId).getData();
   }
 
@@ -280,7 +280,7 @@ public class AccountApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<AccountSettingsResponse> accountSettingsGetWithHttpInfo(String accountId) throws ApiException {
+  public ApiResponse<AccountSettingsResponse> accountSettingsGetWithHttpInfo(@jakarta.annotation.Nullable String accountId) throws ApiException {
     
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
@@ -326,7 +326,7 @@ public class AccountApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public AccountSettingsResponse accountSettingsUpdate(AccountSettingsUpdateRequest accountSettingsUpdateRequest, String accountId) throws ApiException {
+  public AccountSettingsResponse accountSettingsUpdate(@jakarta.annotation.Nonnull AccountSettingsUpdateRequest accountSettingsUpdateRequest, @jakarta.annotation.Nullable String accountId) throws ApiException {
     return accountSettingsUpdateWithHttpInfo(accountSettingsUpdateRequest, accountId).getData();
   }
 
@@ -366,7 +366,7 @@ public class AccountApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<AccountSettingsResponse> accountSettingsUpdateWithHttpInfo(AccountSettingsUpdateRequest accountSettingsUpdateRequest, String accountId) throws ApiException {
+  public ApiResponse<AccountSettingsResponse> accountSettingsUpdateWithHttpInfo(@jakarta.annotation.Nonnull AccountSettingsUpdateRequest accountSettingsUpdateRequest, @jakarta.annotation.Nullable String accountId) throws ApiException {
     
     // Check required parameters
     if (accountSettingsUpdateRequest == null) {

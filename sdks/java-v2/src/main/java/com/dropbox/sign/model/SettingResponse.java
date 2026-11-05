@@ -41,7 +41,7 @@ import com.dropbox.sign.ApiException;
   SettingResponse.JSON_PROPERTY_WRITABLE,
   SettingResponse.JSON_PROPERTY_LOCK
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SettingResponse {
   public static final String JSON_PROPERTY_VALUE = "value";
@@ -174,7 +174,7 @@ public class SettingResponse {
    * @return value
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Object getValue() {
@@ -182,7 +182,7 @@ public class SettingResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setValue(@jakarta.annotation.Nullable Object value) {
     this.value = value;
@@ -199,7 +199,7 @@ public class SettingResponse {
    * @return isInherited
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_INHERITED)
+  @JsonProperty(value = JSON_PROPERTY_IS_INHERITED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsInherited() {
@@ -207,7 +207,7 @@ public class SettingResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_INHERITED)
+  @JsonProperty(value = JSON_PROPERTY_IS_INHERITED, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsInherited(@jakarta.annotation.Nonnull Boolean isInherited) {
     this.isInherited = isInherited;
@@ -224,7 +224,7 @@ public class SettingResponse {
    * @return source
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonProperty(value = JSON_PROPERTY_SOURCE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SourceEnum getSource() {
@@ -232,7 +232,7 @@ public class SettingResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonProperty(value = JSON_PROPERTY_SOURCE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSource(@jakarta.annotation.Nonnull SourceEnum source) {
     this.source = source;
@@ -249,7 +249,7 @@ public class SettingResponse {
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TypeEnum getType() {
@@ -257,7 +257,7 @@ public class SettingResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
     this.type = type;
@@ -274,7 +274,7 @@ public class SettingResponse {
    * @return writable
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_WRITABLE)
+  @JsonProperty(value = JSON_PROPERTY_WRITABLE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getWritable() {
@@ -282,7 +282,7 @@ public class SettingResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WRITABLE)
+  @JsonProperty(value = JSON_PROPERTY_WRITABLE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWritable(@jakarta.annotation.Nonnull Boolean writable) {
     this.writable = writable;
@@ -299,7 +299,7 @@ public class SettingResponse {
    * @return lock
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LOCK)
+  @JsonProperty(value = JSON_PROPERTY_LOCK, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SettingLockResponse getLock() {
@@ -307,7 +307,7 @@ public class SettingResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOCK)
+  @JsonProperty(value = JSON_PROPERTY_LOCK, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLock(@jakarta.annotation.Nonnull SettingLockResponse lock) {
     this.lock = lock;
@@ -503,10 +503,7 @@ public class SettingResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

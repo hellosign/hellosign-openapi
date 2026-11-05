@@ -26,6 +26,7 @@ from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 
 class AccountSettingsResponseSettings(BaseModel):
@@ -37,43 +38,43 @@ class AccountSettingsResponseSettings(BaseModel):
         description="Company name associated with this account or team."
     )
     custom_signing_redirect_enabled: SettingResponse = Field(
-        description="Whether signers are redirected to a custom URL after completing a signature request."
+        description="Whether signers are redirected to a custom webpage after they sign."
     )
     custom_signing_redirect_url: SettingResponse = Field(
-        description="URL where signers are redirected after completing a signature request when custom redirects are enabled."
+        description="Webpage where signers are redirected after they sign, when custom redirects are enabled."
     )
     custom_tagline: SettingResponse = Field(
-        description="Custom tagline displayed with the account or team branding."
+        description="Company tagline shown with the account or team branding."
     )
     date_format: SettingResponse = Field(
-        description="Date format used to display dates. List the setting in `unset` to inherit the default."
+        description="Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field."
     )
     is_signature_reminders_enabled: SettingResponse = Field(
-        description="Whether automatic reminder emails are enabled for incomplete signature requests."
+        description="Whether reminder emails are sent to signers 3 days and 7 days after a signature request is sent."
     )
     request_email_from: SettingResponse = Field(
-        description="Sender name shown on signature request emails."
+        description="Name shown in the From field of signature request emails. When unset, each user's first and last name is shown."
     )
     request_email_signature: SettingResponse = Field(
-        description="Signature appended to signature request emails."
+        description="Text appended to the end of signature request emails."
     )
     required_signature_types: SettingResponse = Field(
-        description="Signature creation methods signers may use."
+        description="Signature creation methods a signer is allowed to use."
     )
     should_enable_tamper_proof: SettingResponse = Field(
-        description="Whether completed documents include a digital tamper-proof seal."
+        description="Whether a tamper-proof seal is applied to sent signature requests."
     )
     should_include_distinct_pdfs: SettingResponse = Field(
         description="Whether completed documents remain as separate PDF files instead of being merged into one PDF."
     )
     should_offer_signer_access_code: SettingResponse = Field(
-        description="Whether senders can require an access code to verify a signer."
+        description="Whether senders can require a custom access code before a signer can open a document."
     )
     should_offer_signer_sms_authentication: SettingResponse = Field(
-        description="Whether senders can require SMS authentication to verify a signer."
+        description="Whether senders can require a text-message verification code before a signer can open a document."
     )
     should_remove_document_id: SettingResponse = Field(
-        description="Whether the Dropbox Sign document ID is hidden on sent documents."
+        description="Whether the document ID is removed from all pages of sent documents."
     )
     is_notify_on_sign_enabled: SettingResponse = Field(
         description="Whether to notify the account when someone signs a document it sent."
@@ -85,16 +86,16 @@ class AccountSettingsResponseSettings(BaseModel):
         description="Whether values entered in text fields are saved and suggested for future signature requests."
     )
     should_include_requested_pdfs: SettingResponse = Field(
-        description="Whether completed signature requests include PDF copies in emails sent to the account."
+        description="Whether to email the account a PDF copy when a signature request it sent is completed."
     )
     should_include_requested_pdfs_for_others: SettingResponse = Field(
-        description="Whether completed signature requests include PDF copies in emails sent to signers and CC recipients."
+        description="Whether to email a PDF copy to the other signers and CC recipients when a signature request is completed."
     )
     should_include_sent_doc_pdfs: SettingResponse = Field(
-        description="Whether emails sent to the account include PDF copies of documents it sends."
+        description="Whether to email the account a PDF copy when it sends a document."
     )
     should_include_sent_doc_pdfs_for_others: SettingResponse = Field(
-        description="Whether emails sent to recipients include PDF copies of documents the account sends."
+        description="Whether to email recipients a PDF copy, instead of only a link, when the account sends a document."
     )
     should_send_daily_summary: SettingResponse = Field(
         description="Whether to send the account a daily email summarizing outstanding signature requests."
@@ -141,7 +142,8 @@ class AccountSettingsResponseSettings(BaseModel):
     ]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -153,8 +155,7 @@ class AccountSettingsResponseSettings(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None

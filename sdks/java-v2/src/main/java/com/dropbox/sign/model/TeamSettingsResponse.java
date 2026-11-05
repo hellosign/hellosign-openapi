@@ -41,7 +41,7 @@ import com.dropbox.sign.ApiException;
   TeamSettingsResponse.JSON_PROPERTY_SETTINGS,
   TeamSettingsResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamSettingsResponse {
   public static final String JSON_PROPERTY_TEAM_ID = "team_id";
@@ -84,7 +84,7 @@ public class TeamSettingsResponse {
    * @return teamId
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTeamId() {
@@ -92,7 +92,7 @@ public class TeamSettingsResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTeamId(@jakarta.annotation.Nonnull String teamId) {
     this.teamId = teamId;
@@ -109,7 +109,7 @@ public class TeamSettingsResponse {
    * @return settings
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TeamSettingsResponseSettings getSettings() {
@@ -117,7 +117,7 @@ public class TeamSettingsResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonProperty(value = JSON_PROPERTY_SETTINGS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSettings(@jakarta.annotation.Nonnull TeamSettingsResponseSettings settings) {
     this.settings = settings;
@@ -142,7 +142,7 @@ public class TeamSettingsResponse {
    * @return warnings
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<WarningResponse> getWarnings() {
@@ -150,7 +150,7 @@ public class TeamSettingsResponse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonProperty(value = JSON_PROPERTY_WARNINGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWarnings(@jakarta.annotation.Nullable List<WarningResponse> warnings) {
     this.warnings = warnings;
@@ -283,10 +283,7 @@ public class TeamSettingsResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 }

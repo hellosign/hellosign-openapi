@@ -21,7 +21,7 @@ from typing_extensions import Self
 
 class DataResidency(str, Enum):
     """
-    Storage region for team documents.
+    Region where the team's documents are stored at rest.
     """
 
     """

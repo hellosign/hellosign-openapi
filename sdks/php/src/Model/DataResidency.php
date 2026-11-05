@@ -31,7 +31,7 @@ namespace Dropbox\Sign\Model;
  * DataResidency Class Doc Comment
  *
  * @category Class
- * @description Storage region for team documents.
+ * @description Region where the team&#39;s documents are stored at rest.
  * @see     https://openapi-generator.tech
  */
 class DataResidency

@@ -145,13 +145,13 @@ public class SubBulkSignerList {
      *
      * @return metadata
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_METADATA)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
     @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
     public Map<String, Object> getMetadata() {
         return metadata;
     }
 
-    @JsonProperty(JSON_PROPERTY_METADATA)
+    @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
     @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
     public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;

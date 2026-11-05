@@ -580,7 +580,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets custom_signing_redirect_enabled
      *
-     * @param SettingResponse $custom_signing_redirect_enabled whether signers are redirected to a custom URL after completing a signature request
+     * @param SettingResponse $custom_signing_redirect_enabled whether signers are redirected to a custom webpage after they sign
      *
      * @return self
      */
@@ -607,7 +607,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets custom_signing_redirect_url
      *
-     * @param SettingResponse $custom_signing_redirect_url URL where signers are redirected after completing a signature request when custom redirects are enabled
+     * @param SettingResponse $custom_signing_redirect_url webpage where signers are redirected after they sign, when custom redirects are enabled
      *
      * @return self
      */
@@ -634,7 +634,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets custom_tagline
      *
-     * @param SettingResponse $custom_tagline custom tagline displayed with the account or team branding
+     * @param SettingResponse $custom_tagline company tagline shown with the account or team branding
      *
      * @return self
      */
@@ -661,7 +661,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets date_format
      *
-     * @param SettingResponse $date_format Date format used to display dates. List the setting in `unset` to inherit the default.
+     * @param SettingResponse $date_format Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.
      *
      * @return self
      */
@@ -688,7 +688,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets is_signature_reminders_enabled
      *
-     * @param SettingResponse $is_signature_reminders_enabled whether automatic reminder emails are enabled for incomplete signature requests
+     * @param SettingResponse $is_signature_reminders_enabled whether reminder emails are sent to signers 3 days and 7 days after a signature request is sent
      *
      * @return self
      */
@@ -715,7 +715,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets request_email_from
      *
-     * @param SettingResponse $request_email_from sender name shown on signature request emails
+     * @param SettingResponse $request_email_from Name shown in the From field of signature request emails. When unset, each user's first and last name is shown.
      *
      * @return self
      */
@@ -742,7 +742,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets request_email_signature
      *
-     * @param SettingResponse $request_email_signature signature appended to signature request emails
+     * @param SettingResponse $request_email_signature text appended to the end of signature request emails
      *
      * @return self
      */
@@ -769,7 +769,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets required_signature_types
      *
-     * @param SettingResponse $required_signature_types signature creation methods signers may use
+     * @param SettingResponse $required_signature_types signature creation methods a signer is allowed to use
      *
      * @return self
      */
@@ -796,7 +796,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets should_enable_tamper_proof
      *
-     * @param SettingResponse $should_enable_tamper_proof whether completed documents include a digital tamper-proof seal
+     * @param SettingResponse $should_enable_tamper_proof whether a tamper-proof seal is applied to sent signature requests
      *
      * @return self
      */
@@ -850,7 +850,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets should_offer_signer_access_code
      *
-     * @param SettingResponse $should_offer_signer_access_code whether senders can require an access code to verify a signer
+     * @param SettingResponse $should_offer_signer_access_code whether senders can require a custom access code before a signer can open a document
      *
      * @return self
      */
@@ -877,7 +877,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets should_offer_signer_sms_authentication
      *
-     * @param SettingResponse $should_offer_signer_sms_authentication whether senders can require SMS authentication to verify a signer
+     * @param SettingResponse $should_offer_signer_sms_authentication whether senders can require a text-message verification code before a signer can open a document
      *
      * @return self
      */
@@ -904,7 +904,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets should_remove_document_id
      *
-     * @param SettingResponse $should_remove_document_id whether the Dropbox Sign document ID is hidden on sent documents
+     * @param SettingResponse $should_remove_document_id whether the document ID is removed from all pages of sent documents
      *
      * @return self
      */
@@ -931,7 +931,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets data_residency
      *
-     * @param SettingResponse $data_residency storage region for team documents
+     * @param SettingResponse $data_residency region where the team's documents are stored at rest
      *
      * @return self
      */
@@ -958,7 +958,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets allow_team_delete_document_for_everyone
      *
-     * @param SettingResponse $allow_team_delete_document_for_everyone whether team members can delete a document for all participants
+     * @param SettingResponse $allow_team_delete_document_for_everyone whether the sender, in addition to admins, can permanently delete a document from Dropbox Sign and from every participant account
      *
      * @return self
      */
@@ -985,7 +985,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets allow_team_download_csv
      *
-     * @param SettingResponse $allow_team_download_csv whether team members can download CSV files
+     * @param SettingResponse $allow_team_download_csv whether the sender, in addition to admins, can download document data as a CSV
      *
      * @return self
      */
@@ -1012,7 +1012,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets lock_team_template_creation
      *
-     * @param SettingResponse $lock_team_template_creation whether team members are prevented from creating templates
+     * @param SettingResponse $lock_team_template_creation when enabled, only admins can create and edit templates and template links
      *
      * @return self
      */
@@ -1039,7 +1039,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets lock_team_template_gallery
      *
-     * @param SettingResponse $lock_team_template_gallery whether team members are prevented from using the template gallery
+     * @param SettingResponse $lock_team_template_gallery when enabled, only admins can access and use the template gallery
      *
      * @return self
      */
@@ -1066,7 +1066,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets self_sign_message
      *
-     * @param SettingResponse $self_sign_message default message enforced for team members when they create self-signed documents
+     * @param SettingResponse $self_sign_message Default message for self-signed documents created by team members. Lock this setting to prevent members from changing it.
      *
      * @return self
      */
@@ -1093,7 +1093,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets self_sign_title
      *
-     * @param SettingResponse $self_sign_title default title enforced for team members when they create self-signed documents
+     * @param SettingResponse $self_sign_title Default document title for self-signed documents created by team members. Lock this setting to prevent members from changing it.
      *
      * @return self
      */
@@ -1120,7 +1120,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets signature_request_message
      *
-     * @param SettingResponse $signature_request_message default message enforced for team members when they create signature requests
+     * @param SettingResponse $signature_request_message Default email message for signature requests created by team members. Lock this setting to prevent members from changing it.
      *
      * @return self
      */
@@ -1147,7 +1147,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets signature_request_title
      *
-     * @param SettingResponse $signature_request_title default title enforced for team members when they create signature requests
+     * @param SettingResponse $signature_request_title Default document title for signature requests created by team members. Lock this setting to prevent members from changing it.
      *
      * @return self
      */
@@ -1174,7 +1174,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets multifactor_auth_app
      *
-     * @param SettingResponse $multifactor_auth_app whether authenticator-app multifactor authentication is enabled for the team
+     * @param SettingResponse $multifactor_auth_app Whether an authenticator app is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in.
      *
      * @return self
      */
@@ -1201,7 +1201,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets multifactor_auth_sms
      *
-     * @param SettingResponse $multifactor_auth_sms whether SMS multifactor authentication is enabled for the team
+     * @param SettingResponse $multifactor_auth_sms Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled.
      *
      * @return self
      */

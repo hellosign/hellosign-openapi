@@ -36,7 +36,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.12.0")
+        comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SettingResponse {
     public static final String JSON_PROPERTY_VALUE = "value";
@@ -157,13 +157,13 @@ public class SettingResponse {
      *
      * @return value
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALUE)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Object getValue() {
         return value;
     }
 
-    @JsonProperty(JSON_PROPERTY_VALUE)
+    @JsonProperty(value = JSON_PROPERTY_VALUE, required = false)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setValue(@javax.annotation.Nullable Object value) {
         this.value = value;
@@ -180,13 +180,13 @@ public class SettingResponse {
      * @return isInherited
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_IS_INHERITED)
+    @JsonProperty(value = JSON_PROPERTY_IS_INHERITED, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Boolean getIsInherited() {
         return isInherited;
     }
 
-    @JsonProperty(JSON_PROPERTY_IS_INHERITED)
+    @JsonProperty(value = JSON_PROPERTY_IS_INHERITED, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setIsInherited(@javax.annotation.Nonnull Boolean isInherited) {
         this.isInherited = isInherited;
@@ -203,13 +203,13 @@ public class SettingResponse {
      * @return source
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SOURCE)
+    @JsonProperty(value = JSON_PROPERTY_SOURCE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SourceEnum getSource() {
         return source;
     }
 
-    @JsonProperty(JSON_PROPERTY_SOURCE)
+    @JsonProperty(value = JSON_PROPERTY_SOURCE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSource(@javax.annotation.Nonnull SourceEnum source) {
         this.source = source;
@@ -226,13 +226,13 @@ public class SettingResponse {
      * @return type
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public TypeEnum getType() {
         return type;
     }
 
-    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setType(@javax.annotation.Nonnull TypeEnum type) {
         this.type = type;
@@ -249,13 +249,13 @@ public class SettingResponse {
      * @return writable
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_WRITABLE)
+    @JsonProperty(value = JSON_PROPERTY_WRITABLE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Boolean getWritable() {
         return writable;
     }
 
-    @JsonProperty(JSON_PROPERTY_WRITABLE)
+    @JsonProperty(value = JSON_PROPERTY_WRITABLE, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setWritable(@javax.annotation.Nonnull Boolean writable) {
         this.writable = writable;
@@ -272,13 +272,13 @@ public class SettingResponse {
      * @return lock
      */
     @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_LOCK)
+    @JsonProperty(value = JSON_PROPERTY_LOCK, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public SettingLockResponse getLock() {
         return lock;
     }
 
-    @JsonProperty(JSON_PROPERTY_LOCK)
+    @JsonProperty(value = JSON_PROPERTY_LOCK, required = true)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setLock(@javax.annotation.Nonnull SettingLockResponse lock) {
         this.lock = lock;
@@ -472,9 +472,6 @@ public class SettingResponse {
      * line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 }

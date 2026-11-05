@@ -31,7 +31,7 @@ namespace Dropbox\Sign\Model;
  * DateFormat Class Doc Comment
  *
  * @category Class
- * @description Date format used to display dates.
+ * @description Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.
  * @see     https://openapi-generator.tech
  */
 class DateFormat

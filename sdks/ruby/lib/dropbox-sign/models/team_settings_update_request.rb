@@ -22,20 +22,20 @@ module Dropbox::Sign
     # @return [Hash<String, Object>]
     attr_accessor :set
 
-    # Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.
-    # @return [Array<String>]
-    attr_accessor :unset
-
-    # Lock modes keyed by setting name. Only team settings support locks. A name in `lock` cannot also appear in `unset`.
+    # Lock a setting to prevent subteams or accounts from overriding it. A team admin can set a lock on their own team. An organization admin can set a lock on the organization or on a subteam. `organization_admins` prevents subteams and accounts from overriding the value. `team_admins` lets admins of that team and its subteams set their own value. `members` lets each account set its own value. A name in `lock` cannot also appear in `unset`.
     # @return [Hash<String, TeamSettingLock>]
     attr_accessor :lock
+
+    # Any setting that can be set can also be unset. Unset clears the stored value and its lock so both are inherited. A listed name cannot also be set or locked in the same request.
+    # @return [Array<String>]
+    attr_accessor :unset
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'set' => :'set',
-        :'unset' => :'unset',
-        :'lock' => :'lock'
+        :'lock' => :'lock',
+        :'unset' => :'unset'
       }
     end
 
@@ -53,8 +53,8 @@ module Dropbox::Sign
     def self.openapi_types
       {
         :'set' => :'Hash<String, Object>',
-        :'unset' => :'Array<String>',
-        :'lock' => :'Hash<String, TeamSettingLock>'
+        :'lock' => :'Hash<String, TeamSettingLock>',
+        :'unset' => :'Array<String>'
       }
     end
 
@@ -121,15 +121,15 @@ module Dropbox::Sign
         end
       end
 
-      if attributes.key?(:'unset')
-        if (value = attributes[:'unset']).is_a?(Array)
-          self.unset = value
-        end
-      end
-
       if attributes.key?(:'lock')
         if (value = attributes[:'lock']).is_a?(Hash)
           self.lock = value
+        end
+      end
+
+      if attributes.key?(:'unset')
+        if (value = attributes[:'unset']).is_a?(Array)
+          self.unset = value
         end
       end
     end
@@ -147,20 +147,14 @@ module Dropbox::Sign
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] unset Value to be assigned
-    def unset=(unset)
-      @unset = unset
-    end
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
           set == o.set &&
-          unset == o.unset &&
-          lock == o.lock
+          lock == o.lock &&
+          unset == o.unset
     end
 
     # @see the `==` method
@@ -172,7 +166,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [set, unset, lock].hash
+      [set, lock, unset].hash
     end
 
     # Builds the object from hash

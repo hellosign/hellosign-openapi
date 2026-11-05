@@ -923,7 +923,7 @@ public class TeamSettingsUpdateExample
                 { "data_residency", DataResidency.Eu },
                 { "company", "Northwind" },
             },
-            lock: new Dictionary<string, TeamSettingLock>()
+            varLock: new Dictionary<string, TeamSettingLock>()
             {
                 { "company", TeamSettingLock.OrganizationAdmins },
             }

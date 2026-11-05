@@ -87,13 +87,13 @@ public class TeamCreateRequest {
      *
      * @return parentTeamId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_PARENT_TEAM_ID)
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_PARENT_TEAM_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getParentTeamId() {
         return parentTeamId;
     }
 
-    @JsonProperty(JSON_PROPERTY_PARENT_TEAM_ID)
+    @JsonProperty(value = JSON_PROPERTY_PARENT_TEAM_ID, required = false)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setParentTeamId(@javax.annotation.Nullable String parentTeamId) {
         this.parentTeamId = parentTeamId;

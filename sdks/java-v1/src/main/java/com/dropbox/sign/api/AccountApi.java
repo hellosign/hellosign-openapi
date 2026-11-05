@@ -258,7 +258,8 @@ public class AccountApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public AccountSettingsResponse accountSettingsGet(String accountId) throws ApiException {
+    public AccountSettingsResponse accountSettingsGet(@javax.annotation.Nullable String accountId)
+            throws ApiException {
         return accountSettingsGetWithHttpInfo(accountId).getData();
     }
 
@@ -297,8 +298,8 @@ public class AccountApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<AccountSettingsResponse> accountSettingsGetWithHttpInfo(String accountId)
-            throws ApiException {
+    public ApiResponse<AccountSettingsResponse> accountSettingsGetWithHttpInfo(
+            @javax.annotation.Nullable String accountId) throws ApiException {
 
         // Query parameters
         List<Pair> localVarQueryParams =
@@ -347,7 +348,8 @@ public class AccountApi {
      * </table>
      */
     public AccountSettingsResponse accountSettingsUpdate(
-            AccountSettingsUpdateRequest accountSettingsUpdateRequest, String accountId)
+            @javax.annotation.Nonnull AccountSettingsUpdateRequest accountSettingsUpdateRequest,
+            @javax.annotation.Nullable String accountId)
             throws ApiException {
         return accountSettingsUpdateWithHttpInfo(accountSettingsUpdateRequest, accountId).getData();
     }
@@ -390,7 +392,8 @@ public class AccountApi {
      * </table>
      */
     public ApiResponse<AccountSettingsResponse> accountSettingsUpdateWithHttpInfo(
-            AccountSettingsUpdateRequest accountSettingsUpdateRequest, String accountId)
+            @javax.annotation.Nonnull AccountSettingsUpdateRequest accountSettingsUpdateRequest,
+            @javax.annotation.Nullable String accountId)
             throws ApiException {
 
         // Check required parameters

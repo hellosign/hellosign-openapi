@@ -42,14 +42,12 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="AccountSettingsUpdateRequest" /> class.
         /// </summary>
         /// <param name="set">Values to store, keyed by setting name. A name in &#x60;set&#x60; cannot also appear in &#x60;unset&#x60;..</param>
-        /// <param name="unset">Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request..</param>
-        /// <param name="varLock">Lock modes keyed by setting name. Only team settings support locks. A name in &#x60;lock&#x60; cannot also appear in &#x60;unset&#x60;..</param>
-        public AccountSettingsUpdateRequest(Dictionary<string, Object> set = default(Dictionary<string, Object>), List<string> unset = default(List<string>), Dictionary<string, TeamSettingLock> varLock = default(Dictionary<string, TeamSettingLock>))
+        /// <param name="unset">Any setting that can be set can also be unset. Unset clears the stored value so it is inherited. A listed name cannot also be set or locked in the same request..</param>
+        public AccountSettingsUpdateRequest(Dictionary<string, Object> set = default(Dictionary<string, Object>), List<string> unset = default(List<string>))
         {
 
             this.Set = set;
             this.Unset = unset;
-            this.Lock = varLock;
         }
 
         /// <summary>
@@ -76,18 +74,11 @@ namespace Dropbox.Sign.Model
         public Dictionary<string, Object> Set { get; set; }
 
         /// <summary>
-        /// Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.
+        /// Any setting that can be set can also be unset. Unset clears the stored value so it is inherited. A listed name cannot also be set or locked in the same request.
         /// </summary>
-        /// <value>Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.</value>
+        /// <value>Any setting that can be set can also be unset. Unset clears the stored value so it is inherited. A listed name cannot also be set or locked in the same request.</value>
         [DataMember(Name = "unset", EmitDefaultValue = true)]
         public List<string> Unset { get; set; }
-
-        /// <summary>
-        /// Lock modes keyed by setting name. Only team settings support locks. A name in &#x60;lock&#x60; cannot also appear in &#x60;unset&#x60;.
-        /// </summary>
-        /// <value>Lock modes keyed by setting name. Only team settings support locks. A name in &#x60;lock&#x60; cannot also appear in &#x60;unset&#x60;.</value>
-        [DataMember(Name = "lock", EmitDefaultValue = true)]
-        public Dictionary<string, TeamSettingLock> Lock { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -99,7 +90,6 @@ namespace Dropbox.Sign.Model
             sb.Append("class AccountSettingsUpdateRequest {\n");
             sb.Append("  Set: ").Append(Set).Append("\n");
             sb.Append("  Unset: ").Append(Unset).Append("\n");
-            sb.Append("  Lock: ").Append(Lock).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -146,12 +136,6 @@ namespace Dropbox.Sign.Model
                     this.Unset != null &&
                     input.Unset != null &&
                     this.Unset.SequenceEqual(input.Unset)
-                ) &&
-                (
-                    this.Lock == input.Lock ||
-                    this.Lock != null &&
-                    input.Lock != null &&
-                    this.Lock.SequenceEqual(input.Lock)
                 );
         }
 
@@ -171,10 +155,6 @@ namespace Dropbox.Sign.Model
                 if (this.Unset != null)
                 {
                     hashCode = (hashCode * 59) + this.Unset.GetHashCode();
-                }
-                if (this.Lock != null)
-                {
-                    hashCode = (hashCode * 59) + this.Lock.GetHashCode();
                 }
                 return hashCode;
             }
@@ -205,13 +185,6 @@ namespace Dropbox.Sign.Model
                 Property = "Unset",
                 Type = "List<string>",
                 Value = Unset,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "lock",
-                Property = "Lock",
-                Type = "Dictionary<string, TeamSettingLock>",
-                Value = Lock,
             });
 
             return types;

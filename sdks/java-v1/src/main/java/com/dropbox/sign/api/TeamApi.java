@@ -749,7 +749,8 @@ public class TeamApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public TeamSettingsResponse teamSettingsGet(String teamId) throws ApiException {
+    public TeamSettingsResponse teamSettingsGet(@javax.annotation.Nullable String teamId)
+            throws ApiException {
         return teamSettingsGetWithHttpInfo(teamId).getData();
     }
 
@@ -787,8 +788,8 @@ public class TeamApi {
      * <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<TeamSettingsResponse> teamSettingsGetWithHttpInfo(String teamId)
-            throws ApiException {
+    public ApiResponse<TeamSettingsResponse> teamSettingsGetWithHttpInfo(
+            @javax.annotation.Nullable String teamId) throws ApiException {
 
         // Query parameters
         List<Pair> localVarQueryParams =
@@ -837,7 +838,8 @@ public class TeamApi {
      * </table>
      */
     public TeamSettingsResponse teamSettingsUpdate(
-            TeamSettingsUpdateRequest teamSettingsUpdateRequest, String teamId)
+            @javax.annotation.Nonnull TeamSettingsUpdateRequest teamSettingsUpdateRequest,
+            @javax.annotation.Nullable String teamId)
             throws ApiException {
         return teamSettingsUpdateWithHttpInfo(teamSettingsUpdateRequest, teamId).getData();
     }
@@ -880,7 +882,8 @@ public class TeamApi {
      * </table>
      */
     public ApiResponse<TeamSettingsResponse> teamSettingsUpdateWithHttpInfo(
-            TeamSettingsUpdateRequest teamSettingsUpdateRequest, String teamId)
+            @javax.annotation.Nonnull TeamSettingsUpdateRequest teamSettingsUpdateRequest,
+            @javax.annotation.Nullable String teamId)
             throws ApiException {
 
         // Check required parameters

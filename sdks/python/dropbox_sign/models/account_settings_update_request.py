@@ -20,12 +20,12 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from dropbox_sign.models.team_setting_lock import TeamSettingLock
 from typing import Optional, Set
 from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 
 class AccountSettingsUpdateRequest(BaseModel):
@@ -39,16 +39,13 @@ class AccountSettingsUpdateRequest(BaseModel):
     )
     unset: Optional[List[StrictStr]] = Field(
         default=None,
-        description="Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.",
+        description="Any setting that can be set can also be unset. Unset clears the stored value so it is inherited. A listed name cannot also be set or locked in the same request.",
     )
-    lock: Optional[Dict[str, TeamSettingLock]] = Field(
-        default=None,
-        description="Lock modes keyed by setting name. Only team settings support locks. A name in `lock` cannot also appear in `unset`.",
-    )
-    __properties: ClassVar[List[str]] = ["set", "unset", "lock"]
+    __properties: ClassVar[List[str]] = ["set", "unset"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -60,8 +57,7 @@ class AccountSettingsUpdateRequest(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None
@@ -108,17 +104,7 @@ class AccountSettingsUpdateRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate(
-            {
-                "set": obj.get("set"),
-                "unset": obj.get("unset"),
-                "lock": (
-                    dict((_k, _v) for _k, _v in obj.get("lock").items())
-                    if obj.get("lock") is not None
-                    else None
-                ),
-            }
-        )
+        _obj = cls.model_validate({"set": obj.get("set"), "unset": obj.get("unset")})
         return _obj
 
     @classmethod
@@ -136,7 +122,6 @@ class AccountSettingsUpdateRequest(BaseModel):
         return {
             "set": "(Dict[str, object],)",
             "unset": "(List[str],)",
-            "lock": "(Dict[str, TeamSettingLock],)",
         }
 
     @classmethod

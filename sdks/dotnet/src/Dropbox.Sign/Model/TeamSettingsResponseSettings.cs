@@ -42,30 +42,30 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="TeamSettingsResponseSettings" /> class.
         /// </summary>
         /// <param name="company">Company name associated with this account or team. (required).</param>
-        /// <param name="customSigningRedirectEnabled">Whether signers are redirected to a custom URL after completing a signature request. (required).</param>
-        /// <param name="customSigningRedirectUrl">URL where signers are redirected after completing a signature request when custom redirects are enabled. (required).</param>
-        /// <param name="customTagline">Custom tagline displayed with the account or team branding. (required).</param>
-        /// <param name="dateFormat">Date format used to display dates. List the setting in &#x60;unset&#x60; to inherit the default. (required).</param>
-        /// <param name="isSignatureRemindersEnabled">Whether automatic reminder emails are enabled for incomplete signature requests. (required).</param>
-        /// <param name="requestEmailFrom">Sender name shown on signature request emails. (required).</param>
-        /// <param name="requestEmailSignature">Signature appended to signature request emails. (required).</param>
-        /// <param name="requiredSignatureTypes">Signature creation methods signers may use. (required).</param>
-        /// <param name="shouldEnableTamperProof">Whether completed documents include a digital tamper-proof seal. (required).</param>
+        /// <param name="customSigningRedirectEnabled">Whether signers are redirected to a custom webpage after they sign. (required).</param>
+        /// <param name="customSigningRedirectUrl">Webpage where signers are redirected after they sign, when custom redirects are enabled. (required).</param>
+        /// <param name="customTagline">Company tagline shown with the account or team branding. (required).</param>
+        /// <param name="dateFormat">Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field. (required).</param>
+        /// <param name="isSignatureRemindersEnabled">Whether reminder emails are sent to signers 3 days and 7 days after a signature request is sent. (required).</param>
+        /// <param name="requestEmailFrom">Name shown in the From field of signature request emails. When unset, each user&#39;s first and last name is shown. (required).</param>
+        /// <param name="requestEmailSignature">Text appended to the end of signature request emails. (required).</param>
+        /// <param name="requiredSignatureTypes">Signature creation methods a signer is allowed to use. (required).</param>
+        /// <param name="shouldEnableTamperProof">Whether a tamper-proof seal is applied to sent signature requests. (required).</param>
         /// <param name="shouldIncludeDistinctPdfs">Whether completed documents remain as separate PDF files instead of being merged into one PDF. (required).</param>
-        /// <param name="shouldOfferSignerAccessCode">Whether senders can require an access code to verify a signer. (required).</param>
-        /// <param name="shouldOfferSignerSmsAuthentication">Whether senders can require SMS authentication to verify a signer. (required).</param>
-        /// <param name="shouldRemoveDocumentId">Whether the Dropbox Sign document ID is hidden on sent documents. (required).</param>
-        /// <param name="dataResidency">Storage region for team documents. (required).</param>
-        /// <param name="allowTeamDeleteDocumentForEveryone">Whether team members can delete a document for all participants. (required).</param>
-        /// <param name="allowTeamDownloadCsv">Whether team members can download CSV files. (required).</param>
-        /// <param name="lockTeamTemplateCreation">Whether team members are prevented from creating templates. (required).</param>
-        /// <param name="lockTeamTemplateGallery">Whether team members are prevented from using the template gallery. (required).</param>
-        /// <param name="selfSignMessage">Default message enforced for team members when they create self-signed documents. (required).</param>
-        /// <param name="selfSignTitle">Default title enforced for team members when they create self-signed documents. (required).</param>
-        /// <param name="signatureRequestMessage">Default message enforced for team members when they create signature requests. (required).</param>
-        /// <param name="signatureRequestTitle">Default title enforced for team members when they create signature requests. (required).</param>
-        /// <param name="multifactorAuthApp">Whether authenticator-app multifactor authentication is enabled for the team. (required).</param>
-        /// <param name="multifactorAuthSms">Whether SMS multifactor authentication is enabled for the team. (required).</param>
+        /// <param name="shouldOfferSignerAccessCode">Whether senders can require a custom access code before a signer can open a document. (required).</param>
+        /// <param name="shouldOfferSignerSmsAuthentication">Whether senders can require a text-message verification code before a signer can open a document. (required).</param>
+        /// <param name="shouldRemoveDocumentId">Whether the document ID is removed from all pages of sent documents. (required).</param>
+        /// <param name="dataResidency">Region where the team&#39;s documents are stored at rest. (required).</param>
+        /// <param name="allowTeamDeleteDocumentForEveryone">Whether the sender, in addition to admins, can permanently delete a document from Dropbox Sign and from every participant account. (required).</param>
+        /// <param name="allowTeamDownloadCsv">Whether the sender, in addition to admins, can download document data as a CSV. (required).</param>
+        /// <param name="lockTeamTemplateCreation">When enabled, only admins can create and edit templates and template links. (required).</param>
+        /// <param name="lockTeamTemplateGallery">When enabled, only admins can access and use the template gallery. (required).</param>
+        /// <param name="selfSignMessage">Default message for self-signed documents created by team members. Lock this setting to prevent members from changing it. (required).</param>
+        /// <param name="selfSignTitle">Default document title for self-signed documents created by team members. Lock this setting to prevent members from changing it. (required).</param>
+        /// <param name="signatureRequestMessage">Default email message for signature requests created by team members. Lock this setting to prevent members from changing it. (required).</param>
+        /// <param name="signatureRequestTitle">Default document title for signature requests created by team members. Lock this setting to prevent members from changing it. (required).</param>
+        /// <param name="multifactorAuthApp">Whether an authenticator app is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. (required).</param>
+        /// <param name="multifactorAuthSms">Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled. (required).</param>
         public TeamSettingsResponseSettings(SettingResponse company = default(SettingResponse), SettingResponse customSigningRedirectEnabled = default(SettingResponse), SettingResponse customSigningRedirectUrl = default(SettingResponse), SettingResponse customTagline = default(SettingResponse), SettingResponse dateFormat = default(SettingResponse), SettingResponse isSignatureRemindersEnabled = default(SettingResponse), SettingResponse requestEmailFrom = default(SettingResponse), SettingResponse requestEmailSignature = default(SettingResponse), SettingResponse requiredSignatureTypes = default(SettingResponse), SettingResponse shouldEnableTamperProof = default(SettingResponse), SettingResponse shouldIncludeDistinctPdfs = default(SettingResponse), SettingResponse shouldOfferSignerAccessCode = default(SettingResponse), SettingResponse shouldOfferSignerSmsAuthentication = default(SettingResponse), SettingResponse shouldRemoveDocumentId = default(SettingResponse), SettingResponse dataResidency = default(SettingResponse), SettingResponse allowTeamDeleteDocumentForEveryone = default(SettingResponse), SettingResponse allowTeamDownloadCsv = default(SettingResponse), SettingResponse lockTeamTemplateCreation = default(SettingResponse), SettingResponse lockTeamTemplateGallery = default(SettingResponse), SettingResponse selfSignMessage = default(SettingResponse), SettingResponse selfSignTitle = default(SettingResponse), SettingResponse signatureRequestMessage = default(SettingResponse), SettingResponse signatureRequestTitle = default(SettingResponse), SettingResponse multifactorAuthApp = default(SettingResponse), SettingResponse multifactorAuthSms = default(SettingResponse))
         {
 
@@ -245,65 +245,65 @@ namespace Dropbox.Sign.Model
         public SettingResponse Company { get; set; }
 
         /// <summary>
-        /// Whether signers are redirected to a custom URL after completing a signature request.
+        /// Whether signers are redirected to a custom webpage after they sign.
         /// </summary>
-        /// <value>Whether signers are redirected to a custom URL after completing a signature request.</value>
+        /// <value>Whether signers are redirected to a custom webpage after they sign.</value>
         [DataMember(Name = "custom_signing_redirect_enabled", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse CustomSigningRedirectEnabled { get; set; }
 
         /// <summary>
-        /// URL where signers are redirected after completing a signature request when custom redirects are enabled.
+        /// Webpage where signers are redirected after they sign, when custom redirects are enabled.
         /// </summary>
-        /// <value>URL where signers are redirected after completing a signature request when custom redirects are enabled.</value>
+        /// <value>Webpage where signers are redirected after they sign, when custom redirects are enabled.</value>
         [DataMember(Name = "custom_signing_redirect_url", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse CustomSigningRedirectUrl { get; set; }
 
         /// <summary>
-        /// Custom tagline displayed with the account or team branding.
+        /// Company tagline shown with the account or team branding.
         /// </summary>
-        /// <value>Custom tagline displayed with the account or team branding.</value>
+        /// <value>Company tagline shown with the account or team branding.</value>
         [DataMember(Name = "custom_tagline", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse CustomTagline { get; set; }
 
         /// <summary>
-        /// Date format used to display dates. List the setting in &#x60;unset&#x60; to inherit the default.
+        /// Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.
         /// </summary>
-        /// <value>Date format used to display dates. List the setting in &#x60;unset&#x60; to inherit the default.</value>
+        /// <value>Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.</value>
         [DataMember(Name = "date_format", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse DateFormat { get; set; }
 
         /// <summary>
-        /// Whether automatic reminder emails are enabled for incomplete signature requests.
+        /// Whether reminder emails are sent to signers 3 days and 7 days after a signature request is sent.
         /// </summary>
-        /// <value>Whether automatic reminder emails are enabled for incomplete signature requests.</value>
+        /// <value>Whether reminder emails are sent to signers 3 days and 7 days after a signature request is sent.</value>
         [DataMember(Name = "is_signature_reminders_enabled", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse IsSignatureRemindersEnabled { get; set; }
 
         /// <summary>
-        /// Sender name shown on signature request emails.
+        /// Name shown in the From field of signature request emails. When unset, each user&#39;s first and last name is shown.
         /// </summary>
-        /// <value>Sender name shown on signature request emails.</value>
+        /// <value>Name shown in the From field of signature request emails. When unset, each user&#39;s first and last name is shown.</value>
         [DataMember(Name = "request_email_from", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse RequestEmailFrom { get; set; }
 
         /// <summary>
-        /// Signature appended to signature request emails.
+        /// Text appended to the end of signature request emails.
         /// </summary>
-        /// <value>Signature appended to signature request emails.</value>
+        /// <value>Text appended to the end of signature request emails.</value>
         [DataMember(Name = "request_email_signature", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse RequestEmailSignature { get; set; }
 
         /// <summary>
-        /// Signature creation methods signers may use.
+        /// Signature creation methods a signer is allowed to use.
         /// </summary>
-        /// <value>Signature creation methods signers may use.</value>
+        /// <value>Signature creation methods a signer is allowed to use.</value>
         [DataMember(Name = "required_signature_types", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse RequiredSignatureTypes { get; set; }
 
         /// <summary>
-        /// Whether completed documents include a digital tamper-proof seal.
+        /// Whether a tamper-proof seal is applied to sent signature requests.
         /// </summary>
-        /// <value>Whether completed documents include a digital tamper-proof seal.</value>
+        /// <value>Whether a tamper-proof seal is applied to sent signature requests.</value>
         [DataMember(Name = "should_enable_tamper_proof", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse ShouldEnableTamperProof { get; set; }
 
@@ -315,100 +315,100 @@ namespace Dropbox.Sign.Model
         public SettingResponse ShouldIncludeDistinctPdfs { get; set; }
 
         /// <summary>
-        /// Whether senders can require an access code to verify a signer.
+        /// Whether senders can require a custom access code before a signer can open a document.
         /// </summary>
-        /// <value>Whether senders can require an access code to verify a signer.</value>
+        /// <value>Whether senders can require a custom access code before a signer can open a document.</value>
         [DataMember(Name = "should_offer_signer_access_code", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse ShouldOfferSignerAccessCode { get; set; }
 
         /// <summary>
-        /// Whether senders can require SMS authentication to verify a signer.
+        /// Whether senders can require a text-message verification code before a signer can open a document.
         /// </summary>
-        /// <value>Whether senders can require SMS authentication to verify a signer.</value>
+        /// <value>Whether senders can require a text-message verification code before a signer can open a document.</value>
         [DataMember(Name = "should_offer_signer_sms_authentication", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse ShouldOfferSignerSmsAuthentication { get; set; }
 
         /// <summary>
-        /// Whether the Dropbox Sign document ID is hidden on sent documents.
+        /// Whether the document ID is removed from all pages of sent documents.
         /// </summary>
-        /// <value>Whether the Dropbox Sign document ID is hidden on sent documents.</value>
+        /// <value>Whether the document ID is removed from all pages of sent documents.</value>
         [DataMember(Name = "should_remove_document_id", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse ShouldRemoveDocumentId { get; set; }
 
         /// <summary>
-        /// Storage region for team documents.
+        /// Region where the team&#39;s documents are stored at rest.
         /// </summary>
-        /// <value>Storage region for team documents.</value>
+        /// <value>Region where the team&#39;s documents are stored at rest.</value>
         [DataMember(Name = "data_residency", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse DataResidency { get; set; }
 
         /// <summary>
-        /// Whether team members can delete a document for all participants.
+        /// Whether the sender, in addition to admins, can permanently delete a document from Dropbox Sign and from every participant account.
         /// </summary>
-        /// <value>Whether team members can delete a document for all participants.</value>
+        /// <value>Whether the sender, in addition to admins, can permanently delete a document from Dropbox Sign and from every participant account.</value>
         [DataMember(Name = "allow_team_delete_document_for_everyone", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse AllowTeamDeleteDocumentForEveryone { get; set; }
 
         /// <summary>
-        /// Whether team members can download CSV files.
+        /// Whether the sender, in addition to admins, can download document data as a CSV.
         /// </summary>
-        /// <value>Whether team members can download CSV files.</value>
+        /// <value>Whether the sender, in addition to admins, can download document data as a CSV.</value>
         [DataMember(Name = "allow_team_download_csv", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse AllowTeamDownloadCsv { get; set; }
 
         /// <summary>
-        /// Whether team members are prevented from creating templates.
+        /// When enabled, only admins can create and edit templates and template links.
         /// </summary>
-        /// <value>Whether team members are prevented from creating templates.</value>
+        /// <value>When enabled, only admins can create and edit templates and template links.</value>
         [DataMember(Name = "lock_team_template_creation", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse LockTeamTemplateCreation { get; set; }
 
         /// <summary>
-        /// Whether team members are prevented from using the template gallery.
+        /// When enabled, only admins can access and use the template gallery.
         /// </summary>
-        /// <value>Whether team members are prevented from using the template gallery.</value>
+        /// <value>When enabled, only admins can access and use the template gallery.</value>
         [DataMember(Name = "lock_team_template_gallery", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse LockTeamTemplateGallery { get; set; }
 
         /// <summary>
-        /// Default message enforced for team members when they create self-signed documents.
+        /// Default message for self-signed documents created by team members. Lock this setting to prevent members from changing it.
         /// </summary>
-        /// <value>Default message enforced for team members when they create self-signed documents.</value>
+        /// <value>Default message for self-signed documents created by team members. Lock this setting to prevent members from changing it.</value>
         [DataMember(Name = "self_sign_message", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse SelfSignMessage { get; set; }
 
         /// <summary>
-        /// Default title enforced for team members when they create self-signed documents.
+        /// Default document title for self-signed documents created by team members. Lock this setting to prevent members from changing it.
         /// </summary>
-        /// <value>Default title enforced for team members when they create self-signed documents.</value>
+        /// <value>Default document title for self-signed documents created by team members. Lock this setting to prevent members from changing it.</value>
         [DataMember(Name = "self_sign_title", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse SelfSignTitle { get; set; }
 
         /// <summary>
-        /// Default message enforced for team members when they create signature requests.
+        /// Default email message for signature requests created by team members. Lock this setting to prevent members from changing it.
         /// </summary>
-        /// <value>Default message enforced for team members when they create signature requests.</value>
+        /// <value>Default email message for signature requests created by team members. Lock this setting to prevent members from changing it.</value>
         [DataMember(Name = "signature_request_message", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse SignatureRequestMessage { get; set; }
 
         /// <summary>
-        /// Default title enforced for team members when they create signature requests.
+        /// Default document title for signature requests created by team members. Lock this setting to prevent members from changing it.
         /// </summary>
-        /// <value>Default title enforced for team members when they create signature requests.</value>
+        /// <value>Default document title for signature requests created by team members. Lock this setting to prevent members from changing it.</value>
         [DataMember(Name = "signature_request_title", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse SignatureRequestTitle { get; set; }
 
         /// <summary>
-        /// Whether authenticator-app multifactor authentication is enabled for the team.
+        /// Whether an authenticator app is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in.
         /// </summary>
-        /// <value>Whether authenticator-app multifactor authentication is enabled for the team.</value>
+        /// <value>Whether an authenticator app is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in.</value>
         [DataMember(Name = "multifactor_auth_app", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse MultifactorAuthApp { get; set; }
 
         /// <summary>
-        /// Whether SMS multifactor authentication is enabled for the team.
+        /// Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled.
         /// </summary>
-        /// <value>Whether SMS multifactor authentication is enabled for the team.</value>
+        /// <value>Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled.</value>
         [DataMember(Name = "multifactor_auth_sms", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse MultifactorAuthSms { get; set; }
 

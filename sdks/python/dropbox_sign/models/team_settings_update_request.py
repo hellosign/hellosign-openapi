@@ -26,6 +26,7 @@ from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 
 class TeamSettingsUpdateRequest(BaseModel):
@@ -37,18 +38,19 @@ class TeamSettingsUpdateRequest(BaseModel):
         default=None,
         description="Values to store, keyed by setting name. A name in `set` cannot also appear in `unset`.",
     )
-    unset: Optional[List[StrictStr]] = Field(
-        default=None,
-        description="Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.",
-    )
     lock: Optional[Dict[str, TeamSettingLock]] = Field(
         default=None,
-        description="Lock modes keyed by setting name. Only team settings support locks. A name in `lock` cannot also appear in `unset`.",
+        description="Lock a setting to prevent subteams or accounts from overriding it. A team admin can set a lock on their own team. An organization admin can set a lock on the organization or on a subteam. `organization_admins` prevents subteams and accounts from overriding the value. `team_admins` lets admins of that team and its subteams set their own value. `members` lets each account set its own value. A name in `lock` cannot also appear in `unset`.",
     )
-    __properties: ClassVar[List[str]] = ["set", "unset", "lock"]
+    unset: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="Any setting that can be set can also be unset. Unset clears the stored value and its lock so both are inherited. A listed name cannot also be set or locked in the same request.",
+    )
+    __properties: ClassVar[List[str]] = ["set", "lock", "unset"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -60,8 +62,7 @@ class TeamSettingsUpdateRequest(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None
@@ -111,12 +112,12 @@ class TeamSettingsUpdateRequest(BaseModel):
         _obj = cls.model_validate(
             {
                 "set": obj.get("set"),
-                "unset": obj.get("unset"),
                 "lock": (
                     dict((_k, _v) for _k, _v in obj.get("lock").items())
                     if obj.get("lock") is not None
                     else None
                 ),
+                "unset": obj.get("unset"),
             }
         )
         return _obj
@@ -135,8 +136,8 @@ class TeamSettingsUpdateRequest(BaseModel):
     def openapi_types(cls) -> Dict[str, str]:
         return {
             "set": "(Dict[str, object],)",
-            "unset": "(List[str],)",
             "lock": "(Dict[str, TeamSettingLock],)",
+            "unset": "(List[str],)",
         }
 
     @classmethod

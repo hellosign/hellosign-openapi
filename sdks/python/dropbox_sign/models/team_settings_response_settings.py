@@ -26,6 +26,7 @@ from typing_extensions import Self
 from typing import Tuple, Union
 import io
 from pydantic import StrictBool
+from pydantic_core import to_jsonable_python
 
 
 class TeamSettingsResponseSettings(BaseModel):
@@ -37,76 +38,76 @@ class TeamSettingsResponseSettings(BaseModel):
         description="Company name associated with this account or team."
     )
     custom_signing_redirect_enabled: SettingResponse = Field(
-        description="Whether signers are redirected to a custom URL after completing a signature request."
+        description="Whether signers are redirected to a custom webpage after they sign."
     )
     custom_signing_redirect_url: SettingResponse = Field(
-        description="URL where signers are redirected after completing a signature request when custom redirects are enabled."
+        description="Webpage where signers are redirected after they sign, when custom redirects are enabled."
     )
     custom_tagline: SettingResponse = Field(
-        description="Custom tagline displayed with the account or team branding."
+        description="Company tagline shown with the account or team branding."
     )
     date_format: SettingResponse = Field(
-        description="Date format used to display dates. List the setting in `unset` to inherit the default."
+        description="Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field."
     )
     is_signature_reminders_enabled: SettingResponse = Field(
-        description="Whether automatic reminder emails are enabled for incomplete signature requests."
+        description="Whether reminder emails are sent to signers 3 days and 7 days after a signature request is sent."
     )
     request_email_from: SettingResponse = Field(
-        description="Sender name shown on signature request emails."
+        description="Name shown in the From field of signature request emails. When unset, each user's first and last name is shown."
     )
     request_email_signature: SettingResponse = Field(
-        description="Signature appended to signature request emails."
+        description="Text appended to the end of signature request emails."
     )
     required_signature_types: SettingResponse = Field(
-        description="Signature creation methods signers may use."
+        description="Signature creation methods a signer is allowed to use."
     )
     should_enable_tamper_proof: SettingResponse = Field(
-        description="Whether completed documents include a digital tamper-proof seal."
+        description="Whether a tamper-proof seal is applied to sent signature requests."
     )
     should_include_distinct_pdfs: SettingResponse = Field(
         description="Whether completed documents remain as separate PDF files instead of being merged into one PDF."
     )
     should_offer_signer_access_code: SettingResponse = Field(
-        description="Whether senders can require an access code to verify a signer."
+        description="Whether senders can require a custom access code before a signer can open a document."
     )
     should_offer_signer_sms_authentication: SettingResponse = Field(
-        description="Whether senders can require SMS authentication to verify a signer."
+        description="Whether senders can require a text-message verification code before a signer can open a document."
     )
     should_remove_document_id: SettingResponse = Field(
-        description="Whether the Dropbox Sign document ID is hidden on sent documents."
+        description="Whether the document ID is removed from all pages of sent documents."
     )
     data_residency: SettingResponse = Field(
-        description="Storage region for team documents."
+        description="Region where the team's documents are stored at rest."
     )
     allow_team_delete_document_for_everyone: SettingResponse = Field(
-        description="Whether team members can delete a document for all participants."
+        description="Whether the sender, in addition to admins, can permanently delete a document from Dropbox Sign and from every participant account."
     )
     allow_team_download_csv: SettingResponse = Field(
-        description="Whether team members can download CSV files."
+        description="Whether the sender, in addition to admins, can download document data as a CSV."
     )
     lock_team_template_creation: SettingResponse = Field(
-        description="Whether team members are prevented from creating templates."
+        description="When enabled, only admins can create and edit templates and template links."
     )
     lock_team_template_gallery: SettingResponse = Field(
-        description="Whether team members are prevented from using the template gallery."
+        description="When enabled, only admins can access and use the template gallery."
     )
     self_sign_message: SettingResponse = Field(
-        description="Default message enforced for team members when they create self-signed documents."
+        description="Default message for self-signed documents created by team members. Lock this setting to prevent members from changing it."
     )
     self_sign_title: SettingResponse = Field(
-        description="Default title enforced for team members when they create self-signed documents."
+        description="Default document title for self-signed documents created by team members. Lock this setting to prevent members from changing it."
     )
     signature_request_message: SettingResponse = Field(
-        description="Default message enforced for team members when they create signature requests."
+        description="Default email message for signature requests created by team members. Lock this setting to prevent members from changing it."
     )
     signature_request_title: SettingResponse = Field(
-        description="Default title enforced for team members when they create signature requests."
+        description="Default document title for signature requests created by team members. Lock this setting to prevent members from changing it."
     )
     multifactor_auth_app: SettingResponse = Field(
-        description="Whether authenticator-app multifactor authentication is enabled for the team."
+        description="Whether an authenticator app is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in."
     )
     multifactor_auth_sms: SettingResponse = Field(
-        description="Whether SMS multifactor authentication is enabled for the team."
+        description="Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled."
     )
     __properties: ClassVar[List[str]] = [
         "company",
@@ -137,7 +138,8 @@ class TeamSettingsResponseSettings(BaseModel):
     ]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
         arbitrary_types_allowed=True,
@@ -149,8 +151,7 @@ class TeamSettingsResponseSettings(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     def to_json_form_params(
         self, excluded_fields: Set[str] = None

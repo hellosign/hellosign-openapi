@@ -59,7 +59,6 @@ class AccountSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonS
     protected static $openAPITypes = [
         'set' => 'array<string,mixed>',
         'unset' => 'string[]',
-        'lock' => 'array<string,\Dropbox\Sign\Model\TeamSettingLock>',
     ];
 
     /**
@@ -72,7 +71,6 @@ class AccountSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonS
     protected static $openAPIFormats = [
         'set' => null,
         'unset' => null,
-        'lock' => null,
     ];
 
     /**
@@ -83,7 +81,6 @@ class AccountSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonS
     protected static array $openAPINullables = [
         'set' => false,
         'unset' => false,
-        'lock' => false,
     ];
 
     /**
@@ -166,7 +163,6 @@ class AccountSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonS
     protected static $attributeMap = [
         'set' => 'set',
         'unset' => 'unset',
-        'lock' => 'lock',
     ];
 
     /**
@@ -177,7 +173,6 @@ class AccountSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonS
     protected static $setters = [
         'set' => 'setSet',
         'unset' => 'setUnset',
-        'lock' => 'setLock',
     ];
 
     /**
@@ -188,7 +183,6 @@ class AccountSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonS
     protected static $getters = [
         'set' => 'getSet',
         'unset' => 'getUnset',
-        'lock' => 'getLock',
     ];
 
     /**
@@ -249,7 +243,6 @@ class AccountSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonS
     {
         $this->setIfExists('set', $data ?? [], null);
         $this->setIfExists('unset', $data ?? [], null);
-        $this->setIfExists('lock', $data ?? [], null);
     }
 
     /**
@@ -349,7 +342,7 @@ class AccountSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets unset
      *
-     * @param string[]|null $unset Setting names to clear so their values are inherited. A listed name cannot also be set or locked in the same request.
+     * @param string[]|null $unset Any setting that can be set can also be unset. Unset clears the stored value so it is inherited. A listed name cannot also be set or locked in the same request.
      *
      * @return self
      */
@@ -358,35 +351,7 @@ class AccountSettingsUpdateRequest implements ModelInterface, ArrayAccess, JsonS
         if (is_null($unset)) {
             throw new InvalidArgumentException('non-nullable unset cannot be null');
         }
-
         $this->container['unset'] = $unset;
-
-        return $this;
-    }
-
-    /**
-     * Gets lock
-     *
-     * @return array<string,TeamSettingLock>|null
-     */
-    public function getLock()
-    {
-        return $this->container['lock'];
-    }
-
-    /**
-     * Sets lock
-     *
-     * @param array<string,TeamSettingLock>|null $lock Lock modes keyed by setting name. Only team settings support locks. A name in `lock` cannot also appear in `unset`.
-     *
-     * @return self
-     */
-    public function setLock(?array $lock)
-    {
-        if (is_null($lock)) {
-            throw new InvalidArgumentException('non-nullable lock cannot be null');
-        }
-        $this->container['lock'] = $lock;
 
         return $this;
     }
