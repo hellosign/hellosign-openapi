@@ -1,12 +1,12 @@
 import { AttributeTypeMap } from "./";
 import { AccountResponse } from "./accountResponse";
 export declare class TeamResponse {
-    "teamId"?: string;
-    "parentTeamId"?: string;
     "name"?: string;
     "accounts"?: Array<AccountResponse>;
     "invitedAccounts"?: Array<AccountResponse>;
     "invitedEmails"?: Array<string>;
+    "teamId"?: string;
+    "parentTeamId"?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

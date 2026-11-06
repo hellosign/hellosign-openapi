@@ -38,7 +38,7 @@ class TeamCreateRequest(BaseModel):
     )
     parent_team_id: Optional[StrictStr] = Field(
         default=None,
-        description="_t__TeamCreate::PARENT_TEAM_ID",
+        description="Id of an existing team to create this team under. Omit it to create a root team. Creating a subteam requires an organization admin.",
         json_schema_extra={"examples": ["4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"]},
     )
     __properties: ClassVar[List[str]] = ["name", "parent_team_id"]

@@ -27429,16 +27429,6 @@ var TeamResponse = class _TeamResponse {
   static {
     this.attributeTypeMap = [
       {
-        name: "teamId",
-        baseName: "team_id",
-        type: "string"
-      },
-      {
-        name: "parentTeamId",
-        baseName: "parent_team_id",
-        type: "string"
-      },
-      {
         name: "name",
         baseName: "name",
         type: "string"
@@ -27457,6 +27447,16 @@ var TeamResponse = class _TeamResponse {
         name: "invitedEmails",
         baseName: "invited_emails",
         type: "Array<string>"
+      },
+      {
+        name: "teamId",
+        baseName: "team_id",
+        type: "string"
+      },
+      {
+        name: "parentTeamId",
+        baseName: "parent_team_id",
+        type: "string"
       }
     ];
   }

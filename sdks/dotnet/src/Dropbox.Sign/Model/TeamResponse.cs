@@ -41,21 +41,21 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamResponse" /> class.
         /// </summary>
-        /// <param name="teamId">The id of a team.</param>
-        /// <param name="parentTeamId">_t__Team::PARENT_TEAM_ID.</param>
         /// <param name="name">The name of your Team.</param>
         /// <param name="accounts">accounts.</param>
         /// <param name="invitedAccounts">A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;..</param>
         /// <param name="invitedEmails">A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account..</param>
-        public TeamResponse(string teamId = default(string), string parentTeamId = default(string), string name = default(string), List<AccountResponse> accounts = default(List<AccountResponse>), List<AccountResponse> invitedAccounts = default(List<AccountResponse>), List<string> invitedEmails = default(List<string>))
+        /// <param name="teamId">The id of a team.</param>
+        /// <param name="parentTeamId">The id of this team&#39;s parent team. &#x60;null&#x60; when the team has no parent..</param>
+        public TeamResponse(string name = default(string), List<AccountResponse> accounts = default(List<AccountResponse>), List<AccountResponse> invitedAccounts = default(List<AccountResponse>), List<string> invitedEmails = default(List<string>), string teamId = default(string), string parentTeamId = default(string))
         {
 
-            this.TeamId = teamId;
-            this.ParentTeamId = parentTeamId;
             this.Name = name;
             this.Accounts = accounts;
             this.InvitedAccounts = invitedAccounts;
             this.InvitedEmails = invitedEmails;
+            this.TeamId = teamId;
+            this.ParentTeamId = parentTeamId;
         }
 
         /// <summary>
@@ -73,20 +73,6 @@ namespace Dropbox.Sign.Model
 
             return obj;
         }
-
-        /// <summary>
-        /// The id of a team
-        /// </summary>
-        /// <value>The id of a team</value>
-        [DataMember(Name = "team_id", EmitDefaultValue = true)]
-        public string TeamId { get; set; }
-
-        /// <summary>
-        /// _t__Team::PARENT_TEAM_ID
-        /// </summary>
-        /// <value>_t__Team::PARENT_TEAM_ID</value>
-        [DataMember(Name = "parent_team_id", EmitDefaultValue = true)]
-        public string ParentTeamId { get; set; }
 
         /// <summary>
         /// The name of your Team
@@ -116,6 +102,20 @@ namespace Dropbox.Sign.Model
         public List<string> InvitedEmails { get; set; }
 
         /// <summary>
+        /// The id of a team
+        /// </summary>
+        /// <value>The id of a team</value>
+        [DataMember(Name = "team_id", EmitDefaultValue = true)]
+        public string TeamId { get; set; }
+
+        /// <summary>
+        /// The id of this team&#39;s parent team. &#x60;null&#x60; when the team has no parent.
+        /// </summary>
+        /// <value>The id of this team&#39;s parent team. &#x60;null&#x60; when the team has no parent.</value>
+        [DataMember(Name = "parent_team_id", EmitDefaultValue = true)]
+        public string ParentTeamId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -123,12 +123,12 @@ namespace Dropbox.Sign.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class TeamResponse {\n");
-            sb.Append("  TeamId: ").Append(TeamId).Append("\n");
-            sb.Append("  ParentTeamId: ").Append(ParentTeamId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Accounts: ").Append(Accounts).Append("\n");
             sb.Append("  InvitedAccounts: ").Append(InvitedAccounts).Append("\n");
             sb.Append("  InvitedEmails: ").Append(InvitedEmails).Append("\n");
+            sb.Append("  TeamId: ").Append(TeamId).Append("\n");
+            sb.Append("  ParentTeamId: ").Append(ParentTeamId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -165,16 +165,6 @@ namespace Dropbox.Sign.Model
             }
             return
                 (
-                    this.TeamId == input.TeamId ||
-                    (this.TeamId != null &&
-                    this.TeamId.Equals(input.TeamId))
-                ) &&
-                (
-                    this.ParentTeamId == input.ParentTeamId ||
-                    (this.ParentTeamId != null &&
-                    this.ParentTeamId.Equals(input.ParentTeamId))
-                ) &&
-                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -196,6 +186,16 @@ namespace Dropbox.Sign.Model
                     this.InvitedEmails != null &&
                     input.InvitedEmails != null &&
                     this.InvitedEmails.SequenceEqual(input.InvitedEmails)
+                ) &&
+                (
+                    this.TeamId == input.TeamId ||
+                    (this.TeamId != null &&
+                    this.TeamId.Equals(input.TeamId))
+                ) &&
+                (
+                    this.ParentTeamId == input.ParentTeamId ||
+                    (this.ParentTeamId != null &&
+                    this.ParentTeamId.Equals(input.ParentTeamId))
                 );
         }
 
@@ -208,14 +208,6 @@ namespace Dropbox.Sign.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.TeamId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TeamId.GetHashCode();
-                }
-                if (this.ParentTeamId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ParentTeamId.GetHashCode();
-                }
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
@@ -231,6 +223,14 @@ namespace Dropbox.Sign.Model
                 if (this.InvitedEmails != null)
                 {
                     hashCode = (hashCode * 59) + this.InvitedEmails.GetHashCode();
+                }
+                if (this.TeamId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TeamId.GetHashCode();
+                }
+                if (this.ParentTeamId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ParentTeamId.GetHashCode();
                 }
                 return hashCode;
             }
@@ -248,20 +248,6 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType()
-            {
-                Name = "team_id",
-                Property = "TeamId",
-                Type = "string",
-                Value = TeamId,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "parent_team_id",
-                Property = "ParentTeamId",
-                Type = "string",
-                Value = ParentTeamId,
-            });
             types.Add(new OpenApiType()
             {
                 Name = "name",
@@ -289,6 +275,20 @@ namespace Dropbox.Sign.Model
                 Property = "InvitedEmails",
                 Type = "List<string>",
                 Value = InvitedEmails,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "team_id",
+                Property = "TeamId",
+                Type = "string",
+                Value = TeamId,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "parent_team_id",
+                Property = "ParentTeamId",
+                Type = "string",
+                Value = ParentTeamId,
             });
 
             return types;

@@ -6,11 +6,11 @@ Contains information about your team and its members
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `team_id` | ```string``` |  The id of a team  |  |
-| `parent_team_id` | ```string``` |  _t__Team::PARENT_TEAM_ID  |  |
 | `name` | ```string``` |  The name of your Team  |  |
 | `accounts` | [```\Dropbox\Sign\Model\AccountResponse[]```](AccountResponse.md) |    |  |
 | `invited_accounts` | [```\Dropbox\Sign\Model\AccountResponse[]```](AccountResponse.md) |  A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.  |  |
 | `invited_emails` | ```string[]``` |  A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.  |  |
+| `team_id` | ```string``` |  The id of a team  |  |
+| `parent_team_id` | ```string``` |  The id of this team&#39;s parent team. `null` when the team has no parent.  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

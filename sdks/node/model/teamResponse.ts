@@ -30,14 +30,6 @@ import { AccountResponse } from "./accountResponse";
  */
 export class TeamResponse {
   /**
-   * The id of a team
-   */
-  "teamId"?: string;
-  /**
-   * _t__Team::PARENT_TEAM_ID
-   */
-  "parentTeamId"?: string;
-  /**
    * The name of your Team
    */
   "name"?: string;
@@ -50,20 +42,18 @@ export class TeamResponse {
    * A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
    */
   "invitedEmails"?: Array<string>;
+  /**
+   * The id of a team
+   */
+  "teamId"?: string;
+  /**
+   * The id of this team\'s parent team. `null` when the team has no parent.
+   */
+  "parentTeamId"?: string;
 
   static discriminator: string | undefined = undefined;
 
   static attributeTypeMap: AttributeTypeMap = [
-    {
-      name: "teamId",
-      baseName: "team_id",
-      type: "string",
-    },
-    {
-      name: "parentTeamId",
-      baseName: "parent_team_id",
-      type: "string",
-    },
     {
       name: "name",
       baseName: "name",
@@ -83,6 +73,16 @@ export class TeamResponse {
       name: "invitedEmails",
       baseName: "invited_emails",
       type: "Array<string>",
+    },
+    {
+      name: "teamId",
+      baseName: "team_id",
+      type: "string",
+    },
+    {
+      name: "parentTeamId",
+      baseName: "parent_team_id",
+      type: "string",
     },
   ];
 

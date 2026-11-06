@@ -1256,6 +1256,18 @@
   Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
 
   Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+"Sub::BulkSigner::METADATA": |-
+  Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+"SignatureRequestBulkSendWithTemplate::METADATA": |-
+  Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+"SignatureRequestBulkCreateEmbeddedWithTemplate::METADATA": |-
+  Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
 
 "Sub::OAuth::CALLBACK_URL": The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)
 "Sub::OAuth::DESCRIPTION": OAuth related parameters.
@@ -1740,6 +1752,8 @@
 "Team::NAME": The name of your Team
 "Team::INVITED_ACCOUNTS": A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
 "Team::INVITED_EMAILS": A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
+"Team::PARENT_TEAM_ID": The id of this team's parent team. `null` when the team has no parent.
+"TeamCreate::PARENT_TEAM_ID": Id of an existing team to create this team under. Omit it to create a root team. Creating a subteam requires an organization admin.
 "TeamGeneral::TEAM_ID": The id of a team
 "TeamGeneral::NAME": The name of a team
 "TeamGeneral::NUM_MEMBERS": Number of members within a team

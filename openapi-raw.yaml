@@ -72,36 +72,6 @@ paths:
           api_key: []
       x-codeSamples:
         -
-          lang: PHP
-          label: PHP
-          source:
-            $ref: examples/AccountApiKeyListExample.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/AccountApiKeyListExample.cs
-        -
-          lang: TypeScript
-          label: TypeScript
-          source:
-            $ref: examples/AccountApiKeyListExample.ts
-        -
-          lang: Java
-          label: Java
-          source:
-            $ref: examples/AccountApiKeyListExample.java
-        -
-          lang: Ruby
-          label: Ruby
-          source:
-            $ref: examples/AccountApiKeyListExample.rb
-        -
-          lang: Python
-          label: Python
-          source:
-            $ref: examples/AccountApiKeyListExample.py
-        -
           lang: cURL
           label: cURL
           source:
@@ -181,36 +151,6 @@ paths:
         -
           api_key: []
       x-codeSamples:
-        -
-          lang: PHP
-          label: PHP
-          source:
-            $ref: examples/AccountApiKeyCreateExample.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/AccountApiKeyCreateExample.cs
-        -
-          lang: TypeScript
-          label: TypeScript
-          source:
-            $ref: examples/AccountApiKeyCreateExample.ts
-        -
-          lang: Java
-          label: Java
-          source:
-            $ref: examples/AccountApiKeyCreateExample.java
-        -
-          lang: Ruby
-          label: Ruby
-          source:
-            $ref: examples/AccountApiKeyCreateExample.rb
-        -
-          lang: Python
-          label: Python
-          source:
-            $ref: examples/AccountApiKeyCreateExample.py
         -
           lang: cURL
           label: cURL
@@ -292,36 +232,6 @@ paths:
         -
           api_key: []
       x-codeSamples:
-        -
-          lang: PHP
-          label: PHP
-          source:
-            $ref: examples/AccountApiKeyGetExample.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/AccountApiKeyGetExample.cs
-        -
-          lang: TypeScript
-          label: TypeScript
-          source:
-            $ref: examples/AccountApiKeyGetExample.ts
-        -
-          lang: Java
-          label: Java
-          source:
-            $ref: examples/AccountApiKeyGetExample.java
-        -
-          lang: Ruby
-          label: Ruby
-          source:
-            $ref: examples/AccountApiKeyGetExample.rb
-        -
-          lang: Python
-          label: Python
-          source:
-            $ref: examples/AccountApiKeyGetExample.py
         -
           lang: cURL
           label: cURL
@@ -414,36 +324,6 @@ paths:
           api_key: []
       x-codeSamples:
         -
-          lang: PHP
-          label: PHP
-          source:
-            $ref: examples/AccountApiKeyUpdateExample.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/AccountApiKeyUpdateExample.cs
-        -
-          lang: TypeScript
-          label: TypeScript
-          source:
-            $ref: examples/AccountApiKeyUpdateExample.ts
-        -
-          lang: Java
-          label: Java
-          source:
-            $ref: examples/AccountApiKeyUpdateExample.java
-        -
-          lang: Ruby
-          label: Ruby
-          source:
-            $ref: examples/AccountApiKeyUpdateExample.rb
-        -
-          lang: Python
-          label: Python
-          source:
-            $ref: examples/AccountApiKeyUpdateExample.py
-        -
           lang: cURL
           label: cURL
           source:
@@ -518,36 +398,6 @@ paths:
         -
           api_key: []
       x-codeSamples:
-        -
-          lang: PHP
-          label: PHP
-          source:
-            $ref: examples/AccountApiKeyDeleteExample.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/AccountApiKeyDeleteExample.cs
-        -
-          lang: TypeScript
-          label: TypeScript
-          source:
-            $ref: examples/AccountApiKeyDeleteExample.ts
-        -
-          lang: Java
-          label: Java
-          source:
-            $ref: examples/AccountApiKeyDeleteExample.java
-        -
-          lang: Ruby
-          label: Ruby
-          source:
-            $ref: examples/AccountApiKeyDeleteExample.rb
-        -
-          lang: Python
-          label: Python
-          source:
-            $ref: examples/AccountApiKeyDeleteExample.py
         -
           lang: cURL
           label: cURL
@@ -14360,12 +14210,6 @@ components:
     TeamResponse:
       description: '_t__TeamResponse::DESCRIPTION'
       properties:
-        team_id:
-          description: '_t__TeamGeneral::TEAM_ID'
-          type: string
-        parent_team_id:
-          description: '_t__Team::PARENT_TEAM_ID'
-          type: string
         name:
           description: '_t__Team::NAME'
           type: string
@@ -14383,6 +14227,12 @@ components:
           type: array
           items:
             type: string
+        team_id:
+          description: '_t__TeamGeneral::TEAM_ID'
+          type: string
+        parent_team_id:
+          description: '_t__Team::PARENT_TEAM_ID'
+          type: string
       type: object
       x-internal-class: true
     TeamInfoResponse:

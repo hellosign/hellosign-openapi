@@ -135,140 +135,6 @@ paths:
       security:
         - api_key: []
       x-codeSamples:
-        - lang: PHP
-          label: PHP
-          source: |
-            <?php
-
-            namespace Dropbox\SignSandbox;
-
-            require_once __DIR__ . '/../vendor/autoload.php';
-
-            use Dropbox;
-
-            $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-            $config->setUsername("YOUR_API_KEY");
-
-            try {
-                $response = (new Dropbox\Sign\Api\ApiKeyApi(config: $config))->apiKeyList();
-
-                print_r($response);
-            } catch (Dropbox\Sign\ApiException $e) {
-                echo "Exception when calling ApiKeyApi#apiKeyList: {$e->getMessage()}";
-            }
-        - lang: csharp
-          label: C#
-          source: |
-            using System;
-
-            using Dropbox.Sign.Api;
-            using Dropbox.Sign.Client;
-            using Dropbox.Sign.Model;
-
-            namespace Dropbox.SignSandbox;
-
-            public class AccountApiKeyListExample
-            {
-                public static void Run()
-                {
-                    var config = new Configuration();
-                    config.Username = "YOUR_API_KEY";
-
-                    try
-                    {
-                        var response = new ApiKeyApi(config).ApiKeyList();
-
-                        Console.WriteLine(response);
-                    }
-                    catch (ApiException e)
-                    {
-                        Console.WriteLine("Exception when calling ApiKeyApi#ApiKeyList: " + e.Message);
-                        Console.WriteLine("Status Code: " + e.ErrorCode);
-                        Console.WriteLine(e.StackTrace);
-                    }
-                }
-            }
-        - lang: TypeScript
-          label: TypeScript
-          source: |
-            import api from "@dropbox/sign"
-            import models from "@dropbox/sign"
-
-            const apiCaller = new api.ApiKeyApi();
-            apiCaller.username = "YOUR_API_KEY";
-
-            apiCaller.apiKeyList().then(response => {
-              console.log(response.body);
-            }).catch(error => {
-              console.log("Exception when calling ApiKeyApi#apiKeyList:");
-              console.log(error.body);
-            });
-        - lang: Java
-          label: Java
-          source: |
-            package com.dropbox.sign_sandbox;
-
-            import com.dropbox.sign.ApiException;
-            import com.dropbox.sign.Configuration;
-            import com.dropbox.sign.api.*;
-            import com.dropbox.sign.auth.*;
-            import com.dropbox.sign.model.*;
-
-            public class AccountApiKeyListExample
-            {
-                public static void main(String[] args)
-                {
-                    var config = Configuration.getDefaultApiClient();
-                    ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
-
-                    try
-                    {
-                        var response = new ApiKeyApi(config).apiKeyList();
-
-                        System.out.println(response);
-                    } catch (ApiException e) {
-                        System.err.println("Exception when calling ApiKeyApi#apiKeyList");
-                        System.err.println("Status code: " + e.getCode());
-                        System.err.println("Reason: " + e.getResponseBody());
-                        e.printStackTrace();
-                    }
-                }
-            }
-        - lang: Ruby
-          label: Ruby
-          source: |
-            require "json"
-            require "dropbox-sign"
-
-            Dropbox::Sign.configure do |config|
-                config.username = "YOUR_API_KEY"
-            end
-
-            begin
-                response = Dropbox::Sign::ApiKeyApi.new.api_key_list
-
-                p response
-            rescue Dropbox::Sign::ApiError => e
-                puts "Exception when calling ApiKeyApi#api_key_list: #{e}"
-            end
-        - lang: Python
-          label: Python
-          source: |
-            from pprint import pprint
-
-            from dropbox_sign import ApiClient, ApiException, Configuration, api, models
-
-            configuration = Configuration(
-                username="YOUR_API_KEY",
-            )
-
-            with ApiClient(configuration) as api_client:
-                try:
-                    response = api.ApiKeyApi(api_client).api_key_list()
-
-                    pprint(response)
-                except ApiException as e:
-                    print("Exception when calling ApiKeyApi#api_key_list: %s\n" % e)
         - lang: cURL
           label: cURL
           source: |
@@ -345,164 +211,6 @@ paths:
       security:
         - api_key: []
       x-codeSamples:
-        - lang: PHP
-          label: PHP
-          source: |
-            <?php
-
-            namespace Dropbox\SignSandbox;
-
-            require_once __DIR__ . '/../vendor/autoload.php';
-
-            use Dropbox;
-
-            $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-            $config->setUsername("YOUR_API_KEY");
-
-            $request = (new Dropbox\Sign\Model\AccountApiKeyCreateRequest())
-                ->setName("Production");
-
-            try {
-                $response = (new Dropbox\Sign\Api\ApiKeyApi(config: $config))->apiKeyCreate(
-                    account_api_key_create_request: $request,
-                );
-
-                print_r($response);
-            } catch (Dropbox\Sign\ApiException $e) {
-                echo "Exception when calling ApiKeyApi#apiKeyCreate: {$e->getMessage()}";
-            }
-        - lang: csharp
-          label: C#
-          source: |
-            using System;
-
-            using Dropbox.Sign.Api;
-            using Dropbox.Sign.Client;
-            using Dropbox.Sign.Model;
-
-            namespace Dropbox.SignSandbox;
-
-            public class AccountApiKeyCreateExample
-            {
-                public static void Run()
-                {
-                    var config = new Configuration();
-                    config.Username = "YOUR_API_KEY";
-
-                    try
-                    {
-                        var request = new AccountApiKeyCreateRequest(
-                            name: "Production"
-                        );
-                        var response = new ApiKeyApi(config).ApiKeyCreate(request);
-
-                        Console.WriteLine(response);
-                    }
-                    catch (ApiException e)
-                    {
-                        Console.WriteLine("Exception when calling ApiKeyApi#ApiKeyCreate: " + e.Message);
-                        Console.WriteLine("Status Code: " + e.ErrorCode);
-                        Console.WriteLine(e.StackTrace);
-                    }
-                }
-            }
-        - lang: TypeScript
-          label: TypeScript
-          source: |
-            import api from "@dropbox/sign"
-            import models from "@dropbox/sign"
-
-            const apiCaller = new api.ApiKeyApi();
-            apiCaller.username = "YOUR_API_KEY";
-
-            const request: models.AccountApiKeyCreateRequest = {
-              name: "Production",
-            };
-
-            apiCaller.apiKeyCreate(
-              request,
-            ).then(response => {
-              console.log(response.body);
-            }).catch(error => {
-              console.log("Exception when calling ApiKeyApi#apiKeyCreate:");
-              console.log(error.body);
-            });
-        - lang: Java
-          label: Java
-          source: |
-            package com.dropbox.sign_sandbox;
-
-            import com.dropbox.sign.ApiException;
-            import com.dropbox.sign.Configuration;
-            import com.dropbox.sign.api.*;
-            import com.dropbox.sign.auth.*;
-            import com.dropbox.sign.model.*;
-
-            public class AccountApiKeyCreateExample
-            {
-                public static void main(String[] args)
-                {
-                    var config = Configuration.getDefaultApiClient();
-                    ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
-
-                    try
-                    {
-
-                        var request = new AccountApiKeyCreateRequest();
-                        request.setName("Production");
-                        var response = new ApiKeyApi(config).apiKeyCreate(
-                            request
-                        );
-
-                        System.out.println(response);
-                    } catch (ApiException e) {
-                        System.err.println("Exception when calling ApiKeyApi#apiKeyCreate");
-                        System.err.println("Status code: " + e.getCode());
-                        System.err.println("Reason: " + e.getResponseBody());
-                        e.printStackTrace();
-                    }
-                }
-            }
-        - lang: Ruby
-          label: Ruby
-          source: |
-            require "json"
-            require "dropbox-sign"
-
-            Dropbox::Sign.configure do |config|
-                config.username = "YOUR_API_KEY"
-            end
-
-            begin
-                request = Dropbox::Sign::AccountApiKeyCreateRequest.new
-                request.name = "Production"
-
-                response = Dropbox::Sign::ApiKeyApi.new.api_key_create(request)
-
-                p response
-            rescue Dropbox::Sign::ApiError => e
-                puts "Exception when calling ApiKeyApi#api_key_create: #{e}"
-            end
-        - lang: Python
-          label: Python
-          source: |
-            from pprint import pprint
-
-            from dropbox_sign import ApiClient, ApiException, Configuration, api, models
-
-            configuration = Configuration(
-                username="YOUR_API_KEY",
-            )
-
-            with ApiClient(configuration) as api_client:
-                try:
-                    request = models.AccountApiKeyCreateRequest(name="Production")
-
-                    response = api.ApiKeyApi(api_client).api_key_create(request)
-
-                    pprint(response)
-                except ApiException as e:
-                    print("Exception when calling ApiKeyApi#api_key_create: %s\n" % e)
         - lang: cURL
           label: cURL
           source: |
@@ -581,148 +289,6 @@ paths:
       security:
         - api_key: []
       x-codeSamples:
-        - lang: PHP
-          label: PHP
-          source: |
-            <?php
-
-            namespace Dropbox\SignSandbox;
-
-            require_once __DIR__ . '/../vendor/autoload.php';
-
-            use Dropbox;
-
-            $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-            $config->setUsername("YOUR_API_KEY");
-
-            try {
-                $response = (new Dropbox\Sign\Api\ApiKeyApi(config: $config))->apiKeyGet(
-                    api_key_id: "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345",
-                );
-
-                print_r($response);
-            } catch (Dropbox\Sign\ApiException $e) {
-                echo "Exception when calling ApiKeyApi#apiKeyGet: {$e->getMessage()}";
-            }
-        - lang: csharp
-          label: C#
-          source: |
-            using System;
-
-            using Dropbox.Sign.Api;
-            using Dropbox.Sign.Client;
-            using Dropbox.Sign.Model;
-
-            namespace Dropbox.SignSandbox;
-
-            public class AccountApiKeyGetExample
-            {
-                public static void Run()
-                {
-                    var config = new Configuration();
-                    config.Username = "YOUR_API_KEY";
-
-                    try
-                    {
-                        var response = new ApiKeyApi(config).ApiKeyGet("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345");
-
-                        Console.WriteLine(response);
-                    }
-                    catch (ApiException e)
-                    {
-                        Console.WriteLine("Exception when calling ApiKeyApi#ApiKeyGet: " + e.Message);
-                        Console.WriteLine("Status Code: " + e.ErrorCode);
-                        Console.WriteLine(e.StackTrace);
-                    }
-                }
-            }
-        - lang: TypeScript
-          label: TypeScript
-          source: |
-            import api from "@dropbox/sign"
-            import models from "@dropbox/sign"
-
-            const apiCaller = new api.ApiKeyApi();
-            apiCaller.username = "YOUR_API_KEY";
-
-            apiCaller.apiKeyGet(
-              "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", // apiKeyId
-            ).then(response => {
-              console.log(response.body);
-            }).catch(error => {
-              console.log("Exception when calling ApiKeyApi#apiKeyGet:");
-              console.log(error.body);
-            });
-        - lang: Java
-          label: Java
-          source: |
-            package com.dropbox.sign_sandbox;
-
-            import com.dropbox.sign.ApiException;
-            import com.dropbox.sign.Configuration;
-            import com.dropbox.sign.api.*;
-            import com.dropbox.sign.auth.*;
-            import com.dropbox.sign.model.*;
-
-            public class AccountApiKeyGetExample
-            {
-                public static void main(String[] args)
-                {
-                    var config = Configuration.getDefaultApiClient();
-                    ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
-
-                    try
-                    {
-                        var response = new ApiKeyApi(config).apiKeyGet(
-                            "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345" // apiKeyId
-                        );
-
-                        System.out.println(response);
-                    } catch (ApiException e) {
-                        System.err.println("Exception when calling ApiKeyApi#apiKeyGet");
-                        System.err.println("Status code: " + e.getCode());
-                        System.err.println("Reason: " + e.getResponseBody());
-                        e.printStackTrace();
-                    }
-                }
-            }
-        - lang: Ruby
-          label: Ruby
-          source: |
-            require "json"
-            require "dropbox-sign"
-
-            Dropbox::Sign.configure do |config|
-                config.username = "YOUR_API_KEY"
-            end
-
-            begin
-                response = Dropbox::Sign::ApiKeyApi.new.api_key_get(
-                    "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", # api_key_id
-                )
-
-                p response
-            rescue Dropbox::Sign::ApiError => e
-                puts "Exception when calling ApiKeyApi#api_key_get: #{e}"
-            end
-        - lang: Python
-          label: Python
-          source: |
-            from pprint import pprint
-
-            from dropbox_sign import ApiClient, ApiException, Configuration, api, models
-
-            configuration = Configuration(
-                username="YOUR_API_KEY",
-            )
-
-            with ApiClient(configuration) as api_client:
-                try:
-                    response = api.ApiKeyApi(api_client).api_key_get("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345")
-
-                    pprint(response)
-                except ApiException as e:
-                    print("Exception when calling ApiKeyApi#api_key_get: %s\n" % e)
         - lang: cURL
           label: cURL
           source: |
@@ -809,175 +375,6 @@ paths:
       security:
         - api_key: []
       x-codeSamples:
-        - lang: PHP
-          label: PHP
-          source: |
-            <?php
-
-            namespace Dropbox\SignSandbox;
-
-            require_once __DIR__ . '/../vendor/autoload.php';
-
-            use Dropbox;
-
-            $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-            $config->setUsername("YOUR_API_KEY");
-
-            $request = (new Dropbox\Sign\Model\AccountApiKeyUpdateRequest())
-                ->setName("Billing")
-                ->setIsPrimary(true);
-
-            try {
-                $response = (new Dropbox\Sign\Api\ApiKeyApi(config: $config))->apiKeyUpdate(
-                    api_key_id: "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345",
-                    account_api_key_update_request: $request,
-                );
-
-                print_r($response);
-            } catch (Dropbox\Sign\ApiException $e) {
-                echo "Exception when calling ApiKeyApi#apiKeyUpdate: {$e->getMessage()}";
-            }
-        - lang: csharp
-          label: C#
-          source: |
-            using System;
-
-            using Dropbox.Sign.Api;
-            using Dropbox.Sign.Client;
-            using Dropbox.Sign.Model;
-
-            namespace Dropbox.SignSandbox;
-
-            public class AccountApiKeyUpdateExample
-            {
-                public static void Run()
-                {
-                    var config = new Configuration();
-                    config.Username = "YOUR_API_KEY";
-
-                    try
-                    {
-                        var request = new AccountApiKeyUpdateRequest(
-                            name: "Billing",
-                            isPrimary: true
-                        );
-                        var response = new ApiKeyApi(config).ApiKeyUpdate("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", request);
-
-                        Console.WriteLine(response);
-                    }
-                    catch (ApiException e)
-                    {
-                        Console.WriteLine("Exception when calling ApiKeyApi#ApiKeyUpdate: " + e.Message);
-                        Console.WriteLine("Status Code: " + e.ErrorCode);
-                        Console.WriteLine(e.StackTrace);
-                    }
-                }
-            }
-        - lang: TypeScript
-          label: TypeScript
-          source: |
-            import api from "@dropbox/sign"
-            import models from "@dropbox/sign"
-
-            const apiCaller = new api.ApiKeyApi();
-            apiCaller.username = "YOUR_API_KEY";
-
-            const request: models.AccountApiKeyUpdateRequest = {
-              name: "Billing",
-              isPrimary: true,
-            };
-
-            apiCaller.apiKeyUpdate(
-              "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", // apiKeyId
-              request,
-            ).then(response => {
-              console.log(response.body);
-            }).catch(error => {
-              console.log("Exception when calling ApiKeyApi#apiKeyUpdate:");
-              console.log(error.body);
-            });
-        - lang: Java
-          label: Java
-          source: |
-            package com.dropbox.sign_sandbox;
-
-            import com.dropbox.sign.ApiException;
-            import com.dropbox.sign.Configuration;
-            import com.dropbox.sign.api.*;
-            import com.dropbox.sign.auth.*;
-            import com.dropbox.sign.model.*;
-
-            public class AccountApiKeyUpdateExample
-            {
-                public static void main(String[] args)
-                {
-                    var config = Configuration.getDefaultApiClient();
-                    ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
-
-                    try
-                    {
-
-                        var request = new AccountApiKeyUpdateRequest();
-                        request.setName("Billing");
-                        request.setIsPrimary(true);
-                        var response = new ApiKeyApi(config).apiKeyUpdate(
-                            "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", // apiKeyId
-                            request
-                        );
-
-                        System.out.println(response);
-                    } catch (ApiException e) {
-                        System.err.println("Exception when calling ApiKeyApi#apiKeyUpdate");
-                        System.err.println("Status code: " + e.getCode());
-                        System.err.println("Reason: " + e.getResponseBody());
-                        e.printStackTrace();
-                    }
-                }
-            }
-        - lang: Ruby
-          label: Ruby
-          source: |
-            require "json"
-            require "dropbox-sign"
-
-            Dropbox::Sign.configure do |config|
-                config.username = "YOUR_API_KEY"
-            end
-
-            begin
-                request = Dropbox::Sign::AccountApiKeyUpdateRequest.new
-                request.name = "Billing"
-                request.is_primary = true
-
-                response = Dropbox::Sign::ApiKeyApi.new.api_key_update(
-                    "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", # api_key_id
-                    request,
-                )
-
-                p response
-            rescue Dropbox::Sign::ApiError => e
-                puts "Exception when calling ApiKeyApi#api_key_update: #{e}"
-            end
-        - lang: Python
-          label: Python
-          source: |
-            from pprint import pprint
-
-            from dropbox_sign import ApiClient, ApiException, Configuration, api, models
-
-            configuration = Configuration(
-                username="YOUR_API_KEY",
-            )
-
-            with ApiClient(configuration) as api_client:
-                try:
-                    request = models.AccountApiKeyUpdateRequest(name="Billing", is_primary=True)
-
-                    response = api.ApiKeyApi(api_client).api_key_update("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", request)
-
-                    pprint(response)
-                except ApiException as e:
-                    print("Exception when calling ApiKeyApi#api_key_update: %s\n" % e)
         - lang: cURL
           label: cURL
           source: |
@@ -1050,136 +447,6 @@ paths:
       security:
         - api_key: []
       x-codeSamples:
-        - lang: PHP
-          label: PHP
-          source: |
-            <?php
-
-            namespace Dropbox\SignSandbox;
-
-            require_once __DIR__ . '/../vendor/autoload.php';
-
-            use Dropbox;
-
-            $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-            $config->setUsername("YOUR_API_KEY");
-
-            try {
-                (new Dropbox\Sign\Api\ApiKeyApi(config: $config))->apiKeyDelete(
-                    api_key_id: "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345",
-                );
-            } catch (Dropbox\Sign\ApiException $e) {
-                echo "Exception when calling ApiKeyApi#apiKeyDelete: {$e->getMessage()}";
-            }
-        - lang: csharp
-          label: C#
-          source: |
-            using System;
-
-            using Dropbox.Sign.Api;
-            using Dropbox.Sign.Client;
-            using Dropbox.Sign.Model;
-
-            namespace Dropbox.SignSandbox;
-
-            public class AccountApiKeyDeleteExample
-            {
-                public static void Run()
-                {
-                    var config = new Configuration();
-                    config.Username = "YOUR_API_KEY";
-
-                    try
-                    {
-                        new ApiKeyApi(config).ApiKeyDelete("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345");
-                    }
-                    catch (ApiException e)
-                    {
-                        Console.WriteLine("Exception when calling ApiKeyApi#ApiKeyDelete: " + e.Message);
-                        Console.WriteLine("Status Code: " + e.ErrorCode);
-                        Console.WriteLine(e.StackTrace);
-                    }
-                }
-            }
-        - lang: TypeScript
-          label: TypeScript
-          source: |
-            import api from "@dropbox/sign"
-            import models from "@dropbox/sign"
-
-            const apiCaller = new api.ApiKeyApi();
-            apiCaller.username = "YOUR_API_KEY";
-
-            apiCaller.apiKeyDelete(
-              "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", // apiKeyId
-            ).catch(error => {
-              console.log("Exception when calling ApiKeyApi#apiKeyDelete:");
-              console.log(error.body);
-            });
-        - lang: Java
-          label: Java
-          source: |
-            package com.dropbox.sign_sandbox;
-
-            import com.dropbox.sign.ApiException;
-            import com.dropbox.sign.Configuration;
-            import com.dropbox.sign.api.*;
-            import com.dropbox.sign.auth.*;
-            import com.dropbox.sign.model.*;
-
-            public class AccountApiKeyDeleteExample
-            {
-                public static void main(String[] args)
-                {
-                    var config = Configuration.getDefaultApiClient();
-                    ((HttpBasicAuth) config.getAuthentication("api_key")).setUsername("YOUR_API_KEY");
-
-                    try
-                    {
-                        new ApiKeyApi(config).apiKeyDelete(
-                            "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345" // apiKeyId
-                        );
-                    } catch (ApiException e) {
-                        System.err.println("Exception when calling ApiKeyApi#apiKeyDelete");
-                        System.err.println("Status code: " + e.getCode());
-                        System.err.println("Reason: " + e.getResponseBody());
-                        e.printStackTrace();
-                    }
-                }
-            }
-        - lang: Ruby
-          label: Ruby
-          source: |
-            require "json"
-            require "dropbox-sign"
-
-            Dropbox::Sign.configure do |config|
-                config.username = "YOUR_API_KEY"
-            end
-
-            begin
-                Dropbox::Sign::ApiKeyApi.new.api_key_delete(
-                    "c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345", # api_key_id
-                )
-            rescue Dropbox::Sign::ApiError => e
-                puts "Exception when calling ApiKeyApi#api_key_delete: #{e}"
-            end
-        - lang: Python
-          label: Python
-          source: |
-            from pprint import pprint
-
-            from dropbox_sign import ApiClient, ApiException, Configuration, api, models
-
-            configuration = Configuration(
-                username="YOUR_API_KEY",
-            )
-
-            with ApiClient(configuration) as api_client:
-                try:
-                    api.ApiKeyApi(api_client).api_key_delete("c3d4e5f6a7b8490c1d2e3f4a5b6c7d8e9f012345")
-                except ApiException as e:
-                    print("Exception when calling ApiKeyApi#api_key_delete: %s\n" % e)
         - lang: cURL
           label: cURL
           source: |
@@ -26456,7 +25723,10 @@ components:
           type: string
           maxLength: 5000
         metadata:
-          description: _t__SignatureRequestBulkCreateEmbeddedWithTemplate::METADATA
+          description: |-
+            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
           maxProperties: 10
           type: object
           additionalProperties: {}
@@ -26546,7 +25816,10 @@ components:
           type: string
           maxLength: 5000
         metadata:
-          description: _t__SignatureRequestBulkSendWithTemplate::METADATA
+          description: |-
+            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
           maxProperties: 10
           type: object
           additionalProperties: {}
@@ -27627,7 +26900,10 @@ components:
           items:
             $ref: '#/components/schemas/SubSignatureRequestTemplateSigner'
         metadata:
-          description: _t__Sub::BulkSigner::METADATA
+          description: |-
+            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
           maxProperties: 10
           type: object
           additionalProperties: {}
@@ -28670,7 +27946,7 @@ components:
           type: string
           default: Untitled Team
         parent_team_id:
-          description: _t__TeamCreate::PARENT_TEAM_ID
+          description: Id of an existing team to create this team under. Omit it to create a root team. Creating a subteam requires an organization admin.
           type: string
           example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
       type: object
@@ -31484,12 +30760,6 @@ components:
     TeamResponse:
       description: Contains information about your team and its members
       properties:
-        team_id:
-          description: The id of a team
-          type: string
-        parent_team_id:
-          description: _t__Team::PARENT_TEAM_ID
-          type: string
         name:
           description: The name of your Team
           type: string
@@ -31507,6 +30777,12 @@ components:
           type: array
           items:
             type: string
+        team_id:
+          description: The id of a team
+          type: string
+        parent_team_id:
+          description: The id of this team's parent team. `null` when the team has no parent.
+          type: string
       type: object
       x-internal-class: true
     TeamInfoResponse:

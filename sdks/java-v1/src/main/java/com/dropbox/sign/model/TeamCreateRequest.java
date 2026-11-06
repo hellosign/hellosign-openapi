@@ -83,7 +83,8 @@ public class TeamCreateRequest {
     }
 
     /**
-     * _t__TeamCreate::PARENT_TEAM_ID
+     * Id of an existing team to create this team under. Omit it to create a root team. Creating a
+     * subteam requires an organization admin.
      *
      * @return parentTeamId
      */

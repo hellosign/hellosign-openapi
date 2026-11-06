@@ -30,7 +30,7 @@ export class TeamCreateRequest {
    */
   "name"?: string = "Untitled Team";
   /**
-   * _t__TeamCreate::PARENT_TEAM_ID
+   * Id of an existing team to create this team under. Omit it to create a root team. Creating a subteam requires an organization admin.
    */
   "parentTeamId"?: string;
 

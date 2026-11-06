@@ -42,7 +42,7 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="TeamCreateRequest" /> class.
         /// </summary>
         /// <param name="name">The name of your Team. (default to &quot;Untitled Team&quot;).</param>
-        /// <param name="parentTeamId">_t__TeamCreate::PARENT_TEAM_ID.</param>
+        /// <param name="parentTeamId">Id of an existing team to create this team under. Omit it to create a root team. Creating a subteam requires an organization admin..</param>
         public TeamCreateRequest(string name = @"Untitled Team", string parentTeamId = default(string))
         {
 
@@ -75,9 +75,9 @@ namespace Dropbox.Sign.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// _t__TeamCreate::PARENT_TEAM_ID
+        /// Id of an existing team to create this team under. Omit it to create a root team. Creating a subteam requires an organization admin.
         /// </summary>
-        /// <value>_t__TeamCreate::PARENT_TEAM_ID</value>
+        /// <value>Id of an existing team to create this team under. Omit it to create a root team. Creating a subteam requires an organization admin.</value>
         /// <example>4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c</example>
         [DataMember(Name = "parent_team_id", EmitDefaultValue = true)]
         public string ParentTeamId { get; set; }

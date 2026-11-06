@@ -43,7 +43,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="customFields">An array of custom field values..</param>
         /// <param name="signers">Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same &#x60;role&#x60; value..</param>
-        /// <param name="metadata">_t__Sub::BulkSigner::METADATA.</param>
+        /// <param name="metadata">Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long..</param>
         public SubBulkSignerList(List<SubBulkSignerListCustomField> customFields = default(List<SubBulkSignerListCustomField>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>), Dictionary<string, Object> metadata = default(Dictionary<string, Object>))
         {
 
@@ -83,9 +83,9 @@ namespace Dropbox.Sign.Model
         public List<SubSignatureRequestTemplateSigner> Signers { get; set; }
 
         /// <summary>
-        /// _t__Sub::BulkSigner::METADATA
+        /// Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
         /// </summary>
-        /// <value>_t__Sub::BulkSigner::METADATA</value>
+        /// <value>Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Dictionary<string, Object> Metadata { get; set; }
 

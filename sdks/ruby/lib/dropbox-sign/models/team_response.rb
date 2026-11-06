@@ -19,14 +19,6 @@ end
 module Dropbox::Sign
   # Contains information about your team and its members
   class TeamResponse < ApiModelBase
-    # The id of a team
-    # @return [String]
-    attr_accessor :team_id
-
-    # _t__Team::PARENT_TEAM_ID
-    # @return [String]
-    attr_accessor :parent_team_id
-
     # The name of your Team
     # @return [String]
     attr_accessor :name
@@ -42,15 +34,23 @@ module Dropbox::Sign
     # @return [Array<String>]
     attr_accessor :invited_emails
 
+    # The id of a team
+    # @return [String]
+    attr_accessor :team_id
+
+    # The id of this team's parent team. `null` when the team has no parent.
+    # @return [String]
+    attr_accessor :parent_team_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'team_id' => :'team_id',
-        :'parent_team_id' => :'parent_team_id',
         :'name' => :'name',
         :'accounts' => :'accounts',
         :'invited_accounts' => :'invited_accounts',
-        :'invited_emails' => :'invited_emails'
+        :'invited_emails' => :'invited_emails',
+        :'team_id' => :'team_id',
+        :'parent_team_id' => :'parent_team_id'
       }
     end
 
@@ -67,12 +67,12 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'team_id' => :'String',
-        :'parent_team_id' => :'String',
         :'name' => :'String',
         :'accounts' => :'Array<AccountResponse>',
         :'invited_accounts' => :'Array<AccountResponse>',
-        :'invited_emails' => :'Array<String>'
+        :'invited_emails' => :'Array<String>',
+        :'team_id' => :'String',
+        :'parent_team_id' => :'String'
       }
     end
 
@@ -133,14 +133,6 @@ module Dropbox::Sign
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'team_id')
-        self.team_id = attributes[:'team_id']
-      end
-
-      if attributes.key?(:'parent_team_id')
-        self.parent_team_id = attributes[:'parent_team_id']
-      end
-
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -162,6 +154,14 @@ module Dropbox::Sign
           self.invited_emails = value
         end
       end
+
+      if attributes.key?(:'team_id')
+        self.team_id = attributes[:'team_id']
+      end
+
+      if attributes.key?(:'parent_team_id')
+        self.parent_team_id = attributes[:'parent_team_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -182,12 +182,12 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          team_id == o.team_id &&
-          parent_team_id == o.parent_team_id &&
           name == o.name &&
           accounts == o.accounts &&
           invited_accounts == o.invited_accounts &&
-          invited_emails == o.invited_emails
+          invited_emails == o.invited_emails &&
+          team_id == o.team_id &&
+          parent_team_id == o.parent_team_id
     end
 
     # @see the `==` method
@@ -199,7 +199,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [team_id, parent_team_id, name, accounts, invited_accounts, invited_emails].hash
+      [name, accounts, invited_accounts, invited_emails, team_id, parent_team_id].hash
     end
 
     # Builds the object from hash

@@ -342,7 +342,7 @@ class TeamCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets parent_team_id
      *
-     * @param string|null $parent_team_id _t__TeamCreate::PARENT_TEAM_ID
+     * @param string|null $parent_team_id Id of an existing team to create this team under. Omit it to create a root team. Creating a subteam requires an organization admin.
      *
      * @return self
      */

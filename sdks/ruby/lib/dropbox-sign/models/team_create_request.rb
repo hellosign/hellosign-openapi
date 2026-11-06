@@ -22,7 +22,7 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :name
 
-    # _t__TeamCreate::PARENT_TEAM_ID
+    # Id of an existing team to create this team under. Omit it to create a root team. Creating a subteam requires an organization admin.
     # @return [String]
     attr_accessor :parent_team_id
 
