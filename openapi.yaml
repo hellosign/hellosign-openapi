@@ -16587,7 +16587,7 @@ components:
     IdempotencyKey:
       name: Idempotency-Key
       in: header
-      description: '_t__Common::Idempotency::KEY'
+      description: 'An optional key of 1 to 255 characters used to safely retry a request. Reusing a key with different request parameters returns a conflict.'
       required: false
       schema:
         type: string
@@ -17369,7 +17369,7 @@ components:
         format: int64
         example: 1430170900
     Idempotent-Replayed:
-      description: '_t__Common::Idempotency::REPLAYED'
+      description: 'Indicates that the response was replayed from a previous request with the same idempotency key.'
       required: false
       schema:
         type: boolean
