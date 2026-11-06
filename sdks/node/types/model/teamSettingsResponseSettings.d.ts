@@ -1,0 +1,33 @@
+import { AttributeTypeMap } from "./";
+import { SettingResponse } from "./settingResponse";
+export declare class TeamSettingsResponseSettings {
+    "company": SettingResponse;
+    "customSigningRedirectEnabled": SettingResponse;
+    "customSigningRedirectUrl": SettingResponse;
+    "customTagline": SettingResponse;
+    "dateFormat": SettingResponse;
+    "isSignatureRemindersEnabled": SettingResponse;
+    "requestEmailFrom": SettingResponse;
+    "requestEmailSignature": SettingResponse;
+    "requiredSignatureTypes": SettingResponse;
+    "shouldEnableTamperProof": SettingResponse;
+    "shouldIncludeDistinctPdfs": SettingResponse;
+    "shouldOfferSignerAccessCode": SettingResponse;
+    "shouldOfferSignerSmsAuthentication": SettingResponse;
+    "shouldRemoveDocumentId": SettingResponse;
+    "dataResidency": SettingResponse;
+    "allowTeamDeleteDocumentForEveryone": SettingResponse;
+    "allowTeamDownloadCsv": SettingResponse;
+    "lockTeamTemplateCreation": SettingResponse;
+    "lockTeamTemplateGallery": SettingResponse;
+    "selfSignMessage": SettingResponse;
+    "selfSignTitle": SettingResponse;
+    "signatureRequestMessage": SettingResponse;
+    "signatureRequestTitle": SettingResponse;
+    "multifactorAuthApp": SettingResponse;
+    "multifactorAuthSms": SettingResponse;
+    static discriminator: string | undefined;
+    static attributeTypeMap: AttributeTypeMap;
+    static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): TeamSettingsResponseSettings;
+}

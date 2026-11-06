@@ -36,7 +36,12 @@ class TeamCreateRequest(BaseModel):
     name: Optional[StrictStr] = Field(
         default="Untitled Team", description="The name of your Team."
     )
-    __properties: ClassVar[List[str]] = ["name"]
+    parent_team_id: Optional[StrictStr] = Field(
+        default=None,
+        description="Id of an existing team to create this team under. Omit it to create a root team. Creating a subteam requires an organization admin.",
+        json_schema_extra={"examples": ["4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"]},
+    )
+    __properties: ClassVar[List[str]] = ["name", "parent_team_id"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -103,7 +108,8 @@ class TeamCreateRequest(BaseModel):
             {
                 "name": (
                     obj.get("name") if obj.get("name") is not None else "Untitled Team"
-                )
+                ),
+                "parent_team_id": obj.get("parent_team_id"),
             }
         )
         return _obj
@@ -122,6 +128,7 @@ class TeamCreateRequest(BaseModel):
     def openapi_types(cls) -> Dict[str, str]:
         return {
             "name": "(str,)",
+            "parent_team_id": "(str,)",
         }
 
     @classmethod

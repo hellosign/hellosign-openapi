@@ -44,11 +44,18 @@ class TeamResponse(BaseModel):
         default=None,
         description="A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.",
     )
+    team_id: Optional[StrictStr] = Field(default=None, description="The id of a team")
+    parent_team_id: Optional[StrictStr] = Field(
+        default=None,
+        description="The id of this team's parent team. `null` when the team has no parent.",
+    )
     __properties: ClassVar[List[str]] = [
         "name",
         "accounts",
         "invited_accounts",
         "invited_emails",
+        "team_id",
+        "parent_team_id",
     ]
 
     model_config = ConfigDict(
@@ -147,6 +154,8 @@ class TeamResponse(BaseModel):
                     else None
                 ),
                 "invited_emails": obj.get("invited_emails"),
+                "team_id": obj.get("team_id"),
+                "parent_team_id": obj.get("parent_team_id"),
             }
         )
         return _obj
@@ -168,6 +177,8 @@ class TeamResponse(BaseModel):
             "accounts": "(List[AccountResponse],)",
             "invited_accounts": "(List[AccountResponse],)",
             "invited_emails": "(List[str],)",
+            "team_id": "(str,)",
+            "parent_team_id": "(str,)",
         }
 
     @classmethod

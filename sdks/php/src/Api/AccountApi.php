@@ -74,6 +74,12 @@ class AccountApi
         'accountGet' => [
             'application/json',
         ],
+        'accountSettingsGet' => [
+            'application/json',
+        ],
+        'accountSettingsUpdate' => [
+            'application/json',
+        ],
         'accountUpdate' => [
             'application/json',
         ],
@@ -791,6 +797,665 @@ class AccountApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation accountSettingsGet
+     *
+     * Get account settings
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountSettingsGetExample.php
+     *
+     * @param string|null $account_id Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)
+     *
+     * @return Model\AccountSettingsResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     */
+    public function accountSettingsGet(?string $account_id = null)
+    {
+        list($response) = $this->accountSettingsGetWithHttpInfo($account_id);
+        return $response;
+    }
+
+    /**
+     * Operation accountSettingsGetWithHttpInfo
+     *
+     * Get account settings
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountSettingsGetExample.php
+     *
+     * @param string|null $account_id  Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)
+     * @param string      $contentType The value for the Content-Type header. Check self::contentTypes['accountSettingsGet'] to see the possible values for this operation
+     *
+     * @return array of Model\AccountSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountSettingsGet. This method will eventually become unavailable
+     */
+    public function accountSettingsGetWithHttpInfo(?string $account_id = null, string $contentType = self::contentTypes['accountSettingsGet'][0])
+    {
+        $request = $this->accountSettingsGetRequest($account_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+                $this->response = $response;
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int)$e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int)$e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            $result = $this->handleRangeCodeResponse(
+                $response,
+                '4XX',
+                '\Dropbox\Sign\Model\ErrorResponse'
+            );
+            if ($result) {
+                return $result;
+            }
+
+            switch ($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Dropbox\Sign\Model\AccountSettingsResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            if ($this->responseWithinRangeCode('4XX', $statusCode)) {
+                return $this->handleResponseWithDataType(
+                    '\Dropbox\Sign\Model\ErrorResponse',
+                    $request,
+                    $response,
+                );
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string)$request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string)$response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Dropbox\Sign\Model\AccountSettingsResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
+                throw $e;
+            }
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Dropbox\Sign\Model\AccountSettingsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+
+            if ($this->responseWithinRangeCode('4XX', $e->getCode())) {
+                $data = ObjectSerializer::deserialize(
+                    $e->getResponseBody(),
+                    '\Dropbox\Sign\Model\ErrorResponse',
+                    $e->getResponseHeaders()
+                );
+                $e->setResponseObject($data);
+                throw $e;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation accountSettingsGetAsync
+     *
+     * Get account settings
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountSettingsGetExample.php
+     *
+     * @param string|null $account_id  Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)
+     * @param string      $contentType The value for the Content-Type header. Check self::contentTypes['accountSettingsGet'] to see the possible values for this operation
+     *
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountSettingsGet. This method will eventually become unavailable
+     */
+    public function accountSettingsGetAsync(?string $account_id = null, string $contentType = self::contentTypes['accountSettingsGet'][0])
+    {
+        return $this->accountSettingsGetAsyncWithHttpInfo($account_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation accountSettingsGetAsyncWithHttpInfo
+     *
+     * Get account settings
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountSettingsGetExample.php
+     *
+     * @param string|null $account_id  Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)
+     * @param string      $contentType The value for the Content-Type header. Check self::contentTypes['accountSettingsGet'] to see the possible values for this operation
+     *
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountSettingsGet. This method will eventually become unavailable
+     */
+    public function accountSettingsGetAsyncWithHttpInfo(?string $account_id = null, string $contentType = self::contentTypes['accountSettingsGet'][0])
+    {
+        $returnType = '\Dropbox\Sign\Model\AccountSettingsResponse';
+        $request = $this->accountSettingsGetRequest($account_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); // stream goes to serializer
+                    } else {
+                        $content = (string)$response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string)$response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'accountSettingsGet'
+     *
+     * @param string|null $account_id  Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)
+     * @param string      $contentType The value for the Content-Type header. Check self::contentTypes['accountSettingsGet'] to see the possible values for this operation
+     *
+     * @return Request
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountSettingsGet. This method will eventually become unavailable
+     */
+    public function accountSettingsGetRequest(?string $account_id = null, string $contentType = self::contentTypes['accountSettingsGet'][0])
+    {
+        $resourcePath = '/account/settings';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $account_id,
+            'account_id', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        $headers = $this->headerSelector->selectHeaders(
+            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem,
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                if (!empty($body)) {
+                    $multipartContents[] = [
+                        'name'     => 'body',
+                        'contents' => $body,
+                        'headers'  => ['Content-Type' => 'application/json'],
+                    ];
+                }
+
+                $httpBody = new MultipartStream($multipartContents);
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                // if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (JsonException $e) {
+                    throw new InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername())) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ':');
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation accountSettingsUpdate
+     *
+     * Modify account settings
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountSettingsUpdateExample.php
+     *
+     * @param Model\AccountSettingsUpdateRequest $account_settings_update_request account_settings_update_request (required)
+     * @param string|null                        $account_id                      Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)
+     *
+     * @return Model\AccountSettingsResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     */
+    public function accountSettingsUpdate(Model\AccountSettingsUpdateRequest $account_settings_update_request, ?string $account_id = null)
+    {
+        list($response) = $this->accountSettingsUpdateWithHttpInfo($account_settings_update_request, $account_id);
+        return $response;
+    }
+
+    /**
+     * Operation accountSettingsUpdateWithHttpInfo
+     *
+     * Modify account settings
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountSettingsUpdateExample.php
+     *
+     * @param Model\AccountSettingsUpdateRequest $account_settings_update_request (required)
+     * @param string|null                        $account_id                      Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)
+     * @param string                             $contentType                     The value for the Content-Type header. Check self::contentTypes['accountSettingsUpdate'] to see the possible values for this operation
+     *
+     * @return array of Model\AccountSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountSettingsUpdate. This method will eventually become unavailable
+     */
+    public function accountSettingsUpdateWithHttpInfo(Model\AccountSettingsUpdateRequest $account_settings_update_request, ?string $account_id = null, string $contentType = self::contentTypes['accountSettingsUpdate'][0])
+    {
+        $request = $this->accountSettingsUpdateRequest($account_settings_update_request, $account_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+                $this->response = $response;
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int)$e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int)$e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            $result = $this->handleRangeCodeResponse(
+                $response,
+                '4XX',
+                '\Dropbox\Sign\Model\ErrorResponse'
+            );
+            if ($result) {
+                return $result;
+            }
+
+            switch ($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\Dropbox\Sign\Model\AccountSettingsResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            if ($this->responseWithinRangeCode('4XX', $statusCode)) {
+                return $this->handleResponseWithDataType(
+                    '\Dropbox\Sign\Model\ErrorResponse',
+                    $request,
+                    $response,
+                );
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string)$request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string)$response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\Dropbox\Sign\Model\AccountSettingsResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
+                throw $e;
+            }
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Dropbox\Sign\Model\AccountSettingsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+
+            if ($this->responseWithinRangeCode('4XX', $e->getCode())) {
+                $data = ObjectSerializer::deserialize(
+                    $e->getResponseBody(),
+                    '\Dropbox\Sign\Model\ErrorResponse',
+                    $e->getResponseHeaders()
+                );
+                $e->setResponseObject($data);
+                throw $e;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation accountSettingsUpdateAsync
+     *
+     * Modify account settings
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountSettingsUpdateExample.php
+     *
+     * @param Model\AccountSettingsUpdateRequest $account_settings_update_request (required)
+     * @param string|null                        $account_id                      Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)
+     * @param string                             $contentType                     The value for the Content-Type header. Check self::contentTypes['accountSettingsUpdate'] to see the possible values for this operation
+     *
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountSettingsUpdate. This method will eventually become unavailable
+     */
+    public function accountSettingsUpdateAsync(Model\AccountSettingsUpdateRequest $account_settings_update_request, ?string $account_id = null, string $contentType = self::contentTypes['accountSettingsUpdate'][0])
+    {
+        return $this->accountSettingsUpdateAsyncWithHttpInfo($account_settings_update_request, $account_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation accountSettingsUpdateAsyncWithHttpInfo
+     *
+     * Modify account settings
+     *
+     * Example: https://github.com/hellosign/dropbox-sign-php/blob/main/examples/AccountSettingsUpdateExample.php
+     *
+     * @param Model\AccountSettingsUpdateRequest $account_settings_update_request (required)
+     * @param string|null                        $account_id                      Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)
+     * @param string                             $contentType                     The value for the Content-Type header. Check self::contentTypes['accountSettingsUpdate'] to see the possible values for this operation
+     *
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountSettingsUpdate. This method will eventually become unavailable
+     */
+    public function accountSettingsUpdateAsyncWithHttpInfo(Model\AccountSettingsUpdateRequest $account_settings_update_request, ?string $account_id = null, string $contentType = self::contentTypes['accountSettingsUpdate'][0])
+    {
+        $returnType = '\Dropbox\Sign\Model\AccountSettingsResponse';
+        $request = $this->accountSettingsUpdateRequest($account_settings_update_request, $account_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); // stream goes to serializer
+                    } else {
+                        $content = (string)$response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string)$response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'accountSettingsUpdate'
+     *
+     * @param Model\AccountSettingsUpdateRequest $account_settings_update_request (required)
+     * @param string|null                        $account_id                      Optional account ID. Defaults to the authenticated account. A team admin can specify another account on a team they administer. (optional)
+     * @param string                             $contentType                     The value for the Content-Type header. Check self::contentTypes['accountSettingsUpdate'] to see the possible values for this operation
+     *
+     * @return Request
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountSettingsUpdate. This method will eventually become unavailable
+     */
+    public function accountSettingsUpdateRequest(Model\AccountSettingsUpdateRequest $account_settings_update_request, ?string $account_id = null, string $contentType = self::contentTypes['accountSettingsUpdate'][0])
+    {
+        // verify the required parameter 'account_settings_update_request' is set
+        if ($account_settings_update_request === null || (is_array($account_settings_update_request) && count($account_settings_update_request) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $account_settings_update_request when calling accountSettingsUpdate'
+            );
+        }
+
+        $resourcePath = '/account/settings';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        $formParams = ObjectSerializer::getFormParams(
+            $account_settings_update_request
+        );
+
+        $multipart = !empty($formParams);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $account_id,
+            'account_id', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        $headers = $this->headerSelector->selectHeaders(
+            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) === 0) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                // if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($account_settings_update_request), JSON_THROW_ON_ERROR);
+                } catch (JsonException $e) {
+                    throw new InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $account_settings_update_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem,
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                if (!empty($body)) {
+                    $multipartContents[] = [
+                        'name'     => 'body',
+                        'contents' => $body,
+                        'headers'  => ['Content-Type' => 'application/json'],
+                    ];
+                }
+
+                if ($payloadHook = $this->config->getPayloadHook()) {
+                    $payloadHook('multipart', $multipartContents, $account_settings_update_request);
+                }
+                $httpBody = new MultipartStream($multipartContents);
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                // if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (JsonException $e) {
+                    throw new InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername())) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ':');
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
