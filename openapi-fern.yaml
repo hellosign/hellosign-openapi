@@ -27648,6 +27648,15 @@ components:
             text: Sets merge [field type](/api/reference/constants/#field-types) to `text`.
             checkbox: Sets merge [field type](/api/reference/constants/#field-types) to `checkbox`.
       type: object
+    NotifyCCRecipientEvent:
+      description: An event for which CC recipients can receive notifications.
+      type: string
+      enum:
+        - send
+        - complete
+        - view
+        - decline
+        - delegate
     SubOAuth:
       description: OAuth related parameters.
       properties:
@@ -28075,6 +28084,30 @@ components:
             multifactor_auth_sms:
               description: Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled.
               type: boolean
+            qualified_esignature_enabled:
+              description: Whether qualified electronic signatures are enabled for the team.
+              type: boolean
+            sms_signature_delivery:
+              description: Whether signature requests can be delivered by SMS.
+              type: boolean
+            nom151_enabled:
+              description: Whether NOM-151 compliance is enabled for the team.
+              type: boolean
+            should_enable_in_person_signing:
+              description: Whether in-person signing is enabled for the team.
+              type: boolean
+            everyone_has_signed_email:
+              description: Email address notified when everyone has signed.
+              type: string
+            timezone:
+              description: The team's time zone identifier.
+              type: string
+            notify_cc_recipients_setting:
+              description: Events for which CC recipients receive notifications.
+              type: array
+              items:
+                $ref: '#/components/schemas/NotifyCCRecipientEvent'
+              uniqueItems: true
           type: object
           additionalProperties: {}
         lock:
@@ -28205,6 +28238,41 @@ components:
               allOf:
                 -
                   $ref: '#/components/schemas/TeamSettingLock'
+            qualified_esignature_enabled:
+              description: Whether qualified electronic signatures are enabled for the team.
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+            sms_signature_delivery:
+              description: Whether signature requests can be delivered by SMS.
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+            nom151_enabled:
+              description: Whether NOM-151 compliance is enabled for the team.
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+            should_enable_in_person_signing:
+              description: Whether in-person signing is enabled for the team.
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+            everyone_has_signed_email:
+              description: Email address notified when everyone has signed.
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+            timezone:
+              description: The team's time zone identifier.
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+            notify_cc_recipients_setting:
+              description: Events for which CC recipients receive notifications.
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
           type: object
           additionalProperties:
             $ref: '#/components/schemas/TeamSettingLock'
@@ -28239,6 +28307,13 @@ components:
               - signature_request_title
               - multifactor_auth_app
               - multifactor_auth_sms
+              - qualified_esignature_enabled
+              - sms_signature_delivery
+              - nom151_enabled
+              - should_enable_in_person_signing
+              - everyone_has_signed_email
+              - timezone
+              - notify_cc_recipients_setting
       type: object
       additionalProperties: false
     TeamUpdateRequest:
@@ -30877,6 +30952,13 @@ components:
         - signature_request_title
         - multifactor_auth_app
         - multifactor_auth_sms
+        - qualified_esignature_enabled
+        - sms_signature_delivery
+        - nom151_enabled
+        - should_enable_in_person_signing
+        - everyone_has_signed_email
+        - timezone
+        - notify_cc_recipients_setting
       properties:
         company:
           description: Company name associated with this account or team.
@@ -31024,6 +31106,48 @@ components:
               $ref: '#/components/schemas/SettingResponse'
         multifactor_auth_sms:
           description: Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        qualified_esignature_enabled:
+          description: Whether qualified electronic signatures are enabled for the team.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        sms_signature_delivery:
+          description: Whether signature requests can be delivered by SMS.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        nom151_enabled:
+          description: Whether NOM-151 compliance is enabled for the team.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_enable_in_person_signing:
+          description: Whether in-person signing is enabled for the team.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        everyone_has_signed_email:
+          description: Email address notified when everyone has signed.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        timezone:
+          description: The team's time zone identifier.
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        notify_cc_recipients_setting:
+          description: Events for which CC recipients receive notifications.
           type: object
           allOf:
             -

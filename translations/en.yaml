@@ -2017,6 +2017,14 @@
 "TeamSettings::SIGNATURE_REQUEST_TITLE": Default document title for signature requests created by team members. Lock this setting to prevent members from changing it.
 "TeamSettings::MULTIFACTOR_AUTH_APP": Whether an authenticator app is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in.
 "TeamSettings::MULTIFACTOR_AUTH_SMS": Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled.
+"TeamSettings::QUALIFIED_ESIGNATURE_ENABLED": Whether qualified electronic signatures are enabled for the team.
+"TeamSettings::SMS_SIGNATURE_DELIVERY": Whether signature requests can be delivered by SMS.
+"TeamSettings::NOM151_ENABLED": Whether NOM-151 compliance is enabled for the team.
+"TeamSettings::SHOULD_ENABLE_IN_PERSON_SIGNING": Whether in-person signing is enabled for the team.
+"TeamSettings::EVERYONE_HAS_SIGNED_EMAIL": Email address notified when everyone has signed.
+"TeamSettings::TIMEZONE": The team's time zone identifier.
+"TeamSettings::NOTIFY_CC_RECIPIENT_SETTING": Events for which CC recipients receive notifications.
+"NotifyCCRecipientEvent::DESCRIPTION": An event for which CC recipients can receive notifications.
 
 "SettingsUpdateRequest::SET": Values to store, keyed by setting name. A name in `set` cannot also appear in `unset`.
 "SettingsUpdateRequest::UNSET": Any setting that can be set can also be unset. Unset clears the stored value so it is inherited. A listed name cannot also be set or locked in the same request.

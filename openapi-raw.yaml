@@ -8188,36 +8188,6 @@ paths:
             - template_access
       x-codeSamples:
         -
-          lang: PHP
-          label: PHP
-          source:
-            $ref: examples/TemplateUpdateExample.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TemplateUpdateExample.cs
-        -
-          lang: TypeScript
-          label: TypeScript
-          source:
-            $ref: examples/TemplateUpdateExample.ts
-        -
-          lang: Java
-          label: Java
-          source:
-            $ref: examples/TemplateUpdateExample.java
-        -
-          lang: Ruby
-          label: Ruby
-          source:
-            $ref: examples/TemplateUpdateExample.rb
-        -
-          lang: Python
-          label: Python
-          source:
-            $ref: examples/TemplateUpdateExample.py
-        -
           lang: cURL
           label: cURL
           source:
@@ -11112,6 +11082,15 @@ components:
             text: '_t__Sub::MergeField::EnumDescriptions::TEXT'
             checkbox: '_t__Sub::MergeField::EnumDescriptions::CHECKBOX'
       type: object
+    NotifyCCRecipientEvent:
+      description: '_t__NotifyCCRecipientEvent::DESCRIPTION'
+      type: string
+      enum:
+        - send
+        - complete
+        - view
+        - decline
+        - delegate
     SubOAuth:
       description: '_t__Sub::OAuth::DESCRIPTION'
       properties:
@@ -11558,6 +11537,44 @@ components:
               type: boolean
               x-hideOn:
                 - sdk
+            qualified_esignature_enabled:
+              description: '_t__TeamSettings::QUALIFIED_ESIGNATURE_ENABLED'
+              type: boolean
+              x-hideOn:
+                - sdk
+            sms_signature_delivery:
+              description: '_t__TeamSettings::SMS_SIGNATURE_DELIVERY'
+              type: boolean
+              x-hideOn:
+                - sdk
+            nom151_enabled:
+              description: '_t__TeamSettings::NOM151_ENABLED'
+              type: boolean
+              x-hideOn:
+                - sdk
+            should_enable_in_person_signing:
+              description: '_t__TeamSettings::SHOULD_ENABLE_IN_PERSON_SIGNING'
+              type: boolean
+              x-hideOn:
+                - sdk
+            everyone_has_signed_email:
+              description: '_t__TeamSettings::EVERYONE_HAS_SIGNED_EMAIL'
+              type: string
+              x-hideOn:
+                - sdk
+            timezone:
+              description: '_t__TeamSettings::TIMEZONE'
+              type: string
+              x-hideOn:
+                - sdk
+            notify_cc_recipients_setting:
+              description: '_t__TeamSettings::NOTIFY_CC_RECIPIENT_SETTING'
+              type: array
+              items:
+                $ref: '#/components/schemas/NotifyCCRecipientEvent'
+              uniqueItems: true
+              x-hideOn:
+                - sdk
           type: object
           additionalProperties: {  }
         lock:
@@ -11738,6 +11755,55 @@ components:
                   $ref: '#/components/schemas/TeamSettingLock'
               x-hideOn:
                 - sdk
+            qualified_esignature_enabled:
+              description: '_t__TeamSettings::QUALIFIED_ESIGNATURE_ENABLED'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            sms_signature_delivery:
+              description: '_t__TeamSettings::SMS_SIGNATURE_DELIVERY'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            nom151_enabled:
+              description: '_t__TeamSettings::NOM151_ENABLED'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            should_enable_in_person_signing:
+              description: '_t__TeamSettings::SHOULD_ENABLE_IN_PERSON_SIGNING'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            everyone_has_signed_email:
+              description: '_t__TeamSettings::EVERYONE_HAS_SIGNED_EMAIL'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            timezone:
+              description: '_t__TeamSettings::TIMEZONE'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
+            notify_cc_recipients_setting:
+              description: '_t__TeamSettings::NOTIFY_CC_RECIPIENT_SETTING'
+              allOf:
+                -
+                  $ref: '#/components/schemas/TeamSettingLock'
+              x-hideOn:
+                - sdk
           type: object
           additionalProperties:
             $ref: '#/components/schemas/TeamSettingLock'
@@ -11772,6 +11838,13 @@ components:
               - signature_request_title
               - multifactor_auth_app
               - multifactor_auth_sms
+              - qualified_esignature_enabled
+              - sms_signature_delivery
+              - nom151_enabled
+              - should_enable_in_person_signing
+              - everyone_has_signed_email
+              - timezone
+              - notify_cc_recipients_setting
             x-enumHideOn:
               - sdk
       type: object
@@ -14327,6 +14400,13 @@ components:
         - signature_request_title
         - multifactor_auth_app
         - multifactor_auth_sms
+        - qualified_esignature_enabled
+        - sms_signature_delivery
+        - nom151_enabled
+        - should_enable_in_person_signing
+        - everyone_has_signed_email
+        - timezone
+        - notify_cc_recipients_setting
       properties:
         company:
           description: '_t__Settings::COMPANY'
@@ -14474,6 +14554,48 @@ components:
               $ref: '#/components/schemas/SettingResponse'
         multifactor_auth_sms:
           description: '_t__TeamSettings::MULTIFACTOR_AUTH_SMS'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        qualified_esignature_enabled:
+          description: '_t__TeamSettings::QUALIFIED_ESIGNATURE_ENABLED'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        sms_signature_delivery:
+          description: '_t__TeamSettings::SMS_SIGNATURE_DELIVERY'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        nom151_enabled:
+          description: '_t__TeamSettings::NOM151_ENABLED'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        should_enable_in_person_signing:
+          description: '_t__TeamSettings::SHOULD_ENABLE_IN_PERSON_SIGNING'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        everyone_has_signed_email:
+          description: '_t__TeamSettings::EVERYONE_HAS_SIGNED_EMAIL'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        timezone:
+          description: '_t__TeamSettings::TIMEZONE'
+          type: object
+          allOf:
+            -
+              $ref: '#/components/schemas/SettingResponse'
+        notify_cc_recipients_setting:
+          description: '_t__TeamSettings::NOTIFY_CC_RECIPIENT_SETTING'
           type: object
           allOf:
             -
