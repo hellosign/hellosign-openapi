@@ -31,5 +31,12 @@ Name | Type | Description | Notes
 | `signature_request_title`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  Default document title for signature requests created by team members. Lock this setting to prevent members from changing it.  |  |
 | `multifactor_auth_app`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  Whether an authenticator app is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in.  |  |
 | `multifactor_auth_sms`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled.  |  |
+| `qualified_esignature_enabled`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  Whether qualified electronic signatures are enabled for the team.  |  |
+| `sms_signature_delivery`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  Whether signature requests can be delivered by SMS.  |  |
+| `nom151_enabled`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  Whether NOM-151 compliance is enabled for the team.  |  |
+| `should_enable_in_person_signing`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  Whether in-person signing is enabled for the team.  |  |
+| `everyone_has_signed_email`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  Email address notified when everyone has signed.  |  |
+| `timezone`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  The team&#39;s time zone identifier.  |  |
+| `notify_cc_recipients_setting`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  Events for which CC recipients receive notifications.  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

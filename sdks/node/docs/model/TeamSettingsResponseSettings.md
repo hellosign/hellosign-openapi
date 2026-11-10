@@ -31,5 +31,12 @@ Name | Type | Description | Notes
 | `signatureRequestTitle`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  Default document title for signature requests created by team members. Lock this setting to prevent members from changing it.  |  |
 | `multifactorAuthApp`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  Whether an authenticator app is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in.  |  |
 | `multifactorAuthSms`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled.  |  |
+| `qualifiedEsignatureEnabled`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  Whether qualified electronic signatures are enabled for the team.  |  |
+| `smsSignatureDelivery`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  Whether signature requests can be delivered by SMS.  |  |
+| `nom151Enabled`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  Whether NOM-151 compliance is enabled for the team.  |  |
+| `shouldEnableInPersonSigning`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  Whether in-person signing is enabled for the team.  |  |
+| `everyoneHasSignedEmail`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  Email address notified when everyone has signed.  |  |
+| `timezone`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  The team&#39;s time zone identifier.  |  |
+| `notifyCcRecipientsSetting`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  Events for which CC recipients receive notifications.  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

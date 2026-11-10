@@ -66,7 +66,14 @@ namespace Dropbox.Sign.Model
         /// <param name="signatureRequestTitle">Default document title for signature requests created by team members. Lock this setting to prevent members from changing it. (required).</param>
         /// <param name="multifactorAuthApp">Whether an authenticator app is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. (required).</param>
         /// <param name="multifactorAuthSms">Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled. (required).</param>
-        public TeamSettingsResponseSettings(SettingResponse company = default(SettingResponse), SettingResponse customSigningRedirectEnabled = default(SettingResponse), SettingResponse customSigningRedirectUrl = default(SettingResponse), SettingResponse customTagline = default(SettingResponse), SettingResponse dateFormat = default(SettingResponse), SettingResponse isSignatureRemindersEnabled = default(SettingResponse), SettingResponse requestEmailFrom = default(SettingResponse), SettingResponse requestEmailSignature = default(SettingResponse), SettingResponse requiredSignatureTypes = default(SettingResponse), SettingResponse shouldEnableTamperProof = default(SettingResponse), SettingResponse shouldIncludeDistinctPdfs = default(SettingResponse), SettingResponse shouldOfferSignerAccessCode = default(SettingResponse), SettingResponse shouldOfferSignerSmsAuthentication = default(SettingResponse), SettingResponse shouldRemoveDocumentId = default(SettingResponse), SettingResponse dataResidency = default(SettingResponse), SettingResponse allowTeamDeleteDocumentForEveryone = default(SettingResponse), SettingResponse allowTeamDownloadCsv = default(SettingResponse), SettingResponse lockTeamTemplateCreation = default(SettingResponse), SettingResponse lockTeamTemplateGallery = default(SettingResponse), SettingResponse selfSignMessage = default(SettingResponse), SettingResponse selfSignTitle = default(SettingResponse), SettingResponse signatureRequestMessage = default(SettingResponse), SettingResponse signatureRequestTitle = default(SettingResponse), SettingResponse multifactorAuthApp = default(SettingResponse), SettingResponse multifactorAuthSms = default(SettingResponse))
+        /// <param name="qualifiedEsignatureEnabled">Whether qualified electronic signatures are enabled for the team. (required).</param>
+        /// <param name="smsSignatureDelivery">Whether signature requests can be delivered by SMS. (required).</param>
+        /// <param name="nom151Enabled">Whether NOM-151 compliance is enabled for the team. (required).</param>
+        /// <param name="shouldEnableInPersonSigning">Whether in-person signing is enabled for the team. (required).</param>
+        /// <param name="everyoneHasSignedEmail">Email address notified when everyone has signed. (required).</param>
+        /// <param name="timezone">The team&#39;s time zone identifier. (required).</param>
+        /// <param name="notifyCcRecipientsSetting">Events for which CC recipients receive notifications. (required).</param>
+        public TeamSettingsResponseSettings(SettingResponse company = default(SettingResponse), SettingResponse customSigningRedirectEnabled = default(SettingResponse), SettingResponse customSigningRedirectUrl = default(SettingResponse), SettingResponse customTagline = default(SettingResponse), SettingResponse dateFormat = default(SettingResponse), SettingResponse isSignatureRemindersEnabled = default(SettingResponse), SettingResponse requestEmailFrom = default(SettingResponse), SettingResponse requestEmailSignature = default(SettingResponse), SettingResponse requiredSignatureTypes = default(SettingResponse), SettingResponse shouldEnableTamperProof = default(SettingResponse), SettingResponse shouldIncludeDistinctPdfs = default(SettingResponse), SettingResponse shouldOfferSignerAccessCode = default(SettingResponse), SettingResponse shouldOfferSignerSmsAuthentication = default(SettingResponse), SettingResponse shouldRemoveDocumentId = default(SettingResponse), SettingResponse dataResidency = default(SettingResponse), SettingResponse allowTeamDeleteDocumentForEveryone = default(SettingResponse), SettingResponse allowTeamDownloadCsv = default(SettingResponse), SettingResponse lockTeamTemplateCreation = default(SettingResponse), SettingResponse lockTeamTemplateGallery = default(SettingResponse), SettingResponse selfSignMessage = default(SettingResponse), SettingResponse selfSignTitle = default(SettingResponse), SettingResponse signatureRequestMessage = default(SettingResponse), SettingResponse signatureRequestTitle = default(SettingResponse), SettingResponse multifactorAuthApp = default(SettingResponse), SettingResponse multifactorAuthSms = default(SettingResponse), SettingResponse qualifiedEsignatureEnabled = default(SettingResponse), SettingResponse smsSignatureDelivery = default(SettingResponse), SettingResponse nom151Enabled = default(SettingResponse), SettingResponse shouldEnableInPersonSigning = default(SettingResponse), SettingResponse everyoneHasSignedEmail = default(SettingResponse), SettingResponse timezone = default(SettingResponse), SettingResponse notifyCcRecipientsSetting = default(SettingResponse))
         {
 
             // to ensure "company" is required (not null)
@@ -219,6 +226,48 @@ namespace Dropbox.Sign.Model
                 throw new ArgumentNullException("multifactorAuthSms is a required property for TeamSettingsResponseSettings and cannot be null");
             }
             this.MultifactorAuthSms = multifactorAuthSms;
+            // to ensure "qualifiedEsignatureEnabled" is required (not null)
+            if (qualifiedEsignatureEnabled == null)
+            {
+                throw new ArgumentNullException("qualifiedEsignatureEnabled is a required property for TeamSettingsResponseSettings and cannot be null");
+            }
+            this.QualifiedEsignatureEnabled = qualifiedEsignatureEnabled;
+            // to ensure "smsSignatureDelivery" is required (not null)
+            if (smsSignatureDelivery == null)
+            {
+                throw new ArgumentNullException("smsSignatureDelivery is a required property for TeamSettingsResponseSettings and cannot be null");
+            }
+            this.SmsSignatureDelivery = smsSignatureDelivery;
+            // to ensure "nom151Enabled" is required (not null)
+            if (nom151Enabled == null)
+            {
+                throw new ArgumentNullException("nom151Enabled is a required property for TeamSettingsResponseSettings and cannot be null");
+            }
+            this.Nom151Enabled = nom151Enabled;
+            // to ensure "shouldEnableInPersonSigning" is required (not null)
+            if (shouldEnableInPersonSigning == null)
+            {
+                throw new ArgumentNullException("shouldEnableInPersonSigning is a required property for TeamSettingsResponseSettings and cannot be null");
+            }
+            this.ShouldEnableInPersonSigning = shouldEnableInPersonSigning;
+            // to ensure "everyoneHasSignedEmail" is required (not null)
+            if (everyoneHasSignedEmail == null)
+            {
+                throw new ArgumentNullException("everyoneHasSignedEmail is a required property for TeamSettingsResponseSettings and cannot be null");
+            }
+            this.EveryoneHasSignedEmail = everyoneHasSignedEmail;
+            // to ensure "timezone" is required (not null)
+            if (timezone == null)
+            {
+                throw new ArgumentNullException("timezone is a required property for TeamSettingsResponseSettings and cannot be null");
+            }
+            this.Timezone = timezone;
+            // to ensure "notifyCcRecipientsSetting" is required (not null)
+            if (notifyCcRecipientsSetting == null)
+            {
+                throw new ArgumentNullException("notifyCcRecipientsSetting is a required property for TeamSettingsResponseSettings and cannot be null");
+            }
+            this.NotifyCcRecipientsSetting = notifyCcRecipientsSetting;
         }
 
         /// <summary>
@@ -413,6 +462,55 @@ namespace Dropbox.Sign.Model
         public SettingResponse MultifactorAuthSms { get; set; }
 
         /// <summary>
+        /// Whether qualified electronic signatures are enabled for the team.
+        /// </summary>
+        /// <value>Whether qualified electronic signatures are enabled for the team.</value>
+        [DataMember(Name = "qualified_esignature_enabled", IsRequired = true, EmitDefaultValue = true)]
+        public SettingResponse QualifiedEsignatureEnabled { get; set; }
+
+        /// <summary>
+        /// Whether signature requests can be delivered by SMS.
+        /// </summary>
+        /// <value>Whether signature requests can be delivered by SMS.</value>
+        [DataMember(Name = "sms_signature_delivery", IsRequired = true, EmitDefaultValue = true)]
+        public SettingResponse SmsSignatureDelivery { get; set; }
+
+        /// <summary>
+        /// Whether NOM-151 compliance is enabled for the team.
+        /// </summary>
+        /// <value>Whether NOM-151 compliance is enabled for the team.</value>
+        [DataMember(Name = "nom151_enabled", IsRequired = true, EmitDefaultValue = true)]
+        public SettingResponse Nom151Enabled { get; set; }
+
+        /// <summary>
+        /// Whether in-person signing is enabled for the team.
+        /// </summary>
+        /// <value>Whether in-person signing is enabled for the team.</value>
+        [DataMember(Name = "should_enable_in_person_signing", IsRequired = true, EmitDefaultValue = true)]
+        public SettingResponse ShouldEnableInPersonSigning { get; set; }
+
+        /// <summary>
+        /// Email address notified when everyone has signed.
+        /// </summary>
+        /// <value>Email address notified when everyone has signed.</value>
+        [DataMember(Name = "everyone_has_signed_email", IsRequired = true, EmitDefaultValue = true)]
+        public SettingResponse EveryoneHasSignedEmail { get; set; }
+
+        /// <summary>
+        /// The team&#39;s time zone identifier.
+        /// </summary>
+        /// <value>The team&#39;s time zone identifier.</value>
+        [DataMember(Name = "timezone", IsRequired = true, EmitDefaultValue = true)]
+        public SettingResponse Timezone { get; set; }
+
+        /// <summary>
+        /// Events for which CC recipients receive notifications.
+        /// </summary>
+        /// <value>Events for which CC recipients receive notifications.</value>
+        [DataMember(Name = "notify_cc_recipients_setting", IsRequired = true, EmitDefaultValue = true)]
+        public SettingResponse NotifyCcRecipientsSetting { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -445,6 +543,13 @@ namespace Dropbox.Sign.Model
             sb.Append("  SignatureRequestTitle: ").Append(SignatureRequestTitle).Append("\n");
             sb.Append("  MultifactorAuthApp: ").Append(MultifactorAuthApp).Append("\n");
             sb.Append("  MultifactorAuthSms: ").Append(MultifactorAuthSms).Append("\n");
+            sb.Append("  QualifiedEsignatureEnabled: ").Append(QualifiedEsignatureEnabled).Append("\n");
+            sb.Append("  SmsSignatureDelivery: ").Append(SmsSignatureDelivery).Append("\n");
+            sb.Append("  Nom151Enabled: ").Append(Nom151Enabled).Append("\n");
+            sb.Append("  ShouldEnableInPersonSigning: ").Append(ShouldEnableInPersonSigning).Append("\n");
+            sb.Append("  EveryoneHasSignedEmail: ").Append(EveryoneHasSignedEmail).Append("\n");
+            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
+            sb.Append("  NotifyCcRecipientsSetting: ").Append(NotifyCcRecipientsSetting).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -604,6 +709,41 @@ namespace Dropbox.Sign.Model
                     this.MultifactorAuthSms == input.MultifactorAuthSms ||
                     (this.MultifactorAuthSms != null &&
                     this.MultifactorAuthSms.Equals(input.MultifactorAuthSms))
+                ) &&
+                (
+                    this.QualifiedEsignatureEnabled == input.QualifiedEsignatureEnabled ||
+                    (this.QualifiedEsignatureEnabled != null &&
+                    this.QualifiedEsignatureEnabled.Equals(input.QualifiedEsignatureEnabled))
+                ) &&
+                (
+                    this.SmsSignatureDelivery == input.SmsSignatureDelivery ||
+                    (this.SmsSignatureDelivery != null &&
+                    this.SmsSignatureDelivery.Equals(input.SmsSignatureDelivery))
+                ) &&
+                (
+                    this.Nom151Enabled == input.Nom151Enabled ||
+                    (this.Nom151Enabled != null &&
+                    this.Nom151Enabled.Equals(input.Nom151Enabled))
+                ) &&
+                (
+                    this.ShouldEnableInPersonSigning == input.ShouldEnableInPersonSigning ||
+                    (this.ShouldEnableInPersonSigning != null &&
+                    this.ShouldEnableInPersonSigning.Equals(input.ShouldEnableInPersonSigning))
+                ) &&
+                (
+                    this.EveryoneHasSignedEmail == input.EveryoneHasSignedEmail ||
+                    (this.EveryoneHasSignedEmail != null &&
+                    this.EveryoneHasSignedEmail.Equals(input.EveryoneHasSignedEmail))
+                ) &&
+                (
+                    this.Timezone == input.Timezone ||
+                    (this.Timezone != null &&
+                    this.Timezone.Equals(input.Timezone))
+                ) &&
+                (
+                    this.NotifyCcRecipientsSetting == input.NotifyCcRecipientsSetting ||
+                    (this.NotifyCcRecipientsSetting != null &&
+                    this.NotifyCcRecipientsSetting.Equals(input.NotifyCcRecipientsSetting))
                 );
         }
 
@@ -715,6 +855,34 @@ namespace Dropbox.Sign.Model
                 if (this.MultifactorAuthSms != null)
                 {
                     hashCode = (hashCode * 59) + this.MultifactorAuthSms.GetHashCode();
+                }
+                if (this.QualifiedEsignatureEnabled != null)
+                {
+                    hashCode = (hashCode * 59) + this.QualifiedEsignatureEnabled.GetHashCode();
+                }
+                if (this.SmsSignatureDelivery != null)
+                {
+                    hashCode = (hashCode * 59) + this.SmsSignatureDelivery.GetHashCode();
+                }
+                if (this.Nom151Enabled != null)
+                {
+                    hashCode = (hashCode * 59) + this.Nom151Enabled.GetHashCode();
+                }
+                if (this.ShouldEnableInPersonSigning != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShouldEnableInPersonSigning.GetHashCode();
+                }
+                if (this.EveryoneHasSignedEmail != null)
+                {
+                    hashCode = (hashCode * 59) + this.EveryoneHasSignedEmail.GetHashCode();
+                }
+                if (this.Timezone != null)
+                {
+                    hashCode = (hashCode * 59) + this.Timezone.GetHashCode();
+                }
+                if (this.NotifyCcRecipientsSetting != null)
+                {
+                    hashCode = (hashCode * 59) + this.NotifyCcRecipientsSetting.GetHashCode();
                 }
                 return hashCode;
             }
@@ -906,6 +1074,55 @@ namespace Dropbox.Sign.Model
                 Property = "MultifactorAuthSms",
                 Type = "SettingResponse",
                 Value = MultifactorAuthSms,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "qualified_esignature_enabled",
+                Property = "QualifiedEsignatureEnabled",
+                Type = "SettingResponse",
+                Value = QualifiedEsignatureEnabled,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "sms_signature_delivery",
+                Property = "SmsSignatureDelivery",
+                Type = "SettingResponse",
+                Value = SmsSignatureDelivery,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "nom151_enabled",
+                Property = "Nom151Enabled",
+                Type = "SettingResponse",
+                Value = Nom151Enabled,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "should_enable_in_person_signing",
+                Property = "ShouldEnableInPersonSigning",
+                Type = "SettingResponse",
+                Value = ShouldEnableInPersonSigning,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "everyone_has_signed_email",
+                Property = "EveryoneHasSignedEmail",
+                Type = "SettingResponse",
+                Value = EveryoneHasSignedEmail,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "timezone",
+                Property = "Timezone",
+                Type = "SettingResponse",
+                Value = Timezone,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "notify_cc_recipients_setting",
+                Property = "NotifyCcRecipientsSetting",
+                Type = "SettingResponse",
+                Value = NotifyCcRecipientsSetting,
             });
 
             return types;

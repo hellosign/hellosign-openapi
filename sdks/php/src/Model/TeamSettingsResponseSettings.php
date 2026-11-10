@@ -82,6 +82,13 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
         'signature_request_title' => '\Dropbox\Sign\Model\SettingResponse',
         'multifactor_auth_app' => '\Dropbox\Sign\Model\SettingResponse',
         'multifactor_auth_sms' => '\Dropbox\Sign\Model\SettingResponse',
+        'qualified_esignature_enabled' => '\Dropbox\Sign\Model\SettingResponse',
+        'sms_signature_delivery' => '\Dropbox\Sign\Model\SettingResponse',
+        'nom151_enabled' => '\Dropbox\Sign\Model\SettingResponse',
+        'should_enable_in_person_signing' => '\Dropbox\Sign\Model\SettingResponse',
+        'everyone_has_signed_email' => '\Dropbox\Sign\Model\SettingResponse',
+        'timezone' => '\Dropbox\Sign\Model\SettingResponse',
+        'notify_cc_recipients_setting' => '\Dropbox\Sign\Model\SettingResponse',
     ];
 
     /**
@@ -117,6 +124,13 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
         'signature_request_title' => null,
         'multifactor_auth_app' => null,
         'multifactor_auth_sms' => null,
+        'qualified_esignature_enabled' => null,
+        'sms_signature_delivery' => null,
+        'nom151_enabled' => null,
+        'should_enable_in_person_signing' => null,
+        'everyone_has_signed_email' => null,
+        'timezone' => null,
+        'notify_cc_recipients_setting' => null,
     ];
 
     /**
@@ -150,6 +164,13 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
         'signature_request_title' => false,
         'multifactor_auth_app' => false,
         'multifactor_auth_sms' => false,
+        'qualified_esignature_enabled' => false,
+        'sms_signature_delivery' => false,
+        'nom151_enabled' => false,
+        'should_enable_in_person_signing' => false,
+        'everyone_has_signed_email' => false,
+        'timezone' => false,
+        'notify_cc_recipients_setting' => false,
     ];
 
     /**
@@ -255,6 +276,13 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
         'signature_request_title' => 'signature_request_title',
         'multifactor_auth_app' => 'multifactor_auth_app',
         'multifactor_auth_sms' => 'multifactor_auth_sms',
+        'qualified_esignature_enabled' => 'qualified_esignature_enabled',
+        'sms_signature_delivery' => 'sms_signature_delivery',
+        'nom151_enabled' => 'nom151_enabled',
+        'should_enable_in_person_signing' => 'should_enable_in_person_signing',
+        'everyone_has_signed_email' => 'everyone_has_signed_email',
+        'timezone' => 'timezone',
+        'notify_cc_recipients_setting' => 'notify_cc_recipients_setting',
     ];
 
     /**
@@ -288,6 +316,13 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
         'signature_request_title' => 'setSignatureRequestTitle',
         'multifactor_auth_app' => 'setMultifactorAuthApp',
         'multifactor_auth_sms' => 'setMultifactorAuthSms',
+        'qualified_esignature_enabled' => 'setQualifiedEsignatureEnabled',
+        'sms_signature_delivery' => 'setSmsSignatureDelivery',
+        'nom151_enabled' => 'setNom151Enabled',
+        'should_enable_in_person_signing' => 'setShouldEnableInPersonSigning',
+        'everyone_has_signed_email' => 'setEveryoneHasSignedEmail',
+        'timezone' => 'setTimezone',
+        'notify_cc_recipients_setting' => 'setNotifyCcRecipientsSetting',
     ];
 
     /**
@@ -321,6 +356,13 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
         'signature_request_title' => 'getSignatureRequestTitle',
         'multifactor_auth_app' => 'getMultifactorAuthApp',
         'multifactor_auth_sms' => 'getMultifactorAuthSms',
+        'qualified_esignature_enabled' => 'getQualifiedEsignatureEnabled',
+        'sms_signature_delivery' => 'getSmsSignatureDelivery',
+        'nom151_enabled' => 'getNom151Enabled',
+        'should_enable_in_person_signing' => 'getShouldEnableInPersonSigning',
+        'everyone_has_signed_email' => 'getEveryoneHasSignedEmail',
+        'timezone' => 'getTimezone',
+        'notify_cc_recipients_setting' => 'getNotifyCcRecipientsSetting',
     ];
 
     /**
@@ -404,6 +446,13 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
         $this->setIfExists('signature_request_title', $data ?? [], null);
         $this->setIfExists('multifactor_auth_app', $data ?? [], null);
         $this->setIfExists('multifactor_auth_sms', $data ?? [], null);
+        $this->setIfExists('qualified_esignature_enabled', $data ?? [], null);
+        $this->setIfExists('sms_signature_delivery', $data ?? [], null);
+        $this->setIfExists('nom151_enabled', $data ?? [], null);
+        $this->setIfExists('should_enable_in_person_signing', $data ?? [], null);
+        $this->setIfExists('everyone_has_signed_email', $data ?? [], null);
+        $this->setIfExists('timezone', $data ?? [], null);
+        $this->setIfExists('notify_cc_recipients_setting', $data ?? [], null);
     }
 
     /**
@@ -525,6 +574,27 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
         }
         if ($this->container['multifactor_auth_sms'] === null) {
             $invalidProperties[] = "'multifactor_auth_sms' can't be null";
+        }
+        if ($this->container['qualified_esignature_enabled'] === null) {
+            $invalidProperties[] = "'qualified_esignature_enabled' can't be null";
+        }
+        if ($this->container['sms_signature_delivery'] === null) {
+            $invalidProperties[] = "'sms_signature_delivery' can't be null";
+        }
+        if ($this->container['nom151_enabled'] === null) {
+            $invalidProperties[] = "'nom151_enabled' can't be null";
+        }
+        if ($this->container['should_enable_in_person_signing'] === null) {
+            $invalidProperties[] = "'should_enable_in_person_signing' can't be null";
+        }
+        if ($this->container['everyone_has_signed_email'] === null) {
+            $invalidProperties[] = "'everyone_has_signed_email' can't be null";
+        }
+        if ($this->container['timezone'] === null) {
+            $invalidProperties[] = "'timezone' can't be null";
+        }
+        if ($this->container['notify_cc_recipients_setting'] === null) {
+            $invalidProperties[] = "'notify_cc_recipients_setting' can't be null";
         }
         return $invalidProperties;
     }
@@ -1211,6 +1281,195 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
             throw new InvalidArgumentException('non-nullable multifactor_auth_sms cannot be null');
         }
         $this->container['multifactor_auth_sms'] = $multifactor_auth_sms;
+
+        return $this;
+    }
+
+    /**
+     * Gets qualified_esignature_enabled
+     *
+     * @return SettingResponse
+     */
+    public function getQualifiedEsignatureEnabled()
+    {
+        return $this->container['qualified_esignature_enabled'];
+    }
+
+    /**
+     * Sets qualified_esignature_enabled
+     *
+     * @param SettingResponse $qualified_esignature_enabled whether qualified electronic signatures are enabled for the team
+     *
+     * @return self
+     */
+    public function setQualifiedEsignatureEnabled(SettingResponse $qualified_esignature_enabled)
+    {
+        if (is_null($qualified_esignature_enabled)) {
+            throw new InvalidArgumentException('non-nullable qualified_esignature_enabled cannot be null');
+        }
+        $this->container['qualified_esignature_enabled'] = $qualified_esignature_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_signature_delivery
+     *
+     * @return SettingResponse
+     */
+    public function getSmsSignatureDelivery()
+    {
+        return $this->container['sms_signature_delivery'];
+    }
+
+    /**
+     * Sets sms_signature_delivery
+     *
+     * @param SettingResponse $sms_signature_delivery whether signature requests can be delivered by SMS
+     *
+     * @return self
+     */
+    public function setSmsSignatureDelivery(SettingResponse $sms_signature_delivery)
+    {
+        if (is_null($sms_signature_delivery)) {
+            throw new InvalidArgumentException('non-nullable sms_signature_delivery cannot be null');
+        }
+        $this->container['sms_signature_delivery'] = $sms_signature_delivery;
+
+        return $this;
+    }
+
+    /**
+     * Gets nom151_enabled
+     *
+     * @return SettingResponse
+     */
+    public function getNom151Enabled()
+    {
+        return $this->container['nom151_enabled'];
+    }
+
+    /**
+     * Sets nom151_enabled
+     *
+     * @param SettingResponse $nom151_enabled whether NOM-151 compliance is enabled for the team
+     *
+     * @return self
+     */
+    public function setNom151Enabled(SettingResponse $nom151_enabled)
+    {
+        if (is_null($nom151_enabled)) {
+            throw new InvalidArgumentException('non-nullable nom151_enabled cannot be null');
+        }
+        $this->container['nom151_enabled'] = $nom151_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets should_enable_in_person_signing
+     *
+     * @return SettingResponse
+     */
+    public function getShouldEnableInPersonSigning()
+    {
+        return $this->container['should_enable_in_person_signing'];
+    }
+
+    /**
+     * Sets should_enable_in_person_signing
+     *
+     * @param SettingResponse $should_enable_in_person_signing whether in-person signing is enabled for the team
+     *
+     * @return self
+     */
+    public function setShouldEnableInPersonSigning(SettingResponse $should_enable_in_person_signing)
+    {
+        if (is_null($should_enable_in_person_signing)) {
+            throw new InvalidArgumentException('non-nullable should_enable_in_person_signing cannot be null');
+        }
+        $this->container['should_enable_in_person_signing'] = $should_enable_in_person_signing;
+
+        return $this;
+    }
+
+    /**
+     * Gets everyone_has_signed_email
+     *
+     * @return SettingResponse
+     */
+    public function getEveryoneHasSignedEmail()
+    {
+        return $this->container['everyone_has_signed_email'];
+    }
+
+    /**
+     * Sets everyone_has_signed_email
+     *
+     * @param SettingResponse $everyone_has_signed_email email address notified when everyone has signed
+     *
+     * @return self
+     */
+    public function setEveryoneHasSignedEmail(SettingResponse $everyone_has_signed_email)
+    {
+        if (is_null($everyone_has_signed_email)) {
+            throw new InvalidArgumentException('non-nullable everyone_has_signed_email cannot be null');
+        }
+        $this->container['everyone_has_signed_email'] = $everyone_has_signed_email;
+
+        return $this;
+    }
+
+    /**
+     * Gets timezone
+     *
+     * @return SettingResponse
+     */
+    public function getTimezone()
+    {
+        return $this->container['timezone'];
+    }
+
+    /**
+     * Sets timezone
+     *
+     * @param SettingResponse $timezone the team's time zone identifier
+     *
+     * @return self
+     */
+    public function setTimezone(SettingResponse $timezone)
+    {
+        if (is_null($timezone)) {
+            throw new InvalidArgumentException('non-nullable timezone cannot be null');
+        }
+        $this->container['timezone'] = $timezone;
+
+        return $this;
+    }
+
+    /**
+     * Gets notify_cc_recipients_setting
+     *
+     * @return SettingResponse
+     */
+    public function getNotifyCcRecipientsSetting()
+    {
+        return $this->container['notify_cc_recipients_setting'];
+    }
+
+    /**
+     * Sets notify_cc_recipients_setting
+     *
+     * @param SettingResponse $notify_cc_recipients_setting events for which CC recipients receive notifications
+     *
+     * @return self
+     */
+    public function setNotifyCcRecipientsSetting(SettingResponse $notify_cc_recipients_setting)
+    {
+        if (is_null($notify_cc_recipients_setting)) {
+            throw new InvalidArgumentException('non-nullable notify_cc_recipients_setting cannot be null');
+        }
+        $this->container['notify_cc_recipients_setting'] = $notify_cc_recipients_setting;
 
         return $this;
     }

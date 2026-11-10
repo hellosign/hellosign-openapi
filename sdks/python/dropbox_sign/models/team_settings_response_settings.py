@@ -109,6 +109,25 @@ class TeamSettingsResponseSettings(BaseModel):
     multifactor_auth_sms: SettingResponse = Field(
         description="Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled."
     )
+    qualified_esignature_enabled: SettingResponse = Field(
+        description="Whether qualified electronic signatures are enabled for the team."
+    )
+    sms_signature_delivery: SettingResponse = Field(
+        description="Whether signature requests can be delivered by SMS."
+    )
+    nom151_enabled: SettingResponse = Field(
+        description="Whether NOM-151 compliance is enabled for the team."
+    )
+    should_enable_in_person_signing: SettingResponse = Field(
+        description="Whether in-person signing is enabled for the team."
+    )
+    everyone_has_signed_email: SettingResponse = Field(
+        description="Email address notified when everyone has signed."
+    )
+    timezone: SettingResponse = Field(description="The team's time zone identifier.")
+    notify_cc_recipients_setting: SettingResponse = Field(
+        description="Events for which CC recipients receive notifications."
+    )
     __properties: ClassVar[List[str]] = [
         "company",
         "custom_signing_redirect_enabled",
@@ -135,6 +154,13 @@ class TeamSettingsResponseSettings(BaseModel):
         "signature_request_title",
         "multifactor_auth_app",
         "multifactor_auth_sms",
+        "qualified_esignature_enabled",
+        "sms_signature_delivery",
+        "nom151_enabled",
+        "should_enable_in_person_signing",
+        "everyone_has_signed_email",
+        "timezone",
+        "notify_cc_recipients_setting",
     ]
 
     model_config = ConfigDict(
@@ -286,6 +312,35 @@ class TeamSettingsResponseSettings(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of multifactor_auth_sms
         if self.multifactor_auth_sms:
             _dict["multifactor_auth_sms"] = self.multifactor_auth_sms.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of qualified_esignature_enabled
+        if self.qualified_esignature_enabled:
+            _dict["qualified_esignature_enabled"] = (
+                self.qualified_esignature_enabled.to_dict()
+            )
+        # override the default output from pydantic by calling `to_dict()` of sms_signature_delivery
+        if self.sms_signature_delivery:
+            _dict["sms_signature_delivery"] = self.sms_signature_delivery.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of nom151_enabled
+        if self.nom151_enabled:
+            _dict["nom151_enabled"] = self.nom151_enabled.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of should_enable_in_person_signing
+        if self.should_enable_in_person_signing:
+            _dict["should_enable_in_person_signing"] = (
+                self.should_enable_in_person_signing.to_dict()
+            )
+        # override the default output from pydantic by calling `to_dict()` of everyone_has_signed_email
+        if self.everyone_has_signed_email:
+            _dict["everyone_has_signed_email"] = (
+                self.everyone_has_signed_email.to_dict()
+            )
+        # override the default output from pydantic by calling `to_dict()` of timezone
+        if self.timezone:
+            _dict["timezone"] = self.timezone.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of notify_cc_recipients_setting
+        if self.notify_cc_recipients_setting:
+            _dict["notify_cc_recipients_setting"] = (
+                self.notify_cc_recipients_setting.to_dict()
+            )
         return _dict
 
     @classmethod
@@ -428,6 +483,41 @@ class TeamSettingsResponseSettings(BaseModel):
                     if obj.get("multifactor_auth_sms") is not None
                     else None
                 ),
+                "qualified_esignature_enabled": (
+                    SettingResponse.from_dict(obj["qualified_esignature_enabled"])
+                    if obj.get("qualified_esignature_enabled") is not None
+                    else None
+                ),
+                "sms_signature_delivery": (
+                    SettingResponse.from_dict(obj["sms_signature_delivery"])
+                    if obj.get("sms_signature_delivery") is not None
+                    else None
+                ),
+                "nom151_enabled": (
+                    SettingResponse.from_dict(obj["nom151_enabled"])
+                    if obj.get("nom151_enabled") is not None
+                    else None
+                ),
+                "should_enable_in_person_signing": (
+                    SettingResponse.from_dict(obj["should_enable_in_person_signing"])
+                    if obj.get("should_enable_in_person_signing") is not None
+                    else None
+                ),
+                "everyone_has_signed_email": (
+                    SettingResponse.from_dict(obj["everyone_has_signed_email"])
+                    if obj.get("everyone_has_signed_email") is not None
+                    else None
+                ),
+                "timezone": (
+                    SettingResponse.from_dict(obj["timezone"])
+                    if obj.get("timezone") is not None
+                    else None
+                ),
+                "notify_cc_recipients_setting": (
+                    SettingResponse.from_dict(obj["notify_cc_recipients_setting"])
+                    if obj.get("notify_cc_recipients_setting") is not None
+                    else None
+                ),
             }
         )
         return _obj
@@ -470,6 +560,13 @@ class TeamSettingsResponseSettings(BaseModel):
             "signature_request_title": "(SettingResponse,)",
             "multifactor_auth_app": "(SettingResponse,)",
             "multifactor_auth_sms": "(SettingResponse,)",
+            "qualified_esignature_enabled": "(SettingResponse,)",
+            "sms_signature_delivery": "(SettingResponse,)",
+            "nom151_enabled": "(SettingResponse,)",
+            "should_enable_in_person_signing": "(SettingResponse,)",
+            "everyone_has_signed_email": "(SettingResponse,)",
+            "timezone": "(SettingResponse,)",
+            "notify_cc_recipients_setting": "(SettingResponse,)",
         }
 
     @classmethod

@@ -118,6 +118,34 @@ module Dropbox::Sign
     # @return [SettingResponse]
     attr_accessor :multifactor_auth_sms
 
+    # Whether qualified electronic signatures are enabled for the team.
+    # @return [SettingResponse]
+    attr_accessor :qualified_esignature_enabled
+
+    # Whether signature requests can be delivered by SMS.
+    # @return [SettingResponse]
+    attr_accessor :sms_signature_delivery
+
+    # Whether NOM-151 compliance is enabled for the team.
+    # @return [SettingResponse]
+    attr_accessor :nom151_enabled
+
+    # Whether in-person signing is enabled for the team.
+    # @return [SettingResponse]
+    attr_accessor :should_enable_in_person_signing
+
+    # Email address notified when everyone has signed.
+    # @return [SettingResponse]
+    attr_accessor :everyone_has_signed_email
+
+    # The team's time zone identifier.
+    # @return [SettingResponse]
+    attr_accessor :timezone
+
+    # Events for which CC recipients receive notifications.
+    # @return [SettingResponse]
+    attr_accessor :notify_cc_recipients_setting
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -145,7 +173,14 @@ module Dropbox::Sign
         :'signature_request_message' => :'signature_request_message',
         :'signature_request_title' => :'signature_request_title',
         :'multifactor_auth_app' => :'multifactor_auth_app',
-        :'multifactor_auth_sms' => :'multifactor_auth_sms'
+        :'multifactor_auth_sms' => :'multifactor_auth_sms',
+        :'qualified_esignature_enabled' => :'qualified_esignature_enabled',
+        :'sms_signature_delivery' => :'sms_signature_delivery',
+        :'nom151_enabled' => :'nom151_enabled',
+        :'should_enable_in_person_signing' => :'should_enable_in_person_signing',
+        :'everyone_has_signed_email' => :'everyone_has_signed_email',
+        :'timezone' => :'timezone',
+        :'notify_cc_recipients_setting' => :'notify_cc_recipients_setting'
       }
     end
 
@@ -186,7 +221,14 @@ module Dropbox::Sign
         :'signature_request_message' => :'SettingResponse',
         :'signature_request_title' => :'SettingResponse',
         :'multifactor_auth_app' => :'SettingResponse',
-        :'multifactor_auth_sms' => :'SettingResponse'
+        :'multifactor_auth_sms' => :'SettingResponse',
+        :'qualified_esignature_enabled' => :'SettingResponse',
+        :'sms_signature_delivery' => :'SettingResponse',
+        :'nom151_enabled' => :'SettingResponse',
+        :'should_enable_in_person_signing' => :'SettingResponse',
+        :'everyone_has_signed_email' => :'SettingResponse',
+        :'timezone' => :'SettingResponse',
+        :'notify_cc_recipients_setting' => :'SettingResponse'
       }
     end
 
@@ -346,6 +388,34 @@ module Dropbox::Sign
       if attributes.key?(:'multifactor_auth_sms')
         self.multifactor_auth_sms = attributes[:'multifactor_auth_sms']
       end
+
+      if attributes.key?(:'qualified_esignature_enabled')
+        self.qualified_esignature_enabled = attributes[:'qualified_esignature_enabled']
+      end
+
+      if attributes.key?(:'sms_signature_delivery')
+        self.sms_signature_delivery = attributes[:'sms_signature_delivery']
+      end
+
+      if attributes.key?(:'nom151_enabled')
+        self.nom151_enabled = attributes[:'nom151_enabled']
+      end
+
+      if attributes.key?(:'should_enable_in_person_signing')
+        self.should_enable_in_person_signing = attributes[:'should_enable_in_person_signing']
+      end
+
+      if attributes.key?(:'everyone_has_signed_email')
+        self.everyone_has_signed_email = attributes[:'everyone_has_signed_email']
+      end
+
+      if attributes.key?(:'timezone')
+        self.timezone = attributes[:'timezone']
+      end
+
+      if attributes.key?(:'notify_cc_recipients_setting')
+        self.notify_cc_recipients_setting = attributes[:'notify_cc_recipients_setting']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -452,6 +522,34 @@ module Dropbox::Sign
         invalid_properties.push('invalid value for "multifactor_auth_sms", multifactor_auth_sms cannot be nil.')
       end
 
+      if @qualified_esignature_enabled.nil?
+        invalid_properties.push('invalid value for "qualified_esignature_enabled", qualified_esignature_enabled cannot be nil.')
+      end
+
+      if @sms_signature_delivery.nil?
+        invalid_properties.push('invalid value for "sms_signature_delivery", sms_signature_delivery cannot be nil.')
+      end
+
+      if @nom151_enabled.nil?
+        invalid_properties.push('invalid value for "nom151_enabled", nom151_enabled cannot be nil.')
+      end
+
+      if @should_enable_in_person_signing.nil?
+        invalid_properties.push('invalid value for "should_enable_in_person_signing", should_enable_in_person_signing cannot be nil.')
+      end
+
+      if @everyone_has_signed_email.nil?
+        invalid_properties.push('invalid value for "everyone_has_signed_email", everyone_has_signed_email cannot be nil.')
+      end
+
+      if @timezone.nil?
+        invalid_properties.push('invalid value for "timezone", timezone cannot be nil.')
+      end
+
+      if @notify_cc_recipients_setting.nil?
+        invalid_properties.push('invalid value for "notify_cc_recipients_setting", notify_cc_recipients_setting cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -483,6 +581,13 @@ module Dropbox::Sign
       return false if @signature_request_title.nil?
       return false if @multifactor_auth_app.nil?
       return false if @multifactor_auth_sms.nil?
+      return false if @qualified_esignature_enabled.nil?
+      return false if @sms_signature_delivery.nil?
+      return false if @nom151_enabled.nil?
+      return false if @should_enable_in_person_signing.nil?
+      return false if @everyone_has_signed_email.nil?
+      return false if @timezone.nil?
+      return false if @notify_cc_recipients_setting.nil?
       true
     end
 
@@ -736,6 +841,76 @@ module Dropbox::Sign
       @multifactor_auth_sms = multifactor_auth_sms
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] qualified_esignature_enabled Value to be assigned
+    def qualified_esignature_enabled=(qualified_esignature_enabled)
+      if qualified_esignature_enabled.nil?
+        fail ArgumentError, 'qualified_esignature_enabled cannot be nil'
+      end
+
+      @qualified_esignature_enabled = qualified_esignature_enabled
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] sms_signature_delivery Value to be assigned
+    def sms_signature_delivery=(sms_signature_delivery)
+      if sms_signature_delivery.nil?
+        fail ArgumentError, 'sms_signature_delivery cannot be nil'
+      end
+
+      @sms_signature_delivery = sms_signature_delivery
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] nom151_enabled Value to be assigned
+    def nom151_enabled=(nom151_enabled)
+      if nom151_enabled.nil?
+        fail ArgumentError, 'nom151_enabled cannot be nil'
+      end
+
+      @nom151_enabled = nom151_enabled
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] should_enable_in_person_signing Value to be assigned
+    def should_enable_in_person_signing=(should_enable_in_person_signing)
+      if should_enable_in_person_signing.nil?
+        fail ArgumentError, 'should_enable_in_person_signing cannot be nil'
+      end
+
+      @should_enable_in_person_signing = should_enable_in_person_signing
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] everyone_has_signed_email Value to be assigned
+    def everyone_has_signed_email=(everyone_has_signed_email)
+      if everyone_has_signed_email.nil?
+        fail ArgumentError, 'everyone_has_signed_email cannot be nil'
+      end
+
+      @everyone_has_signed_email = everyone_has_signed_email
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] timezone Value to be assigned
+    def timezone=(timezone)
+      if timezone.nil?
+        fail ArgumentError, 'timezone cannot be nil'
+      end
+
+      @timezone = timezone
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] notify_cc_recipients_setting Value to be assigned
+    def notify_cc_recipients_setting=(notify_cc_recipients_setting)
+      if notify_cc_recipients_setting.nil?
+        fail ArgumentError, 'notify_cc_recipients_setting cannot be nil'
+      end
+
+      @notify_cc_recipients_setting = notify_cc_recipients_setting
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -765,7 +940,14 @@ module Dropbox::Sign
           signature_request_message == o.signature_request_message &&
           signature_request_title == o.signature_request_title &&
           multifactor_auth_app == o.multifactor_auth_app &&
-          multifactor_auth_sms == o.multifactor_auth_sms
+          multifactor_auth_sms == o.multifactor_auth_sms &&
+          qualified_esignature_enabled == o.qualified_esignature_enabled &&
+          sms_signature_delivery == o.sms_signature_delivery &&
+          nom151_enabled == o.nom151_enabled &&
+          should_enable_in_person_signing == o.should_enable_in_person_signing &&
+          everyone_has_signed_email == o.everyone_has_signed_email &&
+          timezone == o.timezone &&
+          notify_cc_recipients_setting == o.notify_cc_recipients_setting
     end
 
     # @see the `==` method
@@ -777,7 +959,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [company, custom_signing_redirect_enabled, custom_signing_redirect_url, custom_tagline, date_format, is_signature_reminders_enabled, request_email_from, request_email_signature, required_signature_types, should_enable_tamper_proof, should_include_distinct_pdfs, should_offer_signer_access_code, should_offer_signer_sms_authentication, should_remove_document_id, data_residency, allow_team_delete_document_for_everyone, allow_team_download_csv, lock_team_template_creation, lock_team_template_gallery, self_sign_message, self_sign_title, signature_request_message, signature_request_title, multifactor_auth_app, multifactor_auth_sms].hash
+      [company, custom_signing_redirect_enabled, custom_signing_redirect_url, custom_tagline, date_format, is_signature_reminders_enabled, request_email_from, request_email_signature, required_signature_types, should_enable_tamper_proof, should_include_distinct_pdfs, should_offer_signer_access_code, should_offer_signer_sms_authentication, should_remove_document_id, data_residency, allow_team_delete_document_for_everyone, allow_team_download_csv, lock_team_template_creation, lock_team_template_gallery, self_sign_message, self_sign_title, signature_request_message, signature_request_title, multifactor_auth_app, multifactor_auth_sms, qualified_esignature_enabled, sms_signature_delivery, nom151_enabled, should_enable_in_person_signing, everyone_has_signed_email, timezone, notify_cc_recipients_setting].hash
     end
 
     # Builds the object from hash

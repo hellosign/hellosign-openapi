@@ -26,6 +26,13 @@ export declare class TeamSettingsResponseSettings {
     "signatureRequestTitle": SettingResponse;
     "multifactorAuthApp": SettingResponse;
     "multifactorAuthSms": SettingResponse;
+    "qualifiedEsignatureEnabled": SettingResponse;
+    "smsSignatureDelivery": SettingResponse;
+    "nom151Enabled": SettingResponse;
+    "shouldEnableInPersonSigning": SettingResponse;
+    "everyoneHasSignedEmail": SettingResponse;
+    "timezone": SettingResponse;
+    "notifyCcRecipientsSetting": SettingResponse;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

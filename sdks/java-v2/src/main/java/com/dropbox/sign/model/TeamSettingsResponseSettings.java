@@ -58,7 +58,14 @@ import com.dropbox.sign.ApiException;
   TeamSettingsResponseSettings.JSON_PROPERTY_SIGNATURE_REQUEST_MESSAGE,
   TeamSettingsResponseSettings.JSON_PROPERTY_SIGNATURE_REQUEST_TITLE,
   TeamSettingsResponseSettings.JSON_PROPERTY_MULTIFACTOR_AUTH_APP,
-  TeamSettingsResponseSettings.JSON_PROPERTY_MULTIFACTOR_AUTH_SMS
+  TeamSettingsResponseSettings.JSON_PROPERTY_MULTIFACTOR_AUTH_SMS,
+  TeamSettingsResponseSettings.JSON_PROPERTY_QUALIFIED_ESIGNATURE_ENABLED,
+  TeamSettingsResponseSettings.JSON_PROPERTY_SMS_SIGNATURE_DELIVERY,
+  TeamSettingsResponseSettings.JSON_PROPERTY_NOM151_ENABLED,
+  TeamSettingsResponseSettings.JSON_PROPERTY_SHOULD_ENABLE_IN_PERSON_SIGNING,
+  TeamSettingsResponseSettings.JSON_PROPERTY_EVERYONE_HAS_SIGNED_EMAIL,
+  TeamSettingsResponseSettings.JSON_PROPERTY_TIMEZONE,
+  TeamSettingsResponseSettings.JSON_PROPERTY_NOTIFY_CC_RECIPIENTS_SETTING
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.26.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -162,6 +169,34 @@ public class TeamSettingsResponseSettings {
   public static final String JSON_PROPERTY_MULTIFACTOR_AUTH_SMS = "multifactor_auth_sms";
   @jakarta.annotation.Nonnull
   private SettingResponse multifactorAuthSms;
+
+  public static final String JSON_PROPERTY_QUALIFIED_ESIGNATURE_ENABLED = "qualified_esignature_enabled";
+  @jakarta.annotation.Nonnull
+  private SettingResponse qualifiedEsignatureEnabled;
+
+  public static final String JSON_PROPERTY_SMS_SIGNATURE_DELIVERY = "sms_signature_delivery";
+  @jakarta.annotation.Nonnull
+  private SettingResponse smsSignatureDelivery;
+
+  public static final String JSON_PROPERTY_NOM151_ENABLED = "nom151_enabled";
+  @jakarta.annotation.Nonnull
+  private SettingResponse nom151Enabled;
+
+  public static final String JSON_PROPERTY_SHOULD_ENABLE_IN_PERSON_SIGNING = "should_enable_in_person_signing";
+  @jakarta.annotation.Nonnull
+  private SettingResponse shouldEnableInPersonSigning;
+
+  public static final String JSON_PROPERTY_EVERYONE_HAS_SIGNED_EMAIL = "everyone_has_signed_email";
+  @jakarta.annotation.Nonnull
+  private SettingResponse everyoneHasSignedEmail;
+
+  public static final String JSON_PROPERTY_TIMEZONE = "timezone";
+  @jakarta.annotation.Nonnull
+  private SettingResponse timezone;
+
+  public static final String JSON_PROPERTY_NOTIFY_CC_RECIPIENTS_SETTING = "notify_cc_recipients_setting";
+  @jakarta.annotation.Nonnull
+  private SettingResponse notifyCcRecipientsSetting;
 
   public TeamSettingsResponseSettings() { 
   }
@@ -806,6 +841,181 @@ public class TeamSettingsResponseSettings {
   }
 
 
+  public TeamSettingsResponseSettings qualifiedEsignatureEnabled(@jakarta.annotation.Nonnull SettingResponse qualifiedEsignatureEnabled) {
+    this.qualifiedEsignatureEnabled = qualifiedEsignatureEnabled;
+    return this;
+  }
+
+  /**
+   * Whether qualified electronic signatures are enabled for the team.
+   * @return qualifiedEsignatureEnabled
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(value = JSON_PROPERTY_QUALIFIED_ESIGNATURE_ENABLED, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public SettingResponse getQualifiedEsignatureEnabled() {
+    return qualifiedEsignatureEnabled;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_QUALIFIED_ESIGNATURE_ENABLED, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setQualifiedEsignatureEnabled(@jakarta.annotation.Nonnull SettingResponse qualifiedEsignatureEnabled) {
+    this.qualifiedEsignatureEnabled = qualifiedEsignatureEnabled;
+  }
+
+
+  public TeamSettingsResponseSettings smsSignatureDelivery(@jakarta.annotation.Nonnull SettingResponse smsSignatureDelivery) {
+    this.smsSignatureDelivery = smsSignatureDelivery;
+    return this;
+  }
+
+  /**
+   * Whether signature requests can be delivered by SMS.
+   * @return smsSignatureDelivery
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(value = JSON_PROPERTY_SMS_SIGNATURE_DELIVERY, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public SettingResponse getSmsSignatureDelivery() {
+    return smsSignatureDelivery;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SMS_SIGNATURE_DELIVERY, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSmsSignatureDelivery(@jakarta.annotation.Nonnull SettingResponse smsSignatureDelivery) {
+    this.smsSignatureDelivery = smsSignatureDelivery;
+  }
+
+
+  public TeamSettingsResponseSettings nom151Enabled(@jakarta.annotation.Nonnull SettingResponse nom151Enabled) {
+    this.nom151Enabled = nom151Enabled;
+    return this;
+  }
+
+  /**
+   * Whether NOM-151 compliance is enabled for the team.
+   * @return nom151Enabled
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(value = JSON_PROPERTY_NOM151_ENABLED, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public SettingResponse getNom151Enabled() {
+    return nom151Enabled;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_NOM151_ENABLED, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setNom151Enabled(@jakarta.annotation.Nonnull SettingResponse nom151Enabled) {
+    this.nom151Enabled = nom151Enabled;
+  }
+
+
+  public TeamSettingsResponseSettings shouldEnableInPersonSigning(@jakarta.annotation.Nonnull SettingResponse shouldEnableInPersonSigning) {
+    this.shouldEnableInPersonSigning = shouldEnableInPersonSigning;
+    return this;
+  }
+
+  /**
+   * Whether in-person signing is enabled for the team.
+   * @return shouldEnableInPersonSigning
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_ENABLE_IN_PERSON_SIGNING, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public SettingResponse getShouldEnableInPersonSigning() {
+    return shouldEnableInPersonSigning;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SHOULD_ENABLE_IN_PERSON_SIGNING, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setShouldEnableInPersonSigning(@jakarta.annotation.Nonnull SettingResponse shouldEnableInPersonSigning) {
+    this.shouldEnableInPersonSigning = shouldEnableInPersonSigning;
+  }
+
+
+  public TeamSettingsResponseSettings everyoneHasSignedEmail(@jakarta.annotation.Nonnull SettingResponse everyoneHasSignedEmail) {
+    this.everyoneHasSignedEmail = everyoneHasSignedEmail;
+    return this;
+  }
+
+  /**
+   * Email address notified when everyone has signed.
+   * @return everyoneHasSignedEmail
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(value = JSON_PROPERTY_EVERYONE_HAS_SIGNED_EMAIL, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public SettingResponse getEveryoneHasSignedEmail() {
+    return everyoneHasSignedEmail;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_EVERYONE_HAS_SIGNED_EMAIL, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setEveryoneHasSignedEmail(@jakarta.annotation.Nonnull SettingResponse everyoneHasSignedEmail) {
+    this.everyoneHasSignedEmail = everyoneHasSignedEmail;
+  }
+
+
+  public TeamSettingsResponseSettings timezone(@jakarta.annotation.Nonnull SettingResponse timezone) {
+    this.timezone = timezone;
+    return this;
+  }
+
+  /**
+   * The team&#39;s time zone identifier.
+   * @return timezone
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(value = JSON_PROPERTY_TIMEZONE, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public SettingResponse getTimezone() {
+    return timezone;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_TIMEZONE, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTimezone(@jakarta.annotation.Nonnull SettingResponse timezone) {
+    this.timezone = timezone;
+  }
+
+
+  public TeamSettingsResponseSettings notifyCcRecipientsSetting(@jakarta.annotation.Nonnull SettingResponse notifyCcRecipientsSetting) {
+    this.notifyCcRecipientsSetting = notifyCcRecipientsSetting;
+    return this;
+  }
+
+  /**
+   * Events for which CC recipients receive notifications.
+   * @return notifyCcRecipientsSetting
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(value = JSON_PROPERTY_NOTIFY_CC_RECIPIENTS_SETTING, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public SettingResponse getNotifyCcRecipientsSetting() {
+    return notifyCcRecipientsSetting;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_NOTIFY_CC_RECIPIENTS_SETTING, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setNotifyCcRecipientsSetting(@jakarta.annotation.Nonnull SettingResponse notifyCcRecipientsSetting) {
+    this.notifyCcRecipientsSetting = notifyCcRecipientsSetting;
+  }
+
+
   /**
    * Return true if this TeamSettingsResponseSettings object is equal to o.
    */
@@ -842,12 +1052,19 @@ public class TeamSettingsResponseSettings {
         Objects.equals(this.signatureRequestMessage, teamSettingsResponseSettings.signatureRequestMessage) &&
         Objects.equals(this.signatureRequestTitle, teamSettingsResponseSettings.signatureRequestTitle) &&
         Objects.equals(this.multifactorAuthApp, teamSettingsResponseSettings.multifactorAuthApp) &&
-        Objects.equals(this.multifactorAuthSms, teamSettingsResponseSettings.multifactorAuthSms);
+        Objects.equals(this.multifactorAuthSms, teamSettingsResponseSettings.multifactorAuthSms) &&
+        Objects.equals(this.qualifiedEsignatureEnabled, teamSettingsResponseSettings.qualifiedEsignatureEnabled) &&
+        Objects.equals(this.smsSignatureDelivery, teamSettingsResponseSettings.smsSignatureDelivery) &&
+        Objects.equals(this.nom151Enabled, teamSettingsResponseSettings.nom151Enabled) &&
+        Objects.equals(this.shouldEnableInPersonSigning, teamSettingsResponseSettings.shouldEnableInPersonSigning) &&
+        Objects.equals(this.everyoneHasSignedEmail, teamSettingsResponseSettings.everyoneHasSignedEmail) &&
+        Objects.equals(this.timezone, teamSettingsResponseSettings.timezone) &&
+        Objects.equals(this.notifyCcRecipientsSetting, teamSettingsResponseSettings.notifyCcRecipientsSetting);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(company, customSigningRedirectEnabled, customSigningRedirectUrl, customTagline, dateFormat, isSignatureRemindersEnabled, requestEmailFrom, requestEmailSignature, requiredSignatureTypes, shouldEnableTamperProof, shouldIncludeDistinctPdfs, shouldOfferSignerAccessCode, shouldOfferSignerSmsAuthentication, shouldRemoveDocumentId, dataResidency, allowTeamDeleteDocumentForEveryone, allowTeamDownloadCsv, lockTeamTemplateCreation, lockTeamTemplateGallery, selfSignMessage, selfSignTitle, signatureRequestMessage, signatureRequestTitle, multifactorAuthApp, multifactorAuthSms);
+    return Objects.hash(company, customSigningRedirectEnabled, customSigningRedirectUrl, customTagline, dateFormat, isSignatureRemindersEnabled, requestEmailFrom, requestEmailSignature, requiredSignatureTypes, shouldEnableTamperProof, shouldIncludeDistinctPdfs, shouldOfferSignerAccessCode, shouldOfferSignerSmsAuthentication, shouldRemoveDocumentId, dataResidency, allowTeamDeleteDocumentForEveryone, allowTeamDownloadCsv, lockTeamTemplateCreation, lockTeamTemplateGallery, selfSignMessage, selfSignTitle, signatureRequestMessage, signatureRequestTitle, multifactorAuthApp, multifactorAuthSms, qualifiedEsignatureEnabled, smsSignatureDelivery, nom151Enabled, shouldEnableInPersonSigning, everyoneHasSignedEmail, timezone, notifyCcRecipientsSetting);
   }
 
   @Override
@@ -879,6 +1096,13 @@ public class TeamSettingsResponseSettings {
     sb.append("    signatureRequestTitle: ").append(toIndentedString(signatureRequestTitle)).append("\n");
     sb.append("    multifactorAuthApp: ").append(toIndentedString(multifactorAuthApp)).append("\n");
     sb.append("    multifactorAuthSms: ").append(toIndentedString(multifactorAuthSms)).append("\n");
+    sb.append("    qualifiedEsignatureEnabled: ").append(toIndentedString(qualifiedEsignatureEnabled)).append("\n");
+    sb.append("    smsSignatureDelivery: ").append(toIndentedString(smsSignatureDelivery)).append("\n");
+    sb.append("    nom151Enabled: ").append(toIndentedString(nom151Enabled)).append("\n");
+    sb.append("    shouldEnableInPersonSigning: ").append(toIndentedString(shouldEnableInPersonSigning)).append("\n");
+    sb.append("    everyoneHasSignedEmail: ").append(toIndentedString(everyoneHasSignedEmail)).append("\n");
+    sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
+    sb.append("    notifyCcRecipientsSetting: ").append(toIndentedString(notifyCcRecipientsSetting)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1360,6 +1584,139 @@ public class TeamSettingsResponseSettings {
         }
         else {
             map.put("multifactor_auth_sms", JSON.getDefault().getMapper().writeValueAsString(multifactorAuthSms));
+        }
+    }
+    if (qualifiedEsignatureEnabled != null) {
+        if (isFileTypeOrListOfFiles(qualifiedEsignatureEnabled)) {
+            fileTypeFound = true;
+        }
+
+        if (qualifiedEsignatureEnabled.getClass().equals(java.io.File.class) ||
+            qualifiedEsignatureEnabled.getClass().equals(Integer.class) ||
+            qualifiedEsignatureEnabled.getClass().equals(String.class) ||
+            qualifiedEsignatureEnabled.getClass().isEnum()) {
+            map.put("qualified_esignature_enabled", qualifiedEsignatureEnabled);
+        } else if (isListOfFile(qualifiedEsignatureEnabled)) {
+            for(int i = 0; i< getListSize(qualifiedEsignatureEnabled); i++) {
+                map.put("qualified_esignature_enabled[" + i + "]", getFromList(qualifiedEsignatureEnabled, i));
+            }
+        }
+        else {
+            map.put("qualified_esignature_enabled", JSON.getDefault().getMapper().writeValueAsString(qualifiedEsignatureEnabled));
+        }
+    }
+    if (smsSignatureDelivery != null) {
+        if (isFileTypeOrListOfFiles(smsSignatureDelivery)) {
+            fileTypeFound = true;
+        }
+
+        if (smsSignatureDelivery.getClass().equals(java.io.File.class) ||
+            smsSignatureDelivery.getClass().equals(Integer.class) ||
+            smsSignatureDelivery.getClass().equals(String.class) ||
+            smsSignatureDelivery.getClass().isEnum()) {
+            map.put("sms_signature_delivery", smsSignatureDelivery);
+        } else if (isListOfFile(smsSignatureDelivery)) {
+            for(int i = 0; i< getListSize(smsSignatureDelivery); i++) {
+                map.put("sms_signature_delivery[" + i + "]", getFromList(smsSignatureDelivery, i));
+            }
+        }
+        else {
+            map.put("sms_signature_delivery", JSON.getDefault().getMapper().writeValueAsString(smsSignatureDelivery));
+        }
+    }
+    if (nom151Enabled != null) {
+        if (isFileTypeOrListOfFiles(nom151Enabled)) {
+            fileTypeFound = true;
+        }
+
+        if (nom151Enabled.getClass().equals(java.io.File.class) ||
+            nom151Enabled.getClass().equals(Integer.class) ||
+            nom151Enabled.getClass().equals(String.class) ||
+            nom151Enabled.getClass().isEnum()) {
+            map.put("nom151_enabled", nom151Enabled);
+        } else if (isListOfFile(nom151Enabled)) {
+            for(int i = 0; i< getListSize(nom151Enabled); i++) {
+                map.put("nom151_enabled[" + i + "]", getFromList(nom151Enabled, i));
+            }
+        }
+        else {
+            map.put("nom151_enabled", JSON.getDefault().getMapper().writeValueAsString(nom151Enabled));
+        }
+    }
+    if (shouldEnableInPersonSigning != null) {
+        if (isFileTypeOrListOfFiles(shouldEnableInPersonSigning)) {
+            fileTypeFound = true;
+        }
+
+        if (shouldEnableInPersonSigning.getClass().equals(java.io.File.class) ||
+            shouldEnableInPersonSigning.getClass().equals(Integer.class) ||
+            shouldEnableInPersonSigning.getClass().equals(String.class) ||
+            shouldEnableInPersonSigning.getClass().isEnum()) {
+            map.put("should_enable_in_person_signing", shouldEnableInPersonSigning);
+        } else if (isListOfFile(shouldEnableInPersonSigning)) {
+            for(int i = 0; i< getListSize(shouldEnableInPersonSigning); i++) {
+                map.put("should_enable_in_person_signing[" + i + "]", getFromList(shouldEnableInPersonSigning, i));
+            }
+        }
+        else {
+            map.put("should_enable_in_person_signing", JSON.getDefault().getMapper().writeValueAsString(shouldEnableInPersonSigning));
+        }
+    }
+    if (everyoneHasSignedEmail != null) {
+        if (isFileTypeOrListOfFiles(everyoneHasSignedEmail)) {
+            fileTypeFound = true;
+        }
+
+        if (everyoneHasSignedEmail.getClass().equals(java.io.File.class) ||
+            everyoneHasSignedEmail.getClass().equals(Integer.class) ||
+            everyoneHasSignedEmail.getClass().equals(String.class) ||
+            everyoneHasSignedEmail.getClass().isEnum()) {
+            map.put("everyone_has_signed_email", everyoneHasSignedEmail);
+        } else if (isListOfFile(everyoneHasSignedEmail)) {
+            for(int i = 0; i< getListSize(everyoneHasSignedEmail); i++) {
+                map.put("everyone_has_signed_email[" + i + "]", getFromList(everyoneHasSignedEmail, i));
+            }
+        }
+        else {
+            map.put("everyone_has_signed_email", JSON.getDefault().getMapper().writeValueAsString(everyoneHasSignedEmail));
+        }
+    }
+    if (timezone != null) {
+        if (isFileTypeOrListOfFiles(timezone)) {
+            fileTypeFound = true;
+        }
+
+        if (timezone.getClass().equals(java.io.File.class) ||
+            timezone.getClass().equals(Integer.class) ||
+            timezone.getClass().equals(String.class) ||
+            timezone.getClass().isEnum()) {
+            map.put("timezone", timezone);
+        } else if (isListOfFile(timezone)) {
+            for(int i = 0; i< getListSize(timezone); i++) {
+                map.put("timezone[" + i + "]", getFromList(timezone, i));
+            }
+        }
+        else {
+            map.put("timezone", JSON.getDefault().getMapper().writeValueAsString(timezone));
+        }
+    }
+    if (notifyCcRecipientsSetting != null) {
+        if (isFileTypeOrListOfFiles(notifyCcRecipientsSetting)) {
+            fileTypeFound = true;
+        }
+
+        if (notifyCcRecipientsSetting.getClass().equals(java.io.File.class) ||
+            notifyCcRecipientsSetting.getClass().equals(Integer.class) ||
+            notifyCcRecipientsSetting.getClass().equals(String.class) ||
+            notifyCcRecipientsSetting.getClass().isEnum()) {
+            map.put("notify_cc_recipients_setting", notifyCcRecipientsSetting);
+        } else if (isListOfFile(notifyCcRecipientsSetting)) {
+            for(int i = 0; i< getListSize(notifyCcRecipientsSetting); i++) {
+                map.put("notify_cc_recipients_setting[" + i + "]", getFromList(notifyCcRecipientsSetting, i));
+            }
+        }
+        else {
+            map.put("notify_cc_recipients_setting", JSON.getDefault().getMapper().writeValueAsString(notifyCcRecipientsSetting));
         }
     }
     } catch (Exception e) {

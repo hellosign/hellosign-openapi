@@ -222,6 +222,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [FileResponse](./docs/model/FileResponse.md)
 - [FileResponseDataUri](./docs/model/FileResponseDataUri.md)
 - [ListInfoResponse](./docs/model/ListInfoResponse.md)
+- [NotifyCCRecipientEvent](./docs/model/NotifyCCRecipientEvent.md)
 - [OAuthTokenGenerateRequest](./docs/model/OAuthTokenGenerateRequest.md)
 - [OAuthTokenRefreshRequest](./docs/model/OAuthTokenRefreshRequest.md)
 - [OAuthTokenResponse](./docs/model/OAuthTokenResponse.md)

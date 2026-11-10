@@ -318,6 +318,7 @@ Class | Method | HTTP request | Description
  - [FileResponse](docs/FileResponse.md)
  - [FileResponseDataUri](docs/FileResponseDataUri.md)
  - [ListInfoResponse](docs/ListInfoResponse.md)
+ - [NotifyCCRecipientEvent](docs/NotifyCCRecipientEvent.md)
  - [OAuthTokenGenerateRequest](docs/OAuthTokenGenerateRequest.md)
  - [OAuthTokenRefreshRequest](docs/OAuthTokenRefreshRequest.md)
  - [OAuthTokenResponse](docs/OAuthTokenResponse.md)

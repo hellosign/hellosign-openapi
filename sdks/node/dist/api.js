@@ -13911,6 +13911,7 @@ __export(api_exports, {
   HttpBearerAuth: () => HttpBearerAuth,
   HttpError: () => HttpError,
   ListInfoResponse: () => ListInfoResponse,
+  NotifyCCRecipientEvent: () => NotifyCCRecipientEvent,
   OAuth: () => OAuth,
   OAuthApi: () => OAuthApi,
   OAuthTokenGenerateRequest: () => OAuthTokenGenerateRequest,
@@ -22527,6 +22528,16 @@ var VoidAuth = class {
   }
 };
 
+// model/notifyCCRecipientEvent.ts
+var NotifyCCRecipientEvent = /* @__PURE__ */ ((NotifyCCRecipientEvent2) => {
+  NotifyCCRecipientEvent2["Send"] = "send";
+  NotifyCCRecipientEvent2["Complete"] = "complete";
+  NotifyCCRecipientEvent2["View"] = "view";
+  NotifyCCRecipientEvent2["Decline"] = "decline";
+  NotifyCCRecipientEvent2["Delegate"] = "delegate";
+  return NotifyCCRecipientEvent2;
+})(NotifyCCRecipientEvent || {});
+
 // model/oAuthTokenGenerateRequest.ts
 var OAuthTokenGenerateRequest = class _OAuthTokenGenerateRequest {
   constructor() {
@@ -27641,6 +27652,41 @@ var TeamSettingsResponseSettings = class _TeamSettingsResponseSettings {
         name: "multifactorAuthSms",
         baseName: "multifactor_auth_sms",
         type: "SettingResponse"
+      },
+      {
+        name: "qualifiedEsignatureEnabled",
+        baseName: "qualified_esignature_enabled",
+        type: "SettingResponse"
+      },
+      {
+        name: "smsSignatureDelivery",
+        baseName: "sms_signature_delivery",
+        type: "SettingResponse"
+      },
+      {
+        name: "nom151Enabled",
+        baseName: "nom151_enabled",
+        type: "SettingResponse"
+      },
+      {
+        name: "shouldEnableInPersonSigning",
+        baseName: "should_enable_in_person_signing",
+        type: "SettingResponse"
+      },
+      {
+        name: "everyoneHasSignedEmail",
+        baseName: "everyone_has_signed_email",
+        type: "SettingResponse"
+      },
+      {
+        name: "timezone",
+        baseName: "timezone",
+        type: "SettingResponse"
+      },
+      {
+        name: "notifyCcRecipientsSetting",
+        baseName: "notify_cc_recipients_setting",
+        type: "SettingResponse"
       }
     ];
   }
@@ -30664,6 +30710,7 @@ var enumsMap = {
   FaxLineAreaCodeGetStateEnum,
   "FaxLineCreateRequest.CountryEnum": FaxLineCreateRequest.CountryEnum,
   "FaxResponseTransmission.StatusCodeEnum": FaxResponseTransmission.StatusCodeEnum,
+  NotifyCCRecipientEvent,
   "ReportCreateRequest.ReportTypeEnum": ReportCreateRequest.ReportTypeEnum,
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
   RequiredSignatureType,
@@ -41032,6 +41079,7 @@ var APIS = [
   HttpBearerAuth,
   HttpError,
   ListInfoResponse,
+  NotifyCCRecipientEvent,
   OAuth,
   OAuthApi,
   OAuthTokenGenerateRequest,

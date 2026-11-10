@@ -74,6 +74,7 @@ import {
   RequestFile,
   VoidAuth,
 } from "./models";
+import { NotifyCCRecipientEvent } from "./notifyCCRecipientEvent";
 import { OAuthTokenGenerateRequest } from "./oAuthTokenGenerateRequest";
 import { OAuthTokenRefreshRequest } from "./oAuthTokenRefreshRequest";
 import { OAuthTokenResponse } from "./oAuthTokenResponse";
@@ -231,6 +232,7 @@ export let enumsMap: { [index: string]: any } = {
   "FaxLineCreateRequest.CountryEnum": FaxLineCreateRequest.CountryEnum,
   "FaxResponseTransmission.StatusCodeEnum":
     FaxResponseTransmission.StatusCodeEnum,
+  NotifyCCRecipientEvent: NotifyCCRecipientEvent,
   "ReportCreateRequest.ReportTypeEnum": ReportCreateRequest.ReportTypeEnum,
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
   RequiredSignatureType: RequiredSignatureType,
@@ -586,6 +588,7 @@ export {
   HttpBearerAuth,
   Interceptor,
   ListInfoResponse,
+  NotifyCCRecipientEvent,
   OAuth,
   OAuthTokenGenerateRequest,
   OAuthTokenRefreshRequest,

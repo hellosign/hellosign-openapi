@@ -126,6 +126,34 @@ export class TeamSettingsResponseSettings {
    * Whether SMS verification is an allowed multifactor authentication method for the team. Enabling either method requires members to set it up at their next sign-in. SMS is the fallback when an authenticator app is also enabled.
    */
   "multifactorAuthSms": SettingResponse;
+  /**
+   * Whether qualified electronic signatures are enabled for the team.
+   */
+  "qualifiedEsignatureEnabled": SettingResponse;
+  /**
+   * Whether signature requests can be delivered by SMS.
+   */
+  "smsSignatureDelivery": SettingResponse;
+  /**
+   * Whether NOM-151 compliance is enabled for the team.
+   */
+  "nom151Enabled": SettingResponse;
+  /**
+   * Whether in-person signing is enabled for the team.
+   */
+  "shouldEnableInPersonSigning": SettingResponse;
+  /**
+   * Email address notified when everyone has signed.
+   */
+  "everyoneHasSignedEmail": SettingResponse;
+  /**
+   * The team\'s time zone identifier.
+   */
+  "timezone": SettingResponse;
+  /**
+   * Events for which CC recipients receive notifications.
+   */
+  "notifyCcRecipientsSetting": SettingResponse;
 
   static discriminator: string | undefined = undefined;
 
@@ -253,6 +281,41 @@ export class TeamSettingsResponseSettings {
     {
       name: "multifactorAuthSms",
       baseName: "multifactor_auth_sms",
+      type: "SettingResponse",
+    },
+    {
+      name: "qualifiedEsignatureEnabled",
+      baseName: "qualified_esignature_enabled",
+      type: "SettingResponse",
+    },
+    {
+      name: "smsSignatureDelivery",
+      baseName: "sms_signature_delivery",
+      type: "SettingResponse",
+    },
+    {
+      name: "nom151Enabled",
+      baseName: "nom151_enabled",
+      type: "SettingResponse",
+    },
+    {
+      name: "shouldEnableInPersonSigning",
+      baseName: "should_enable_in_person_signing",
+      type: "SettingResponse",
+    },
+    {
+      name: "everyoneHasSignedEmail",
+      baseName: "everyone_has_signed_email",
+      type: "SettingResponse",
+    },
+    {
+      name: "timezone",
+      baseName: "timezone",
+      type: "SettingResponse",
+    },
+    {
+      name: "notifyCcRecipientsSetting",
+      baseName: "notify_cc_recipients_setting",
       type: "SettingResponse",
     },
   ];
