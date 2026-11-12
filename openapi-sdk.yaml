@@ -12486,7 +12486,7 @@ components:
             -
               $ref: '#/components/schemas/SettingResponse'
         custom_signing_redirect_enabled:
-          description: 'Whether signers are redirected to a custom webpage after they sign.'
+          description: 'Whether signers are redirected to a custom webpage after they sign. Setting this to `false` clears the stored custom signing redirect URL override, reverting it to the inherited value. A URL supplied in the same update is ignored.'
           type: object
           allOf:
             -
@@ -13602,6 +13602,7 @@ components:
         parent_team_id:
           description: 'The id of this team''s parent team. `null` when the team has no parent.'
           type: string
+          nullable: true
       type: object
       x-internal-class: true
     TeamInfoResponse:
@@ -13711,7 +13712,7 @@ components:
             -
               $ref: '#/components/schemas/SettingResponse'
         custom_signing_redirect_enabled:
-          description: 'Whether signers are redirected to a custom webpage after they sign.'
+          description: 'Whether signers are redirected to a custom webpage after they sign. Setting this to `false` clears the stored custom signing redirect URL override, reverting it to the inherited value. A URL supplied in the same update is ignored.'
           type: object
           allOf:
             -

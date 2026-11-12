@@ -1979,7 +1979,7 @@
 "TeamSettingsUpdate::TEAM_ID": Optional team ID. Defaults to the authenticated account's team. An organization admin can specify a subteam.
 
 "Settings::COMPANY": Company name associated with this account or team.
-"Settings::CUSTOM_SIGNING_REDIRECT_ENABLED": Whether signers are redirected to a custom webpage after they sign.
+"Settings::CUSTOM_SIGNING_REDIRECT_ENABLED": Whether signers are redirected to a custom webpage after they sign. Setting this to `false` clears the stored custom signing redirect URL override, reverting it to the inherited value. A URL supplied in the same update is ignored.
 "Settings::CUSTOM_SIGNING_REDIRECT_URL": Webpage where signers are redirected after they sign, when custom redirects are enabled.
 "Settings::CUSTOM_TAGLINE": Company tagline shown with the account or team branding.
 "Settings::DATE_FORMAT": Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.

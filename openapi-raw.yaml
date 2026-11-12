@@ -14306,6 +14306,7 @@ components:
         parent_team_id:
           description: '_t__Team::PARENT_TEAM_ID'
           type: string
+          nullable: true
       type: object
       x-internal-class: true
     TeamInfoResponse:
