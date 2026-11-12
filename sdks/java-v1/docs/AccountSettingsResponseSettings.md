@@ -9,7 +9,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 | `company`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  Company name associated with this account or team.  |  |
-| `customSigningRedirectEnabled`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  Whether signers are redirected to a custom webpage after they sign.  |  |
+| `customSigningRedirectEnabled`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  Whether signers are redirected to a custom webpage after they sign. Setting this to `false` clears the stored custom signing redirect URL override, reverting it to the inherited value. A URL supplied in the same update is ignored.  |  |
 | `customSigningRedirectUrl`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  Webpage where signers are redirected after they sign, when custom redirects are enabled.  |  |
 | `customTagline`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  Company tagline shown with the account or team branding.  |  |
 | `dateFormat`<sup>*_required_</sup> | [```SettingResponse```](SettingResponse.md) |  Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.  |  |

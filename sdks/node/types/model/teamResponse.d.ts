@@ -6,7 +6,7 @@ export declare class TeamResponse {
     "invitedAccounts"?: Array<AccountResponse>;
     "invitedEmails"?: Array<string>;
     "teamId"?: string;
-    "parentTeamId"?: string;
+    "parentTeamId"?: string | null;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

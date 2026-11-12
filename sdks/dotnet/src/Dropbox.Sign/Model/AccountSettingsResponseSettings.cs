@@ -42,7 +42,7 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="AccountSettingsResponseSettings" /> class.
         /// </summary>
         /// <param name="company">Company name associated with this account or team. (required).</param>
-        /// <param name="customSigningRedirectEnabled">Whether signers are redirected to a custom webpage after they sign. (required).</param>
+        /// <param name="customSigningRedirectEnabled">Whether signers are redirected to a custom webpage after they sign. Setting this to &#x60;false&#x60; clears the stored custom signing redirect URL override, reverting it to the inherited value. A URL supplied in the same update is ignored. (required).</param>
         /// <param name="customSigningRedirectUrl">Webpage where signers are redirected after they sign, when custom redirects are enabled. (required).</param>
         /// <param name="customTagline">Company tagline shown with the account or team branding. (required).</param>
         /// <param name="dateFormat">Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field. (required).</param>
@@ -252,9 +252,9 @@ namespace Dropbox.Sign.Model
         public SettingResponse Company { get; set; }
 
         /// <summary>
-        /// Whether signers are redirected to a custom webpage after they sign.
+        /// Whether signers are redirected to a custom webpage after they sign. Setting this to &#x60;false&#x60; clears the stored custom signing redirect URL override, reverting it to the inherited value. A URL supplied in the same update is ignored.
         /// </summary>
-        /// <value>Whether signers are redirected to a custom webpage after they sign.</value>
+        /// <value>Whether signers are redirected to a custom webpage after they sign. Setting this to &#x60;false&#x60; clears the stored custom signing redirect URL override, reverting it to the inherited value. A URL supplied in the same update is ignored.</value>
         [DataMember(Name = "custom_signing_redirect_enabled", IsRequired = true, EmitDefaultValue = true)]
         public SettingResponse CustomSigningRedirectEnabled { get; set; }
 

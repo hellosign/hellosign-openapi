@@ -38,7 +38,7 @@ class AccountSettingsResponseSettings(BaseModel):
         description="Company name associated with this account or team."
     )
     custom_signing_redirect_enabled: SettingResponse = Field(
-        description="Whether signers are redirected to a custom webpage after they sign."
+        description="Whether signers are redirected to a custom webpage after they sign. Setting this to `false` clears the stored custom signing redirect URL override, reverting it to the inherited value. A URL supplied in the same update is ignored."
     )
     custom_signing_redirect_url: SettingResponse = Field(
         description="Webpage where signers are redirected after they sign, when custom redirects are enabled."

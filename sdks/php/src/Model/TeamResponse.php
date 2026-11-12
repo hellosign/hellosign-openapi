@@ -93,7 +93,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'invited_accounts' => false,
         'invited_emails' => false,
         'team_id' => false,
-        'parent_team_id' => false,
+        'parent_team_id' => true,
     ];
 
     /**
@@ -486,7 +486,14 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     public function setParentTeamId(?string $parent_team_id)
     {
         if (is_null($parent_team_id)) {
-            throw new InvalidArgumentException('non-nullable parent_team_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'parent_team_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parent_team_id', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['parent_team_id'] = $parent_team_id;
 

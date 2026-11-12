@@ -203,7 +203,9 @@ public class AccountSettingsResponseSettings {
     }
 
     /**
-     * Whether signers are redirected to a custom webpage after they sign.
+     * Whether signers are redirected to a custom webpage after they sign. Setting this to
+     * &#x60;false&#x60; clears the stored custom signing redirect URL override, reverting it to the
+     * inherited value. A URL supplied in the same update is ignored.
      *
      * @return customSigningRedirectEnabled
      */

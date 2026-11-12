@@ -11238,6 +11238,12 @@ components:
           x-hideOn:
             - sdk
             - doc
+        new_signer_app:
+          type: boolean
+          default: false
+          x-hideOn:
+            - sdk
+            - doc
       type: object
       x-hideOn:
         - sdk

@@ -39,7 +39,7 @@ module Dropbox::Sign
     attr_accessor :team_id
 
     # The id of this team's parent team. `null` when the team has no parent.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :parent_team_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -79,6 +79,7 @@ module Dropbox::Sign
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'parent_team_id'
       ])
     end
 

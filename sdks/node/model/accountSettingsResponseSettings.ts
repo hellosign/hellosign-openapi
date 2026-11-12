@@ -31,7 +31,7 @@ export class AccountSettingsResponseSettings {
    */
   "company": SettingResponse;
   /**
-   * Whether signers are redirected to a custom webpage after they sign.
+   * Whether signers are redirected to a custom webpage after they sign. Setting this to `false` clears the stored custom signing redirect URL override, reverting it to the inherited value. A URL supplied in the same update is ignored.
    */
   "customSigningRedirectEnabled": SettingResponse;
   /**

@@ -650,7 +650,7 @@ class TeamSettingsResponseSettings implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets custom_signing_redirect_enabled
      *
-     * @param SettingResponse $custom_signing_redirect_enabled whether signers are redirected to a custom webpage after they sign
+     * @param SettingResponse $custom_signing_redirect_enabled Whether signers are redirected to a custom webpage after they sign. Setting this to `false` clears the stored custom signing redirect URL override, reverting it to the inherited value. A URL supplied in the same update is ignored.
      *
      * @return self
      */

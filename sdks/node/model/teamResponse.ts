@@ -49,7 +49,7 @@ export class TeamResponse {
   /**
    * The id of this team\'s parent team. `null` when the team has no parent.
    */
-  "parentTeamId"?: string;
+  "parentTeamId"?: string | null;
 
   static discriminator: string | undefined = undefined;
 

@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 | `company`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  Company name associated with this account or team.  |  |
-| `custom_signing_redirect_enabled`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  Whether signers are redirected to a custom webpage after they sign.  |  |
+| `custom_signing_redirect_enabled`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  Whether signers are redirected to a custom webpage after they sign. Setting this to `false` clears the stored custom signing redirect URL override, reverting it to the inherited value. A URL supplied in the same update is ignored.  |  |
 | `custom_signing_redirect_url`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  Webpage where signers are redirected after they sign, when custom redirects are enabled.  |  |
 | `custom_tagline`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  Company tagline shown with the account or team branding.  |  |
 | `date_format`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SettingResponse```](SettingResponse.md) |  Default date format in the editor and in the audit trail. Senders can still choose a different format for an individual date field.  |  |
