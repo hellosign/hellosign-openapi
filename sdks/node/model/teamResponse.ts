@@ -42,6 +42,14 @@ export class TeamResponse {
    * A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
    */
   "invitedEmails"?: Array<string>;
+  /**
+   * The id of a team
+   */
+  "teamId"?: string;
+  /**
+   * The id of this team\'s parent team. `null` when the team has no parent.
+   */
+  "parentTeamId"?: string | null;
 
   static discriminator: string | undefined = undefined;
 
@@ -65,6 +73,16 @@ export class TeamResponse {
       name: "invitedEmails",
       baseName: "invited_emails",
       type: "Array<string>",
+    },
+    {
+      name: "teamId",
+      baseName: "team_id",
+      type: "string",
+    },
+    {
+      name: "parentTeamId",
+      baseName: "parent_team_id",
+      type: "string",
     },
   ];
 

@@ -136,6 +136,8 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountApi* | [**AccountCreate**](docs/AccountApi.md#accountcreate) | **POST** /account/create | Create Account
 *AccountApi* | [**AccountGet**](docs/AccountApi.md#accountget) | **GET** /account | Get Account
+*AccountApi* | [**AccountSettingsGet**](docs/AccountApi.md#accountsettingsget) | **GET** /account/settings | Get account settings
+*AccountApi* | [**AccountSettingsUpdate**](docs/AccountApi.md#accountsettingsupdate) | **POST** /account/settings | Modify account settings
 *AccountApi* | [**AccountUpdate**](docs/AccountApi.md#accountupdate) | **PUT** /account | Update Account
 *AccountApi* | [**AccountVerify**](docs/AccountApi.md#accountverify) | **POST** /account/verify | Verify Account
 *ApiAppApi* | [**ApiAppCreate**](docs/ApiAppApi.md#apiappcreate) | **POST** /api_app | Create API App
@@ -191,6 +193,8 @@ Class | Method | HTTP request | Description
 *TeamApi* | [**TeamInvites**](docs/TeamApi.md#teaminvites) | **GET** /team/invites | List Team Invites
 *TeamApi* | [**TeamMembers**](docs/TeamApi.md#teammembers) | **GET** /team/members/{team_id} | List Team Members
 *TeamApi* | [**TeamRemoveMember**](docs/TeamApi.md#teamremovemember) | **POST** /team/remove_member | Remove User from Team
+*TeamApi* | [**TeamSettingsGet**](docs/TeamApi.md#teamsettingsget) | **GET** /team/settings | Get team settings
+*TeamApi* | [**TeamSettingsUpdate**](docs/TeamApi.md#teamsettingsupdate) | **POST** /team/settings | Modify team settings
 *TeamApi* | [**TeamSubTeams**](docs/TeamApi.md#teamsubteams) | **GET** /team/sub_teams/{team_id} | List Sub Teams
 *TeamApi* | [**TeamUpdate**](docs/TeamApi.md#teamupdate) | **PUT** /team | Update Team
 *TemplateApi* | [**TemplateAddUser**](docs/TemplateApi.md#templateadduser) | **POST** /template/add_user/{template_id} | Add User to Template
@@ -220,6 +224,9 @@ Class | Method | HTTP request | Description
  - [Model.AccountResponseQuotas](docs/AccountResponseQuotas.md)
  - [Model.AccountResponseSettings](docs/AccountResponseSettings.md)
  - [Model.AccountResponseUsage](docs/AccountResponseUsage.md)
+ - [Model.AccountSettingsResponse](docs/AccountSettingsResponse.md)
+ - [Model.AccountSettingsResponseSettings](docs/AccountSettingsResponseSettings.md)
+ - [Model.AccountSettingsUpdateRequest](docs/AccountSettingsUpdateRequest.md)
  - [Model.AccountUpdateRequest](docs/AccountUpdateRequest.md)
  - [Model.AccountVerifyRequest](docs/AccountVerifyRequest.md)
  - [Model.AccountVerifyResponse](docs/AccountVerifyResponse.md)
@@ -238,6 +245,8 @@ Class | Method | HTTP request | Description
  - [Model.BulkSendJobListResponse](docs/BulkSendJobListResponse.md)
  - [Model.BulkSendJobResponse](docs/BulkSendJobResponse.md)
  - [Model.BulkSendJobSendResponse](docs/BulkSendJobSendResponse.md)
+ - [Model.DataResidency](docs/DataResidency.md)
+ - [Model.DateFormat](docs/DateFormat.md)
  - [Model.DocumentFieldDetectionRequest](docs/DocumentFieldDetectionRequest.md)
  - [Model.DocumentFieldDetectionResponse](docs/DocumentFieldDetectionResponse.md)
  - [Model.DocumentFieldDetectionResponseDetectionResult](docs/DocumentFieldDetectionResponseDetectionResult.md)
@@ -270,12 +279,16 @@ Class | Method | HTTP request | Description
  - [Model.FileResponse](docs/FileResponse.md)
  - [Model.FileResponseDataUri](docs/FileResponseDataUri.md)
  - [Model.ListInfoResponse](docs/ListInfoResponse.md)
+ - [Model.NotifyCCRecipientEvent](docs/NotifyCCRecipientEvent.md)
  - [Model.OAuthTokenGenerateRequest](docs/OAuthTokenGenerateRequest.md)
  - [Model.OAuthTokenRefreshRequest](docs/OAuthTokenRefreshRequest.md)
  - [Model.OAuthTokenResponse](docs/OAuthTokenResponse.md)
  - [Model.ReportCreateRequest](docs/ReportCreateRequest.md)
  - [Model.ReportCreateResponse](docs/ReportCreateResponse.md)
  - [Model.ReportResponse](docs/ReportResponse.md)
+ - [Model.RequiredSignatureType](docs/RequiredSignatureType.md)
+ - [Model.SettingLockResponse](docs/SettingLockResponse.md)
+ - [Model.SettingResponse](docs/SettingResponse.md)
  - [Model.SignatureRequestBulkCreateEmbeddedWithTemplateRequest](docs/SignatureRequestBulkCreateEmbeddedWithTemplateRequest.md)
  - [Model.SignatureRequestBulkSendWithTemplateRequest](docs/SignatureRequestBulkSendWithTemplateRequest.md)
  - [Model.SignatureRequestCreateEmbeddedRequest](docs/SignatureRequestCreateEmbeddedRequest.md)
@@ -356,6 +369,10 @@ Class | Method | HTTP request | Description
  - [Model.TeamParentResponse](docs/TeamParentResponse.md)
  - [Model.TeamRemoveMemberRequest](docs/TeamRemoveMemberRequest.md)
  - [Model.TeamResponse](docs/TeamResponse.md)
+ - [Model.TeamSettingLock](docs/TeamSettingLock.md)
+ - [Model.TeamSettingsResponse](docs/TeamSettingsResponse.md)
+ - [Model.TeamSettingsResponseSettings](docs/TeamSettingsResponseSettings.md)
+ - [Model.TeamSettingsUpdateRequest](docs/TeamSettingsUpdateRequest.md)
  - [Model.TeamSubTeamsResponse](docs/TeamSubTeamsResponse.md)
  - [Model.TeamUpdateRequest](docs/TeamUpdateRequest.md)
  - [Model.TemplateAddUserRequest](docs/TemplateAddUserRequest.md)

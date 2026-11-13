@@ -32,31 +32,31 @@ class CopyConstants
         $file = __DIR__ . '/../src/Model/SubFormFieldRuleAction.php';
         $contents = file_get_contents($file);
 
-        $constant_1 = "    public const TYPE_CHANGE_FIELD_VISIBILITY = 'change-field-visibility';";
-        $replace_1 = implode("\n", [
-            $constant_1,
+        $contents = $this->addAlias(
+            $contents,
+            "    public const TYPE_CHANGE_FIELD_VISIBILITY = 'change-field-visibility';",
             '    public const TYPE_FIELD_VISIBILITY = self::TYPE_CHANGE_FIELD_VISIBILITY;',
-        ]);
-
-        $constant_2 = "    public const TYPE_CHANGE_GROUP_VISIBILITY = 'change-group-visibility';";
-        $replace_2 = implode("\n", [
-            $constant_2,
-            '    public const TYPE_GROUP_VISIBILITY = self::TYPE_CHANGE_GROUP_VISIBILITY;',
-        ]);
-
-        $contents = str_replace(
-            $constant_1,
-            $replace_1,
-            $contents,
         );
-
-        $contents = str_replace(
-            $constant_2,
-            $replace_2,
+        $contents = $this->addAlias(
             $contents,
+            "    public const TYPE_CHANGE_GROUP_VISIBILITY = 'change-group-visibility';",
+            '    public const TYPE_GROUP_VISIBILITY = self::TYPE_CHANGE_GROUP_VISIBILITY;',
         );
 
         file_put_contents($file, $contents);
+    }
+
+    /**
+     * Generator output only has the new constant names. Running this after
+     * those aliases already exist must leave the file unchanged.
+     */
+    private function addAlias(string $contents, string $canonical, string $alias): string
+    {
+        if (str_contains($contents, $alias) || !str_contains($contents, $canonical)) {
+            return $contents;
+        }
+
+        return str_replace($canonical, $canonical . "\n" . $alias, $contents);
     }
 }
 

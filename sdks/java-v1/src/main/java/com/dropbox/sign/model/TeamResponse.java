@@ -30,7 +30,9 @@ import java.util.Objects;
     TeamResponse.JSON_PROPERTY_NAME,
     TeamResponse.JSON_PROPERTY_ACCOUNTS,
     TeamResponse.JSON_PROPERTY_INVITED_ACCOUNTS,
-    TeamResponse.JSON_PROPERTY_INVITED_EMAILS
+    TeamResponse.JSON_PROPERTY_INVITED_EMAILS,
+    TeamResponse.JSON_PROPERTY_TEAM_ID,
+    TeamResponse.JSON_PROPERTY_PARENT_TEAM_ID
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -48,6 +50,12 @@ public class TeamResponse {
 
     public static final String JSON_PROPERTY_INVITED_EMAILS = "invited_emails";
     @javax.annotation.Nullable private List<String> invitedEmails = null;
+
+    public static final String JSON_PROPERTY_TEAM_ID = "team_id";
+    @javax.annotation.Nullable private String teamId;
+
+    public static final String JSON_PROPERTY_PARENT_TEAM_ID = "parent_team_id";
+    @javax.annotation.Nullable private String parentTeamId;
 
     public TeamResponse() {}
 
@@ -181,6 +189,50 @@ public class TeamResponse {
         this.invitedEmails = invitedEmails;
     }
 
+    public TeamResponse teamId(@javax.annotation.Nullable String teamId) {
+        this.teamId = teamId;
+        return this;
+    }
+
+    /**
+     * The id of a team
+     *
+     * @return teamId
+     */
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = false)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getTeamId() {
+        return teamId;
+    }
+
+    @JsonProperty(value = JSON_PROPERTY_TEAM_ID, required = false)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setTeamId(@javax.annotation.Nullable String teamId) {
+        this.teamId = teamId;
+    }
+
+    public TeamResponse parentTeamId(@javax.annotation.Nullable String parentTeamId) {
+        this.parentTeamId = parentTeamId;
+        return this;
+    }
+
+    /**
+     * The id of this team&#39;s parent team. &#x60;null&#x60; when the team has no parent.
+     *
+     * @return parentTeamId
+     */
+    @javax.annotation.Nullable @JsonProperty(value = JSON_PROPERTY_PARENT_TEAM_ID, required = false)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getParentTeamId() {
+        return parentTeamId;
+    }
+
+    @JsonProperty(value = JSON_PROPERTY_PARENT_TEAM_ID, required = false)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setParentTeamId(@javax.annotation.Nullable String parentTeamId) {
+        this.parentTeamId = parentTeamId;
+    }
+
     /** Return true if this TeamResponse object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -194,12 +246,14 @@ public class TeamResponse {
         return Objects.equals(this.name, teamResponse.name)
                 && Objects.equals(this.accounts, teamResponse.accounts)
                 && Objects.equals(this.invitedAccounts, teamResponse.invitedAccounts)
-                && Objects.equals(this.invitedEmails, teamResponse.invitedEmails);
+                && Objects.equals(this.invitedEmails, teamResponse.invitedEmails)
+                && Objects.equals(this.teamId, teamResponse.teamId)
+                && Objects.equals(this.parentTeamId, teamResponse.parentTeamId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, accounts, invitedAccounts, invitedEmails);
+        return Objects.hash(name, accounts, invitedAccounts, invitedEmails, teamId, parentTeamId);
     }
 
     @Override
@@ -210,6 +264,8 @@ public class TeamResponse {
         sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
         sb.append("    invitedAccounts: ").append(toIndentedString(invitedAccounts)).append("\n");
         sb.append("    invitedEmails: ").append(toIndentedString(invitedEmails)).append("\n");
+        sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
+        sb.append("    parentTeamId: ").append(toIndentedString(parentTeamId)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -292,6 +348,44 @@ public class TeamResponse {
                     map.put(
                             "invited_emails",
                             JSON.getDefault().getMapper().writeValueAsString(invitedEmails));
+                }
+            }
+            if (teamId != null) {
+                if (isFileTypeOrListOfFiles(teamId)) {
+                    fileTypeFound = true;
+                }
+
+                if (teamId.getClass().equals(java.io.File.class)
+                        || teamId.getClass().equals(Integer.class)
+                        || teamId.getClass().equals(String.class)
+                        || teamId.getClass().isEnum()) {
+                    map.put("team_id", teamId);
+                } else if (isListOfFile(teamId)) {
+                    for (int i = 0; i < getListSize(teamId); i++) {
+                        map.put("team_id[" + i + "]", getFromList(teamId, i));
+                    }
+                } else {
+                    map.put("team_id", JSON.getDefault().getMapper().writeValueAsString(teamId));
+                }
+            }
+            if (parentTeamId != null) {
+                if (isFileTypeOrListOfFiles(parentTeamId)) {
+                    fileTypeFound = true;
+                }
+
+                if (parentTeamId.getClass().equals(java.io.File.class)
+                        || parentTeamId.getClass().equals(Integer.class)
+                        || parentTeamId.getClass().equals(String.class)
+                        || parentTeamId.getClass().isEnum()) {
+                    map.put("parent_team_id", parentTeamId);
+                } else if (isListOfFile(parentTeamId)) {
+                    for (int i = 0; i < getListSize(parentTeamId); i++) {
+                        map.put("parent_team_id[" + i + "]", getFromList(parentTeamId, i));
+                    }
+                } else {
+                    map.put(
+                            "parent_team_id",
+                            JSON.getDefault().getMapper().writeValueAsString(parentTeamId));
                 }
             }
         } catch (Exception e) {

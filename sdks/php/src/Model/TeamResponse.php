@@ -62,6 +62,8 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'accounts' => '\Dropbox\Sign\Model\AccountResponse[]',
         'invited_accounts' => '\Dropbox\Sign\Model\AccountResponse[]',
         'invited_emails' => 'string[]',
+        'team_id' => 'string',
+        'parent_team_id' => 'string',
     ];
 
     /**
@@ -76,6 +78,8 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'accounts' => null,
         'invited_accounts' => null,
         'invited_emails' => null,
+        'team_id' => null,
+        'parent_team_id' => null,
     ];
 
     /**
@@ -88,6 +92,8 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'accounts' => false,
         'invited_accounts' => false,
         'invited_emails' => false,
+        'team_id' => false,
+        'parent_team_id' => true,
     ];
 
     /**
@@ -172,6 +178,8 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'accounts' => 'accounts',
         'invited_accounts' => 'invited_accounts',
         'invited_emails' => 'invited_emails',
+        'team_id' => 'team_id',
+        'parent_team_id' => 'parent_team_id',
     ];
 
     /**
@@ -184,6 +192,8 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'accounts' => 'setAccounts',
         'invited_accounts' => 'setInvitedAccounts',
         'invited_emails' => 'setInvitedEmails',
+        'team_id' => 'setTeamId',
+        'parent_team_id' => 'setParentTeamId',
     ];
 
     /**
@@ -196,6 +206,8 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'accounts' => 'getAccounts',
         'invited_accounts' => 'getInvitedAccounts',
         'invited_emails' => 'getInvitedEmails',
+        'team_id' => 'getTeamId',
+        'parent_team_id' => 'getParentTeamId',
     ];
 
     /**
@@ -258,6 +270,8 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('accounts', $data ?? [], null);
         $this->setIfExists('invited_accounts', $data ?? [], null);
         $this->setIfExists('invited_emails', $data ?? [], null);
+        $this->setIfExists('team_id', $data ?? [], null);
+        $this->setIfExists('parent_team_id', $data ?? [], null);
     }
 
     /**
@@ -421,6 +435,67 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
             throw new InvalidArgumentException('non-nullable invited_emails cannot be null');
         }
         $this->container['invited_emails'] = $invited_emails;
+
+        return $this;
+    }
+
+    /**
+     * Gets team_id
+     *
+     * @return string|null
+     */
+    public function getTeamId()
+    {
+        return $this->container['team_id'];
+    }
+
+    /**
+     * Sets team_id
+     *
+     * @param string|null $team_id The id of a team
+     *
+     * @return self
+     */
+    public function setTeamId(?string $team_id)
+    {
+        if (is_null($team_id)) {
+            throw new InvalidArgumentException('non-nullable team_id cannot be null');
+        }
+        $this->container['team_id'] = $team_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets parent_team_id
+     *
+     * @return string|null
+     */
+    public function getParentTeamId()
+    {
+        return $this->container['parent_team_id'];
+    }
+
+    /**
+     * Sets parent_team_id
+     *
+     * @param string|null $parent_team_id The id of this team's parent team. `null` when the team has no parent.
+     *
+     * @return self
+     */
+    public function setParentTeamId(?string $parent_team_id)
+    {
+        if (is_null($parent_team_id)) {
+            array_push($this->openAPINullablesSetToNull, 'parent_team_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('parent_team_id', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['parent_team_id'] = $parent_team_id;
 
         return $this;
     }

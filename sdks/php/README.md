@@ -158,6 +158,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | ---------- | ------------- | ------------- | ------------- |
 | *AccountApi* | [**accountCreate**](docs/Api/AccountApi.md#accountcreate) | **POST** /account/create | Create Account |
 | *AccountApi* | [**accountGet**](docs/Api/AccountApi.md#accountget) | **GET** /account | Get Account |
+| *AccountApi* | [**accountSettingsGet**](docs/Api/AccountApi.md#accountsettingsget) | **GET** /account/settings | Get account settings |
+| *AccountApi* | [**accountSettingsUpdate**](docs/Api/AccountApi.md#accountsettingsupdate) | **POST** /account/settings | Modify account settings |
 | *AccountApi* | [**accountUpdate**](docs/Api/AccountApi.md#accountupdate) | **PUT** /account | Update Account |
 | *AccountApi* | [**accountVerify**](docs/Api/AccountApi.md#accountverify) | **POST** /account/verify | Verify Account |
 | *ApiAppApi* | [**apiAppCreate**](docs/Api/ApiAppApi.md#apiappcreate) | **POST** /api_app | Create API App |
@@ -213,6 +215,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *TeamApi* | [**teamInvites**](docs/Api/TeamApi.md#teaminvites) | **GET** /team/invites | List Team Invites |
 | *TeamApi* | [**teamMembers**](docs/Api/TeamApi.md#teammembers) | **GET** /team/members/{team_id} | List Team Members |
 | *TeamApi* | [**teamRemoveMember**](docs/Api/TeamApi.md#teamremovemember) | **POST** /team/remove_member | Remove User from Team |
+| *TeamApi* | [**teamSettingsGet**](docs/Api/TeamApi.md#teamsettingsget) | **GET** /team/settings | Get team settings |
+| *TeamApi* | [**teamSettingsUpdate**](docs/Api/TeamApi.md#teamsettingsupdate) | **POST** /team/settings | Modify team settings |
 | *TeamApi* | [**teamSubTeams**](docs/Api/TeamApi.md#teamsubteams) | **GET** /team/sub_teams/{team_id} | List Sub Teams |
 | *TeamApi* | [**teamUpdate**](docs/Api/TeamApi.md#teamupdate) | **PUT** /team | Update Team |
 | *TemplateApi* | [**templateAddUser**](docs/Api/TemplateApi.md#templateadduser) | **POST** /template/add_user/{template_id} | Add User to Template |
@@ -241,6 +245,9 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [AccountResponseQuotas](docs/Model/AccountResponseQuotas.md)
 - [AccountResponseSettings](docs/Model/AccountResponseSettings.md)
 - [AccountResponseUsage](docs/Model/AccountResponseUsage.md)
+- [AccountSettingsResponse](docs/Model/AccountSettingsResponse.md)
+- [AccountSettingsResponseSettings](docs/Model/AccountSettingsResponseSettings.md)
+- [AccountSettingsUpdateRequest](docs/Model/AccountSettingsUpdateRequest.md)
 - [AccountUpdateRequest](docs/Model/AccountUpdateRequest.md)
 - [AccountVerifyRequest](docs/Model/AccountVerifyRequest.md)
 - [AccountVerifyResponse](docs/Model/AccountVerifyResponse.md)
@@ -259,6 +266,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [BulkSendJobListResponse](docs/Model/BulkSendJobListResponse.md)
 - [BulkSendJobResponse](docs/Model/BulkSendJobResponse.md)
 - [BulkSendJobSendResponse](docs/Model/BulkSendJobSendResponse.md)
+- [DataResidency](docs/Model/DataResidency.md)
+- [DateFormat](docs/Model/DateFormat.md)
 - [DocumentFieldDetectionRequest](docs/Model/DocumentFieldDetectionRequest.md)
 - [DocumentFieldDetectionResponse](docs/Model/DocumentFieldDetectionResponse.md)
 - [DocumentFieldDetectionResponseDetectionResult](docs/Model/DocumentFieldDetectionResponseDetectionResult.md)
@@ -291,12 +300,16 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [FileResponse](docs/Model/FileResponse.md)
 - [FileResponseDataUri](docs/Model/FileResponseDataUri.md)
 - [ListInfoResponse](docs/Model/ListInfoResponse.md)
+- [NotifyCCRecipientEvent](docs/Model/NotifyCCRecipientEvent.md)
 - [OAuthTokenGenerateRequest](docs/Model/OAuthTokenGenerateRequest.md)
 - [OAuthTokenRefreshRequest](docs/Model/OAuthTokenRefreshRequest.md)
 - [OAuthTokenResponse](docs/Model/OAuthTokenResponse.md)
 - [ReportCreateRequest](docs/Model/ReportCreateRequest.md)
 - [ReportCreateResponse](docs/Model/ReportCreateResponse.md)
 - [ReportResponse](docs/Model/ReportResponse.md)
+- [RequiredSignatureType](docs/Model/RequiredSignatureType.md)
+- [SettingLockResponse](docs/Model/SettingLockResponse.md)
+- [SettingResponse](docs/Model/SettingResponse.md)
 - [SignatureRequestBulkCreateEmbeddedWithTemplateRequest](docs/Model/SignatureRequestBulkCreateEmbeddedWithTemplateRequest.md)
 - [SignatureRequestBulkSendWithTemplateRequest](docs/Model/SignatureRequestBulkSendWithTemplateRequest.md)
 - [SignatureRequestCreateEmbeddedRequest](docs/Model/SignatureRequestCreateEmbeddedRequest.md)
@@ -377,6 +390,10 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [TeamParentResponse](docs/Model/TeamParentResponse.md)
 - [TeamRemoveMemberRequest](docs/Model/TeamRemoveMemberRequest.md)
 - [TeamResponse](docs/Model/TeamResponse.md)
+- [TeamSettingLock](docs/Model/TeamSettingLock.md)
+- [TeamSettingsResponse](docs/Model/TeamSettingsResponse.md)
+- [TeamSettingsResponseSettings](docs/Model/TeamSettingsResponseSettings.md)
+- [TeamSettingsUpdateRequest](docs/Model/TeamSettingsUpdateRequest.md)
 - [TeamSubTeamsResponse](docs/Model/TeamSubTeamsResponse.md)
 - [TeamUpdateRequest](docs/Model/TeamUpdateRequest.md)
 - [TemplateAddUserRequest](docs/Model/TemplateAddUserRequest.md)

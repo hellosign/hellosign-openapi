@@ -815,6 +815,215 @@ module Dropbox::Sign
       return data, status_code, headers
     end
 
+    # Get team settings
+    # team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamSettingsGetExample.rb
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :team_id Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+    # @return [TeamSettingsResponse]
+    def team_settings_get(opts = {})
+      data, _status_code, _headers = team_settings_get_with_http_info(opts)
+      data
+    end
+
+    # Get team settings
+    # team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamSettingsGetExample.rb
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :team_id Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+    # @return [Array<(TeamSettingsResponse, Integer, Hash)>] TeamSettingsResponse data, response status code and response headers
+    def team_settings_get_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamApi.team_settings_get ...'
+      end
+      # resource path
+      local_var_path = '/team/settings'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'team_id'] = opts[:'team_id'] if !opts[:'team_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      post_body = {}
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TeamSettingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"TeamApi.team_settings_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      begin
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      rescue Dropbox::Sign::ApiError => e
+        if e.code === 200
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::TeamSettingsResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+        range_code = "4XX".split('').first
+        range_code_left = "#{range_code}00".to_i
+        range_code_right = "#{range_code}99".to_i
+        if e.code && e.code >= range_code_left && e.code <= range_code_right
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::ErrorResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+        raise e
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamApi#team_settings_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Modify team settings
+    # team_id is an optional query parameter and defaults to the authenticated account's team. An organization admin can specify a subteam.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamSettingsUpdateExample.rb
+    # @param team_settings_update_request [TeamSettingsUpdateRequest] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :team_id Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+    # @return [TeamSettingsResponse]
+    def team_settings_update(team_settings_update_request, opts = {})
+      data, _status_code, _headers = team_settings_update_with_http_info(team_settings_update_request, opts)
+      data
+    end
+
+    # Modify team settings
+    # team_id is an optional query parameter and defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+    # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamSettingsUpdateExample.rb
+    # @param team_settings_update_request [TeamSettingsUpdateRequest] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :team_id Optional team ID. Defaults to the authenticated account&#39;s team. An organization admin can specify a subteam.
+    # @return [Array<(TeamSettingsResponse, Integer, Hash)>] TeamSettingsResponse data, response status code and response headers
+    def team_settings_update_with_http_info(team_settings_update_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TeamApi.team_settings_update ...'
+      end
+      # verify the required parameter 'team_settings_update_request' is set
+      if @api_client.config.client_side_validation && team_settings_update_request.nil?
+        fail ArgumentError, "Missing the required parameter 'team_settings_update_request' when calling TeamApi.team_settings_update"
+      end
+      # resource path
+      local_var_path = '/team/settings'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'team_id'] = opts[:'team_id'] if !opts[:'team_id'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      post_body = {}
+      form_params = opts[:form_params] || {}
+      result = @api_client.generate_form_data(
+        team_settings_update_request,
+        Dropbox::Sign::TeamSettingsUpdateRequest.openapi_types
+      )
+
+      # form parameters
+      if result[:has_file]
+        form_params = opts[:form_params] || result[:params]
+        header_params['Content-Type'] = 'multipart/form-data'
+      else
+        # http body (model)
+        post_body = opts[:debug_body] || result[:params]
+      end
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TeamSettingsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"TeamApi.team_settings_update",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      begin
+        data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      rescue Dropbox::Sign::ApiError => e
+        if e.code === 200
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::TeamSettingsResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+        range_code = "4XX".split('').first
+        range_code_left = "#{range_code}00".to_i
+        range_code_right = "#{range_code}99".to_i
+        if e.code && e.code >= range_code_left && e.code <= range_code_right
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::ErrorResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+        raise e
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TeamApi#team_settings_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List Sub Teams
     # Provides a paginated list of sub teams that belong to a given team.
     # Example: https://github.com/hellosign/dropbox-sign-ruby/blob/main/examples/TeamSubTeamsExample.rb
