@@ -11158,6 +11158,12 @@ components:
           enum:
             - authentication
             - delivery
+        whatsapp_phone_number:
+          description: 'The E.164 phone number for WhatsApp signature request delivery. Cannot be combined with sms_phone_number. Embedded signing stores this value without sending invitations, matching SMS.'
+          type: string
+          x-hideOn:
+            - sdk
+            - doc
       type: object
     SubSignatureRequestTemplateSigner:
       required:
@@ -11189,6 +11195,12 @@ components:
           enum:
             - authentication
             - delivery
+        whatsapp_phone_number:
+          description: 'The E.164 phone number for WhatsApp signature request delivery. Cannot be combined with sms_phone_number. Embedded signing stores this value without sending invitations, matching SMS.'
+          type: string
+          x-hideOn:
+            - sdk
+            - doc
       type: object
     SubUnclaimedDraftSigner:
       required:
@@ -14265,6 +14277,20 @@ components:
           description: '_t__SignatureRequestResponseSignatures::ERROR'
           type: string
           nullable: true
+        has_whatsapp_delivery:
+          description: 'Whether this signer has WhatsApp delivery configured. Embedded signing does not send invitations.'
+          type: boolean
+          default: false
+          x-hideOn:
+            - sdk
+            - doc
+        whatsapp_phone_number:
+          description: 'The phone number used for WhatsApp signature request delivery.'
+          type: string
+          nullable: true
+          x-hideOn:
+            - sdk
+            - doc
       type: object
       x-internal-class: true
     SignatureRequestSignerExperience:
